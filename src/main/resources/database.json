@@ -1,0 +1,224 @@
+{
+  "player": {
+    "points": 0,
+    "strength": 20,
+    "name": "Hugo",
+    "inventory": [],
+    "roomName": "Entrance to the house"
+  },
+  "rooms": [
+    {
+      "ways": [
+        {
+          "direction": "north",
+          "from": "Entrance to the house",
+          "to": "Hall",
+          "name": "door",
+          "description": "just a small porch"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "key",
+          "description": "a large, rusty key ring"
+        },
+        {
+          "state": "off",
+          "strength": 3,
+          "name": "pocket lamp",
+          "description": "a big Taschenlampe"
+        }
+      ],
+      "name": "Entrance to the house",
+      "description": "this is where the game starts. Type help for guidance"
+    },
+    {
+      "ways": [
+        {
+          "direction": "up",
+          "from": "Hall",
+          "to": "Attic",
+          "name": "stairway",
+          "description": "It looks dusty and unstable. Do you really want to take it ?"
+        },
+        {
+          "direction": "east",
+          "from": "Hall",
+          "to": "Living room",
+          "name": "door",
+          "description": "heavy door made from solid oak with nails on the bars"
+        },
+        {
+          "direction": "south",
+          "from": "Hall",
+          "to": "Entrance to the house",
+          "name": "door",
+          "description": "NIX"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "briefcase",
+          "description": "an empty briefcase"
+        },
+        {
+          "strength": 5,
+          "name": "pocket knife",
+          "description": "a swiss army multi function pocket knife including USB stick"
+        }
+      ],
+      "name": "Hall",
+      "description": "a large dark room stuffed with oak furniture"
+    },
+    {
+      "ways": [
+        {
+          "direction": "down",
+          "from": "Attic",
+          "to": "Hall",
+          "name": "stairway",
+          "description": "It looks dusty and unstable. Do you really want to take it ?"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "rope",
+          "description": "an old pile of rope"
+        },
+        {
+          "strength": 15,
+          "name": "sword",
+          "description": "a long shiny sword"
+        }
+      ],
+      "name": "Attic",
+      "description": "The attic. Dusty dusty ..."
+    },
+    {
+      "ways": [
+        {
+          "direction": "down",
+          "from": "Living room",
+          "to": "cellar",
+          "enable": "has carpet",
+          "name": "trap door",
+          "description": "cast iron trap door"
+        },
+        {
+          "direction": "west",
+          "from": "Living room",
+          "to": "Hall",
+          "name": "door",
+          "description": "heavy door made from solid oak with nails on the bars"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "carpet",
+          "description": "an old oriental carpet lies in the middle of the room."
+        }
+      ],
+      "name": "Living room",
+      "description": "the living room of the house."
+    },
+    {
+      "ways": [
+        {
+          "direction": "east",
+          "from": "cellar",
+          "to": "cellar2",
+          "name": "door",
+          "description": "leaning door"
+        },
+        {
+          "direction": "up",
+          "from": "cellar",
+          "to": "Living room",
+          "enable": "has carpet",
+          "name": "trap door",
+          "description": "cast iron trap door"
+        },
+        {
+          "direction": "south",
+          "from": "cellar",
+          "to": "cellar4",
+          "enable": "dead troll",
+          "name": "door",
+          "description": "a slippery ramp made from solid wood"
+        }
+      ],
+      "items": [],
+      "enable": "on pocket lamp",
+      "name": "cellar",
+      "description": "A cold and humid cellar. It\u0027s absolutely dark, you can\u0027t see anything."
+    },
+    {
+      "ways": [
+        {
+          "direction": "south",
+          "from": "cellar2",
+          "to": "cellar3",
+          "name": "door",
+          "description": "leaning door"
+        },
+        {
+          "direction": "west",
+          "from": "cellar2",
+          "to": "cellar",
+          "name": "door",
+          "description": "leaning door"
+        }
+      ],
+      "items": [],
+      "name": "cellar2",
+      "description": "A dark empty room."
+    },
+    {
+      "ways": [
+        {
+          "direction": "west",
+          "from": "cellar3",
+          "to": "cellar4",
+          "name": "door",
+          "description": "leaning door"
+        },
+        {
+          "direction": "north",
+          "from": "cellar3",
+          "to": "cellar2",
+          "name": "door",
+          "description": "leaning door"
+        }
+      ],
+      "items": [],
+      "name": "cellar3",
+      "description": "An empty dark room"
+    },
+    {
+      "ways": [
+        {
+          "direction": "north",
+          "from": "cellar4",
+          "to": "cellar",
+          "enable": "dead troll",
+          "name": "door",
+          "description": "a slippery ramp made from solid wood"
+        },
+        {
+          "direction": "east",
+          "from": "cellar4",
+          "to": "cellar3",
+          "name": "door",
+          "description": "leaning door"
+        }
+      ],
+      "items": [],
+      "name": "cellar4",
+      "description": "A large dirty room, full of old furniture."
+    }
+  ]
+}
