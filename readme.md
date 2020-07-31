@@ -17,5 +17,5 @@ YOUR_PATH\SS20_Semesterprojekt_Group6\target\zork-1.0-SNAPSHOT.jar
 ### To run the java jar file
 <code> 
 cd "YOUR_PATH\SS20_Semesterprojekt_Group6\target\" <br>
-java -jar \.zork-1.0-SNAPSHOT-jar-with-dependencies.jar
+java -jar .\zork-1.0-SNAPSHOT-jar-with-dependencies.jar
 </code> 
