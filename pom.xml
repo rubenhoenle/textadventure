@@ -98,7 +98,7 @@
           <directories>
             <directory>${project.build.sourceDirectory}</directory>
           </directories>
-          <lineEnding>LF</lineEnding>
+          <lineEnding>CRLF</lineEnding>
           <encoding>UTF-8</encoding>
         </configuration>
         <executions>

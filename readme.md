@@ -7,7 +7,7 @@ mvn clean install
 </code>
 
 ### Location of the jar
-There are two jar files - one with all project needed dependencies - and one without:
+There are two jar files - one project with all needed dependencies - and one without:
  
 <code> 
 YOUR_PATH\SS20_Semesterprojekt_Group6\target\zork-1.0-SNAPSHOT-jar-with-dependencies.jar <br>
@@ -18,4 +18,4 @@ YOUR_PATH\SS20_Semesterprojekt_Group6\target\zork-1.0-SNAPSHOT.jar
 <code> 
 cd "YOUR_PATH\SS20_Semesterprojekt_Group6\target\" <br>
 java -jar \.zork-1.0-SNAPSHOT-jar-with-dependencies.jar
-</code>
+</code> 
