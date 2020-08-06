@@ -1,7 +1,7 @@
 {
   "player": {
     "points": 0,
-    "strength": 20,
+    "strength": 42,
     "name": "Hugo",
     "inventory": [],
     "roomName": "Entrance to the house"
