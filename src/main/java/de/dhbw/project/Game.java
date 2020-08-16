@@ -42,6 +42,21 @@ public class Game {
                     move(m.group(1));
                 else
                     System.out.println("You have to say where you want to move (north, south, east, west, up, down).");
+            } else if (input.matches("take|take (.+)")) {
+                Pattern p = Pattern.compile("take (.+)");
+                Matcher m = p.matcher(input);
+                if (m.find())
+                    takeItem(m.group(1));
+                else
+                    System.out.println("You have to use the whole item name to pick it up.");
+            } else if (input.matches("drop|drop (.+)")) {
+                Pattern p = Pattern.compile("drop (.+)");
+                Matcher m = p.matcher(input);
+                if (m.find())
+                    dropItem(m.group(1));
+                else
+                    System.out.println(
+                            "You have to name an item you want to drop. Hint: use the command 'show inventory'.");
             } else if (input.equals("?"))
                 System.out.println(getCurrentRoom());
             else if (input.equals("save"))
@@ -138,6 +153,18 @@ public class Game {
         return resultWay;
     }
 
+    // Helper method: Returns the item with the name if available (otherwise the item is null)
+    private Item getItemFromCurrentRoom(String itemName) {
+        Item resultItem = null;
+        for (Item item : getCurrentRoom().getRoomItemList()) {
+            if (item.getName().equals(itemName)) {
+                resultItem = item;
+                break;
+            }
+        }
+        return resultItem;
+    }
+
     // Helper method: Returns the current room object
     private Room getCurrentRoom() {
         Room currentRoom = null;
@@ -146,6 +173,32 @@ public class Game {
                 currentRoom = r;
         }
         return currentRoom;
+    }
+
+    // Take item method: takes an available item in the room and adds it to inventory
+    public void takeItem(String itemName) {
+        if (!isProperInput(itemName, getCurrentRoom().getRoomItemNameList()))
+            System.out.println("No item found with name " + itemName + " in room " + getCurrentRoom().getName());
+
+        else {
+            Item takenItem = getItemFromCurrentRoom(itemName);
+            player.addItem(takenItem);
+            getCurrentRoom().removeItem(takenItem);
+            System.out.println("You took " + takenItem.getName() + " and added it to the inventory.");
+        }
+    }
+
+    // Drop item method: removes an item from the inventory and adds it to the current room
+    public void dropItem(String itemName) {
+        Item dropItem = player.getItem(itemName);
+        if (null == dropItem) { // condition item name is valid and in inventory
+            System.out.println("The item " + itemName + " was not found in the inventory and cannot be dropped.");
+        } else {
+            player.removeItem(dropItem);
+            getCurrentRoom().addItem(dropItem);
+            System.out.println(
+                    "The item " + dropItem.getName() + " was dropped in room '" + getCurrentRoom().getName() + "'.");
+        }
     }
 
     // Function to show whats in the inventory

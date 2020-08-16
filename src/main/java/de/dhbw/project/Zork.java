@@ -3,7 +3,9 @@ package de.dhbw.project;
 import com.google.gson.Gson;
 
 import java.io.*;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 // Main class for the project

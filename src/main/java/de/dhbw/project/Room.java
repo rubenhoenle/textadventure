@@ -36,6 +36,14 @@ public class Room extends Thing {
         return roomItemList;
     }
 
+    public List<String> getRoomItemNameList() {
+        List<String> itemNames = new ArrayList<String>();
+        for (Item i : roomItemList) {
+            itemNames.add(i.getName());
+        }
+        return itemNames;
+    }
+
     public String getEnabled() {
         return enabled;
     }
@@ -43,4 +51,15 @@ public class Room extends Thing {
     public void setEnabled(String enabled) {
         this.enabled = enabled;
     }
+
+    public List<Item> addItem(Item item) {
+        roomItemList.add(item);
+        return roomItemList;
+    }
+
+    public List<Item> removeItem(Item item) {
+        roomItemList.remove(item);
+        return roomItemList;
+    }
+
 }
