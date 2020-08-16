@@ -124,4 +124,42 @@ public class GameTest {
         verify(player).getItem(item.getName());
         verify(out).println("The item " + item.getName() + " was not found in the inventory and cannot be dropped.");
     }
+
+    @Test
+    public void test6_shouldShowInventory() throws Exception {
+        //before
+        Item item1 = mock(Item.class);
+        Item item2 = mock(Item.class);
+
+        when(player.getInventory()).thenReturn(Arrays.asList(item1,item2));
+
+        //when
+        Whitebox.invokeMethod(game,
+                "getInventoryText");
+
+        //then
+        verify(item1).getName();
+        verify(item2).getName();
+        verify(item1).getStrength();
+        verify(item2).getStrength();
+        verify(item1).getDescription();
+        verify(item2).getDescription();
+        verify(out).println("------------");
+    }
+
+    @Test
+    public void test7_shouldShowEmptyInventory() throws Exception {
+        //before
+
+        when(player.getInventory()).thenReturn(Arrays.asList());
+
+        //when
+        Whitebox.invokeMethod(game,
+                "getInventoryText");
+
+        //then
+        verify(player).getInventory();
+        verify(out).println("------------");
+
+    }
 }

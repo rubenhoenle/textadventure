@@ -210,5 +210,7 @@ public class Game {
             if (player.getInventory().get(i).getStrength() != 0)
                 System.out.println(" '- Strength: " + player.getInventory().get(i).getStrength());
         }
+
+        System.out.println("------------");
     }
 }
