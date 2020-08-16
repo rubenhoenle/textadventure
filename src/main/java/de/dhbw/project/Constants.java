@@ -9,6 +9,7 @@ public class Constants {
     // Constans for the possible directions in the game
     public static final List<String> DIRECTIONS = new ArrayList<>(
             Arrays.asList("north", "east", "west", "south", "up", "down"));
+    public static final List<String> SHORT_DIRECTIONS = new ArrayList<>(Arrays.asList("n", "e", "s", "w", "u", "d"));
     public static final String EACH_DIRECTION = "around";
 
     // Possible commands for the game - has to be extended if there are new commands added to the game
