@@ -64,7 +64,7 @@ public class Game {
             else if (input.matches("restore|load"))
                 Zork.loadGame(Constants.SAVED_GAME);
             // returns the inventory list of the player => can be changed to a better regex expression
-            else if (input.matches("inventory"))
+            else if (input.matches("inventory|show inventory"))
                 getInventoryText();
             else
                 System.out.println("Unknown command.");
@@ -211,6 +211,6 @@ public class Game {
                 System.out.println(" '- Strength: " + player.getInventory().get(i).getStrength());
         }
 
-        System.out.println("------------");
+        System.out.println("---------------");
     }
 }

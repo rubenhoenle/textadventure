@@ -144,7 +144,7 @@ public class GameTest {
         verify(item2).getStrength();
         verify(item1).getDescription();
         verify(item2).getDescription();
-        verify(out).println("------------");
+        verify(out).println("---------------");
     }
 
     @Test
@@ -159,7 +159,7 @@ public class GameTest {
 
         //then
         verify(player).getInventory();
-        verify(out).println("------------");
+        verify(out).println("---------------");
 
     }
 }
