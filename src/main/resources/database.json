@@ -3,7 +3,23 @@
     "points": 0,
     "strength": 42,
     "name": "Hugo",
-    "inventory": [],
+    "inventory": [
+      {
+        "strength": 0,
+        "name": "key",
+        "description": "a large, rusty key ring"
+      },
+      {
+        "strength": 5,
+        "name": "sword",
+        "description": "a very sharp sword"
+      },
+      {
+        "strength": 0,
+        "name": "compass",
+        "description": "the compass always points to the village"
+      }
+    ],
     "roomName": "Entrance to the house"
   },
   "rooms": [

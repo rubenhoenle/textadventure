@@ -63,6 +63,9 @@ public class Game {
                 Zork.saveGame(this);
             else if (input.matches("restore|load"))
                 Zork.loadGame(Constants.SAVED_GAME);
+            // returns the inventory list of the player => can be changed to a better regex expression
+            else if (input.matches("inventory|show inventory"))
+                getInventoryText();
             else
                 System.out.println("Unknown command.");
         }
@@ -196,5 +199,18 @@ public class Game {
             System.out.println(
                     "The item " + dropItem.getName() + " was dropped in room '" + getCurrentRoom().getName() + "'.");
         }
+    }
+
+    // Function to show whats in the inventory
+    private void getInventoryText() {
+        System.out.println("---Inventory---");
+        for (int i = 0; i < player.getInventory().size(); i++) {
+            System.out.println(
+                    player.getInventory().get(i).getName() + " - " + player.getInventory().get(i).getDescription());
+            if (player.getInventory().get(i).getStrength() != 0)
+                System.out.println(" '- Strength: " + player.getInventory().get(i).getStrength());
+        }
+
+        System.out.println("---------------");
     }
 }
