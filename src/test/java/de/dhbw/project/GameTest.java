@@ -11,6 +11,10 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
+import de.dhbw.project.nls.DataStorage;
+import de.dhbw.project.nls.commands.DropCommand;
+import de.dhbw.project.nls.commands.TakeCommand;
+
 import java.io.PrintStream;
 import java.util.Arrays;
 
@@ -48,8 +52,13 @@ public class GameTest {
         Item item = new Item(itemName, "TestItem", "TestState", 99);
         PowerMockito.doReturn(item).when(game, "getItemFromCurrentRoom", itemName);
 
+        TakeCommand takeCommand = new TakeCommand(game);
+        DataStorage data = new DataStorage();
+        data.add("item", itemName);
+        takeCommand.setData(data);
+        
         //when
-        game.takeItem(itemName);
+        takeCommand.execute();
 
         //then
         verify(player).addItem(item);
@@ -65,9 +74,14 @@ public class GameTest {
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
         doReturn("TestRoom").when(currentRoom).getName();
+        
+        TakeCommand takeCommand = new TakeCommand(game);
+        DataStorage data = new DataStorage();
+        data.add("item", itemName);
+        takeCommand.setData(data);
 
         //when
-        game.takeItem(itemName);
+        takeCommand.execute();
 
         //then
         verify(out).println("No item found with name " + itemName + " in room " + currentRoom.getName());
@@ -99,9 +113,14 @@ public class GameTest {
         Item item = new Item("TestItem", "TestItem", "TestState", 99);
         PowerMockito.doReturn(item).when(player, "getItem", item.getName());
 
-        //when
-        game.dropItem(item.getName());
+        DropCommand dropCommand = new DropCommand(game);
+        DataStorage data = new DataStorage();
+        data.add("item", item.getName());
+        dropCommand.setData(data);
 
+        //when
+        dropCommand.execute();
+        
         //then
         verify(player).getItem(item.getName());
         verify(player).removeItem(item);
@@ -117,8 +136,13 @@ public class GameTest {
 
         Item item = new Item("TestItem", "TestItem", "TestState", 99);
 
+        DropCommand dropCommand = new DropCommand(game);
+        DataStorage data = new DataStorage();
+        data.add("item", item.getName());
+        dropCommand.setData(data);
+
         //when
-        game.dropItem(item.getName());
+        dropCommand.execute();
 
         //then
         verify(player).getItem(item.getName());
