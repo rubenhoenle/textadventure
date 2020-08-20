@@ -23,7 +23,7 @@ public class Game {
         while (true) {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
-            
+
             if (input.length() == 1 && Constants.SHORT_DIRECTIONS.contains(input))
                 input = "move " + input;
 
