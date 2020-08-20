@@ -1,9 +1,7 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.Constants;
-import de.dhbw.project.Game;
-import de.dhbw.project.Item;
-import de.dhbw.project.Way;
+import de.dhbw.project.*;
+import de.dhbw.project.interactive.InteractiveCraftingObject;
 
 public class LookCommand extends AutoCommand {
 
@@ -55,7 +53,17 @@ public class LookCommand extends AutoCommand {
                     System.out.println("A " + item.getName() + " " + item.getWhere() + ".");
                 }
             }
+
+            // Show available interactive objects in the current room
+            if (game.getCurrentRoom().getRoomInteractiveObjectsList() != null) {
+                for (InteractiveCraftingObject interactiveCraftingObject : game.getCurrentRoom().getRoomInteractiveObjectsList()) {
+                    System.out.println("A " + interactiveCraftingObject.getName() + " " + interactiveCraftingObject.getWhere() + ". "
+                            + interactiveCraftingObject.getUsage());
+                }
+            }
         }
+
+
 
         // Entered phrase is "look + valid direction": show way for the selected direction
         else {

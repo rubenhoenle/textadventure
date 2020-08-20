@@ -66,4 +66,21 @@ public class Player {
         }
         return null;
     }
+
+    // counts how often the player has a specific item in his inventory (returns -1 when item is not found)
+    public int getNumberOfItem(String itemName) {
+        int count = 0;
+        for (Item i : inventory) {
+            if (i.getName().equals(itemName)) {
+                count++;
+            }
+        }
+
+        if(count > 0)
+        {
+            return count;
+        }
+
+        return -1;
+    }
 }

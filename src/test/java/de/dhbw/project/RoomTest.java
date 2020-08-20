@@ -1,5 +1,6 @@
 package de.dhbw.project;
 
+import de.dhbw.project.interactive.InteractiveCraftingObject;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -71,6 +72,38 @@ public class RoomTest {
         assertTrue(roomItems.contains(i1.getName()));
         assertTrue(roomItems.contains(i2.getName()));
     }
+
+    @Test
+    public void test5_shouldGetRoomInteractiveCraftingObjectsNameList(){
+        //before
+        List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
+        craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
+        craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject2", "desc", "state", "place", "usage", "action"));
+        Room r = new Room("Test", "TestRoom", "true", craftingObjects);
+
+        //when
+        List<String> names = r.getRoomInteractiveCraftingObjectsNameList();
+
+        //then
+        assertEquals("interactiveCraftingObject1", names.get(0));
+        assertEquals("interactiveCraftingObject2", names.get(1));
+    }
+
+    @Test
+    public void test6_shouldGetRoomInteractiveCraftingObjectByName(){
+        //before
+        List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
+        craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
+        craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject2", "desc", "state", "place", "usage", "action"));
+        Room r = new Room("Test", "TestRoom", "true", craftingObjects);
+
+        //when
+        InteractiveCraftingObject interactiveCraftingObject = r.getRoomInteractiveCraftingObjectByName("interactiveCraftingObject1");
+
+        //then
+        assertEquals("interactiveCraftingObject1", interactiveCraftingObject.getName());
+    }
+
 
 
 }

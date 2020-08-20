@@ -3,238 +3,2194 @@
     "points": 0,
     "strength": 42,
     "name": "Hugo",
-    "inventory": [
-      {
-        "strength": 0,
-        "name": "key",
-        "description": "a large, rusty key ring"
-      },
-      {
-        "strength": 5,
-        "name": "sword",
-        "description": "a very sharp sword"
-      },
-      {
-        "strength": 0,
-        "name": "compass",
-        "description": "the compass always points to the village"
-      }
-    ],
-    "roomName": "Entrance to the house"
+    "inventory": [],
+    "roomName": "smithy"
   },
   "rooms": [
     {
+      "name": "beach",
+      "description": "You find yourself at a empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand there are some debris of your sunken ship. You need to find a way to get home again!",
       "ways": [
         {
-          "direction": "north",
-          "from": "Entrance to the house",
-          "to": "Hall",
-          "name": "door",
-          "description": "just a small porch"
-        }
-      ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "key",
-          "description": "a large, rusty key ring"
-        },
-        {
-          "state": "off",
-          "strength": 3,
-          "name": "pocket lamp",
-          "description": "a big Taschenlampe"
-        }
-      ],
-      "name": "Entrance to the house",
-      "description": "this is where the game starts. Type help for guidance"
-    },
-    {
-      "ways": [
-        {
-          "direction": "up",
-          "from": "Hall",
-          "to": "Attic",
-          "name": "stairway",
-          "description": "It looks dusty and unstable. Do you really want to take it ?"
+          "direction": "west",
+          "from": "beach",
+          "to": "lagoon",
+          "name": "lagoon",
+          "description": "a lagoon with some washed up boxes from you sunken ship"
         },
         {
           "direction": "east",
-          "from": "Hall",
-          "to": "Living room",
-          "name": "door",
-          "description": "heavy door made from solid oak with nails on the bars"
+          "from": "beach",
+          "to": "cave on the beach",
+          "name": "cave on the beach",
+          "description": "entrance to a cave near the sea"
         },
         {
-          "direction": "south",
-          "from": "Hall",
-          "to": "Entrance to the house",
-          "name": "door",
-          "description": "NIX"
+          "direction": "north",
+          "from": "beach",
+          "to": "hill",
+          "name": "hill",
+          "description": "a little hill on a clearing"
         }
       ],
       "items": [
         {
           "strength": 0,
-          "name": "briefcase",
-          "description": "an empty briefcase"
+          "name": "backpack",
+          "description": "a backpack where you can store some additional items",
+          "place": "is lying in the sand"
+        },
+        {
+          "strength": 0,
+          "name": "life jacket",
+          "description": "a life jacket from your sunken ship",
+          "place": "floating in the water"
+        }
+      ]
+    },
+    {
+      "name": "cave on the beach",
+      "description": "You enter the cave which have been created by the waves crashing against the stone wall. It smells fishy in here. \nAt the end of the cave you see something like a skeleton of a pirate.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "cave on the beach",
+          "to": "beach",
+          "name": "beach",
+          "description": "the beach where this nightmare started"
+        },
+        {
+          "direction": "down",
+          "from": "cave on the beach",
+          "to": "Cave with underground river",
+          "name": "cave system",
+          "description": "the cave goes deeper, but it's pretty dark in there"
+        }
+      ],
+      "items": [
+        {
+          "strength": 13,
+          "name": "saber",
+          "description": "a rusty saber of the pirate ",
+          "place": "is in the belt buckle of the pirate skeleton"
+        },
+        {
+          "strength": 1,
+          "name": "rum",
+          "description": "a old dusty bottle of rum",
+          "place": "lies next to the pirate skeleton"
+        },
+        {
+          "strength": 0,
+          "name": "telescope",
+          "description": "a golden telescope",
+          "place": "lies next to the skeleton"
+        }
+      ]
+    },
+    {
+      "name": "lagoon",
+      "description": "You walk along a long lagoon which protrudes into the sea. All over the place are parts of your sunken ship at the beach. \nIt seems your the only person which was washed up at this huge beach.",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "lagoon",
+          "to": "beach",
+          "name": "beach",
+          "description": "the beach where this nightmare started"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "swimming goggles",
+          "description": "swimming googles which seem to be fine",
+          "place": "lies in the water"
+        },
+        {
+          "strength": 0,
+          "name": "coconut",
+          "description": "a fresh coconut",
+          "place": "lies next to a palm tree"
+        },
+        {
+          "strength": 0,
+          "name": "shell",
+          "description": "a pretty nice",
+          "place": "shell lies in the sand"
+        }
+      ]
+    },
+    {
+      "name": "hill",
+      "description": "You walk through a little forest and end up before a little hill. You climb up the hill so you have a better overview and can orientate yourself. \nOn top of the hill you can all almost over the island. Maybe you can get even a little higher!",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "hill",
+          "to": "beach",
+          "name": "beach",
+          "description": "the beach where this nightmare started"
+        },
+        {
+          "direction": "up",
+          "from": "hill",
+          "to": "viewing platform",
+          "name": "viewing platform",
+          "description": "you climb up a ladder to the treetop. Here is a little viewing platform where you can see over the island"
+        },
+        {
+          "direction": "west",
+          "from": "hill",
+          "to": "rundown hut on the hill",
+          "name": "rundown hut on the hill",
+          "description": "the way to an old rundown hut on the hill"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "apple",
+          "description": "some delicious apple",
+          "place": "lies in the dirt next to an huge apple tree"
+        },
+        {
+          "strength": 0,
+          "name": "apple",
+          "description": "another delicious apple",
+          "place": "lies in the dirt next to an huge apple tree"
+        },
+        {
+          "strength": 0,
+          "name": "rotten apple",
+          "description": "this apple doesn't look that delicious",
+          "place": "lies in the dirt next to an huge apple tree"
+        }
+      ]
+    },
+    {
+      "name": "viewing platform",
+      "description": "You climb up a ladder which is placed at the apple tree. When you reached the top end of the ladder you see is a little viewing platform. \nOn this viewing platform you can see over the whole island. It's really huge and you can only guess what's in the distance. \nMaybe some item can help you to get a more detailed look.",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "viewing platform",
+          "to": "hill",
+          "name": "hill",
+          "description": "down to the hill near the beach"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "rusty key",
+          "description": "This key looks very old ...",
+          "place": "lies between to wood planks on the ground"
+        }
+      ]
+    },
+    {
+      "name": "rundown hut on the hill",
+      "description": "You stand before a very old rundown hut on the hill next to the apple tree. There are no windows so you can't see whats in there and the door is locked.",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "viewing platform",
+          "to": "hill",
+          "name": "hill",
+          "description": "down to the hill near the beach"
+        }
+      ],
+      "items": [
+        {
+          "strength": 15,
+          "name": "bow and some arrows",
+          "description": "A bow out of wood",
+          "place": "lies against the wall"
+        },
+        {
+          "strength": 1,
+          "name": "broken bottle",
+          "description": "a wine broken bottle",
+          "place": "stands on the table"
         },
         {
           "strength": 5,
-          "name": "pocket knife",
-          "description": "a swiss army multi function pocket knife including USB stick"
+          "name": "homemade knife",
+          "description": "a homemade knife",
+          "place": "lies on the table"
         }
-      ],
-      "name": "Hall",
-      "description": "a large dark room stuffed with oak furniture"
+      ]
     },
     {
+      "name": "Cliff above the ship graveyard",
+      "description": "You can smell the sea and feel the spray on your face. Your standing on top off a cliff site with reefs in the sea and many ship wracks in the water. \nAnd a big old ship wrack connecting the cliff top with the boulder and beach below.",
       "ways": [
         {
-          "direction": "down",
-          "from": "Attic",
-          "to": "Hall",
-          "name": "stairway",
-          "description": "It looks dusty and unstable. Do you really want to take it ?"
+          "direction": "west",
+          "from": "Cliff above the ship graveyard",
+          "to": "Deck of an old stranded ship",
+          "name": "plank",
+          "description": "an old plank connection the deck of the ship with the cliff"
+        },
+        {
+          "direction": "south",
+          "from": "Cliff above the ship graveyard",
+          "to": "Camp site",
+          "name": "path",
+          "description": "a beaten path to a small camp site"
+        },
+        {
+          "direction": "east",
+          "from": "Cliff above the ship graveyard",
+          "to": "shore of the pond",
+          "name": "stream path",
+          "description": "path runs alongside a stream"
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "Camp site",
+      "description": "There is a tent, a small fire place and some trunks. The tent looks like its been standing there for quit some time but still seems to be in use.",
+      "ways": [
+        {
+          "direction": "north",
+          "from": "Camp site",
+          "to": "Cliff above the ship graveyard",
+          "name": "path",
+          "description": "a beaten path to a small camp site"
         }
       ],
       "items": [
+        {
+          "strength": 0,
+          "name": "Rum",
+          "description": "a bottle of rum",
+          "place": "leaning at the trunk"
+        }
+      ],
+      "characters": []
+    },
+    {
+      "name": "Deck of an old stranded ship",
+      "description": "You have boarded an old three mast sailing ship. Everything is creaking and roting. \nOne mast is completely gone, one is still standing with torn, flapping sails and one is broken lying on the deck.",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "Deck of an old stranded ship",
+          "to": "Cliff above the ship graveyard",
+          "name": "plank",
+          "description": "an old plank connection the deck of the ship with the cliff"
+        },
+        {
+          "direction": "down",
+          "from": "Deck of an old stranded ship",
+          "to": "ship interior",
+          "name": "door",
+          "description": "a door blocked by a fallen mast"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "sail cloth",
+          "description": "a large, torn part of the sail",
+          "place": "attached to the fallen mast"
+        },
         {
           "strength": 0,
           "name": "rope",
-          "description": "an old pile of rope"
+          "description": "part of the rigging is still in tact and can be used as a rope",
+          "place": "wrapped around the fallen mast"
         },
         {
-          "strength": 15,
-          "name": "sword",
-          "description": "a long shiny sword"
+          "strength": 12,
+          "name": "saber",
+          "description": "old rusty saber",
+          "place": "stuck in the railing"
         }
-      ],
-      "name": "Attic",
-      "description": "The attic. Dusty dusty ..."
+      ]
     },
     {
+      "name": "ship interior",
+      "description": "You're in the ships interior. You smell decaying wood and rotten fish. \nYou enter a room that looks like the captains cabin. In the middle of the cabin is a table barely standing on three legs.",
+
       "ways": [
         {
           "direction": "down",
-          "from": "Living room",
-          "to": "cellar",
-          "enable": "has carpet",
-          "name": "trap door",
-          "description": "cast iron trap door"
+          "from": "ship interior",
+          "to": "Deck of an old stranded ship",
+          "name": "door",
+          "description": "a door blocked by a fallen mast"
         },
         {
-          "direction": "west",
-          "from": "Living room",
-          "to": "Hall",
-          "name": "door",
-          "description": "heavy door made from solid oak with nails on the bars"
+          "direction": "south",
+          "from": "ship interior",
+          "to": "Beach below the cliff",
+          "name": "hole",
+          "description": "a hole in the the ship hull"
         }
       ],
       "items": [
         {
           "strength": 0,
-          "name": "carpet",
-          "description": "an old oriental carpet lies in the middle of the room."
+          "name": "telescope",
+          "description": "an rusty, old telescope but still working",
+          "place": "on the table"
+        },
+        {
+          "strength": 0,
+          "name": "nautical map",
+          "description": "an old, nautical map with an island marked on it",
+          "place": "on the table"
+        },
+        {
+          "strength": 0,
+          "name": "compass",
+          "description": "a small, old compass",
+          "place": "on the table"
         }
-      ],
-      "name": "Living room",
-      "description": "the living room of the house."
+      ]
     },
     {
+      "name": "Beach below the cliff",
+      "description": "Your at a small beach enclosed by boulders and the cliff. The sea is clear and you can see the sunken ships through the surface. \nThe waves are crashing against the boulders on ether side. It seams the the there must be a reef before the small beach, since the waves in this area are almost non existent.",
+      "ways": [
+        {
+          "direction": "north",
+          "from": "Beach below the cliff",
+          "to": "ship interior",
+          "name": "hole",
+          "description": "a short climb about boulder to the hole in the ship hull"
+        },
+        {
+          "direction": "west",
+          "from": "Beach below the cliff",
+          "to": "Sunken ships in the sea",
+          "name": "sea",
+          "description": "a short swim and dive to the sunk ship wreck"
+        },
+        {
+          "direction": "east",
+          "from": "Beach below the cliff",
+          "to": "Cave with the mortal remains of the first men",
+          "name": "cave",
+          "description": "big cave in the cliff"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "life jacket",
+          "description": "an orange life jacket, that looks like it spend some time in the water",
+          "place": "stuck between two boulders"
+        }
+      ]
+    },
+    {
+      "name": "Sunken ships in the sea",
+      "description": "Close to the surface of the sea are many ship wreaks. There are many different sorts of fish swimming in the ships, which are overgrown with sea life. \nYou can see a drop where the sea goes from shallow plunging in the depths. The ship wreaks are within diving range. \nYou dive to the closest ship wreak.",
       "ways": [
         {
           "direction": "east",
-          "from": "cellar",
-          "to": "cellar2",
-          "name": "door",
-          "description": "leaning door"
+          "from": "Sunken ships in the sea",
+          "to": "Beach below the cliff",
+          "name": "sea",
+          "description": "emerge from the depth and swim to shore"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "small treasure box",
+          "description": "a small treasure box, that looks like it might contain something priceless"
+        }
+      ]
+    },
+    {
+      "name": "giant rabbit hole",
+      "description": "You stand in the middle of a gigantic hole under the earth and feel like \nAlice in Wonderland. On the walls are some roots hanging out and in the \ncorner you can discover a soft bed of grass. Maybe you've landed in \nthe Easter Bunny's apartment...",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "giant rabbit hole",
+          "to": "Crossroads ape",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "south",
+          "from": "giant rabbit hole",
+          "to": "Hidden cave",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "down",
+          "from": "giant rabbit hole",
+          "to": "Earthworm tunnel",
+          "name": "little earthworm tunnel",
+          "description": "little earthworm tunnel"
         },
         {
           "direction": "up",
-          "from": "cellar",
-          "to": "Living room",
-          "enable": "has carpet",
-          "name": "trap door",
-          "description": "cast iron trap door"
-        },
-        {
-          "direction": "south",
-          "from": "cellar",
-          "to": "cellar4",
-          "enable": "dead troll",
-          "name": "door",
-          "description": "a slippery ramp made from solid wood"
+          "from": "giant rabbit hole",
+          "to": "ruins outside",
+          "name": "a hole in the ceiling",
+          "description": "a hole in the ceiling going up"
         }
       ],
-      "items": [],
-      "enable": "on pocket lamp",
-      "name": "cellar",
-      "description": "A cold and humid cellar. It\u0027s absolutely dark, you can\u0027t see anything."
+      "characters": [],
+      "items": []
     },
     {
+      "name": "Hidden cave",
+      "description": "You ended up in some kind of lumber room. Apparently, people used to hide their \nsecrets here and store various things. Judging by the destroyed shelves \nand all the broken glass, these treasures have already been stolen.",
       "ways": [
         {
           "direction": "south",
-          "from": "cellar2",
-          "to": "cellar3",
-          "name": "door",
-          "description": "leaning door"
-        },
-        {
-          "direction": "west",
-          "from": "cellar2",
-          "to": "cellar",
-          "name": "door",
-          "description": "leaning door"
-        }
-      ],
-      "items": [],
-      "name": "cellar2",
-      "description": "A dark empty room."
-    },
-    {
-      "ways": [
-        {
-          "direction": "west",
-          "from": "cellar3",
-          "to": "cellar4",
-          "name": "door",
-          "description": "leaning door"
+          "from": "Hidden cave",
+          "to": "Secret Grotto",
+          "name": "railway",
+          "description": "later: use railway item"
         },
         {
           "direction": "north",
-          "from": "cellar3",
-          "to": "cellar2",
-          "name": "door",
-          "description": "leaning door"
+          "from": "Hidden cave",
+          "to": "giant rabbit hole",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "up",
+          "from": "Hidden cave",
+          "to": "Living room of a torturer",
+          "name": "Trapdoor in the ceiling",
+          "description": "Trapdoor in the ceiling"
         }
       ],
-      "items": [],
-      "name": "cellar3",
-      "description": "An empty dark room"
+      "characters": [],
+      "items": [
+        {
+          "strength": 3,
+          "name": "sharp sparkling shard of glass",
+          "description": "a sharp sparkling shard of glass"
+        }
+      ]
     },
     {
+      "name": "Living room of a torturer",
+      "description": "A large, sparsely furnished living room, which apparently also serves as a bedroom \nand kitchen. There is only a table, covered with crumbs, with a chair and a bed \nof straw. On the floor you will find countless crushed insects in all colours and \nshapes. The shells, legs and antennae of these animals are twisted in unnatural \npositions, which they could not possibly have taken voluntarily.",
       "ways": [
         {
-          "direction": "north",
-          "from": "cellar4",
-          "to": "cellar",
-          "enable": "dead troll",
-          "name": "door",
-          "description": "a slippery ramp made from solid wood"
+          "direction": "down",
+          "from": "Living room of a torturer",
+          "to": "Hidden cave",
+          "name": "trapdoor under the carpet",
+          "description": "trapdoor under the carpet"
         },
         {
           "direction": "east",
-          "from": "cellar4",
-          "to": "cellar3",
+          "from": "Living room of a torturer",
+          "to": "cellar of the old house in the forest",
+          "name": "hole in the wall",
+          "description": "hole in the wall"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 1,
+          "name": "large beetle with a flattened carapace",
+          "description": "a large beetle with a flattened carapace"
+        }
+      ]
+    },
+    {
+      "name": "Secret Grotto",
+      "description": "You are standing in the middle of a beautiful room that is bathed in warm colours \nby incident light. In the middle of the room is a warm pool, which with its \nsteaming water calls for a relaxing bath. Next to it there are some deck chairs, \nand even a palm tree has found its way here. In the distance you can hear the \nsound of a waterfall and you wonder if this place was created by fairies.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "Secret Grotto",
+          "to": "Hidden cave",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "east",
+          "from": "Secret Grotto",
+          "to": "Crossroads bat",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "down",
+          "from": "Secret Grotto",
+          "to": "Locker room",
+          "name": "way",
+          "description": "way description"
+        },
+        {
+          "direction": "north",
+          "from": "Secret Grotto",
+          "to": "Killer Sauna",
+          "name": "stone way",
+          "description": "stone way"
+        },
+        {
+          "direction": "up",
+          "from": "Secret Grotto",
+          "to": "hidden cave",
+          "name": "wooden staircase",
+          "description": "a wooden staircase leading up"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "small water lily",
+          "description": "small water lily",
+          "place": "is swimming in the centre of the pool"
+        }
+      ]
+    },
+    {
+      "name": "Cave with the mortal remains of the first men",
+      "description": "You're in a cave with ochre walls. \nAs you remove the dust, you can see something that looks like paintings from the stone age. The paintings \nshow different hunting scenes with huge mammoths and sabre-toothed tigers. \nYou are struck by the beauty of these old paintings.\nFrom the west you can smell the salty scent of sea water.",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "Cave with the mortal remains of the first men",
+          "to": "archaeological chamber",
+          "name": "hole in the floor",
+          "description": "A dark tunnel."
+        },
+        {
+          "direction": "west",
+          "from": "Cave with the mortal remains of the first men",
+          "to": "Beach below the cliff",
+          "name": "cave",
+          "description": "a little cave"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 1,
+          "name": "human skull",
+          "description": "human skull that feels a little greasy. The shape of the skull is very different from what you are used to from the mirror and reminds you more of a monkey than a human."
+        }
+      ]
+    },
+    {
+      "name": "Crossroads bat",
+      "description": "You're standing at a major underground crossroads, mysteriously \nthe floor is quite warm, but never mind. \nWhen you look up you can understand where the name of this room comes from: The whole cave ceiling is \ncovered by bats of different shapes and sizes. It looks like they are sleeping, so shhhh \n- you don't want to wake the bats.",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "Crossroads bat",
+          "to": "archaeological chamber",
+          "name": "large brick passageway",
+          "description": "large brick passageway"
+        },
+        {
+          "direction": "south",
+          "from": "Crossroads bat",
+          "to": "Secret Grotto",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "west",
+          "from": "Crossroads bat",
+          "to": "Crossroads ape",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "down",
+          "from": "Crossroads bat",
+          "to": "Room under crossroads bat I",
+          "name": "stone staircase",
+          "description": "stone staircase"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "dead bat, neither eaten, stinking or rotting",
+          "description": "don't even think of eating that uncooked you'll make the whole world stay at home",
+          "place": "lying on the floor"
+        }
+      ]
+    },
+    {
+      "name": "Room under crossroads bat I",
+      "description": "You're in a rectangular chamber. It's really hot \nand sweat is dripping from your forehead. It feels like every one of your clothes is just soaked \nwith sweat.  If you look to the west you can see the reason: The room is divided in two by a red-hot \nlava flow. The river is bubbling and hissing, and you have to be careful that your clothes don't \ncatch fire.",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "Room under crossroads bat I",
+          "to": "Crossroads bat",
+          "name": "stone staircase",
+          "description": "stone staircase"
+        },
+        {
+          "direction": "west",
+          "from": "Room under crossroads bat I",
+          "to": "Room under crossroads bat II",
+          "name": "way over lava stream",
+          "description": "way - only use with ladder etc..."
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "Room under crossroads bat II",
+      "description": "You're in a rectangular chamber. It's really hot \nand sweat is dripping from your forehead. It feels like every one of your clothes is just soaked \nwith sweat.  If you look to the east you can see the reason: The room is divided in two by a red-hot \nlava flow. The river is bubbling and hissing, and you have to be careful that your clothes don't \ncatch fire.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "Room under crossroads bat II",
+          "to": "Butcher's Room II",
+          "name": "heavy door",
+          "description": "door leading to troll room"
+        },
+        {
+          "direction": "east",
+          "from": "Room under crossroads bat II",
+          "to": "Room under crossroads bat I",
+          "name": "way over lava stream",
+          "description": "way - only use with ladder etc..."
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "Butcher's Room II",
+      "description": "You are in an enormous hall divided in two. The walls are tiled in red in a strange way and \nthere are several drains in the floor. Strange... When you look at the walls, you'll notice \nthat there are various sharp tools everywhere, from butchers knives to swords to saws. \nScratching the walls, you'll notice that the red is not the color of the tiles, but dried \nblood...",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "Room under crossroads bat II",
+          "to": "Room under crossroads bat II",
+          "name": "heavy door",
+          "description": "door leading to room under crossroads bat II"
+        },
+        {
+          "direction": "west",
+          "from": "Butcher's Room II",
+          "to": "Butcher's Room I",
+          "name": "a big passage to the second half of the room",
+          "description": "way - only use with ladder etc..."
+        },
+        {
+          "direction": "down",
+          "from": "Butcher's Room II",
+          "to": "cave with nothing but three ways",
+          "name": "a big trapdoor, too big to miss",
+          "description": "a big trapdoor"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "Butcher's Room I",
+      "description": "You are in an enormous hall divided in two. The walls are tiled in red in a strange way and \nthere are several drains in the floor. Strange... When you look at the walls, you'll notice \nthat there are various sharp tools everywhere, from butchers knives to swords to saws. \nScratching the walls, you'll notice that the red is not the color of the tiles, but dried \nblood...",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "Butcher's Room I",
+          "to": "Butcher's Room II",
+          "name": "a big passage to the second half of the room",
+          "description": "a big passage to the second half of the room"
+        },
+        {
+          "direction": "down",
+          "from": "Butcher's Room I",
+          "to": "hidden dungeon",
+          "name": "discrete little hatch",
+          "description": "discrete little hatch"
+        },
+        {
+          "direction": "north",
+          "from": "Butcher's Room I",
+          "to": "Earthworm tunnel",
+          "name": "small door",
+          "description": "small door"
+        },
+        {
+          "direction": "south",
+          "from": "Butcher's Room I",
+          "to": "Killer Sauna",
+          "name": "locked door",
+          "description": "locked door"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "hidden dungeon",
+      "description": "You look into a small cell, it's cold and musty. The walls are scratched and covered with \npaintings, it looks like the last inmates in here have lost their minds. There is a small \nhole in the floor, obviously for food, and in the corner there is a bucket for the rubbish.",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "hidden dungeon",
+          "to": "Butcher's Room I",
+          "name": "discrete little hatch",
+          "description": "discrete little hatch"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "cave with nothing but three ways",
+      "description": "You are in a cave with nothing but three ways and a trapdoor. There is really nothing in this cave except three ways and a trapdoor. ",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "cave with nothing but three ways",
+          "to": "Butcher's Room II",
+          "name": "a big trapdoor in the ceiling, too big to miss",
+          "description": "big trapdoor"
+        },
+        {
+          "direction": "north",
+          "from": "cave with nothing but three ways",
+          "to": "magical cave",
+          "name": "way",
+          "description": "way"
+        },
+        {
+          "direction": "east",
+          "from": "cave with nothing but three ways",
+          "to": "holy grotto",
+          "name": "way",
+          "description": "way"
+        },
+        {
+          "direction": "south",
+          "from": "cave with nothing but three ways",
+          "to": "mineral cave",
+          "name": "way",
+          "description": "way"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "magical cave",
+      "description": "You're in a round cave. There is total silence. It's so peaceful, everything's even. \nLight from the middle of the ceiling bathes the room in a pleasant light. You imagine \nthat you could stay here forever...",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "magical cave",
+          "to": "cave with nothing but three ways",
+          "name": "way",
+          "description": "way"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 9000,
+          "name": "a giant statue of buddah",
+          "description": "too heavy to take, shimmering in the light",
+          "place": "sits on the floor"
+        }
+      ]
+    },
+    {
+      "name": "holy grotto",
+      "description": "You're in the middle of a big cave. There are stalactites hanging from the ceiling and \nthe floor is littered with stalagmites. You hear the regular dripping of water from \nthe top to the bottom. This is accompanied by the quiet omm of an old, wise monk \nin the middle of the cave.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "holy grotto",
+          "to": "cave with nothing but three ways",
+          "name": "way",
+          "description": "way"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "mineral cave",
+      "description": "You're standing in the middle of a coal mine. A fixed oil lamp illuminates the mining area. The air is stuffy and dusty. \nAt the edges you can see different heaps of rocks that have apparently been blasted out of the wall.",
+      "ways": [
+        {
+          "direction": "north",
+          "from": "mineral cave",
+          "to": "cave with nothing but three ways",
+          "name": "way",
+          "description": "way"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "small lump of coal",
+          "description": "there is nothing special about this lump of coal",
+          "place": "lying on the ground"
+        },
+        {
+          "strength": 0,
+          "name": "big lump of coal",
+          "description": "there is nothing special about this lump of coal",
+          "place": "lying on the ground"
+        },
+        {
+          "strength": 0,
+          "name": "lump of coal of medium size",
+          "description": "there is nothing special about this lump of coal",
+          "place": "lying on the ground"
+        }
+      ]
+    },
+    {
+      "name": "Crossroads ape",
+      "description": "You're standing in the middle of a big crossroads. The walls are just clay and stone, \ncovered with a strange pattern and you wonder why the ceiling doesn't fall on your head. \nYou question whether it's only you or whether others before you have had the same thought. \nOn closer inspection you notice that the patterns on the wall are primitive drawings of \napes. Despite the age and the dirt, they are still clearly visible on closer inspection, \nimpressive...",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "Crossroads ape",
+          "to": "Crossroads bat",
+          "name": "railway",
+          "description": "later: use railway item"
+        },
+        {
+          "direction": "up",
+          "from": "Crossroads ape",
+          "to": "Pillaged armory",
+          "name": "stone staircase",
+          "description": "a stone staircase going up"
+        },
+        {
+          "direction": "west",
+          "from": "Crossroads ape",
+          "to": "giant rabbit hole",
+          "name": "railway",
+          "description": "later: use railway item"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "archaeological chamber",
+      "description": "You're in a chamber that for some reason has an electric \nlight on. It looks like someone's been here recently. There's all kinds of archaeological equipment \nscattered around the room. A cupboard with books containing the history of first men has to be implemented.",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "archaeological chamber",
+          "to": "Cave with the mortal remains of the first men",
+          "name": "hole in the ceiling",
+          "description": "hole in the ceiling"
+        },
+        {
+          "direction": "west",
+          "from": "archaeological chamber",
+          "to": "Crossroads bat",
+          "name": "large brick passageway",
+          "description": "large brick passageway"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "Pillaged armory",
+      "description": "You are standing in the middle of a looted armory. Through the flickering light of \ntorches you can dimly see some stands for armour. A few individual pieces of armour \nlie scattered, broken and rusted on the floor. By looking closer you can see that \nnobody has been here for a while, the armor stands and the broken armor pieces are covered \nwith a thick layer of dust.",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "Pillaged armory",
+          "to": "Crossroads ape",
+          "name": "stone staircase",
+          "description": "a stone staircase going down"
+        },
+        {
+          "direction": "north",
+          "from": "Pillaged armory",
+          "to": "cellar of the smithy",
+          "name": "hole",
+          "description": "hole in the wall"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "iron ingot",
+          "description": "An iron ingot. Maybe you can create something with it.",
+          "place": "is lying under some cobwebs"
+        },
+        {
+          "strength": 0,
+          "name": "iron ingot",
+          "description": "An iron ingot. Maybe you can create something with it.",
+          "place": "is lying under some cobwebs"
+        },
+        {
+          "strength": 0,
+          "name": "iron ingot",
+          "description": "An iron ingot. Maybe you can create something with it.",
+          "place": "is lying under some cobwebs"
+        },
+        {
+          "strength": 0,
+          "name": "iron ingot",
+          "description": "An iron ingot. Maybe you can create something with it.",
+          "place": "is lying under some cobwebs"
+        }
+      ]
+    },
+    {
+      "name": "Earthworm tunnel",
+      "description": "A small tunnel that feels like it was dug by an oversized earthworm. \nIn the absence of light, you can feel the wet, damp earth surrounding \nyou in far too many places on your body. Thank God you haven't eaten \nmuch since you arrived at the beach, otherwise you would be stuck down \nhere forever. Slowly you feel the walls coming closer and closer to you \nfrom all sides. Either you are claustrophobic or the walls are actually \nmoving, but in both cases it's time to leave the tunnel!",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "Earthworm tunnel",
+          "to": "Butcher's Room I",
+          "name": "small door",
+          "description": "a small door"
+        },
+        {
+          "direction": "up",
+          "from": "Earthworm tunnel",
+          "to": "giant rabbit hole",
+          "name": "little earthworm tunnel",
+          "description": "little earthworm tunnel"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "Cave with underground river",
+      "description": "You're standing in a dark cave that smells like rotten fish. Your feet are wet and cold and you feel something muddy. \nIt looks like you are standing in the middle of an underground river. But when you take a closer look you notice \nthat it consists only of garbage, garbage and sewage. Man, it stinks!",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "Cave with underground river",
+          "to": "cave on the beach",
+          "name": "ladder",
+          "description": "ladder leading to cave on the beach"
+        },
+        {
+          "direction": "north",
+          "from": "Cave with underground river",
+          "to": "Locker room",
+          "name": "a  dry way out of this cave",
+          "description": "a dry way out of this cave"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "old tattered leather shoe",
+          "description": "decomposed by the water and many sweaty feat",
+          "place": "swimming in the water"
+        },
+        {
+          "strength": 3,
+          "name": "old rusty and bent knife",
+          "description": "better suited for poisoning than stabbing",
+          "place": "lying on the ground of the river"
+        },
+        {
+          "strength": 1,
+          "name": "old ampoule full of fermented wine, mixed with brackish water",
+          "description": "lying there a few years or for decades, the wine is undrinkable",
+          "place": "lying on the ground of the river, partly covered with mud "
+        },
+        {
+          "strength": 1,
+          "name": "large gnawed rotten brown bone of an animal",
+          "description": "it smells so disusting that you have absolutely no desire to touch it",
+          "place": "swimming on the surface of the river "
+        }
+      ]
+    },
+    {
+      "name": "Locker room",
+      "description": "You are standing in the middle of a small cave that is apparently used as a \nchanging room. The floor is tiled and heated, and on the walls are small cabins for changing. ",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "Locker room",
+          "to": "Secret Grotto",
+          "name": "way",
+          "description": "way"
+        },
+        {
+          "direction": "south",
+          "from": "Locker room",
+          "to": "Cave with underground river",
+          "name": "way",
+          "description": "way, description is to define"
+        }
+      ],
+      "characters": [],
+      "items": [
+        {
+          "strength": 0,
+          "name": "big towel with a kind of flower pattern in blue and pink",
+          "description": "big towel with a kind of flower pattern in blue and pink",
+          "place": "lying on the towel stand"
+        }
+      ]
+    },
+    {
+      "name": "Killer Sauna",
+      "description": "The room is dark and hardly lit. Suddenly you feel so warm and it's so hard to \nbreathe. The air is hot and stuffy, the sweat is running off your forehead. \nYou slowly notice how your vision disappears and your eyes turn black. It's \nmuch too hot in here, even for a sauna. Get out of here!",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "Killer Sauna",
+          "to": "Secret Grotto",
+          "name": "stone way",
+          "description": "stone way"
+        },
+        {
+          "direction": "north",
+          "from": "Killer Sauna",
+          "to": "Butcher's Room I",
+          "name": "locked door",
+          "description": "locked door"
+        }
+      ],
+      "characters": [],
+      "items": []
+    },
+    {
+      "name": "house in the village",
+      "description": "You are in a house at the village with some natives in it.",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "house in the village",
+          "to": "village square",
+          "name": "house door",
+          "description": "A wooden door going outside towards the village square."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "sewing kit",
+          "description": "A sewing kit that can be used to sew pieces of textile together.",
+          "place": "lying on the table"
+        },
+        {
+          "strength": 0,
+          "name": "apple",
+          "description": "A large, red apple.",
+          "place": "lying on the table"
+        }
+      ]
+    },
+    {
+      "name": "village square",
+      "description": "You are on the village square in the middle of the village.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "village square",
+          "to": "house in the village",
           "name": "door",
-          "description": "leaning door"
+          "description": "The wooden door of a house."
+        },
+        {
+          "direction": "east",
+          "from": "village square",
+          "to": "smithy",
+          "name": "gate",
+          "description": "The gate of the smithy."
+        },
+        {
+          "direction": "north",
+          "from": "village square",
+          "to": "sacrificial altar",
+          "name": "path",
+          "description": "A path going up towards the vulcan."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "grilled pork",
+          "description": "A delicious smelling grilled pork.",
+          "place": "hanging on a barbecue skewer over the fire"
+        }
+      ],
+      "interactiveCraftingObjects": [
+        {
+          "name": "stove",
+          "description": "A stove over the fire, where you can prepare food.",
+          "state": "useable",
+          "place": "over the fire",
+          "usage": "It can be used for preparing food.",
+          "action": "cooking",
+          "createables": [
+            {
+              "name": "fried fish",
+              "description": "A good looking and very good smelling fried fish.",
+              "neededMaterials": [
+                {
+                  "name": "fish",
+                  "number": "1"
+                }
+              ]
+            },
+            {
+              "name": "baked apple",
+              "description": "A delicious looking baked apple. Smells like these your mom made on christmas every year.",
+              "neededMaterials": [
+                {
+                  "name": "apple",
+                  "number": "1"
+                }
+              ]
+            },
+            {
+              "name": "fried egg",
+              "description": "A fried egg, nothing special. But it looks very jummy.",
+              "neededMaterials": [
+                {
+                  "name": "egg",
+                  "number": "1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "smithy",
+      "description": "You are in the smithy of the village with a smith and his assistant in it.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "smithy",
+          "to": "village square",
+          "name": "gate",
+          "description": "A gate going outside towards the village square."
+        },
+        {
+          "direction": "down",
+          "from": "smithy",
+          "to": "cellar of the smithy",
+          "name": "ladder",
+          "description": "A ladder going down to the cellar of the smithy."
+        }
+      ],
+      "items": [
+        {
+          "strength": 3,
+          "name": "hammer",
+          "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
+          "place": "is lying on the anvil"
+        },
+        {
+          "strength": 5,
+          "name": "iron helmet",
+          "description": "A freshly forged, strong helmet made out of iron.",
+          "place": "is lying in the shelf"
+        }
+      ],
+      "interactiveCraftingObjects": [
+        {
+          "name": "anvil",
+          "description": "An anvil which can be used for forging things.",
+          "state": "useable",
+          "place": "is standing on the floor",
+          "usage": "It can be used for forging things.",
+          "action": "forging",
+          "createables": [
+            {
+              "name": "iron boots",
+              "description": "Boots made out of iron to protect your feet.",
+              "neededMaterials": [
+                {
+                  "name": "iron ingot",
+                  "number": "4"
+                }
+              ]
+            },
+            {
+              "name": "iron axe",
+              "description": "An axe made out of iron.",
+              "neededMaterials": [
+                {
+                  "name": "iron ingot",
+                  "number": "2"
+                },
+                {
+                  "name": "wood stick",
+                  "number": "1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "furnance",
+          "description": "An furnance which can be used for melting ores.",
+          "state": "useable",
+          "place": "is standing next to the wall",
+          "usage": "It can be used for melting ores.",
+          "action": "melting",
+          "createables": [
+            {
+              "name": "iron ingot",
+              "description": "An iron ingot. Maybe you can create something with it.",
+              "neededMaterials": [
+                {
+                  "name": "piece of coal",
+                  "number": "1"
+                },
+                {
+                  "name": "iron ore",
+                  "number": "1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cellar of the smithy",
+      "description": "You are in cellar of the smithy.",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "cellar of the smithy",
+          "to": "smithy",
+          "name": "ladder",
+          "description": "A ladder going up to the ground floor of the smithy."
+        },
+        {
+          "direction": "south",
+          "from": "cellar of the smithy",
+          "to": "Pillaged armory",
+          "name": "cupboard",
+          "description": "A big cupboard standing next to the wall. Could be something special..."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "piece of coal",
+          "description": "A black and dusty piece of coal.",
+          "place": "is lying in a dark corner"
+        },
+        {
+          "strength": 0,
+          "name": "piece of coal",
+          "description": "A black and dusty piece of coal.",
+          "place": "is lying in a dark corner"
+        },
+        {
+          "strength": 0,
+          "name": "piece of coal",
+          "description": "A black and dusty piece of coal.",
+          "place": "is lying in a dark corner"
+        },
+        {
+          "strength": 0,
+          "name": "piece of coal",
+          "description": "A black and dusty piece of coal.",
+          "place": "is lying in a dark corner"
+        },
+        {
+          "strength": 0,
+          "name": "wood stick",
+          "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
+          "place": "is leaning on the wall"
+        },
+        {
+          "strength": 0,
+          "name": "wood stick",
+          "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
+          "place": "is leaning on the wall"
+        },
+        {
+          "strength": 0,
+          "name": "iron ore",
+          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+          "place": "is lying in a container"
+        },
+        {
+          "strength": 0,
+          "name": "iron ore",
+          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+          "place": "is lying in a container"
+        },
+        {
+          "strength": 0,
+          "name": "iron ore",
+          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+          "place": "is lying in a container"
+        },
+        {
+          "strength": 0,
+          "name": "iron ore",
+          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+          "place": "is lying in a container"
+        }
+      ],
+      "interactiveCraftingObjects": []
+    },
+    {
+      "name": "sacrificial altar",
+      "description": "You are standing in front of an sacrificial altar where people can make a sacrifice for the forgiveness of their sins.",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "sacrificial altar",
+          "to": "village square",
+          "name": "path to the village",
+          "description": "A path going downwards to the village."
+        },
+        {
+          "direction": "west",
+          "from": "sacrificial altar",
+          "to": "vulcan",
+          "name": "path to the vulcan",
+          "description": "A narrow and very steep path going upwards to the vulcan. If you go up here, it can get very hot."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "potion",
+          "description": "A little glass bottle with a purple liquid in it. Could be a potion with a magic effect.",
+          "place": "standing on the altar"
+        },
+        {
+          "strength": 0,
+          "name": "altar cloth",
+          "description": "A white, large piece of textile used to decorate the altar.",
+          "place": "is spear over the altar"
+        }
+      ]
+    },
+    {
+      "name": "vulcan",
+      "description": "You are standing on a vulcan. In front of you there is the crater with the seething lava in it.",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "vulcan",
+          "to": "sacrificial altar",
+          "name": "path",
+          "description": "A narrow and very steep path going down to the sacrificial altar. If you go down this path, it will get cooler."
+        }
+      ],
+      "items": [
+
+      ]
+    },
+    {
+      "name": "beginning of the forest",
+      "description": "You find yourself at the beginning of a forest. \nThere are different noises coming from the inside. They do not sound friendly. \nThere is a sign leading inside the forest which leads to an old house.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "beginning of the forest",
+          "to": "forest path",
+          "name": "path",
+          "description": "You are taking the path leading inside the forest. The noises are getting louder and louder!"
+        },
+        {
+          "direction": "east",
+          "from": "beginning of the forest",
+          "to": "maple tree",
+          "name": "path outside the forest",
+          "description": "A path leading outside the forest."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "liana",
+          "description": "A liana hanging from a tree. It seems to be as strong as a rope.",
+          "place": "hanging from the tree"
+        },
+        {
+          "strength": 0,
+          "name": "pile of leaves",
+          "description": "A pile of leaves with something under it.",
+          "place": "is lying on the ground"
+        }
+      ]
+    },
+    {
+      "name": "forest path",
+      "description": "A path with trees and a small tree house. \nIt does not look to stable but should be barely enough to lift yourself. \nTo the north is a powering river with a tiger in front of it!",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "forest path",
+          "to": "tree house",
+          "name": "ladder",
+          "description": "A broken ladder to the tree house. There is a step lying on the ground but the nails are missing."
+        },
+        {
+          "direction": "east",
+          "from": "forest path",
+          "to": "beginning of the forest",
+          "name": "path",
+          "description": "You are going back to the beginning of the forest. The noises are getting more and more quiet and you feel relieved."
+        },
+        {
+          "direction": "north",
+          "from": "forest path",
+          "to": "forest path with four directions",
+          "name": "bridge made of a cut tree",
+          "description": "You are balancing above the tree which was cut to get over the powering river."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "step from the tree house",
+          "description": "A step from the tree house which could be used to get up.",
+          "place": "is lying on the ground"
+        },
+        {
+          "strength": 0,
+          "name": "berrys",
+          "description": "Some berrys which seme suspicious.",
+          "place": "are hanging on a bush"
+        },
+        {
+          "strength": 1,
+          "name": "rusty curved nails",
+          "description": "Some rusty curved nails which can not be used anymore.",
+          "place": "are lying on the ground"
+        }
+      ]
+    },
+    {
+      "name": "tree house",
+      "description": "You find yourself inside the tree house which is pretty high above the ground. \nYou decide to better not look down. The wood is creaking under you!",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "tree house",
+          "to": "forest path",
+          "name": "ladder",
+          "description": "You take the ladder down the tree house. You climb very slowly to make sure you don´t fall down."
+        },
+        {
+          "direction": "north",
+          "from": "tree house",
+          "to": "forest path with four directions",
+          "name": "liana",
+          "description": "You hold yourself very tight on the liana to swing above the powering river."
+        }
+      ],
+      "items": [
+        {
+          "strength": 1,
+          "name": "empty water bottle",
+          "description": "An empty water bottle which is very robust.",
+          "place": "is lying on a small table"
+        },
+        {
+          "strength": 0,
+          "name": "rotten apple",
+          "description": "A rotten apple with a worm looking out.",
+          "place": "is lying in a corner"
+        },
+        {
+          "strength": 0,
+          "name": "pair of shoes",
+          "description": "A pair of shoes looking like the owner forgot them. They got the initials G. E. written inside.",
+          "place": "are lying on a chair"
+        }
+      ]
+    },
+    {
+      "name": "forest path with four directions",
+      "description": "You reached a forest fork which leads to four directions.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "forest path with four directions",
+          "to": "in front the old house",
+          "name": "path",
+          "description": "You take the way leading to an old house in the forest."
+        },
+        {
+          "direction": "north",
+          "from": "forest path with four directions",
+          "to": "ruins entry",
+          "name": "path",
+          "description": "You are taking the way to a ruin which you can see in the distance."
+        },
+        {
+          "direction": "east",
+          "from": "forest path with four directions",
+          "to": "village square",
+          "name": "a long path",
+          "description": "You are taking a long path. On that path are many footsteps which tells you that this path is often used."
+        },
+        {
+          "direction": "south",
+          "from": "forest path with four directions",
+          "to": "forest path",
+          "name": "bridge made of a cut tree",
+          "description": "You are balancing above the tree which was cut to get over the powering river to get to the side with the tree house."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "fish",
+          "description": "A caught fish",
+          "place": "is hanging on a fishing rod"
+        },
+        {
+          "strength": 1,
+          "name": "broken fishing rod",
+          "description": "A broken fishing rod which can no longer be used.",
+          "place": "is attached to the ground"
+        },
+        {
+          "strength": 1,
+          "name": "broken vase",
+          "description": "A broken vase which was used to transport water.",
+          "place": "lying next to the river"
+        }
+      ]
+    },
+    {
+      "name": "in front the old house",
+      "description": "You are in front the old house. You can see some  footsteps leading inside. \nThere could be a person inside the house which you can´t see because of the barricaded windows. You should better watch out.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "in front the old house",
+          "to": "old house in the forest",
+          "name": "door",
+          "description": "You go inside the old house by using the leaning door infront the house."
+        },
+        {
+          "direction": "east",
+          "from": "in front the old house",
+          "to": "forest path with four directions",
+          "name": "path",
+          "description": "You go away from the house."
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "pile of wood",
+          "description": "A pile of wood",
+          "place": "is lying next to the old house"
+        },
+        {
+          "strength": 0,
+          "name": "abandoned beehive",
+          "description": "A beehive without honey or bees.",
+          "place": "is lying next to a tree."
+        }
+      ]
+    },
+    {
+      "name": "old house in the forest",
+      "description": "It seems like a small house. You hear someone screaming for help from the cellar!!",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "old house in the forest",
+          "to": "cellar of the old house in the forest",
+          "name": "ladder",
+          "description": "You take a ladder down the cellar."
+        },
+        {
+          "direction": "east",
+          "from": "old house in the forest",
+          "to": "in front the old house",
+          "name": "door",
+          "description": "You are leaving the house."
+        }
+      ],
+      "items": [
+        {
+          "strength": 9,
+          "name": "axe",
+          "description": "A sharp axe which could cut a tree.",
+          "place": "is hanging on the wall"
+        },
+        {
+          "strength": 0,
+          "name": "old diary",
+          "description": "A diary from someone.",
+          "place": "is lying on a old wooden table"
+        },
+        {
+          "strength": 0,
+          "name": "bag of gold",
+          "description": "A small bag full of gold.",
+          "place": "is lying on a old wooden table"
+        },
+        {
+          "strength": 0,
+          "name": "bread",
+          "description": "A deliciously smelling bread.",
+          "place": "is lying on a old wooden table"
+        }
+      ]
+    },
+    {
+      "name": "cellar of the old house in the forest",
+      "description": "A cellar with a torture chamber and a pile of wood. You see a person tied to a rack. He seems very scared!",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "cellar of the old house in the forest",
+          "to": "old house in the forest",
+          "name": "ladder",
+          "description": "You take the ladder to get out of the cellar."
+        },
+        {
+          "direction": "west",
+          "from": "cellar of the old house in the forest",
+          "to": "Living room of a torturer",
+          "name": "hole",
+          "description": "You go inside a hole leading to the living room of a torturer."
+        }
+      ],
+      "items": [
+        {
+          "strength": 3,
+          "name": "whip",
+          "description": "A whip made of leather",
+          "place": "is lying on a table"
+        },
+        {
+          "strength": 0,
+          "name": "wood",
+          "description": "Some wood.",
+          "place": "is lying in a corner"
+        },
+        {
+          "strength": 0,
+          "name": "chest",
+          "description": "A chest with something in it.",
+          "place": "is lying next to the wood"
+        },
+        {
+          "strength": 0,
+          "name": "diving mask",
+          "description": "A mask which helps to dive.",
+          "place": "is lying in the chest"
+        }
+      ]
+    },
+    {
+      "name": "ruins entry",
+      "description": "It is a delerict building. It was abandoned ages ago.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "ruins entry",
+          "to": "ruins basement",
+          "name": "archway",
+          "description": "An archway leading into the building."
+        },
+        {
+          "direction": "south",
+          "from": "ruins entry",
+          "to": "forest path with four directions",
+          "name": "path",
+          "description": "A long path leading to a forest."
+        },
+        {
+          "direction": "east",
+          "from": "ruins entry",
+          "to": "ruins riddle",
+          "name": "path",
+          "description": "A path leading to a court with scattered debris."
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "ruins riddle",
+      "description": "You see some scattered fragments of the building. Some of them have inscriptions.",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "ruins riddle",
+          "to": "ruins entry",
+          "name": "path",
+          "description": "A path leading back to the building"
+        },
+        {
+          "direction": "east",
+          "from": "ruins riddle",
+          "to": "ruins treasure",
+          "enable": "ruins riddle completed",
+          "name": "path",
+          "description": "A path you can recognize from the deciphered inscription"
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "ruins treasure",
+      "description": "The place indicated by the deciphered inscription.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "ruins treasure",
+          "to": "ruins riddle",
+          "name": "path",
+          "description": "The path leading back to the scattered debris."
+        }
+      ],
+      "items": [
+        {
+          "strength": 7,
+          "name": "decorated iron chestplate",
+          "description": "The chestplate is decorated with valuable gems."
+        },
+
+        {
+          "strength": 0,
+          "name": "stack of torches",
+          "description": "A couple of torches."
+        }
+      ]
+    },
+    {
+      "name": "ruins basement",
+      "description": "It was once an impressing building, but after centuries, there isn't much left.",
+      "ways": [
+        {
+          "direction": "north",
+          "from": "ruins basement",
+          "to": "ruins outside",
+          "name": "archway",
+          "description": "An archway leading outside."
+        },
+        {
+          "direction": "east",
+          "from": "ruins basement",
+          "to": "ruins entry",
+          "name": "archway",
+          "description": "An archway leading back."
+        },
+        {
+          "direction": "up",
+          "from": "ruins basement",
+          "to": "ruins top",
+          "name": "bricks",
+          "description": "Multiple bricks protrude from the wall, enabling a bold climb to the top of the ruin."
+        }
+      ],
+      "items": [{
+        "strength": 7,
+        "name": "rusty iron sword",
+        "description": "The sword looks a bit fragile, but should last a couple of hits.",
+        "place": "lies in the dust"
+      }]
+    },
+    {
+      "name": "ruins top",
+      "description": "Up from here, you can see far.",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "ruins top",
+          "to": "ruins basement",
+          "name": "descent",
+          "description": "A dangerous descent to the basement."
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "ruins outside",
+      "description": "Outside of the building.",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "ruins outside",
+          "to": "ruins basement",
+          "name": "archway",
+          "description": "An archway leading into the building."
+        },
+        {
+          "direction": "down",
+          "from": "ruins outside",
+          "to": "giant rabbit hole",
+          "name": "hole in the middle of a meadow",
+          "description": "hole in the middle of a meadow leading down"
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "flower meadow",
+      "description": "A large weadow with cute squirrels and chirping birds.",
+      "ways": [
+        {
+          "direction": "east",
+          "from": "flower meadow",
+          "to": "hill",
+          "name": "serpentines",
+          "description": "a rocky winding mountain path"
+        },
+        {
+          "direction": "north",
+          "from": "flower meadow",
+          "to": "maple tree",
+          "name": "narrow passage",
+          "description": "a small gap between some bushes"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "grass",
+          "description": "The grass has grown very high so that you cannot see the ground."
+        },
+        {
+          "strength": 0,
+          "name": "flowers",
+          "description": "The weadow is full of beautiful flowers in all colors."
+        }
+      ],
+      "characters" : [
+        {
+          "name": "young girl",
+          "situation": "A young girl is sitting on the weadow crying.",
+          "intro": "I can\u0027t find my cat Findus. He run away and I searched him everywhere, but he disappeared.",
+          "comment": "TODO character + squirrel"
+        }
+      ]
+    },
+    {
+      "name": "maple tree",
+      "description": "an ancient maple tree with huge branches and bushes all around",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "maple tree",
+          "to": "flower meadow",
+          "name": "narrow passage",
+          "description": "a small gap between some bushes"
+        },
+        {
+          "direction": "north",
+          "from": "maple tree",
+          "to": "front of the mill",
+          "name": "paved way",
+          "description": "a wide street leads over cobblestones"
+        },
+        {
+          "direction": "west",
+          "from": "maple tree",
+          "to": "beginning of the forest",
+          "name": "narrow passage",
+          "description": "a small gap between some bushes"
+        },
+        {
+          "direction": "up",
+          "from": "maple tree",
+          "to": "low branches of maple tree",
+          "enable": "has ladder",
+          "name": "climbing tree",
+          "description": "maybe you can reach the low hanging branches..."
         }
       ],
       "items": [],
-      "name": "cellar4",
-      "description": "A large dirty room, full of old furniture."
+      "characters": []
+    },
+    {
+      "name": "low branches of maple tree",
+      "description": "branches are all around you",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "low branches of maple tree",
+          "to": "maple tree",
+          "name": "climbing tree",
+          "description": "with a skillfull jump you can reach the ground"
+        },
+        {
+          "direction": "up",
+          "from": "low branches of maple tree",
+          "to": "top of maple tree",
+          "name": "climbing",
+          "description": "above you there are lots of branches"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "honey",
+          "descripion": "the beehive is full of honey",
+          "place": "inside a beehive"
+        }
+      ],
+      "characters": []
+    },
+    {
+      "name": "top of maple tree",
+      "description": "You\u0027re on top of the maple tree. You can see the sun above you.",
+      "ways": [
+        {
+          "direction": "down",
+          "from": "top of maple tree",
+          "to": "low branches of maple tree",
+          "name": "climbing",
+          "description": "you should be careful while climbing down"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "eggs",
+          "descripion": "in a birds nest are lying some eggs"
+        },
+        {
+          "strength": 0,
+          "name": "cat",
+          "descripion": "the cat meows mournfully"
+        }
+      ],
+      "characters": []
+    },
+    {
+      "name": "front of the mill",
+      "description": "You stand in front of an old mill.",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "front of the mill",
+          "to": "maple tree",
+          "name": "paved way",
+          "description": "a wide street leads over cobblestones"
+        },
+        {
+          "direction": "east",
+          "from": "front of the mill",
+          "to": "shore of the pond",
+          "name": "mud path",
+          "description": "the path looks muddy and wet"
+        },
+        {
+          "direction": "north",
+          "from": "front of the mill",
+          "to": "mill",
+          "name": "wooden door",
+          "description": "Whether the door is open...?"
+        }
+      ],
+      "items": [],
+      "characters": []
+    },
+    {
+      "name": "mill",
+      "description": "",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "mill",
+          "to": "front of the mill",
+          "name": "wooden door",
+          "description": "the door looks rotten"
+        }
+      ],
+      "items": [
+        {
+          "strength": 0,
+          "name": "ladder",
+          "description": "A long ladder is standing in the corner."
+        },
+        {
+          "strength": 0,
+          "name": "sacks of flour",
+          "description": "Sacks of flour are leaning against the wall."
+        }
+      ],
+      "characters": []
+    },
+    {
+      "name": "shore of the pond",
+      "description": "an idyllic pond with water lilies on it",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "shore of the pond",
+          "to": "front of the mill",
+          "name": "mud path",
+          "description": "the path looks muddy and wet"
+        },
+        {
+          "direction": "east",
+          "from": "shore of the pond",
+          "to": "chapel",
+          "name": "gravel path",
+          "description": "a wide flat gravel path leads to a chapel at the edge of the pond"
+        },
+        {
+          "direction": "north",
+          "from": "shore of the pond",
+          "to": "Cliff above the ship graveyard",
+          "name": "stream path",
+          "description": "path runs alongside a stream"
+        },
+        {
+          "direction": "south",
+          "from": "shore of the pond",
+          "to": "pond",
+          "name": "into the pond",
+          "description": "the bank in front of you is very flat"
+        }
+      ],
+      "items": [],
+      "characters": [
+        {
+          "name": "elder lady",
+          "situation": "An elder lady is siiting on a bench and enjoys the sun.",
+          "intro": "What a sunny day. It\u0027s such a warm sommer. I really like the flowers."
+        }
+      ]
+    },
+    {
+      "name": "pond",
+      "description": "You\u0027re in the middle of the pond. You can see a waterfall splashing into the water.",
+      "ways": [
+        {
+          "direction": "north",
+          "from": "pond",
+          "to": "shore of the pond",
+          "name": "swim towards shore",
+          "description": "The shore seams to be a lot saver."
+        },
+        {
+          "direction": "south",
+          "from": "pond",
+          "to": "waterfall",
+          "enable": "has life jacket",
+          "name": "swim towards waterfall",
+          "description": "the waterfall looks dangerous. Sure you want to risk your life?"
+        },
+        {
+          "direction": "down",
+          "from": "pond",
+          "to": "bottom of the pond",
+          "name": "diving",
+          "description": "Maybe you can dive to the ground"
+        }
+      ],
+      "items": [],
+      "characters": []
+    },
+    {
+      "name": "bottom of the pond",
+      "description": "There\u0027s water all around you. You can\u0027t see anything.",
+      "enable": "has swimming goggles",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "bottom of the ground",
+          "to": "pond",
+          "name": "diving",
+          "description": "Above you the sun is shining."
+        }
+      ],
+      "items": [],
+      "characters": []
+    },
+    {
+      "name": "waterfall",
+      "description": "the water foams and creates little waves",
+      "ways": [
+        {
+          "direction": "north",
+          "from": "waterfall",
+          "to": "pond",
+          "name": "swim towards the pond",
+          "description": "the water over there looks calmer"
+        },
+        {
+          "direction": "south",
+          "from": "waterfall",
+          "to": "hidden cave",
+          "name": "through the waterfall",
+          "description": "Directly in front of you the waterfall is splashing into the pond."
+        }
+      ],
+      "items": [],
+      "characters": []
+    },
+    {
+      "name": "hidden cave",
+      "description": "",
+      "ways": [
+        {
+          "direction": "north",
+          "from": "hidden cave",
+          "to": "waterfall",
+          "name": "through the waterfall",
+          "description": "Directly in front of you the waterfall is splashing into the pond."
+        },
+        {
+          "direction": "down",
+          "from": "hidden cave",
+          "to": "Secret Grotto",
+          "name": "wooden staircase",
+          "description": "a wooden staircase leading down"
+        }
+      ],
+      "items": [],
+      "characters": []
+    },
+    {
+      "name": "chapel",
+      "description": "It is completely quiet in the chapel. You hardly dare to breathe.",
+      "ways": [
+        {
+          "direction": "west",
+          "from": "chapel",
+          "to": "shore of the pond",
+          "name": "gravel path",
+          "description": "a wide flat gravel path leads to a pond"
+        }
+      ],
+      "items": [],
+      "characters": []
     }
+
+
+
   ]
 }
