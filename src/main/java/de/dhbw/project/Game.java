@@ -11,7 +11,7 @@ public class Game {
     public Player player;
     @SerializedName("rooms")
     private List<Room> rooms;
-    public Commands commands;
+    public transient Commands commands;
 
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
