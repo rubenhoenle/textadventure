@@ -37,7 +37,8 @@ public class MoveCommand extends AutoCommand {
             Way resultWay = game.getWayForDirection(direction);
             System.out.println("You're taking the " + resultWay.getName() + " " + direction + ". ");
             game.player.setRoomName(resultWay.getTo());
-            System.out.println(game.getCurrentRoom() + " It's " + game.getCurrentRoom().getDescription() + ".");
+            System.out.println(game.getCurrentRoom());
+            System.out.println(game.getCurrentRoom().getDescription());
         }
     }
 

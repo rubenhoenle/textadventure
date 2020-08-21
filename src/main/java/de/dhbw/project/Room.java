@@ -15,6 +15,8 @@ public class Room extends Thing {
     private List<InteractiveCraftingObject> roomInteractiveCraftingObjectsList = new ArrayList<>();
     @SerializedName("enable")
     private String enabled = "";
+    @SerializedName("defaultItemLocation")
+    private String defaultItemLocation; // The location the an item gets if it is dropped in this room
 
     // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
     // variables
@@ -92,4 +94,11 @@ public class Room extends Thing {
         return roomItemList;
     }
 
+    public String getDefaultItemLocation() {
+        if (null != defaultItemLocation) {
+            return defaultItemLocation;
+        } else {
+            return Constants.WHERE;
+        }
+    }
 }

@@ -32,6 +32,7 @@ public class DropCommand extends AutoCommand {
         } else {
             game.player.removeItem(dropItem);
             game.getCurrentRoom().addItem(dropItem);
+            dropItem.setWhere(game.getCurrentRoom().getDefaultItemLocation());
             System.out.println("The item " + dropItem.getName() + " was dropped in room '"
                     + game.getCurrentRoom().getName() + "'.");
         }
