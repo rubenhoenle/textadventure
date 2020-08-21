@@ -46,4 +46,40 @@ public class Player {
     public void setRoomName(String roomName) {
         this.roomName = roomName;
     }
+
+    public List<Item> addItem(Item item) {
+        inventory.add(item);
+        return inventory;
+    }
+
+    public List<Item> removeItem(Item item) {
+        inventory.remove(item);
+        return inventory;
+    }
+
+    // getItem Method: returns an item, if an item with itemName was found, else returns null
+    public Item getItem(String itemName) {
+        for (Item i : inventory) {
+            if (i.getName().equals(itemName)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    // counts how often the player has a specific item in his inventory (returns -1 when item is not found)
+    public int getNumberOfItem(String itemName) {
+        int count = 0;
+        for (Item i : inventory) {
+            if (i.getName().equals(itemName)) {
+                count++;
+            }
+        }
+
+        if (count > 0) {
+            return count;
+        }
+
+        return -1;
+    }
 }

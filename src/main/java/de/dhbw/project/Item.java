@@ -7,6 +7,8 @@ public class Item extends Thing {
     private String state;
     @SerializedName("strength")
     private int strength;
+    @SerializedName("place")
+    private String place;
 
     // Constructor for an item - calls the super constructor of the parent (thing) and adds the item-specific variables
     public Item(String name, String description, String state, int strength) {
@@ -34,6 +36,10 @@ public class Item extends Thing {
     }
 
     public String getWhere() {
-        return Constants.WHERE;
+        if (place != null) {
+            return place;
+        } else {
+            return Constants.WHERE;
+        }
     }
 }

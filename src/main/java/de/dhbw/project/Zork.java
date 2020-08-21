@@ -2,8 +2,13 @@ package de.dhbw.project;
 
 import com.google.gson.Gson;
 
+import de.dhbw.project.nls.Commands;
+import de.dhbw.project.nls.commands.*;
+
 import java.io.*;
-import java.nio.file.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 // Main class for the project
@@ -12,6 +17,7 @@ public class Zork {
     private static Game game;
     private static Gson gson = new Gson();
     private static String gameDir;
+    private static Commands commands = new Commands();
 
     // The game is started from here
     public static void main(String[] args) {
@@ -53,6 +59,7 @@ public class Zork {
         else {
             Game storedGame = Zork.parseData(path.toAbsolutePath().toString());
             game = storedGame;
+            registerCommands();
             game.play(game.player);
             System.out.println("Game loaded.");
         }
@@ -81,5 +88,24 @@ public class Zork {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static void registerCommands() {
+        commands = new Commands();
+        commands.register(new LookCommand(game));
+        commands.register(new MoveCommand(game));
+        commands.register(new TakeCommand(game));
+        commands.register(new DropCommand(game));
+        commands.register(new CraftCommand(game));
+
+        commands.register(new InventoryCommand(game));
+        commands.register(new HelpCommand());
+        commands.register(new ShowPlaceCommand(game));
+        commands.register(new ExitCommand());
+
+        commands.register(new SaveCommand(game));
+        commands.register(new LoadCommand());
+
+        game.commands = commands;
     }
 }

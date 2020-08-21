@@ -3,7 +3,7 @@ package de.dhbw.project;
 import com.google.gson.annotations.SerializedName;
 
 // Abstract class for all occuring things in the game (ways, items, ...)
-abstract class Thing {
+public abstract class Thing {
     // Each thing has at least a name and a description
     @SerializedName("name")
     private String name;
