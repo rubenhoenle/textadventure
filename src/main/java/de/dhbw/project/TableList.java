@@ -220,21 +220,21 @@ public class TableList {
                 }
                 if (strings[i] != null) {
                     switch (aligns[i]) {
-                        case LEFT:
-                            part += strings[i];
-                            break;
-                        case RIGHT:
-                            for (int j = 0; j < tableSizes[i] - strings[i].length(); j++) {
-                                part += " ";
-                            }
-                            part += strings[i];
-                            break;
-                        case CENTER:
-                            for (int j = 0; j < (tableSizes[i] - strings[i].length()) / 2; j++) {
-                                part += " ";
-                            }
-                            part += strings[i];
-                            break;
+                    case LEFT:
+                        part += strings[i];
+                        break;
+                    case RIGHT:
+                        for (int j = 0; j < tableSizes[i] - strings[i].length(); j++) {
+                            part += " ";
+                        }
+                        part += strings[i];
+                        break;
+                    case CENTER:
+                        for (int j = 0; j < (tableSizes[i] - strings[i].length()) / 2; j++) {
+                            part += " ";
+                        }
+                        part += strings[i];
+                        break;
                     }
                 }
                 while (part.length() < tableSizes[i] + spacing) {
