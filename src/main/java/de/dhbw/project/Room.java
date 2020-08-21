@@ -101,4 +101,15 @@ public class Room extends Thing {
             return Constants.WHERE;
         }
     }
+
+    public List<Item> addItem(Item item) {
+        roomItemList.add(item);
+        return roomItemList;
+    }
+
+    public List<Item> removeItem(Item item) {
+        roomItemList.remove(item);
+        return roomItemList;
+    }
+
 }
