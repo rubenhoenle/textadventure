@@ -56,14 +56,13 @@ public class LookCommand extends AutoCommand {
 
             // Show available interactive objects in the current room
             if (game.getCurrentRoom().getRoomInteractiveObjectsList() != null) {
-                for (InteractiveCraftingObject interactiveCraftingObject : game.getCurrentRoom().getRoomInteractiveObjectsList()) {
-                    System.out.println("A " + interactiveCraftingObject.getName() + " " + interactiveCraftingObject.getWhere() + ". "
-                            + interactiveCraftingObject.getUsage());
+                for (InteractiveCraftingObject interactiveCraftingObject : game.getCurrentRoom()
+                        .getRoomInteractiveObjectsList()) {
+                    System.out.println("A " + interactiveCraftingObject.getName() + " "
+                            + interactiveCraftingObject.getWhere() + ". " + interactiveCraftingObject.getUsage());
                 }
             }
         }
-
-
 
         // Entered phrase is "look + valid direction": show way for the selected direction
         else {

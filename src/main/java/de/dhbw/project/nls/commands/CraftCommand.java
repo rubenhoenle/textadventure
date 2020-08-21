@@ -30,25 +30,26 @@ public class CraftCommand extends AutoCommand {
         String objectName = String.join(" ", object);
 
         if (!(game.getCurrentRoom().getRoomInteractiveCraftingObjectsNameList().contains(objectName)))
-            System.out.println("No crafting object found with name " + objectName + " in room " + game.getCurrentRoom().getName() + ".");
+            System.out.println("No crafting object found with name " + objectName + " in room "
+                    + game.getCurrentRoom().getName() + ".");
 
         else {
-            InteractiveCraftingObject interactiveCraftingObject = game.getCurrentRoom().getRoomInteractiveCraftingObjectByName(objectName);
-            if(interactiveCraftingObject != null) {
-                if(createable == null || createable.isEmpty()) {
+            InteractiveCraftingObject interactiveCraftingObject = game.getCurrentRoom()
+                    .getRoomInteractiveCraftingObjectByName(objectName);
+            if (interactiveCraftingObject != null) {
+                if (createable == null || createable.isEmpty()) {
                     interactiveCraftingObject.print();
                 }
 
-                else
-                {
+                else {
                     String createableName = String.join(" ", createable);
                     Createable createable = interactiveCraftingObject.getCreateableByName(createableName);
 
-                    if(createable != null) {
+                    if (createable != null) {
                         System.out.println(interactiveCraftingObject.createItem(game.player, createable));
-                    }
-                    else {
-                        System.out.println("You can't create a " + createableName + " with this " + interactiveCraftingObject.getName() + ".");
+                    } else {
+                        System.out.println("You can't create a " + createableName + " with this "
+                                + interactiveCraftingObject.getName() + ".");
                     }
                 }
 
@@ -59,7 +60,7 @@ public class CraftCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "craft <object>", "craft" , "craft <object> <createable>+"};
+        String[] patterns = { "craft <object>", "craft", "craft <object> <createable>+" };
         return patterns;
     }
 }

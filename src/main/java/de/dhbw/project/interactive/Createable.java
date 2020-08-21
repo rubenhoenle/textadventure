@@ -6,8 +6,7 @@ import de.dhbw.project.Thing;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Createable extends Thing
-{
+public class Createable extends Thing {
     @SerializedName("neededMaterials")
     private List<Material> createableNeededMaterialList = new ArrayList<>();
 
@@ -22,7 +21,7 @@ public class Createable extends Thing
 
     public String getNeededMaterialAsString() {
         StringBuilder str = new StringBuilder();
-        for(Material material: createableNeededMaterialList) {
+        for (Material material : createableNeededMaterialList) {
             str.append(material.getNumber() + "x " + material.getName());
             str.append(", ");
         }

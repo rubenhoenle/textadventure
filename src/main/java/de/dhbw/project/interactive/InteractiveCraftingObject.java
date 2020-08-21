@@ -6,8 +6,7 @@ import de.dhbw.project.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InteractiveCraftingObject extends Thing
-{
+public class InteractiveCraftingObject extends Thing {
     @SerializedName("state")
     private String state;
     @SerializedName("place")
@@ -20,7 +19,8 @@ public class InteractiveCraftingObject extends Thing
     @SerializedName("createables")
     private List<Createable> interactiveObjectCreateablesList = new ArrayList<>();
 
-    public InteractiveCraftingObject(String name, String description, String state, String place, String usage, String action) {
+    public InteractiveCraftingObject(String name, String description, String state, String place, String usage,
+            String action) {
         super(name, description);
         this.state = state;
         this.place = place;
@@ -44,14 +44,13 @@ public class InteractiveCraftingObject extends Thing
         System.out.println("You want to create a " + createable.getName() + ". For this you gonna need "
                 + createable.getNeededMaterialAsString() + ".");
 
-        for(Material material : createable.getCreateableNeededMaterialList()) {
+        for (Material material : createable.getCreateableNeededMaterialList()) {
             Item item = player.getItem(material.getName());
             int count = player.getNumberOfItem(material.getName());
-            if((item == null) || (count < 0) || ((count - material.getNumber()) < 0)) {
+            if ((item == null) || (count < 0) || ((count - material.getNumber()) < 0)) {
                 return "You don't have all needed materials for this in your inventory.";
             }
-            for(int i = 0; i < material.getNumber(); i++)
-            {
+            for (int i = 0; i < material.getNumber(); i++) {
                 player.removeItem(item);
                 item = player.getItem(material.getName());
             }
@@ -62,7 +61,7 @@ public class InteractiveCraftingObject extends Thing
     }
 
     public void print() {
-        if(interactiveObjectCreateablesList.isEmpty()) {
+        if (interactiveObjectCreateablesList.isEmpty()) {
             System.out.print("This " + this.getName() + " can not be used.");
         }
 
@@ -81,9 +80,8 @@ public class InteractiveCraftingObject extends Thing
     }
 
     public Createable getCreateableByName(String name) {
-        for(Createable createable : interactiveObjectCreateablesList)
-        {
-            if(createable.getName().equalsIgnoreCase(name)) {
+        for (Createable createable : interactiveObjectCreateablesList) {
+            if (createable.getName().equalsIgnoreCase(name)) {
                 return createable;
             }
         }

@@ -59,15 +59,15 @@ public class Room extends Thing {
 
     public List<String> getRoomInteractiveCraftingObjectsNameList() {
         List<String> itemNames = new ArrayList<String>();
-        for(InteractiveCraftingObject interactiveCraftingObject : roomInteractiveCraftingObjectsList) {
+        for (InteractiveCraftingObject interactiveCraftingObject : roomInteractiveCraftingObjectsList) {
             itemNames.add(interactiveCraftingObject.getName());
         }
         return itemNames;
     }
 
     public InteractiveCraftingObject getRoomInteractiveCraftingObjectByName(String name) {
-        for(InteractiveCraftingObject interactiveCraftingObject : roomInteractiveCraftingObjectsList) {
-            if(interactiveCraftingObject.getName().equalsIgnoreCase(name)) {
+        for (InteractiveCraftingObject interactiveCraftingObject : roomInteractiveCraftingObjectsList) {
+            if (interactiveCraftingObject.getName().equalsIgnoreCase(name)) {
                 return interactiveCraftingObject;
             }
         }
