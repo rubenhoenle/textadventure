@@ -45,7 +45,10 @@ public class LookCommand extends AutoCommand {
         else if (isEachDirection) {
             // Show available ways in the current room
             for (Way way : game.getCurrentRoom().getRoomWayList()) {
-                System.out.println("There is a " + way.getName() + " going " + way.getDirection() + ". ");
+                if (way.getDescription() != null)
+                    System.out.println(way.getDescription());
+                else
+                    System.out.println("There is a " + way.getName() + " going " + way.getDirection() + ".");
             }
             // Show available items in the current room
             if (game.getCurrentRoom().getRoomItemList() != null) {

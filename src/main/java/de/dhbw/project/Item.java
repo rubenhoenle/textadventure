@@ -42,4 +42,8 @@ public class Item extends Thing {
             return Constants.WHERE;
         }
     }
+
+    public void setWhere(String location) {
+        place = location;
+    }
 }
