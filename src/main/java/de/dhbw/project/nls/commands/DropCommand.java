@@ -24,17 +24,19 @@ public class DropCommand extends AutoCommand {
             return;
         }
 
-        String itemName = String.join(" ", item);
+        String[] items = String.join(" ", item).split(",");
 
-        Item dropItem = game.player.getItem(itemName);
-        if (null == dropItem) { // condition item name is valid and in inventory
-            System.out.println("The item " + itemName + " was not found in the inventory and cannot be dropped.");
-        } else {
-            game.player.removeItem(dropItem);
-            game.getCurrentRoom().addItem(dropItem);
-            dropItem.setWhere(game.getCurrentRoom().getDefaultItemLocation());
-            System.out.println("The item " + dropItem.getName() + " was dropped in room '"
-                    + game.getCurrentRoom().getName() + "'.");
+        for (String itemName : items) {
+	        Item dropItem = game.player.getItem(itemName.trim());
+	        if (null == dropItem) { // condition item name is valid and in inventory
+	            System.out.println("The item " + itemName + " was not found in the inventory and cannot be dropped.");
+	        } else {
+	            game.player.removeItem(dropItem);
+	            game.getCurrentRoom().addItem(dropItem);
+	            dropItem.setWhere(game.getCurrentRoom().getDefaultItemLocation());
+	            System.out.println("The item " + dropItem.getName() + " was dropped in room '"
+	                    + game.getCurrentRoom().getName() + "'.");
+	        }
         }
     }
 
