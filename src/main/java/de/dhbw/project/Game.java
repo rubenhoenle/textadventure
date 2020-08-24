@@ -4,20 +4,25 @@ import com.google.gson.annotations.SerializedName;
 
 import de.dhbw.project.nls.Commands;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.Scanner;
 
-public class Game {
+public class Game extends JFrame {
     public Player player;
     @SerializedName("rooms")
     private List<Room> rooms;
     public transient Commands commands;
+
+    //private Terminal terminal;
 
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
         this.player = player;
         System.out.println(getCurrentRoom());
         System.out.println(getCurrentRoom().getDescription());
+
+        //terminal = new Terminal(this);
 
         // While-loop for listening to the input commands after each action
         while (true) {
@@ -29,6 +34,14 @@ public class Game {
 
             commands.execute(input + "\0");
         }
+    }
+
+    public void inputFromTerminal(String input)
+    {
+        /*if (input.length() == 1 && Constants.SHORT_DIRECTIONS.contains(input))
+            input = "move " + input;
+
+        commands.execute(input + "\0");*/
     }
 
     // Helper method: Checks if the current room has ways
