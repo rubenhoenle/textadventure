@@ -17,7 +17,7 @@ public class IdentifierFsa extends FSA {
 
     @Override
     public void processChar(char c, int index) {
-        if (Character.isLetter(c)) {
+        if (Character.isLetter(c) || ((Character) c).equals(',')) {
             identifierName.append(c);
             isIdentifier = true;
         } else {

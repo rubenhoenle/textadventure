@@ -26,8 +26,12 @@ public class Game {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
 
-            if (input.length() == 1 && Constants.SHORT_DIRECTIONS.contains(input))
-                input = "move " + input;
+            if (input.length() == 1) {
+            	if(Constants.SHORT_DIRECTIONS.contains(input))
+            		input = "move " + input;
+            	else if(input.equalsIgnoreCase("l"))
+            		input = "look around";
+            }
 
             commands.execute(input + "\0");
         }
