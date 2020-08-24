@@ -1845,6 +1845,11 @@
           "strength": 0,
           "name": "flowers",
           "description": "The weadow is full of beautiful flowers in all colors."
+        },
+        {
+          "strength": 0,
+          "name": "mumble",
+          "description": "mumbles lost by a little child a long time ago"
         }
       ],
       "characters" : [
@@ -1868,7 +1873,18 @@
           "description": "At the east side of the chapel, there is a beautiful meadow."
         }
       ],
-      "items": [],
+      "items": [
+      	{
+      		"strength": 0,
+      		"name": "potted plant",
+      		"description": "a dried up potted plant decorates the altar"
+      	},
+      	{
+      		"strength": 0,
+      		"name": "bible",
+      		"description": "an old dusty bible"
+      	}
+      ],
       "characters": []
     },
     {
@@ -2014,6 +2030,11 @@
           "strength": 0,
           "name": "sacks of flour",
           "description": "Sacks of flour are leaning against the wall."
+        },
+        {
+          "strength": 2,
+          "name": "hammer",
+          "description": "a pretty new hammer"
         }
       ],
       "characters": []
@@ -2096,7 +2117,18 @@
           "description": "Above you the sun is shining."
         }
       ],
-      "items": [],
+      "items": [
+		{
+          "strength": 1,
+          "name": "anchor",
+          "description": "A heavy-looking anchor is almost completely covered by sand."
+        },
+        {
+        	"strength": 0,
+        	"name": "holey umbrella",
+        	"description": "an umbrella full of holes"
+        }
+      ],
       "characters": []
     },
     {
