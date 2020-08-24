@@ -25,10 +25,10 @@ public class Game {
             String input = userInput.nextLine();
 
             if (input.length() == 1) {
-            	if(Constants.SHORT_DIRECTIONS.contains(input))
-            		input = "move " + input;
-            	else if(input.equalsIgnoreCase("l"))
-            		input = "look around";
+                if (Constants.SHORT_DIRECTIONS.contains(input))
+                    input = "move " + input;
+                else if (input.equalsIgnoreCase("l"))
+                    input = "look around";
             }
 
             commands.execute(input + "\0");
