@@ -19,6 +19,8 @@ public class Zork {
     private static String gameDir;
     private static Commands commands = new Commands();
 
+    private static Terminal terminal;
+
     // The game is started from here
     public static void main(String[] args) {
         Splash.print();
@@ -60,6 +62,7 @@ public class Zork {
             Game storedGame = Zork.parseData(path.toAbsolutePath().toString());
             game = storedGame;
             registerCommands();
+            terminal = new Terminal(game, "TextAdventure");
             game.play(game.player);
             System.out.println("Game loaded.");
         }

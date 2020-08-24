@@ -18,17 +18,17 @@ public class Terminal extends JFrame {
     JTextArea area;
     int pos = 0;
 
-    //private Game game;
+    private Game game;
 
-    public Terminal() {
-        //this.game = game;
+    public Terminal(Game game, String title) {
+        this.game = game;
 
-        setTitle("my terminal");
+        setTitle(title);
         JPanel j = new JPanel();
         setLayout(new GridLayout(1, 1));
         setSize(400,250);
         j.setLayout(new GridLayout(1, 1));
-        area = new JTextArea("terminal");
+        area = new JTextArea();
         area.setBackground(Color.black);
         area.setForeground(Color.white);
         area.setCaretColor(Color.white);
@@ -64,7 +64,7 @@ public class Terminal extends JFrame {
                     evt.consume();
                 } else if (keyCode == 10) {
                     v.add(linetext());
-                    //game.inputFromTerminal(linetext());
+                    game.inputFromTerminal(linetext());
                 }
             }
         });
