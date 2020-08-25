@@ -24,7 +24,7 @@ public class Constants {
 
     // Position of the items inside a room
     public static final String WHERE = "is lying on the floor";
-    
-    // 
+
+    // Number of letters / white spaces before automatic line break
     public static final int ANCIENTFONT_AUTONL = 20;
 }
