@@ -101,4 +101,8 @@ public class Terminal extends JFrame {
         return text;
 
     }
+
+    public void print(String message) {
+        area.setText(message);
+    }
 }

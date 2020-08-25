@@ -20,6 +20,7 @@ public class Zork {
     private static Commands commands = new Commands();
 
     private static Terminal terminal;
+    private static UserInterface userInterface;
 
     // The game is started from here
     public static void main(String[] args) {
@@ -110,5 +111,9 @@ public class Zork {
         commands.register(new LoadCommand());
 
         game.commands = commands;
+    }
+
+    public static Terminal getTerminal() {
+        return terminal;
     }
 }
