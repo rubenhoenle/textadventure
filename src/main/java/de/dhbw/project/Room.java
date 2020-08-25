@@ -1,6 +1,8 @@
 package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
+
+import de.dhbw.project.alienfont.AlienFont;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 
 import java.util.ArrayList;
@@ -34,6 +36,7 @@ public class Room extends Thing {
     // Method simplifies the default output for a room object
     @Override
     public String toString() {
+    	//AlienFont.toAlien("dies ist ein aus----\nführlicher Test 0123456789876543210", true);
         return "You are in the area: " + getName() + ".";
     }
 
