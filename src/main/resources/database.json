@@ -4,6 +4,7 @@
     "strength": 42,
     "name": "Hugo",
     "inventory": [],
+    "equipment": [],
     "roomName": "beach"
   },
   "rooms": [
@@ -45,7 +46,8 @@
           "strength": 0,
           "name": "life jacket",
           "description": "a life jacket from your sunken ship",
-          "place": "floating in the water"
+          "place": "floating in the water",
+          "equipment": "UPPER_BODY"
         }
       ]
     },
@@ -73,7 +75,8 @@
           "strength": 13,
           "name": "saber",
           "description": "a rusty saber of the pirate",
-          "place": "is in the belt buckle of the pirate skeleton"
+          "place": "is in the belt buckle of the pirate skeleton",
+          "equipment": "WEAPON"
         },
         {
           "strength": 1,
@@ -106,7 +109,8 @@
           "strength": 0,
           "name": "swimming goggles",
           "description": "swimming googles which seem to be fine",
-          "place": "lies in the water"
+          "place": "lies in the water",
+          "equipment": "HEAD"
         },
         {
           "strength": 0,
@@ -214,19 +218,22 @@
           "strength": 15,
           "name": "bow and some arrows",
           "description": "A bow out of wood",
-          "place": "lies against the wall"
+          "place": "lies against the wall",
+          "equipment": "WEAPON"
         },
         {
           "strength": 1,
           "name": "broken bottle",
           "description": "a broken wine bottle",
-          "place": "stands on the table"
+          "place": "stands on the table",
+          "equipment": "WEAPON"
         },
         {
           "strength": 5,
           "name": "homemade knife",
           "description": "a homemade knife",
-          "place": "lies on the table"
+          "place": "lies on the table",
+          "equipment": "WEAPON"
         }
       ]
     },
@@ -316,7 +323,8 @@
           "strength": 12,
           "name": "saber",
           "description": "old rusty saber",
-          "place": "stuck in the railing"
+          "place": "stuck in the railing",
+          "equipment": "WEAPON"
         }
       ]
     },
@@ -392,7 +400,8 @@
           "strength": 0,
           "name": "life jacket",
           "description": "an orange life jacket that looks like it spent some time in the water",
-          "place": "stuck between two boulders"
+          "place": "stuck between two boulders",
+          "equipment": "UPPER_BODY"
         }
       ]
     },
@@ -484,7 +493,8 @@
       {
           "strength": 3,
           "name": "sharp sparkling shard of glass",
-          "description": "a sharp sparkling shard of glass"
+          "description": "a sharp sparkling shard of glass",
+          "equipment": "WEAPON"
         }
       ]
     },
@@ -1016,13 +1026,15 @@
           "strength": 0,
           "name": "old tattered leather shoe",
           "description": "decomposed by the water and many sweaty feat",
-          "place": "is swimming in the water"
+          "place": "is swimming in the water",
+          "equipment": "SHOES"
         },
         {
           "strength": 3,
           "name": "old rusty and bent knife",
           "description": "better suited for poisoning than stabbing",
-          "place": "is lying on the ground of the river"
+          "place": "is lying on the ground of the river",
+          "equipment": "WEAPON"
         },
         {
           "strength": 1,
@@ -1218,13 +1230,15 @@
           "strength": 3,
           "name": "hammer",
           "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
-          "place": "is lying on the anvil"
+          "place": "is lying on the anvil",
+          "equipment": "WEAPON"
         },
         {
           "strength": 5,
           "name": "iron helmet",
           "description": "A freshly forged, strong helmet made out of iron.",
-          "place": "is lying in the shelf"
+          "place": "is lying in the shelf",
+          "equipment": "HEAD"
         }
       ],
       "interactiveCraftingObjects": [
@@ -1534,7 +1548,8 @@
           "strength": 1,
           "name": "empty water bottle",
           "description": "An empty water bottle which is very robust.",
-          "place": "is lying on a small table"
+          "place": "is lying on a small table",
+          "equipment": "WEAPON"
         },
         {
           "strength": 0,
@@ -1594,13 +1609,15 @@
           "strength": 1,
           "name": "broken fishing rod",
           "description": "A broken fishing rod which can no longer be used.",
-          "place": "is attached to the ground"
+          "place": "is attached to the ground",
+          "equipment": "WEAPON"
         },
         {
           "strength": 1,
           "name": "broken vase",
           "description": "A broken vase which was used to transport water.",
-          "place": "is lying next to the river"
+          "place": "is lying next to the river",
+          "equipment": "WEAPON"
         }
       ]
     },
@@ -1663,7 +1680,8 @@
           "strength": 9,
           "name": "axe",
           "description": "A sharp axe which could cut a tree.",
-          "place": "is hanging on the wall"
+          "place": "is hanging on the wall",
+          "equipment": "WEAPON"
         },
         {
           "strength": 0,
@@ -1710,7 +1728,8 @@
           "strength": 3,
           "name": "whip",
           "description": "A whip made of leather",
-          "place": "is lying on a table"
+          "place": "is lying on a table",
+          "equipment": "WEAPON"
         },
         {
           "strength": 0,
@@ -1728,7 +1747,8 @@
           "strength": 0,
           "name": "diving mask",
           "description": "A mask which helps to dive.",
-          "place": "is lying in the chest"
+          "place": "is lying in the chest",
+          "equipment": "HEAD"
         }
       ]
     },
@@ -1798,7 +1818,8 @@
       	{
           "strength": 7,
           "name": "decorated iron chestplate",
-          "description": "The chestplate is decorated with valuable gems."
+          "description": "The chestplate is decorated with valuable gems.",
+          "equipment": "UPPER_BODY"
         },
 
 		{
@@ -1834,12 +1855,15 @@
           "description": "Multiple bricks protrude from the wall, enabling a bold climb to the top of the ruin."
         }
       ],
-      "items": [{
+      "items": [
+      	{
           "strength": 7,
           "name": "rusty iron sword",
           "description": "The sword looks a bit fragile, but should last a couple of hits.",
-          "place": "lies in the dust"
-        }]
+          "place": "lies in the dust",
+          "equipment": "WEAPON"
+        }
+      ]
     },
     {
       "name": "ruins top",
@@ -1950,6 +1974,12 @@
       		"strength": 0,
       		"name": "bible",
       		"description": "an old dusty bible"
+      	},
+      	{
+      		"strength": 0,
+      		"name": "straw hat",
+      		"description": "a dented straw hat",
+      		"equipment": "HEAD"
       	}
       ],
       "characters": []
@@ -2101,7 +2131,8 @@
         {
           "strength": 2,
           "name": "hammer",
-          "description": "a pretty new hammer"
+          "description": "a pretty new hammer",
+          "equipment": "WEAPON"
         }
       ],
       "characters": []
@@ -2194,6 +2225,11 @@
         	"strength": 0,
         	"name": "holey umbrella",
         	"description": "an umbrella full of holes"
+        },
+        {
+        	"strength": 0,
+        	"name": "sunglasses",
+        	"description": "colorful sunglasses lost by a vacationer"
         }
       ],
       "characters": []

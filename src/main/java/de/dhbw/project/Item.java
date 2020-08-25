@@ -9,12 +9,21 @@ public class Item extends Thing {
     private int strength;
     @SerializedName("place")
     private String place;
+    @SerializedName("equipment")
+    private EquipmentType equipment;
 
     // Constructor for an item - calls the super constructor of the parent (thing) and adds the item-specific variables
     public Item(String name, String description, State state, int strength) {
         super(name, description);
         this.strength = strength;
         this.state = state;
+    }
+
+    public Item(String name, String description, State state, int strength, EquipmentType equipmentType) {
+        super(name, description);
+        this.strength = strength;
+        this.state = state;
+        this.equipment = equipmentType;
     }
 
     // Getters and setters for an item
@@ -47,5 +56,13 @@ public class Item extends Thing {
 
     public void setWhere(String location) {
         place = location;
+    }
+
+    public EquipmentType getEquipmentType() {
+        return equipment;
+    }
+
+    public void setEquipmentType(EquipmentType equipment) {
+        this.equipment = equipment;
     }
 }
