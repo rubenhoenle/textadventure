@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class Item extends Thing {
     @SerializedName("state")
-    private String state;
+    private State state;
     @SerializedName("strength")
     private int strength;
     @SerializedName("place")
     private String place;
 
     // Constructor for an item - calls the super constructor of the parent (thing) and adds the item-specific variables
-    public Item(String name, String description, String state, int strength) {
+    public Item(String name, String description, State state, int strength) {
         super(name, description);
         this.strength = strength;
         this.state = state;
@@ -19,11 +19,13 @@ public class Item extends Thing {
 
     // Getters and setters for an item
 
-    public String getState() {
+    public State getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(State state) {
+        if (state == null)
+            state = State.NOT_USABLE;
         this.state = state;
     }
 

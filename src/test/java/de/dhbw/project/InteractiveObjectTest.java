@@ -21,9 +21,9 @@ public class InteractiveObjectTest {
         //before
         InteractiveCraftingObject interactiveCraftingObject = new InteractiveCraftingObject("name", "desc", "state", "place", "usage", "action");
         Player player = new Player();
-        player.addItem(new Item("item1", "desc", "state", 0));
-        player.addItem(new Item("item1", "desc", "state", 0));
-        player.addItem(new Item("item2", "desc", "state", 0));
+        player.addItem(new Item("item1", "desc", State.NOT_USABLE, 0));
+        player.addItem(new Item("item1", "desc", State.NOT_USABLE, 0));
+        player.addItem(new Item("item2", "desc", State.NOT_USABLE, 0));
         List<Material> materials = new ArrayList<>();
         materials.add(new Material("item1", "desc", 2));
         materials.add(new Material("item2", "desc", 1));
@@ -58,8 +58,8 @@ public class InteractiveObjectTest {
         //before
         InteractiveCraftingObject interactiveCraftingObject = new InteractiveCraftingObject("name", "desc", "state", "place", "usage", "action");
         Player player = new Player();
-        player.addItem(new Item("item1", "desc", "state", 0));
-        player.addItem(new Item("item2", "desc", "state", 0));
+        player.addItem(new Item("item1", "desc", State.NOT_USABLE, 0));
+        player.addItem(new Item("item2", "desc", State.NOT_USABLE, 0));
         List<Material> materials = new ArrayList<>();
         materials.add(new Material("item1", "desc", 2));
         materials.add(new Material("item2", "desc", 1));
@@ -76,7 +76,7 @@ public class InteractiveObjectTest {
     public void test4_createItemWhenPlayerHasOnlySomeMaterials() {
         Player player = new Player();
 
-        Item item = new Item("item1", "desc", "state", 0);
+        Item item = new Item("item1", "desc", State.NOT_USABLE, 0);
 
         player.removeItem(item);
     }
