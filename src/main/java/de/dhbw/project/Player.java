@@ -1,6 +1,8 @@
 package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
+import de.dhbw.project.character.Enemy;
+import de.dhbw.project.character.Character;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +67,47 @@ public class Player {
             }
         }
         return null;
+    }
+
+    public boolean winsFight(Character c) {
+        // TODO find better algorithm to fight -> player health, equipped weapons, ...
+        return getStrength() >= c.getStrength();
+    }
+
+    public void isAttacked(Game g) {
+        Room r = g.getCurrentRoom();
+        if (r.getEnemyList() != null) {
+            for (Enemy e : r.getEnemyList()) {
+                if (!e.isKilled() && e.isAutoAttack()) {
+                    System.out.println(
+                            "Just after you entered " + r.getName() + " you are attacked by " + e.getName() + "!");
+                    fight(e, r);
+                }
+            }
+        }
+    }
+
+    public void fight(Character c, Room r) {
+        if (!c.isKilled()) {
+            System.out.println("You fight with " + c.getName() + "!");
+            System.out.println(c.getName() + ": " + c.getStartStatement());
+            if (winsFight(c)) {
+                System.out.println(c.getName() + ": " + c.getKillStatement());
+                System.out.println("You win the fight against " + c.getName() + "!");
+                if (c instanceof Enemy) {
+                    for (Item i : ((Enemy) c).getDropItemList()) {
+                        System.out.println(c.getName() + " drops " + i.getName());
+                        r.addItem(i);
+                    }
+                }
+                c.setKilled(true);
+            } else {
+                System.out.println("You lose the fight against " + c.getName() + "! You faint!");
+                System.out.println("----------");
+                System.out.println("Last save game will be loaded! \n");
+                Zork.loadGame(Constants.SAVED_GAME);
+            }
+        }
     }
 
     // counts how often the player has a specific item in his inventory (returns -1 when item is not found)

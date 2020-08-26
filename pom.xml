@@ -120,7 +120,7 @@
           <directories>
             <directory>${project.build.sourceDirectory}</directory>
           </directories>
-          <lineEnding>CRLF</lineEnding>
+          <lineEnding>LF</lineEnding>
           <encoding>UTF-8</encoding>
         </configuration>
         <executions>

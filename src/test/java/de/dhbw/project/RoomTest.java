@@ -1,9 +1,14 @@
 package de.dhbw.project;
 
+import de.dhbw.project.character.Character;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
+import de.dhbw.project.character.Enemy;
+import de.dhbw.project.character.Friend;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.reflect.Whitebox;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +24,7 @@ public class RoomTest {
     public void test1_shouldAddItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         //when
         r.addItem(i);
@@ -32,7 +37,7 @@ public class RoomTest {
     public void test2_shouldRemoveItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
         r.addItem(i);
 
         //when
@@ -46,7 +51,7 @@ public class RoomTest {
     public void test3_shouldRemoveNonExistingItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         //when
         r.removeItem(i);
@@ -59,8 +64,8 @@ public class RoomTest {
     public void test4_shouldListRoomItems(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i1 = new Item("TestItem1", "TestItem1", "TestState1", 99);
-        Item i2 = new Item("TestItem2", "TestItem2", "TestState2", 99);
+        Item i1 = new Item("TestItem1", "TestItem1", State.NOT_USABLE, 99);
+        Item i2 = new Item("TestItem2", "TestItem2", State.NOT_USABLE, 99);
         r.addItem(i1);
         r.addItem(i2);
 
@@ -104,6 +109,91 @@ public class RoomTest {
         assertEquals("interactiveCraftingObject1", interactiveCraftingObject.getName());
     }
 
+    @Test
+    public void test7_shouldListRoomCharacter(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+        Enemy e = new Enemy();
+        r.setEnemyList(Arrays.asList(e));
 
+        //when
+        List<Character> result = r.getCharacterList();
 
+        //then
+        assertTrue(result.size() == 1);
+        assertTrue(result.contains(e));
+    }
+
+    @Test
+    public void test8_shouldListRoomCharacter(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+
+        //when
+        List<Character> result = r.getCharacterList();
+
+        //then
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void test9_shouldListRoomCharacter(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+
+        //when
+        List<String> result = r.getCharacterNameList();
+
+        //then
+        assertTrue(result.isEmpty());
+    }
+
+    @Test
+    public void test10_shouldListRoomCharacter(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+        Enemy e = new Enemy();
+        e.setName("foo");
+        r.setEnemyList(Arrays.asList(e));
+
+        //when
+        List<String> result = r.getCharacterNameList();
+
+        //then
+        assertTrue(result.size() == 1);
+        assertTrue(result.contains("foo"));
+    }
+
+    @Test
+    public void test11_shouldListRoomCharacter(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+        Enemy e = new Enemy();
+        Friend f = new Friend();
+        r.setEnemyList(Arrays.asList(e));
+        r.setFriendList(Arrays.asList(f));
+
+        //when
+        List<Character> result = r.getCharacterList();
+
+        //then
+        assertTrue(result.size() == 2);
+        assertTrue(result.contains(e));
+        assertTrue(result.contains(f));
+    }
+
+    @Test
+    public void test12_shouldListRoomCharacter(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+        Friend f = new Friend();
+        r.setFriendList(Arrays.asList(f));
+
+        //when
+        List<Character> result = r.getCharacterList();
+
+        //then
+        assertTrue(result.size() == 1);
+        assertTrue(result.contains(f));
+    }
 }
