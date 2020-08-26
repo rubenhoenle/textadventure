@@ -2,7 +2,6 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 
-import de.dhbw.project.alienfont.AlienFont;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 
 import java.util.ArrayList;
