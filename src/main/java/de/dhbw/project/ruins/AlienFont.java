@@ -13,9 +13,9 @@ public class AlienFont {
     static {
 
         alienltrs.put("a-1", "   ");
-        alienltrs.put("a-2", "###");
+        alienltrs.put("a-2", "   ");
         alienltrs.put("a-3", "   ");
-        alienltrs.put("a-4", "   ");
+        alienltrs.put("a-4", "###");
 
         alienltrs.put("b-1", "###");
         alienltrs.put("b-2", "   ");
@@ -53,9 +53,9 @@ public class AlienFont {
         alienltrs.put("h-4", "#  ");
 
         alienltrs.put("i-1", "   ");
-        alienltrs.put("i-2", "###");
+        alienltrs.put("i-2", "#  ");
         alienltrs.put("i-3", "#  ");
-        alienltrs.put("i-4", "#  ");
+        alienltrs.put("i-4", "###");
 
         alienltrs.put("j-1", "   ");
         alienltrs.put("j-2", "###");
