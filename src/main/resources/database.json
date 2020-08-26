@@ -1150,6 +1150,48 @@
           "description": "A delicious smelling grilled pork.",
           "place": "hanging on a barbecue skewer over the fire"
         }
+      ],
+      "interactiveCraftingObjects": [
+        {
+          "name": "stove",
+          "description": "A stove over the fire, where you can prepare food.",
+          "state": "useable",
+          "place": "over the fire",
+          "usage": "It can be used for preparing food.",
+          "action": "cooking",
+          "createables": [
+            {
+              "name": "fried fish",
+              "description": "A good looking and very good smelling fried fish.",
+              "neededMaterials": [
+                {
+                  "name": "fish",
+                  "number": "1"
+                }
+              ]
+            },
+            {
+              "name": "baked apple",
+              "description": "A delicious looking baked apple. Smells like these your mom made on christmas every year.",
+              "neededMaterials": [
+                {
+                  "name": "apple",
+                  "number": "1"
+                }
+              ]
+            },
+            {
+              "name": "fried egg",
+              "description": "A fried egg, nothing special. But it looks very jummy.",
+              "neededMaterials": [
+                {
+                  "name": "egg",
+                  "number": "1"
+                }
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -1222,6 +1264,30 @@
                 {
                   "materialName": "wood stick",
                   "materialNumber": "1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "furnance",
+          "description": "An furnance which can be used for melting ores.",
+          "state": "useable",
+          "place": "is standing next to the wall",
+          "usage": "It can be used for melting ores.",
+          "action": "melting",
+          "createables": [
+            {
+              "name": "iron ingot",
+              "description": "An iron ingot. Maybe you can create something with it.",
+              "neededMaterials": [
+                {
+                  "name": "piece of coal",
+                  "number": "1"
+                },
+                {
+                  "name": "iron ore",
+                  "number": "1"
                 }
               ]
             }
