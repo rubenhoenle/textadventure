@@ -2,6 +2,9 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.*;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
+import de.dhbw.project.character.Character;
+import de.dhbw.project.character.Enemy;
+import de.dhbw.project.character.Friend;
 
 public class LookCommand extends AutoCommand {
 
@@ -63,6 +66,22 @@ public class LookCommand extends AutoCommand {
                         .getRoomInteractiveObjectsList()) {
                     System.out.println("A " + interactiveCraftingObject.getName() + " "
                             + interactiveCraftingObject.getWhere() + ". " + interactiveCraftingObject.getUsage());
+                }
+            }
+
+            // Show living characters in the current room
+            if (game.getCurrentRoom().getCharacterList() != null) {
+                for (Character character : game.getCurrentRoom().getCharacterList()) {
+                    if (!character.isKilled()) {
+                        if (character instanceof Enemy) {
+                            System.out.println(
+                                    "A angry looking " + character.getName() + " is " + character.getWhere() + ".");
+                        }
+                        if (character instanceof Friend) {
+                            System.out.println(
+                                    "A friendly looking " + character.getName() + " is " + character.getWhere() + ".");
+                        }
+                    }
                 }
             }
         }

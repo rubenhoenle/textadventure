@@ -1,5 +1,6 @@
 package de.dhbw.project;
 
+import de.dhbw.project.character.Character;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -19,6 +20,7 @@ import java.io.PrintStream;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -147,5 +149,37 @@ public class GameTest {
         //then
         verify(player).getItem(item.getName());
         verify(out).println("The item " + item.getName() + " was not found in the inventory and cannot be dropped.");
+    }
+
+    @Test
+    public void test6_shouldGetCharacterFromCurrentRoom() throws Exception {
+        //before
+        Room currentRoom = mock(Room.class);
+        PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
+        Character c = new Character();
+        c.setName("foo");
+        PowerMockito.when(currentRoom.getCharacterList()).thenReturn(Arrays.asList(c));
+
+        //when
+        Character r = game.getCharacterFromCurrentRoom("foo");
+
+        //then
+        assertEquals(r, c);
+    }
+
+    @Test
+    public void test7_shouldGetNoCharacterFromCurrentRoom() throws Exception {
+        //before
+        Room currentRoom = mock(Room.class);
+        PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
+        Character c = new Character();
+        c.setName("bar");
+        PowerMockito.when(currentRoom.getCharacterList()).thenReturn(Arrays.asList(c));
+
+        //when
+        Character r = game.getCharacterFromCurrentRoom("foo");
+
+        //then
+        assertNull(r);
     }
 }

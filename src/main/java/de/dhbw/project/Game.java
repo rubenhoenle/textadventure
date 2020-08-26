@@ -1,7 +1,10 @@
 package de.dhbw.project;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import de.dhbw.project.character.Character;
+import de.dhbw.project.character.Enemy;
 import de.dhbw.project.nls.Commands;
 
 import java.util.List;
@@ -42,36 +45,40 @@ public class Game {
 
     // Helper method: Returns the way in the given direction if available (otherwise the way is null)
     public Way getWayForDirection(String direction) {
-        Way resultWay = null;
         for (Way way : getCurrentRoom().getRoomWayList()) {
             if (way.getDirection().equals(direction)) {
-                resultWay = way;
-                break;
+                return way;
             }
         }
-        return resultWay;
+        return null;
     }
 
     // Helper method: Returns the item with the name if available (otherwise the item is null)
     public Item getItemFromCurrentRoom(String itemName) {
-        Item resultItem = null;
         for (Item item : getCurrentRoom().getRoomItemList()) {
             if (item.getName().equals(itemName)) {
-                resultItem = item;
-                break;
+                return item;
             }
         }
-        return resultItem;
+        return null;
+    }
+
+    public Character getCharacterFromCurrentRoom(String characterName) {
+        for (Character c : getCurrentRoom().getCharacterList()) {
+            if (c.getName().equals(characterName)) {
+                return c;
+            }
+        }
+        return null;
     }
 
     // Helper method: Returns the current room object
     public Room getCurrentRoom() {
-        Room currentRoom = null;
         for (Room r : rooms) {
             if (r.getName().equals(player.getRoomName()))
-                currentRoom = r;
+                return r;
         }
-        return currentRoom;
+        return null;
     }
 
     // Helper method: Returns full direction
@@ -90,7 +97,7 @@ public class Game {
         case 'd':
             return "down";
         default:
-            return Character.toString(direction);
+            return java.lang.Character.toString(direction);
         }
     }
 }

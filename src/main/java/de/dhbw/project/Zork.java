@@ -98,6 +98,9 @@ public class Zork {
         commands.register(new DropCommand(game));
         commands.register(new CraftCommand(game));
 
+        commands.register(new TalkCommand(game));
+        commands.register(new AttackCommand(game));
+
         commands.register(new InventoryCommand(game));
         commands.register(new HelpCommand());
         commands.register(new ShowPlaceCommand(game));

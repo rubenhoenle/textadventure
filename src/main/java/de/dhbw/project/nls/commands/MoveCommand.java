@@ -1,8 +1,7 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.Constants;
-import de.dhbw.project.Game;
-import de.dhbw.project.Way;
+import de.dhbw.project.*;
+import de.dhbw.project.character.Enemy;
 
 public class MoveCommand extends AutoCommand {
 
@@ -37,6 +36,7 @@ public class MoveCommand extends AutoCommand {
             Way resultWay = game.getWayForDirection(direction);
             System.out.println("You're taking the " + resultWay.getName() + " " + direction + ". ");
             game.player.setRoomName(resultWay.getTo());
+            game.player.isAttacked(game);
             System.out.println(game.getCurrentRoom());
             System.out.println(game.getCurrentRoom().getDescription());
         }
@@ -47,5 +47,4 @@ public class MoveCommand extends AutoCommand {
         String[] patterns = { "(move|go) <direction>", "move" };
         return patterns;
     }
-
 }
