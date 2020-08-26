@@ -7,6 +7,8 @@ import java.util.Map;
 import de.dhbw.project.Constants;
 
 public class AlienFont {
+	
+	static String switchstring = "[ALFONT]";
 	static Map<String, String> alienltrs = new HashMap<String, String>(148, 0.75f);
 	static {
 		
@@ -105,6 +107,40 @@ public class AlienFont {
 			
 			}
 	
+		}
+		public static void mixedDisplay(String input) {AlienFont.mixedDisplay(input,false);}
+		public static void mixedDisplay(String input, boolean displaychars) {
+			int i = 0;
+			boolean writingnormal = true;
+			String tempstring = "";
+			while (i < input.length() ) {
+				if (input.startsWith(AlienFont.switchstring, i)) {
+					i += AlienFont.switchstring.length();
+					if (tempstring.equals("") == false) {
+						if (writingnormal) {
+							System.out.println(tempstring);
+							System.out.println();
+						}
+						else {
+							AlienFont.toAlien(tempstring, displaychars);
+						}
+					}
+					tempstring = "";
+					writingnormal = !writingnormal;
+				}
+				else {
+					tempstring = tempstring + input.charAt(i);
+					i++;				
+				}
+			}
+			if (tempstring.equals("") == false) {
+				if (writingnormal) {
+					System.out.println(tempstring);
+				}
+				else {
+					AlienFont.toAlien(tempstring, displaychars);
+				}
+			}
 		}
 
 }
