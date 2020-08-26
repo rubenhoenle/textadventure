@@ -51,7 +51,7 @@ public class GameTest {
 
         doReturn(Arrays.asList(itemName)).when(currentRoom).getRoomItemNameList();
 
-        Item item = new Item(itemName, "TestItem", "TestState", 99);
+        Item item = new Item(itemName, "TestItem", State.NOT_USABLE, 99);
         PowerMockito.doReturn(item).when(game, "getItemFromCurrentRoom", itemName);
 
         TakeCommand takeCommand = new TakeCommand(game);
@@ -95,7 +95,7 @@ public class GameTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Item("TestItem", "TestItem", "TestState", 99);
+        Item item = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
         when(currentRoom.getRoomItemList()).thenReturn(Arrays.asList(item));
 
         //when
@@ -112,7 +112,7 @@ public class GameTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Item("TestItem", "TestItem", "TestState", 99);
+        Item item = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
         PowerMockito.doReturn(item).when(player, "getItem", item.getName());
 
         DropCommand dropCommand = new DropCommand(game);
@@ -136,7 +136,7 @@ public class GameTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Item("TestItem", "TestItem", "TestState", 99);
+        Item item = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         DropCommand dropCommand = new DropCommand(game);
         DataStorage data = new DataStorage();

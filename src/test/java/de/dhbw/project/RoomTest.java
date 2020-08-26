@@ -24,7 +24,7 @@ public class RoomTest {
     public void test1_shouldAddItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         //when
         r.addItem(i);
@@ -37,7 +37,7 @@ public class RoomTest {
     public void test2_shouldRemoveItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
         r.addItem(i);
 
         //when
@@ -51,7 +51,7 @@ public class RoomTest {
     public void test3_shouldRemoveNonExistingItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         //when
         r.removeItem(i);
@@ -64,8 +64,8 @@ public class RoomTest {
     public void test4_shouldListRoomItems(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i1 = new Item("TestItem1", "TestItem1", "TestState1", 99);
-        Item i2 = new Item("TestItem2", "TestItem2", "TestState2", 99);
+        Item i1 = new Item("TestItem1", "TestItem1", State.NOT_USABLE, 99);
+        Item i2 = new Item("TestItem2", "TestItem2", State.NOT_USABLE, 99);
         r.addItem(i1);
         r.addItem(i2);
 

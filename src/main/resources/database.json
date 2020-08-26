@@ -38,7 +38,8 @@
           "strength": 0,
           "name": "backpack",
           "description": "a backpack where you can store some additional items",
-          "place": "is lying in the sand"
+          "place": "is lying in the sand",
+          "state": "1"
         },
         {
           "strength": 0,

@@ -40,7 +40,7 @@ public class PlayerTest {
     public void test1_shouldAddItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         //when
         p.addItem(i);
@@ -53,7 +53,7 @@ public class PlayerTest {
     public void test2_shouldRemoveItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
         p.addItem(i);
 
         //when
@@ -67,7 +67,7 @@ public class PlayerTest {
     public void test3_shouldGetItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
         p.addItem(i);
 
         //when
@@ -81,7 +81,7 @@ public class PlayerTest {
     public void test4_shouldNotGetItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", "TestState", 99);
+        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
         p.addItem(i);
 
         //when

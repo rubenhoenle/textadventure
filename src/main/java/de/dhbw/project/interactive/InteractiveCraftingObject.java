@@ -56,7 +56,7 @@ public class InteractiveCraftingObject extends Thing {
             }
         }
 
-        player.addItem(new Item(createable.getName(), createable.getDescription(), "", 0));
+        player.addItem(new Item(createable.getName(), createable.getDescription(), State.NOT_USABLE, 0));
         return "Congratulations. You created a " + createable.getName() + ".";
     }
 

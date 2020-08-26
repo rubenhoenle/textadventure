@@ -1,6 +1,7 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
+import de.dhbw.project.State;
 
 public class InventoryCommand extends AutoCommand {
 
@@ -18,6 +19,9 @@ public class InventoryCommand extends AutoCommand {
                     + game.player.getInventory().get(i).getDescription());
             if (game.player.getInventory().get(i).getStrength() != 0)
                 System.out.println(" '- Strength: " + game.player.getInventory().get(i).getStrength());
+            if (game.player.getInventory().get(i).getState() != null
+                    && game.player.getInventory().get(i).getState() != State.NOT_USABLE)
+                System.out.println(" '- State: " + game.player.getInventory().get(i).getState());
         }
 
         System.out.println("---------------");
