@@ -17,11 +17,6 @@ public class AlienFont {
         alienltrs.put("a-3", "   ");
         alienltrs.put("a-4", "   ");
 
-        alienltrs.put("ä-1", " # ");
-        alienltrs.put("ä-2", "###");
-        alienltrs.put("ä-3", "   ");
-        alienltrs.put("ä-4", "   ");
-
         alienltrs.put("b-1", "###");
         alienltrs.put("b-2", "   ");
         alienltrs.put("b-3", "###");
@@ -92,11 +87,6 @@ public class AlienFont {
         alienltrs.put("o-3", "# #");
         alienltrs.put("o-4", "###");
 
-        alienltrs.put("ö-1", " # ");
-        alienltrs.put("ö-2", "###");
-        alienltrs.put("ö-3", "# #");
-        alienltrs.put("ö-4", "###");
-
         alienltrs.put("p-1", "###");
         alienltrs.put("p-2", "   ");
         alienltrs.put("p-3", "###");
@@ -126,11 +116,6 @@ public class AlienFont {
         alienltrs.put("u-2", "###");
         alienltrs.put("u-3", "#  ");
         alienltrs.put("u-4", "###");
-
-        alienltrs.put("ü-1", " # ");
-        alienltrs.put("ü-2", "###");
-        alienltrs.put("ü-3", "#  ");
-        alienltrs.put("ü-4", "###");
 
         alienltrs.put("v-1", "###");
         alienltrs.put("v-2", " ##");
