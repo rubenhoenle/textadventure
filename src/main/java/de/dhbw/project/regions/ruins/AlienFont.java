@@ -1,4 +1,4 @@
-package de.dhbw.project.ruins;
+package de.dhbw.project.regions.ruins;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -244,6 +244,7 @@ public class AlienFont {
                     i++;
                 }
             }
+            System.out.println();
             if (displaychars) {
                 System.out.println(description);
             }
@@ -271,7 +272,7 @@ public class AlienFont {
                 if (tempstring.equals("") == false) {
                     if (writingnormal) {
                         System.out.println(tempstring);
-                        System.out.println();
+                        // System.out.println();
                     } else {
                         AlienFont.toAlien(tempstring, displaychars);
                     }
