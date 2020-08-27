@@ -148,7 +148,7 @@ public class GameTest {
 
         //then
         verify(player).getItem(item.getName());
-        verify(out).println("The item " + item.getName() + " was not found in the inventory and cannot be dropped.");
+        verify(out).println("The item " + item.getName() + " was not found in inventory or equipment and cannot be dropped.");
     }
 
     @Test

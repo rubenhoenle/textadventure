@@ -1,7 +1,6 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.*;
-import de.dhbw.project.character.Enemy;
 
 public class MoveCommand extends AutoCommand {
 

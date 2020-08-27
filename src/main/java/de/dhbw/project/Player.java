@@ -18,6 +18,8 @@ public class Player {
     private List<Item> inventory = new ArrayList<>();
     @SerializedName("roomName")
     private String roomName;
+    @SerializedName("equipment")
+    private List<Item> equipment = new ArrayList<>();
 
     // Getters and setters for a player
 
@@ -47,6 +49,10 @@ public class Player {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public List<Item> getEquipment() {
+        return equipment;
     }
 
     public List<Item> addItem(Item item) {
@@ -124,5 +130,31 @@ public class Player {
         }
 
         return -1;
+    }
+
+    // getItem Method: returns an item, if an item with itemName was found, else returns null
+    public Item getItemFromEquipment(String itemName) {
+        for (Item i : equipment) {
+            if (i.getName().equals(itemName)) {
+                return i;
+            }
+        }
+        return null;
+    }
+
+    public boolean addEquipment(Item newItem) {
+        if (newItem.getEquipmentType() == null)
+            return false;
+        for (Item item : equipment) {
+            if (item.getEquipmentType() == newItem.getEquipmentType())
+                return false;
+        }
+        equipment.add(newItem);
+        return true;
+    }
+
+    public List<Item> removeEquipment(Item item) {
+        equipment.remove(item);
+        return equipment;
     }
 }
