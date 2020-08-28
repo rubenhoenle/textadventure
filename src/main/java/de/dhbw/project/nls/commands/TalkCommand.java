@@ -1,9 +1,6 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
-import de.dhbw.project.Item;
-import de.dhbw.project.Way;
 import de.dhbw.project.character.Character;
 
 import java.util.List;

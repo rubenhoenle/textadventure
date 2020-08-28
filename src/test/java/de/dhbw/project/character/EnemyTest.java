@@ -1,12 +1,15 @@
 package de.dhbw.project.character;
 
-import de.dhbw.project.Item;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+
+import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemList;
+import de.dhbw.project.item.Resource;
 
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +33,9 @@ public class EnemyTest {
         String characterStartStatement = "startStatement";
         String characterKillStatement = "killStatement";
         boolean characterKilled = false;
-        Item dropItem = mock(Item.class);
-        List<Item> characterDropItems = Arrays.asList(dropItem);
+        Item dropItem = mock(Resource.class);
+        ItemList characterDropItems = new ItemList();
+        characterDropItems.addItem(dropItem);
         boolean characterAutoAttack = true;
 
         //when
@@ -46,7 +50,7 @@ public class EnemyTest {
         assertEquals(e.getKillStatement(), characterKillStatement);
         assertEquals(e.isKilled(),characterKilled);
         assertEquals(e.getDropItemList(),characterDropItems);
-        assertTrue(e.getDropItemList().size()==1);
+        assertTrue(e.getDropItemListElements().size()==1);
         assertEquals(e.isAutoAttack(), characterAutoAttack);
     }
 

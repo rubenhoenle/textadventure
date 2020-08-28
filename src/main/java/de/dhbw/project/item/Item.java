@@ -1,8 +1,13 @@
-package de.dhbw.project;
+package de.dhbw.project.item;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Item extends Thing {
+import de.dhbw.project.Constants;
+import de.dhbw.project.EquipmentType;
+import de.dhbw.project.State;
+import de.dhbw.project.Thing;
+
+public abstract class Item extends Thing {
     @SerializedName("state")
     private State state;
     @SerializedName("strength")

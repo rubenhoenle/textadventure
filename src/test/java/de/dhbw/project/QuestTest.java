@@ -1,6 +1,7 @@
 package de.dhbw.project;
 
-import de.dhbw.project.character.Character;
+import de.dhbw.project.item.Item;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;

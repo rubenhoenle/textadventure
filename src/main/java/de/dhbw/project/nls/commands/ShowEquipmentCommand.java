@@ -3,7 +3,7 @@ package de.dhbw.project.nls.commands;
 import java.util.List;
 
 import de.dhbw.project.Game;
-import de.dhbw.project.Item;
+import de.dhbw.project.item.Item;
 
 public class ShowEquipmentCommand extends AutoCommand {
 

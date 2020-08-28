@@ -2,7 +2,6 @@ package de.dhbw.project;
 
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
-import de.dhbw.project.nls.commands.AttackCommand;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -20,6 +19,17 @@ import static org.junit.Assert.*;
 import static org.powermock.api.mockito.PowerMockito.when;
 
 import static org.mockito.Mockito.*;
+
+import de.dhbw.project.item.Book;
+import de.dhbw.project.item.Clothing;
+import de.dhbw.project.item.Food;
+import de.dhbw.project.item.Item;
+import de.dhbw.project.item.Resource;
+import de.dhbw.project.item.Tool;
+import de.dhbw.project.item.Weapon;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)
@@ -40,24 +50,48 @@ public class PlayerTest {
     public void test1_shouldAddItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+
 
         //when
-        p.addItem(i);
+        p.addItem(c);
+        p.addItem(f);
+        p.addItem(r);
+        p.addItem(t);
+        p.addItem(w);
 
         //then
-        assertEquals(1, p.getInventory().size());
+        assertEquals(5, p.getInventory().size());
     }
 
     @Test
     public void test2_shouldRemoveItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
-        p.addItem(i);
+        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99);
+        p.addItem(c);
+        p.addItem(f);
+        p.addItem(r);
+        p.addItem(t);
+        p.addItem(w);
+        p.addItem(b);
 
         //when
-        p.removeItem(i);
+        p.removeItem(c);
+        p.removeItem(f);
+        p.removeItem(r);
+        p.removeItem(t);
+        p.removeItem(w);
+        p.removeItem(b);
 
         //then
         assertEquals(0, p.getInventory().size());
@@ -67,21 +101,40 @@ public class PlayerTest {
     public void test3_shouldGetItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
-        p.addItem(i);
+        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99);
+        p.addItem(c);
+        p.addItem(f);
+        p.addItem(r);
+        p.addItem(t);
+        p.addItem(w);
+        p.addItem(b);
 
         //when
-        Item result = p.getItem(i.getName());
+        Item resultC = p.getItem(c.getName());
+        Item resultF = p.getItem(f.getName());
+        Item resultR = p.getItem(r.getName());
+        Item resultT = p.getItem(t.getName());
+        Item resultW = p.getItem(w.getName());
+        Item resultB = p.getItem(b.getName());
 
         //then
-        assertEquals(i, result);
+        assertEquals(c, resultC);
+        assertEquals(f, resultF);
+        assertEquals(r, resultR);
+        assertEquals(t, resultT);
+        assertEquals(w, resultW);
+        assertEquals(b, resultB);
     }
-
     @Test
     public void test4_shouldNotGetItem(){
         //before
         Player p = new Player();
-        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Item i = new Resource("TestItem", "TestItem", State.NOT_USABLE, 99);
         p.addItem(i);
 
         //when
@@ -169,7 +222,7 @@ public class PlayerTest {
         Item i = mock(Item.class);
 
         when(e.isKilled()).thenReturn(false);
-        when(e.getDropItemList()).thenReturn(Arrays.asList(i));
+        when(e.getDropItemListElements()).thenReturn(Arrays.asList(i));
         when(e.getName()).thenReturn("Yoda");
         when(i.getName()).thenReturn("lightsaber");
 

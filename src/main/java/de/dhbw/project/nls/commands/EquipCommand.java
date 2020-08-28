@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import de.dhbw.project.Game;
-import de.dhbw.project.Item;
+import de.dhbw.project.item.Item;
 
 public class EquipCommand extends AutoCommand {
 

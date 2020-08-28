@@ -12,6 +12,8 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
+import de.dhbw.project.item.Item;
+import de.dhbw.project.item.Resource;
 import de.dhbw.project.nls.DataStorage;
 import de.dhbw.project.nls.commands.DropCommand;
 import de.dhbw.project.nls.commands.TakeCommand;
@@ -51,7 +53,7 @@ public class GameTest {
 
         doReturn(Arrays.asList(itemName)).when(currentRoom).getRoomItemNameList();
 
-        Item item = new Item(itemName, "TestItem", State.NOT_USABLE, 99);
+        Item item = new Resource(itemName, "TestItem", State.NOT_USABLE, 99);
         PowerMockito.doReturn(item).when(game, "getItemFromCurrentRoom", itemName);
 
         TakeCommand takeCommand = new TakeCommand(game);
@@ -95,7 +97,7 @@ public class GameTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Item item = new Resource("TestItem", "TestItem", State.NOT_USABLE, 99);
         when(currentRoom.getRoomItemList()).thenReturn(Arrays.asList(item));
 
         //when
@@ -112,7 +114,7 @@ public class GameTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Item item = new Resource("TestItem", "TestItem", State.NOT_USABLE, 99);
         PowerMockito.doReturn(item).when(player, "getItem", item.getName());
 
         DropCommand dropCommand = new DropCommand(game);
@@ -136,7 +138,7 @@ public class GameTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Item item = new Resource("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         DropCommand dropCommand = new DropCommand(game);
         DataStorage data = new DataStorage();

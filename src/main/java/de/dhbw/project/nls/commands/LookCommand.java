@@ -5,6 +5,7 @@ import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
+import de.dhbw.project.item.Item;
 
 public class LookCommand extends AutoCommand {
 

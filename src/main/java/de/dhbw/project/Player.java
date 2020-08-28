@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Character;
 
+import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +18,7 @@ public class Player {
     @SerializedName("strength")
     private int strength = 20;
     @SerializedName("inventory")
-    private List<Item> inventory = new ArrayList<>();
+    private ItemList inventory = new ItemList();
     @SerializedName("roomName")
     private String roomName;
     @SerializedName("equipment")
@@ -40,7 +43,7 @@ public class Player {
     }
 
     public List<Item> getInventory() {
-        return inventory;
+        return inventory.getAllItemList();
     }
 
     public String getRoomName() {
@@ -56,23 +59,18 @@ public class Player {
     }
 
     public List<Item> addItem(Item item) {
-        inventory.add(item);
-        return inventory;
+        inventory.addItem(item);
+        return inventory.getAllItemList();
     }
 
     public List<Item> removeItem(Item item) {
-        inventory.remove(item);
-        return inventory;
+        inventory.removeItem(item);
+        return inventory.getAllItemList();
     }
 
     // getItem Method: returns an item, if an item with itemName was found, else returns null
     public Item getItem(String itemName) {
-        for (Item i : inventory) {
-            if (i.getName().equals(itemName)) {
-                return i;
-            }
-        }
-        return null;
+        return inventory.getItem(itemName);
     }
 
     public boolean winsFight(Character c) {
@@ -101,7 +99,7 @@ public class Player {
                 System.out.println(c.getName() + ": " + c.getKillStatement());
                 System.out.println("You win the fight against " + c.getName() + "!");
                 if (c instanceof Enemy) {
-                    for (Item i : ((Enemy) c).getDropItemList()) {
+                    for (Item i : ((Enemy) c).getDropItemListElements()) {
                         System.out.println(c.getName() + " drops " + i.getName());
                         r.addItem(i);
                     }
@@ -118,18 +116,7 @@ public class Player {
 
     // counts how often the player has a specific item in his inventory (returns -1 when item is not found)
     public int getNumberOfItem(String itemName) {
-        int count = 0;
-        for (Item i : inventory) {
-            if (i.getName().equals(itemName)) {
-                count++;
-            }
-        }
-
-        if (count > 0) {
-            return count;
-        }
-
-        return -1;
+        return inventory.getNumberOfItem(itemName);
     }
 
     // getItem Method: returns an item, if an item with itemName was found, else returns null

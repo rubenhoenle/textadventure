@@ -2,6 +2,8 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 
+import de.dhbw.project.item.Item;
+
 import java.util.List;
 
 public class Quest {

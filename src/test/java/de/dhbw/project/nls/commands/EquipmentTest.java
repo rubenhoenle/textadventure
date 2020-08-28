@@ -20,10 +20,11 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import de.dhbw.project.EquipmentType;
 import de.dhbw.project.Game;
-import de.dhbw.project.Item;
 import de.dhbw.project.Player;
 import de.dhbw.project.Room;
 import de.dhbw.project.State;
+import de.dhbw.project.item.Clothing;
+import de.dhbw.project.item.Item;
 import de.dhbw.project.nls.DataStorage;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -56,8 +57,8 @@ public class EquipmentTest {
 
         doReturn(Arrays.asList(itemName1, itemName2)).when(currentRoom).getRoomItemNameList();
 
-        Item item1 = new Item(itemName1, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
-        Item item2 = new Item(itemName2, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
+        Item item1 = new Clothing(itemName1, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
+        Item item2 = new Clothing(itemName2, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
 
         PowerMockito.doReturn(true).when(player, "addEquipment", item1);
         PowerMockito.doReturn(false).when(player, "addEquipment", item2);
@@ -88,7 +89,7 @@ public class EquipmentTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Item(itemName, "TestItem", State.ACTIVE, 0, EquipmentType.WEAPON);
+        Item item = new Clothing(itemName, "TestItem", State.ACTIVE, 0, EquipmentType.WEAPON);
         player.addItem(item);
 
         PowerMockito.doReturn(Arrays.asList(item)).when(player, "getInventory");
@@ -115,8 +116,8 @@ public class EquipmentTest {
         String itemName1 = "TestItem1";
         String itemName2 = "TestItem2";
 
-        Item item1 = new Item(itemName1, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
-        Item item2 = new Item(itemName2, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
+        Item item1 = new Clothing(itemName1, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
+        Item item2 = new Clothing(itemName2, "TestItem", State.ACTIVE, 0, EquipmentType.HEAD);
 
         PowerMockito.doReturn(item1).when(player, "getItemFromEquipment", item1.getName());
         PowerMockito.doReturn(null).when(player, "getItemFromEquipment", item2.getName());
@@ -140,8 +141,8 @@ public class EquipmentTest {
     @Test
     public void test4_showEquipment() throws Exception {
     	//before
-    	Item item1 = new Item("testItem", "test", State.ACTIVE, 0, EquipmentType.LOWER_BODY);
-    	Item item2 = new Item("testItem2", "test2", State.ACTIVE, 5, EquipmentType.UPPER_BODY);
+    	Item item1 = new Clothing("testItem", "test", State.ACTIVE, 0, EquipmentType.LOWER_BODY);
+    	Item item2 = new Clothing("testItem2", "test2", State.ACTIVE, 5, EquipmentType.UPPER_BODY);
         ShowEquipmentCommand showEquipmentCommand = new ShowEquipmentCommand(game);
 
     	when(game.player.getEquipment()).thenReturn(Arrays.asList(item1, item2));

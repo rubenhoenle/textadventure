@@ -1,15 +1,14 @@
 package de.dhbw.project;
 
-import de.dhbw.project.character.Character;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
+import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
+import de.dhbw.project.item.*;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.reflect.Whitebox;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,34 +23,57 @@ public class RoomTest {
     public void test1_shouldAddItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
+        Resource re = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
 
         //when
-        r.addItem(i);
+        r.addItem(c);
+        r.addItem(f);
+        r.addItem(re);
+        r.addItem(t);
+        r.addItem(w);
+        
+        
 
         //then
-        assertTrue(r.getRoomItemList().size() == 1);
+        assertTrue(r.getRoomItemList().size() == 5);
     }
 
     @Test
     public void test2_shouldRemoveItem(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
-        r.addItem(i);
+        Room room = new Room("Test", "TestRoom", "true");
+        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        room.addItem(c);
+        room.addItem(f);
+        room.addItem(r);
+        room.addItem(t);
+        room.addItem(w);
+
 
         //when
-        r.removeItem(i);
+        room.removeItem(c);
+        room.removeItem(f);
+        room.removeItem(r);
+        room.removeItem(t);
+        room.removeItem(w);
 
         //then
-        assertTrue(r.getRoomItemList().size() == 0);
+        assertTrue(room.getRoomItemList().size() == 0);
     }
 
     @Test
     public void test3_shouldRemoveNonExistingItem(){
         //before
         Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Item("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Item i = new Resource("TestItem", "TestItem", State.NOT_USABLE, 99);
 
         //when
         r.removeItem(i);
@@ -63,19 +85,28 @@ public class RoomTest {
     @Test
     public void test4_shouldListRoomItems(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
-        Item i1 = new Item("TestItem1", "TestItem1", State.NOT_USABLE, 99);
-        Item i2 = new Item("TestItem2", "TestItem2", State.NOT_USABLE, 99);
-        r.addItem(i1);
-        r.addItem(i2);
+        Room room = new Room("Test", "TestRoom", "true");
+        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        room.addItem(c);
+        room.addItem(f);
+        room.addItem(r);
+        room.addItem(t);
+        room.addItem(w);
 
         //when
-        List<String> roomItems = r.getRoomItemNameList();
+        List<String> roomItems = room.getRoomItemNameList();
 
         //then
-        assertTrue(roomItems.size() == 2);
-        assertTrue(roomItems.contains(i1.getName()));
-        assertTrue(roomItems.contains(i2.getName()));
+        assertTrue(roomItems.size() == 5);
+        assertTrue(roomItems.contains(c.getName()));
+        assertTrue(roomItems.contains(f.getName()));
+        assertTrue(roomItems.contains(r.getName()));
+        assertTrue(roomItems.contains(t.getName()));
+        assertTrue(roomItems.contains(w.getName()));
     }
 
     @Test

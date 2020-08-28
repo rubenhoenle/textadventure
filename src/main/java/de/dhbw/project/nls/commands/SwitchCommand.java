@@ -1,8 +1,8 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
-import de.dhbw.project.Item;
 import de.dhbw.project.State;
+import de.dhbw.project.item.Item;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class SwitchCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "[switch|turn] <item>+", "[switch|turn]" };
+        String[] patterns = { "(switch|turn) <item>+", "(switch|turn)" };
         return patterns;
     }
 }

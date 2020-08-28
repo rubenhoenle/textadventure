@@ -2,6 +2,7 @@ package de.dhbw.project.interactive;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.*;
+import de.dhbw.project.item.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,33 @@ public class InteractiveCraftingObject extends Thing {
             }
         }
 
-        player.addItem(new Item(createable.getName(), createable.getDescription(), State.NOT_USABLE, 0));
+        switch (createable.getType()) {
+        case "cloth":
+            player.addItem(new Clothing(createable.getName(), createable.getDescription(), createable.getState(),
+                    createable.getStrength(), createable.getClothingType()));
+            break;
+
+        case "food":
+            player.addItem(new Food(createable.getName(), createable.getDescription(), createable.getState(),
+                    createable.getStrength()));
+            break;
+
+        case "resource":
+            player.addItem(new Resource(createable.getName(), createable.getDescription(), createable.getState(),
+                    createable.getStrength()));
+            break;
+
+        case "tool":
+            player.addItem(new Tool(createable.getName(), createable.getDescription(), createable.getState(),
+                    createable.getStrength()));
+            break;
+
+        case "weapon":
+            player.addItem(new Weapon(createable.getName(), createable.getDescription(), createable.getState(),
+                    createable.getStrength()));
+            break;
+        }
+
         return "Congratulations. You created a " + createable.getName() + ".";
     }
 

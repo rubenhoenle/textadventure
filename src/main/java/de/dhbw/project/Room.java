@@ -5,6 +5,7 @@ import de.dhbw.project.character.Enemy;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.character.Character;
+import de.dhbw.project.item.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class Room extends Thing {
     @SerializedName("ways")
     private List<Way> roomWayList = new ArrayList<>();
     @SerializedName("items")
-    private List<Item> roomItemList = new ArrayList<>();
+    private ItemList roomItemList = new ItemList();
     @SerializedName("interactiveCraftingObjects")
     private List<InteractiveCraftingObject> roomInteractiveCraftingObjectsList = new ArrayList<>();
     @SerializedName("enable")
@@ -51,15 +52,24 @@ public class Room extends Thing {
     }
 
     public List<Item> getRoomItemList() {
-        return roomItemList;
+        if (null != roomItemList) {
+            return roomItemList.getAllItemList();
+        } else {
+            return null;
+        }
     }
 
     public List<String> getRoomItemNameList() {
-        List<String> itemNames = new ArrayList<String>();
-        for (Item i : roomItemList) {
-            itemNames.add(i.getName());
+        if (null != roomItemList) {
+            List<String> itemNames = new ArrayList<String>();
+            for (Item i : roomItemList.getAllItemList()) {
+                itemNames.add(i.getName());
+            }
+            return itemNames;
+        } else {
+            return null;
         }
-        return itemNames;
+
     }
 
     public List<InteractiveCraftingObject> getRoomInteractiveObjectsList() {
@@ -91,13 +101,18 @@ public class Room extends Thing {
         this.enabled = enabled;
     }
 
-    public List<Item> addItem(Item item) {
-        roomItemList.add(item);
+    public ItemList addItem(Item item) {
+        if (null != roomItemList) {
+            roomItemList.addItem(item);
+        } else {
+            roomItemList = new ItemList();
+            roomItemList.addItem(item);
+        }
         return roomItemList;
     }
 
-    public List<Item> removeItem(Item item) {
-        roomItemList.remove(item);
+    public ItemList removeItem(Item item) {
+        roomItemList.removeItem(item);
         return roomItemList;
     }
 

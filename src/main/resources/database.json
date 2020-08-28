@@ -3,7 +3,13 @@
     "points": 0,
     "strength": 42,
     "name": "Hugo",
-    "inventory": [],
+    "inventory": {
+      "cloths":[],
+        "foods":[],
+	      "resources":[],
+        "tools":[],
+        "weapons":[]
+      },
     "equipment": [],
     "roomName": "beach"
   },
@@ -34,22 +40,27 @@
           "description": "North of the beach a steep track is leading to a hill."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "backpack",
-          "description": "a backpack where you can store some additional items",
-          "place": "is lying in the sand",
-          "state": "1"
-        },
-        {
-          "strength": 0,
-          "name": "life jacket",
-          "description": "a life jacket from your sunken ship",
-          "place": "floating in the water",
-          "equipment": "UPPER_BODY"
-        }
-      ]
+      "items": {
+        "cloths":[
+          {
+            "strength": 0,
+            "name": "backpack",
+            "description": "a backpack where you can store some additional items",
+            "place": "is lying in the sand",
+            "state": "1"
+          },
+          {
+            "strength": 0,
+            "name": "life jacket",
+            "description": "a life jacket from your sunken ship",
+            "place": "floating in the water",
+            "equipment": "UPPER_BODY"
+          }
+        ],
+        "foods":[],
+        "tools":[],
+        "weapons":[]
+      }
     },
     {
       "name": "cave on the beach",
@@ -70,27 +81,34 @@
           "description": "A winding tunnel leads deeper into the cave, but it's pretty dark in there."
         }
       ],
-      "items": [
-        {
-          "strength": 13,
-          "name": "saber",
-          "description": "a rusty saber of the pirate",
-          "place": "is in the belt buckle of the pirate skeleton",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 1,
-          "name": "rum",
-          "description": "an old dusty bottle of rum",
-          "place": "lies next to the pirate skeleton"
-        },
-        {
-          "strength": 0,
-          "name": "telescope",
-          "description": "a golden telescope",
-          "place": "lies next to the skeleton"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[
+          {
+            "strength": 1,
+            "name": "rum",
+            "description": "an old dusty bottle of rum",
+            "place": "lies next to the pirate skeleton"
+          }
+        ],
+        "tools":[ 
+          {
+            "strength": 0,
+            "name": "telescope",
+            "description": "a golden telescope",
+            "place": "lies next to the skeleton"
+          }
+        ],
+        "weapons":[
+          {
+            "strength": 13,
+            "name": "saber",
+            "description": "a rusty saber of the pirate",
+            "place": "is in the belt buckle of the pirate skeleton",
+            "equipment": "WEAPON"
+          }
+        ]
+      }
     },
     {
       "name": "lagoon",
@@ -104,27 +122,33 @@
           "description": "A small path leads east from the lagoon."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "swimming goggles",
-          "description": "swimming googles which seem to be fine",
-          "place": "lies in the water",
-          "equipment": "HEAD"
-        },
-        {
-          "strength": 0,
-          "name": "coconut",
-          "description": "a fresh coconut",
-          "place": "lies next to a palm tree"
-        },
-        {
-          "strength": 0,
-          "name": "shell",
-          "description": "a pretty nice shell",
-          "place": "lies in the sand"
-        }
-      ]
+      "items": {
+        "cloths":[
+          {
+            "strength": 0,
+            "name": "swimming goggles",
+            "description": "swimming googles which seem to be fine",
+            "place": "lies in the water",
+            "equipment": "HEAD"
+          }
+        ],
+        "foods":[
+          {
+            "strength": 0,
+            "name": "coconut",
+            "description": "a fresh coconut",
+            "place": "lies next to a palm tree"
+          },
+          {
+            "strength": 0,
+            "name": "shell",
+            "description": "a pretty nice shell",
+            "place": "lies in the sand"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "hill",
@@ -159,26 +183,31 @@
           "description": "A rocky winding mountain path leads down in serpentines."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "apple",
-          "description": "some delicious apple",
-          "place": "lies in the dirt next to a huge apple tree"
-        },
-        {
-          "strength": 0,
-          "name": "apple",
-          "description": "another delicious apple",
-          "place": "lies in the dirt next to a huge apple tree"
-        },
-        {
-          "strength": 0,
-          "name": "rotten apple",
-          "description": "this apple doesn't look that delicious",
-          "place": "lies in the dirt next to a huge apple tree"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[
+          {
+            "strength": 0,
+            "name": "apple",
+            "description": "some delicious apple",
+            "place": "lies in the dirt next to a huge apple tree"
+          },
+          {
+            "strength": 0,
+            "name": "apple",
+            "description": "another delicious apple",
+            "place": "lies in the dirt next to a huge apple tree"
+          },
+          {
+            "strength": 0,
+            "name": "rotten apple",
+            "description": "this apple doesn't look that delicious",
+            "place": "lies in the dirt next to a huge apple tree"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "viewing platform",
@@ -192,14 +221,19 @@
           "description": "A ladder leads down from the platform"
         }
       ],
-      "items": [
-        {
-        "strength": 0,
-        "name": "rusty key",
-        "description": "This key looks very old ...",
-        "place": "lies between two wood planks on the ground"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+        "tools":[
+          {
+            "strength": 0,
+            "name": "rusty key",
+            "description": "This key looks very old ...",
+            "place": "lies between two wood planks on the ground"
+            }
+        ],
+        "weapons":[]
+      }
     },
     {
       "name": "rundown hut on the hill",
@@ -213,35 +247,43 @@
           "description": "To the east of the hut is a wide slope."
         }
       ],
-      "items": [
-        {
-          "strength": 15,
-          "name": "bow and some arrows",
-          "description": "A bow out of wood",
-          "place": "lies against the wall",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 1,
-          "name": "broken bottle",
-          "description": "a broken wine bottle",
-          "place": "stands on the table",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 5,
-          "name": "homemade knife",
-          "description": "a homemade knife",
-          "place": "lies on the table",
-          "equipment": "WEAPON"
-        },
+      "items": {
+        "cloths":[],
+        "foods":[],
+        "tools":[
         {
           "strength": 0,
           "name": "nails",
           "description": "some rusty nails",
           "place": "lies scattered on the table"
         }
-      ]
+        ],
+        "weapons":[
+          {
+            "strength": 15,
+            "name": "bow and some arrows",
+            "description": "A bow out of wood",
+            "place": "lies against the wall",
+            "equipment": "WEAPON"
+          },
+          {
+            "strength": 5,
+            "name": "homemade knife",
+            "description": "a homemade knife",
+            "place": "lies on the table",
+            "equipment": "WEAPON"
+          }
+        ],
+        "resources": [
+          {
+            "strength": 1,
+            "name": "broken bottle",
+            "description": "a broken wine bottle",
+            "place": "stands on the table"
+          }
+        ]
+      }
+
     },
     {
       "name": "Cliff above the ship graveyard",
@@ -268,8 +310,7 @@
           "name": "stream path",
           "description": "East a path is running alongside a stream."
         }
-      ],
-      "items": []
+      ]
     },
     {
       "name": "Camp site",
@@ -283,14 +324,20 @@
           "description": "In the north a beaten path leads to a cliff."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "lunch box",
-          "description": "a small box that contains some food",
-          "place": "is standing by the tent"
-        }
-      ],
+      "items": {
+        "cloths":[],
+        "foods":[
+          {
+            "strength": 0,
+            "name": "lunch box",
+            "description": "a small box that contains some food",
+            "place": "is standing by the tent"
+          }
+        ],
+	      "resources":[],
+        "tools":[ ],
+        "weapons":[]
+      },
       "characters": []
     },
     {
@@ -312,27 +359,35 @@
           "description": "A trapdoor is blocked by a fallen mast."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "sail cloth",
-          "description": "a large, torn part of the sail",
-          "place": "attached to the fallen mast"
-        },
-        {
-          "strength": 0,
-          "name": "rope",
-          "description": "part of the rigging is still intact and can be used as a rope",
-          "place": "wrapped around the fallen mast"
-        },
-        {
-          "strength": 12,
-          "name": "saber",
-          "description": "old rusty saber",
-          "place": "stuck in the railing",
-          "equipment": "WEAPON"
-        }
-      ]
+      "items": {
+        "cloths":[
+          {
+            "strength": 0,
+            "name": "sail cloth",
+            "description": "a large, torn part of the sail",
+            "place": "attached to the fallen mast"
+          }
+        ],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "rope",
+            "description": "part of the rigging is still intact and can be used as a rope",
+            "place": "wrapped around the fallen mast"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[
+          {
+            "strength": 12,
+            "name": "saber",
+            "description": "old rusty saber",
+            "place": "stuck in the railing",
+            "equipment": "WEAPON"
+          }
+        ]
+      }
     },
     {
       "name": "ship interior",
@@ -353,25 +408,32 @@
           "description": "On the south side there's a hole in the the ship hull."
         }
       ],
-      "items": [
+      "items": {
+        "cloths":[],
+        "foods":[
         {
           "name": "rum",
           "description": "a bottle of rum",
           "place": "standing on the table"
-        },
-        {
-          "strength": 0,
-          "name": "nautical map",
-          "description": "an old, nautical map with an island marked on it",
-          "place": "on the table"
-        },
-        {
-          "strength": 0,
-          "name": "compass",
-          "description": "a small, old compass",
-          "place": "on the table"
         }
-      ]
+        ],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "nautical map",
+            "description": "an old, nautical map with an island marked on it",
+            "place": "on the table"
+          },
+          {
+            "strength": 0,
+            "name": "compass",
+            "description": "a small, old compass",
+            "place": "on the table"
+          }
+        ],
+        "tools":[],
+        "weapons":[]
+      }
     },
     {
       "name": "Beach below the cliff",
@@ -400,14 +462,20 @@
         }
       ],
       "characters": [],
-      "items": [
+      "items": {
+        "cloths":[],
+        "foods":[],
+	    "resources":[],
+        "tools":[
         {
           "strength": 1,
           "name": "anchor",
           "description": "not to heavy but enough for a small ship",
           "place": "stuck between two boulders"
         }
-      ]
+        ],
+        "weapons":[]
+      }
     },
     {
       "name": "Sunken ships in the sea",
@@ -422,13 +490,19 @@
         }
       ],
       "characters": [],
-      "items": [
-        {
-          "strength": 0,
-          "name": "small treasure box",
-          "description": "a small treasure box that looks like it might contain something priceless"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[],
+        "tools":[ 
+          {
+            "strength": 0,
+            "name": "small treasure box",
+            "description": "a small treasure box that looks like it might contain something priceless"
+          }
+        ],
+        "weapons":[]
+      }
     },
     {
       "name": "giant rabbit hole",
@@ -463,8 +537,7 @@
           "description": "A hole in the ceiling is going up."
         }
        ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "Hidden cave",
@@ -493,14 +566,19 @@
         }
        ],
       "characters": [],
-      "items": [
-      {
-          "strength": 3,
-          "name": "sharp sparkling shard of glass",
-          "description": "a sharp sparkling shard of glass",
-          "equipment": "WEAPON"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 3,
+            "name": "sharp sparkling shard of glass",
+            "description": "a sharp sparkling shard of glass"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Living room of a torturer",
@@ -522,13 +600,19 @@
         }
        ],
       "characters": [],
-      "items": [
-      	{
-          "strength": 1,
-          "name": "large beetle with a flattened carapace",
-          "description": "a large beetle with a flattened carapace"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 1,
+            "name": "large beetle with a flattened carapace",
+            "description": "a large beetle with a flattened carapace"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Secret Grotto",
@@ -572,14 +656,20 @@
       ],
       "characters": [],
       "defaultItemLocation": "is swimming in the pool",
-      "items": [
-      	{
-          "strength": 0,
-          "name": "small water lily",
-          "description": "small water lily",
-          "place": "is swimming in the centre of the pool"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "small water lily",
+            "description": "small water lily",
+            "place": "is swimming in the centre of the pool"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Cave with the mortal remains of the first men",
@@ -601,13 +691,19 @@
         }
       ],
       "characters": [],
-      "items": [
-      {
-          "strength": 1,
-          "name": "human skull",
-          "description": "human skull that feels a little greasy. The shape of the skull is very different from what you are used to from the mirror and reminds you more of a monkey than a human."
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 1,
+            "name": "human skull",
+            "description": "human skull that feels a little greasy. The shape of the skull is very different from what you are used to from the mirror and reminds you more of a monkey than a human."
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Crossroads bat",
@@ -643,14 +739,20 @@
         }
         ],
       "characters": [],
-      "items": [
-     	{
-          "strength": 0,
-          "name": "dead bat, neither eaten, stinking or rotting",
-          "description": "don't even think of eating that uncooked you'll make the whole world stay at home",
-          "place": "is lying on the floor"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "dead bat, neither eaten, stinking or rotting",
+            "description": "don't even think of eating that uncooked you'll make the whole world stay at home",
+            "place": "is lying on the floor"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Room under crossroads bat I",
@@ -671,8 +773,7 @@
           "description": "way - only use with ladder etc..."
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "Room under crossroads bat II",
@@ -693,8 +794,7 @@
           "description": "way - only use with ladder etc..."
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "Butcher's Room II",
@@ -722,14 +822,7 @@
           "description": "A big trapdoor, too big to miss, leads down."
         }
         ],
-      "characters" : [
-        {
-          "name": "ugly big troll",
-          "situation": "A stinking big dangerous looking troll is walking through the room.",
-          "intro": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
-          "comment": "TODO attack + drop items"
-        }],
-      "items": []
+      "characters": []
     },
     {
       "name": "Butcher's Room I",
@@ -764,8 +857,7 @@
           "description": "A locked door is leading south."
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "hidden dungeon",
@@ -779,8 +871,7 @@
           "description": "To get to the top, you can take a discrete little hatch."
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "cave with nothing but three ways",
@@ -815,8 +906,7 @@
           "description": "way"
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "magical cave",
@@ -831,14 +921,20 @@
         }
         ],
       "characters": [],
-      "items": [
-      {
-          "strength": 9000,
-          "name": "a giant statue of buddah",
-          "description": "too heavy to take, shimmering in the light",
-          "place": "sits on the floor"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 9000,
+            "name": "a giant statue of buddah",
+            "description": "too heavy to take, shimmering in the light",
+            "place": "sits on the floor"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "holy grotto",
@@ -852,14 +948,13 @@
           "description": "way"
         }
         ],
-        "characters" : [
+      "characters": [
           {
             "name": "wise hovering monk",
             "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
             "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
             "comment": "TODO interaction"
-          }],
-      "items": [],
+          }], 
       "defaultItemLocation": "hovers above the ground"
     },
     {
@@ -875,26 +970,32 @@
         }
         ],
       "characters": [],
-      "items": [
-      	{
-          "strength": 0,
-          "name": "small lump of coal",
-          "description": "there is nothing special about this lump of coal",
-          "place": "is lying on the ground"
-        },
-        {
-          "strength": 0,
-          "name": "big lump of coal",
-          "description": "there is nothing special about this lump of coal",
-          "place": "is lying on the ground"
-        },
-        {
-          "strength": 0,
-          "name": "lump of coal of medium size",
-          "description": "there is nothing special about this lump of coal",
-          "place": "is lying on the ground"
-        }
-        ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "small lump of coal",
+            "description": "there is nothing special about this lump of coal",
+            "place": "is lying on the ground"
+          },
+          {
+            "strength": 0,
+            "name": "big lump of coal",
+            "description": "there is nothing special about this lump of coal",
+            "place": "is lying on the ground"
+          },
+          {
+            "strength": 0,
+            "name": "lump of coal of medium size",
+            "description": "there is nothing special about this lump of coal",
+            "place": "is lying on the ground"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Crossroads ape",
@@ -922,8 +1023,7 @@
           "description": "later: use railway item"
         }
       ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "archaeological chamber",
@@ -944,8 +1044,7 @@
           "description": "A large brick passageway leads west."
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "Pillaged armory",
@@ -967,32 +1066,38 @@
         }
       ],
       "characters": [],
-      "items": [
-        {
-          "strength": 0,
-          "name": "iron ingot",
-          "description": "An iron ingot. Maybe you can create something with it.",
-          "place": "is lying under some cobwebs"
-        },
-        {
-          "strength": 0,
-          "name": "iron ingot",
-          "description": "An iron ingot. Maybe you can create something with it.",
-          "place": "is lying under some cobwebs"
-        },
-        {
-          "strength": 0,
-          "name": "iron ingot",
-          "description": "An iron ingot. Maybe you can create something with it.",
-          "place": "is lying under some cobwebs"
-        },
-        {
-          "strength": 0,
-          "name": "iron ingot",
-          "description": "An iron ingot. Maybe you can create something with it.",
-          "place": "is lying under some cobwebs"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "iron ingot",
+            "description": "An iron ingot. Maybe you can create something with it.",
+            "place": "is lying under some cobwebs"
+          },
+          {
+            "strength": 0,
+            "name": "iron ingot",
+            "description": "An iron ingot. Maybe you can create something with it.",
+            "place": "is lying under some cobwebs"
+          },
+          {
+            "strength": 0,
+            "name": "iron ingot",
+            "description": "An iron ingot. Maybe you can create something with it.",
+            "place": "is lying under some cobwebs"
+          },
+          {
+            "strength": 0,
+            "name": "iron ingot",
+            "description": "An iron ingot. Maybe you can create something with it.",
+            "place": "is lying under some cobwebs"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Earthworm tunnel",
@@ -1013,8 +1118,7 @@
           "description": "A little earthworm tunnel leads back to daylight."
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "Cave with underground river",
@@ -1037,34 +1141,43 @@
         ],
       "characters": [],
       "defaultItemLocation": "is swimming in the river",
-      "items": [
-      	{
-          "strength": 0,
-          "name": "old tattered leather shoe",
-          "description": "decomposed by the water and many sweaty feat",
-          "place": "is swimming in the water",
-          "equipment": "SHOES"
-        },
-        {
-          "strength": 3,
-          "name": "old rusty and bent knife",
-          "description": "better suited for poisoning than stabbing",
-          "place": "is lying on the ground of the river",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 1,
-          "name": "old ampoule full of fermented wine, mixed with brackish water",
-          "description": "lying there a few years or for decades, the wine is undrinkable",
-          "place": "is lying on the ground of the river, partly covered with mud "
-        },
-        {
-          "strength": 1,
-          "name": "large gnawed rotten brown bone of an animal",
-          "description": "it smells so disusting that you have absolutely no desire to touch it",
-          "place": "is swimming on the surface of the river "
-        }
+      "items": {
+        "cloths":[
+          {
+            "strength": 0,
+            "name": "old tattered leather shoe",
+            "description": "decomposed by the water and many sweaty feat",
+            "place": "is swimming in the water",
+            "equipment": "SHOES"
+          }
+        ],
+        "foods":[
+          {
+            "strength": 1,
+            "name": "old ampoule full of fermented wine, mixed with brackish water",
+            "description": "lying there a few years or for decades, the wine is undrinkable",
+            "place": "is lying on the ground of the river, partly covered with mud "
+          }
+        ],
+	      "resources":[
+          {
+            "strength": 1,
+            "name": "large gnawed rotten brown bone of an animal",
+            "description": "it smells so disusting that you have absolutely no desire to touch it",
+            "place": "is swimming on the surface of the river "
+          }
+        ],
+        "tools":[ ],
+        "weapons":[
+          {
+            "strength": 3,
+            "name": "old rusty and bent knife",
+            "description": "better suited for poisoning than stabbing",
+            "place": "is lying on the ground of the river",
+            "equipment": "WEAPON"
+          }
         ]
+      }
     },
     {
       "name": "Locker room",
@@ -1086,14 +1199,20 @@
         }
         ],
       "characters": [],
-      "items": [
-      	{
-          "strength": 0,
-          "name": "big towel with a kind of flower pattern in blue and pink",
-          "description": "big towel with a kind of flower pattern in blue and pink",
-          "place": "is lying on the towel stand"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "big towel with a kind of flower pattern in blue and pink",
+            "description": "big towel with a kind of flower pattern in blue and pink",
+            "place": "is lying on the towel stand"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "Killer Sauna",
@@ -1114,8 +1233,7 @@
           "description": "In the north you see a locked door."
         }
         ],
-      "characters": [],
-      "items": []
+      "characters": []
     },
     {
       "name": "house in the village",
@@ -1129,14 +1247,20 @@
           "description": "A wooden door east is going outside towards the village square."
         }
       ],
-      "items": [
+      "items": {
+        "cloths":[],
+        "foods":[],
+        "resources":[
         {
           "strength": 0,
           "name": "sewing kit",
           "description": "A sewing kit that can be used to sew pieces of textile together.",
           "place": "lying on the table"
         }
-      ]
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "village square",
@@ -1171,14 +1295,20 @@
           "description": "A long path going south. On that path are many footsteps which tells you that this path is often used."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "grilled pork",
-          "description": "A delicious smelling grilled pork.",
-          "place": "hanging on a barbecue skewer over the fire"
-        }
-      ],
+      "items": {
+        "cloths":[],
+        "foods":[
+          {
+            "strength": 0,
+            "name": "grilled pork",
+            "description": "A delicious smelling grilled pork.",
+            "place": "hanging on a barbecue skewer over the fire"
+          }
+        ],
+	      "resources":[],
+        "tools":[ ],
+        "weapons":[]
+      },
       "interactiveCraftingObjects": [
         {
           "name": "stove",
@@ -1191,30 +1321,39 @@
             {
               "name": "fried fish",
               "description": "A good looking and very good smelling fried fish.",
+              "type": "food",
+              "state": "",
+              "strength": 0,
               "neededMaterials": [
                 {
                   "name": "fish",
-                  "number": "1"
+                  "number": 1
                 }
               ]
             },
             {
               "name": "baked apple",
               "description": "A delicious looking baked apple. Smells like these your mom made on christmas every year.",
+              "type": "food",
+              "state": "",
+              "strength": 0,
               "neededMaterials": [
                 {
                   "name": "apple",
-                  "number": "1"
+                  "number": 1
                 }
               ]
             },
             {
               "name": "fried egg",
               "description": "A fried egg, nothing special. But it looks very jummy.",
+              "type": "food",
+              "state": "",
+              "strength": 0,
               "neededMaterials": [
                 {
                   "name": "egg",
-                  "number": "1"
+                  "number": 1
                 }
               ]
             }
@@ -1241,22 +1380,28 @@
           "description": "A ladder is going down to the cellar of the smithy."
         }
       ],
-      "items": [
-        {
-          "strength": 3,
-          "name": "hammer",
-          "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
-          "place": "is lying on the anvil",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 5,
-          "name": "iron helmet",
-          "description": "A freshly forged, strong helmet made out of iron.",
-          "place": "is lying in the shelf",
-          "equipment": "HEAD"
-        }
-      ],
+      "items": {
+        "cloths":[
+          {
+            "name": "iron helmet",
+            "description": "A freshly forged, strong helmet made out of iron.",
+            "place": "is lying in the shelf",
+            "strength": 5,
+            "equipment": "HEAD"
+          }
+        ],
+        "foods":[],
+        "resources":[],
+        "tools":[
+          {
+            "name": "hammer",
+            "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
+            "place": "is lying on the anvil",
+            "strength": 3
+          }
+         ],
+        "weapons":[]
+      },
       "interactiveCraftingObjects": [
         {
           "name": "anvil",
@@ -1267,33 +1412,60 @@
           "action": "forging",
           "createables": [
             {
-              "createableName": "iron ingot",
+              "name": "iron boots",
+              "description": "Boots made out of iron to protect your feet.",
+              "type": "cloth",
+              "clothingType": "SHOES",
+              "state": "",
+              "strength": 5,
               "neededMaterials": [
                 {
-                  "materialName": "iron ore",
-                  "materialNumber": "1"
+                  "name": "iron ingot",
+                  "number": "4"
                 }
               ]
             },
             {
-              "createableName": "iron boots",
+              "name": "iron axe",
+              "description": "An axe made out of iron.",
+              "type": "weapon",
+              "state": "",
+              "strength": 5,
               "neededMaterials": [
                 {
-                  "materialName": "iron ingot",
-                  "materialNumber": "4"
-                }
-              ]
-            },
-            {
-              "createableName": "iron axe",
-              "neededMaterials": [
-                {
-                  "materialName": "iron ingot",
-                  "materialNumber": "2"
+                  "name": "iron ingot",
+                  "number": 2
                 },
                 {
-                  "materialName": "wood stick",
-                  "materialNumber": "1"
+                  "name": "wood stick",
+                  "number": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "furnance",
+          "description": "An furnance which can be used for melting ores.",
+          "state": "useable",
+          "place": "is standing next to the wall",
+          "usage": "It can be used for melting ores.",
+          "action": "melting",
+          "createables": [
+            {
+              "name": "iron ingot",
+              "description": "An iron ingot. Maybe you can create something with it.",
+              "type": "resource",
+              "state": "",
+              "strength": 0,
+              "neededMaterials": [
+                {
+                  "name": "piece of coal",
+                  "number": 1
+                },
+                {
+                  "name": "iron ore",
+                  "number": 1
                 }
               ]
             }
@@ -1344,68 +1516,74 @@
           "description": "A big cupboard southern standing next to the wall. Could be something special..."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "piece of coal",
-          "description": "A black and dusty piece of coal.",
-          "place": "is lying in a dark corner"
-        },
-        {
-          "strength": 0,
-          "name": "piece of coal",
-          "description": "A black and dusty piece of coal.",
-          "place": "is lying in a dark corner"
-        },
-        {
-          "strength": 0,
-          "name": "piece of coal",
-          "description": "A black and dusty piece of coal.",
-          "place": "is lying in a dark corner"
-        },
-        {
-          "strength": 0,
-          "name": "piece of coal",
-          "description": "A black and dusty piece of coal.",
-          "place": "is lying in a dark corner"
-        },
-        {
-          "strength": 0,
-          "name": "wood stick",
-          "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
-          "place": "is leaning on the wall"
-        },
-        {
-          "strength": 0,
-          "name": "wood stick",
-          "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
-          "place": "is leaning on the wall"
-        },
-        {
-          "strength": 0,
-          "name": "iron ore",
-          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-          "place": "is lying in a container"
-        },
-        {
-          "strength": 0,
-          "name": "iron ore",
-          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-          "place": "is lying in a container"
-        },
-        {
-          "strength": 0,
-          "name": "iron ore",
-          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-          "place": "is lying in a container"
-        },
-        {
-          "strength": 0,
-          "name": "iron ore",
-          "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-          "place": "is lying in a container"
-        }
-      ],
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "A black and dusty piece of coal.",
+            "place": "is lying in a dark corner"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "A black and dusty piece of coal.",
+            "place": "is lying in a dark corner"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "A black and dusty piece of coal.",
+            "place": "is lying in a dark corner"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "A black and dusty piece of coal.",
+            "place": "is lying in a dark corner"
+          },
+          {
+            "strength": 0,
+            "name": "wood stick",
+            "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
+            "place": "is leaning on the wall"
+          },
+          {
+            "strength": 0,
+            "name": "wood stick",
+            "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
+            "place": "is leaning on the wall"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+            "place": "is lying in a container"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+            "place": "is lying in a container"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+            "place": "is lying in a container"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
+            "place": "is lying in a container"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      },
       "interactiveCraftingObjects": []
     },
     {
@@ -1427,20 +1605,26 @@
           "description": "A narrow and very steep path going upwards to the vulcan in the west. If you go up here, it can get very hot."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "potion",
-          "description": "A little glass bottle with a purple liquid in it. Could be a potion with a magic effect.",
-          "place": "standing on the altar"
-        },
+      "items": {
+        "cloths":[],
+        "foods":[],
+        "resources":[
         {
           "strength": 0,
           "name": "altar cloth",
           "description": "A white, large piece of textile used to decorate the altar.",
           "place": "is spear over the altar"
+        },
+        {
+          "strength": 0,
+          "name": "potion",
+          "description": "A little glass bottle with a purple liquid in it. Could be a potion with a magic effect.",
+          "place": "standing on the altar"
         }
-      ]
+      ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "vulcan",
@@ -1453,9 +1637,6 @@
           "name": "path",
           "description": "In the east a narrow and very steep path going down to the sacrificial altar. If you go down this path, it will get cooler."
         }
-      ],
-      "items": [
-
       ]
     },
     {
@@ -1477,20 +1658,26 @@
           "description": "A path leading outside the forest in the east."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "liana",
-          "description": "A liana hanging from a tree. It seems to be as strong as a rope.",
-          "place": "hanging from the tree"
-        },
-        {
-          "strength": 0,
-          "name": "pile of leaves",
-          "description": "A pile of leaves with something under it.",
-          "place": "is lying on the ground"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "liana",
+            "description": "A liana hanging from a tree. It seems to be as strong as a rope.",
+            "place": "hanging from the tree"
+          },
+          {
+            "strength": 0,
+            "name": "pile of leaves",
+            "description": "A pile of leaves with something under it.",
+            "place": "is lying on the ground"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "forest path",
@@ -1518,26 +1705,33 @@
           "description": "In the north you could try to balance above the tree which was cut to get over the powering river."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "step from the tree house",
-          "description": "A step from the tree house which could be used to get up.",
-          "place": "is lying on the ground"
-        },
-        {
-          "strength": 0,
-          "name": "berries",
-          "description": "Some berries which seme suspicious.",
-          "place": "are hanging on a bush"
-        },
-        {
-          "strength": 1,
-          "name": "rusty curved nails",
-          "description": "Some rusty curved nails which can not be used anymore.",
-          "place": "are lying on the ground"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[
+          {
+            "strength": 0,
+            "name": "berries",
+            "description": "Some berries which seme suspicious.",
+            "place": "are hanging on a bush"
+          }
+        ],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "step from the tree house",
+            "description": "A step from the tree house which could be used to get up.",
+            "place": "is lying on the ground"
+          },
+          {
+            "strength": 1,
+            "name": "rusty curved nails",
+            "description": "Some rusty curved nails which can not be used anymore.",
+            "place": "are lying on the ground"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "tree house",
@@ -1559,27 +1753,34 @@
         }
       ],
       "defaultItemLocation": "lying on a small table",
-      "items": [
-        {
-          "strength": 1,
-          "name": "empty water bottle",
-          "description": "An empty water bottle which is very robust.",
-          "place": "is lying on a small table",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 0,
-          "name": "rotten apple",
-          "description": "A rotten apple with a worm looking out.",
-          "place": "is lying in a corner"
-        },
-        {
-          "strength": 0,
-          "name": "pair of shoes",
-          "description": "A pair of shoes looking like the owner forgot them. They got the initials G. E. written inside.",
-          "place": "are lying on a chair"
-        }
-      ]
+      "items": {
+        "cloths":[
+          {
+            "strength": 0,
+            "name": "pair of shoes",
+            "description": "A pair of shoes looking like the owner forgot them. They got the initials G. E. written inside.",
+            "place": "are lying on a chair",
+            "equipment": "SHOES"
+          }
+        ],
+        "foods":[
+          {
+            "strength": 1,
+            "name": "empty water bottle",
+            "description": "An empty water bottle which is very robust.",
+            "place": "is lying on a small table"
+          },
+          {
+            "strength": 0,
+            "name": "rotten apple",
+            "description": "A rotten apple with a worm looking out.",
+            "place": "is lying in a corner"
+          }
+        ],
+	      "resources":[],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "forest path with four directions",
@@ -1614,28 +1815,33 @@
           "description": "In the south you could try to balance above the tree which was cut to get over the powering river to get to the side with the tree house."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "fish",
-          "description": "A caught fish",
-          "place": "is hanging on a fishing rod"
-        },
-        {
+      "items": {
+        "cloths":[],
+        "foods":[
+          {
+            "strength": 0,
+            "name": "fish",
+            "description": "A caught fish",
+            "place": "is hanging on a fishing rod"
+          }
+        ],
+	      "resources":[
+         { 
           "strength": 1,
           "name": "broken fishing rod",
           "description": "A broken fishing rod which can no longer be used.",
-          "place": "is attached to the ground",
-          "equipment": "WEAPON"
+          "place": "is attached to the ground"
         },
         {
           "strength": 1,
           "name": "broken vase",
           "description": "A broken vase which was used to transport water.",
-          "place": "is lying next to the river",
-          "equipment": "WEAPON"
+          "place": "is lying next to the river"
         }
-      ]
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "in front of the old house",
@@ -1656,20 +1862,26 @@
           "description": "In the east a path leads away from the house."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "pile of wood",
-          "description": "A pile of wood",
-          "place": "is lying next to the old house"
-        },
-        {
-          "strength": 0,
-          "name": "abandoned beehive",
-          "description": "A beehive without honey or bees.",
-          "place": "is lying next to a tree."
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "pile of wood",
+            "description": "A pile of wood",
+            "place": "is lying next to the old house"
+          },
+          {
+            "strength": 0,
+            "name": "abandoned beehive",
+            "description": "A beehive without honey or bees.",
+            "place": "is lying next to a tree."
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "old house in the forest",
@@ -1691,39 +1903,48 @@
         }
       ],
       "defaultItemLocation": "is lying on a old wooden table",
-      "items": [
-        {
-          "strength": 9,
-          "name": "axe",
-          "description": "A sharp axe which could cut a tree.",
-          "place": "is hanging on the wall",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 0,
-          "name": "old diary",
-          "description": "A diary from someone.",
-          "place": "is lying on a old wooden table"
-        },
-        {
-          "strength": 0,
-          "name": "bag of gold",
-          "description": "A small bag full of gold.",
-          "place": "is lying on a old wooden table"
-        },
-        {
-          "strength": 0,
-          "name": "bread",
-          "description": "A deliciously smelling bread.",
-          "place": "is lying on a old wooden table"
-        },
+      "items": {
+        "cloths":[],
+        "foods":[
+          {
+            "strength": 0,
+            "name": "bread",
+            "description": "A deliciously smelling bread.",
+            "place": "is lying on a old wooden table"
+          }
+        ],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "old diary",
+            "description": "A diary from someone.",
+            "place": "is lying on a old wooden table"
+          },
+          {
+            "strength": 0,
+            "name": "bag of gold",
+            "description": "A small bag full of gold.",
+            "place": "is lying on a old wooden table"
+          }
+        ],
+        "tools":[
         {
           "strength": 0,
           "name": "bedsheet",
           "description": "A bedsheet which could be useful.",
           "place": "is lying on the bed"
         }
-      ]
+        ],
+        "weapons":[
+          {
+            "strength": 9,
+            "name": "axe",
+            "description": "A sharp axe which could cut a tree.",
+            "place": "is hanging on the wall",
+            "equipment": "WEAPON"
+          }
+        ]
+      }
     },
     {
       "name": "cellar of the old house in the forest",
@@ -1745,34 +1966,42 @@
         }
       ],
       "defaultItemLocation": "is lying on a table",
-      "items": [
-        {
-          "strength": 3,
-          "name": "whip",
-          "description": "A whip made of leather",
-          "place": "is lying on a table",
-          "equipment": "WEAPON"
-        },
-        {
-          "strength": 0,
-          "name": "wood",
-          "description": "Some wood.",
-          "place": "is lying in a corner"
-        },
-        {
-          "strength": 0,
-          "name": "chest",
-          "description": "A chest with something in it.",
-          "place": "is lying next to the wood"
-        },
-        {
-          "strength": 0,
-          "name": "diving mask",
-          "description": "A mask which helps to dive.",
-          "place": "is lying in the chest",
-          "equipment": "HEAD"
-        }
-      ]
+      "items": {
+        "cloths":[
+          {
+            "strength": 0,
+            "name": "diving mask",
+            "description": "A mask which helps to dive.",
+            "place": "is lying in the chest",
+            "equipment": "HEAD"
+          }
+        ],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "wood",
+            "description": "Some wood.",
+            "place": "is lying in a corner"
+          },
+          {
+            "strength": 0,
+            "name": "chest",
+            "description": "A chest with something in it.",
+            "place": "is lying next to the wood"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[
+          {
+            "strength": 3,
+            "name": "whip",
+            "description": "A whip made of leather",
+            "place": "is lying on a table",
+            "equipment": "WEAPON"
+          }
+        ]
+      }
     },
     {
       "name": "ruins entry",
@@ -1799,8 +2028,7 @@
           "name": "path",
           "description": "A path leading east to a court with scattered debris."
         }
-      ],
-      "items": []
+      ]
     },
     {
       "name": "ruins riddle",
@@ -1821,8 +2049,7 @@
           "name": "path",
           "description": "In the north you can recognize a path from the deciphered inscription."
         }
-      ],
-      "items": []
+      ]
     },
     {
       "name": "ruins treasure",
@@ -1836,20 +2063,26 @@
           "description": "The path in the south is leading back to the scattered debris."
         }
       ],
-      "items": [	
-      	{
-          "strength": 7,
-          "name": "decorated iron chestplate",
-          "description": "The chestplate is decorated with valuable gems.",
-          "equipment": "UPPER_BODY"
-        },
-
-		{
-          "strength": 0,
-          "name": "stack of torches",
-          "description": "A couple of torches."
-        }
-      ]
+      "items": {
+        "cloths":[
+          {
+            "strength": 7,
+            "name": "decorated iron chestplate",
+            "description": "The chestplate is decorated with valuable gems.",
+            "equipment": "UPPER_BODY"
+          }
+        ],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "stack of torches",
+            "description": "A couple of torches."
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      }
     },
     {
       "name": "ruins basement",
@@ -1877,15 +2110,21 @@
           "description": "Multiple bricks protrude from the wall, enabling a bold climb to the top of the ruin."
         }
       ],
-      "items": [
-      	{
-          "strength": 7,
-          "name": "rusty iron sword",
-          "description": "The sword looks a bit fragile, but should last a couple of hits.",
-          "place": "lies in the dust",
-          "equipment": "WEAPON"
-        }
-      ]
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[],
+        "tools":[ ],
+        "weapons":[
+          {
+            "strength": 7,
+            "name": "rusty iron sword",
+            "description": "The sword looks a bit fragile, but should last a couple of hits.",
+            "place": "lies in the dust",
+            "equipment": "WEAPON"
+          }
+        ]
+      }
     },
     {
       "name": "ruins top",
@@ -1898,8 +2137,7 @@
           "name": "descent",
           "description": "A dangerous descent leads down to the basement."
         }
-      ],
-      "items": []
+      ]
     },
     {
       "name": "ruins outside",
@@ -1919,8 +2157,7 @@
           "name": "hole in the middle of a meadow",
           "description": "A hole in the middle of a meadow is leading down."
         }
-      ],
-      "items": []
+      ]
     },
     {
       "name": "flower meadow",
@@ -1948,23 +2185,29 @@
           "description": "On the north side there seams to be a small gap between some bushes."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "grass",
-          "description": "The grass has grown very high so that you cannot see the ground."
-        },
-        {
-          "strength": 0,
-          "name": "flowers",
-          "description": "The weadow is full of beautiful flowers in all colors."
-        },
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "grass",
+            "description": "The grass has grown very high so that you cannot see the ground."
+          },
+          {
+            "strength": 0,
+            "name": "flowers",
+            "description": "The weadow is full of beautiful flowers in all colors."
+          },
         {
           "strength": 0,
           "name": "mumble",
           "description": "mumbles lost by a little child a long time ago"
         }
-      ],
+        ],
+        "tools":[ ],
+        "weapons":[]
+      },
       "characters" : [
         {
           "name": "young girl",
@@ -1986,8 +2229,18 @@
           "description": "At the east side of the chapel, there is a beautiful meadow."
         }
       ],
-      "items": [
-      	{
+      "items": {
+        "cloths":[
+        {
+      		"strength": 0,
+      		"name": "straw hat",
+      		"description": "a dented straw hat",
+      		"equipment": "HEAD"
+      	}
+      	],
+        "foods":[],
+	      "resources":[
+          {
       		"strength": 0,
       		"name": "potted plant",
       		"description": "a dried up potted plant decorates the altar"
@@ -1996,14 +2249,11 @@
       		"strength": 0,
       		"name": "bible",
       		"description": "an old dusty bible"
-      	},
-      	{
-      		"strength": 0,
-      		"name": "straw hat",
-      		"description": "a dented straw hat",
-      		"equipment": "HEAD"
       	}
-      ],
+        ],
+        "tools":[ ],
+        "weapons":[]
+      },
       "characters": []
     },
     {
@@ -2040,7 +2290,6 @@
           "description": "Maybe you can reach the low hanging branches of the maple tree..."
         }
       ],
-      "items": [],
       "characters": []
     },
     {
@@ -2062,14 +2311,20 @@
           "description": "Above you there are lots of branches."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "honey",
-          "descripion": "the beehive is full of honey",
-          "place": "inside a beehive"
-        }
-      ],
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "honey",
+            "descripion": "the beehive is full of honey",
+            "place": "inside a beehive"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      },
       "characters": []
     },
     {
@@ -2084,18 +2339,24 @@
           "description": "You should be careful while climbing down."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "eggs",
-          "descripion": "in a birds nest are lying some eggs"
-        },
-        {
-          "strength": 0,
-          "name": "cat",
-          "descripion": "the cat meows mournfully"
-        }
-      ],
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "eggs",
+            "descripion": "in a birds nest are lying some eggs"
+          },
+          {
+            "strength": 0,
+            "name": "cat",
+            "descripion": "the cat meows mournfully"
+          }
+        ],
+        "tools":[ ],
+        "weapons":[]
+      },
       "characters": []
     },
     {
@@ -2124,7 +2385,6 @@
           "description": "On the north side you see a wooden door. Whether the door is open...?"
         }
       ],
-      "items": [],
       "characters": []
     },
     {
@@ -2139,24 +2399,31 @@
           "description": "The wooden door on the south side looks rotten."
         }
       ],
-      "items": [
-        {
-          "strength": 0,
-          "name": "ladder",
-          "description": "A long ladder is standing in the corner."
-        },
-        {
-          "strength": 0,
-          "name": "sacks of flour",
-          "description": "Sacks of flour are leaning against the wall."
-        },
-        {
-          "strength": 2,
-          "name": "hammer",
-          "description": "a pretty new hammer",
-          "equipment": "WEAPON"
-        }
-      ],
+      "items": {
+        "cloths":[],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "sacks of flour",
+            "description": "Sacks of flour are leaning against the wall."
+          }
+        ],
+        "tools":[
+          {
+            "strength": 0,
+            "name": "ladder",
+            "description": "A long ladder is standing in the corner."
+          },
+          {
+            "strength": 2,
+            "name": "hammer",
+            "description": "a pretty new hammer",
+            "equipment": "WEAPON"
+          }
+         ],
+        "weapons":[]
+      },
       "characters": []
     },
     {
@@ -2185,7 +2452,6 @@
           "description": "The southern bank in front of you is very flat."
         }
       ],
-      "items": [],
       "characters": [
         {
           "name": "elder lady",
@@ -2221,7 +2487,6 @@
           "description": "Maybe you can dive to the ground."
         }
       ],
-      "items": [],
       "characters": []
     },
     {
@@ -2237,8 +2502,25 @@
           "description": "Above you the sun is shining."
         }
       ],
-      "items": [
-		{
+      "items": {
+        "cloths":[
+        {
+        	"strength": 0,
+        	"name": "sunglasses",
+        	"description": "colorful sunglasses lost by a vacationer",
+        	"equipment": "HEAD" 
+        }
+        ],
+        "foods":[],
+	      "resources":[
+          {
+            "strength": 0,
+            "name": "sacks of flour",
+            "description": "Sacks of flour are leaning against the wall."
+          }
+        ],
+        "tools":[
+          {
           "strength": 1,
           "name": "anchor",
           "description": "A heavy-looking anchor is almost completely covered by sand."
@@ -2247,13 +2529,10 @@
         	"strength": 0,
         	"name": "holey umbrella",
         	"description": "an umbrella full of holes"
-        },
-        {
-        	"strength": 0,
-        	"name": "sunglasses",
-        	"description": "colorful sunglasses lost by a vacationer"
         }
-      ],
+         ],
+        "weapons":[]
+      },
       "characters": []
     },
     {
@@ -2275,7 +2554,6 @@
           "description": "Directly in front of you the southern waterfall is splashing into the pond."
         }
       ],
-      "items": [],
       "characters": []
     },
     {
@@ -2297,7 +2575,6 @@
           "description": "A wooden staircase is leading down."
         }
       ],
-      "items": [],
       "characters": []
     }     
   ]

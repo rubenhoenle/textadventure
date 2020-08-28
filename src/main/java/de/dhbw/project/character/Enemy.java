@@ -1,8 +1,8 @@
 package de.dhbw.project.character;
 
 import com.google.gson.annotations.SerializedName;
-import de.dhbw.project.Item;
-import de.dhbw.project.character.Character;
+import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 public class Enemy extends Character {
 
     @SerializedName("dropItems")
-    private List<Item> dropItemList = new ArrayList<>();
+    private ItemList dropItemList = new ItemList();
     @SerializedName("autoAttack")
     private boolean autoAttack;
 
@@ -19,17 +19,21 @@ public class Enemy extends Character {
     }
 
     public Enemy(String name, String where, int health, int strengh, String startStatement, String killStatement,
-            boolean killed, List<Item> dropItemList, boolean autoAttack) {
+            boolean killed, ItemList dropItemList, boolean autoAttack) {
         super(name, where, health, strengh, startStatement, killStatement, killed);
         this.dropItemList = dropItemList;
         this.autoAttack = autoAttack;
     }
 
-    public List<Item> getDropItemList() {
+    public List<Item> getDropItemListElements() {
+        return dropItemList.getAllItemList();
+    }
+
+    public ItemList getDropItemList() {
         return dropItemList;
     }
 
-    public void setDropItemList(List<Item> dropItemList) {
+    public void setDropItemList(ItemList dropItemList) {
         this.dropItemList = dropItemList;
     }
 

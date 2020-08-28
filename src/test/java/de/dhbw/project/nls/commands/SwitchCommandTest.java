@@ -1,7 +1,8 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.*;
-import de.dhbw.project.character.Character;
+import de.dhbw.project.item.Item;
+
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
