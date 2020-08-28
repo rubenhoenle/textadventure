@@ -822,7 +822,14 @@
           "description": "A big trapdoor, too big to miss, leads down."
         }
         ],
-      "characters": []
+        "characters" : [
+        {
+          "name": "ugly big troll",
+          "situation": "A stinking big dangerous looking troll is walking through the room.",
+          "intro": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
+          "comment": "TODO attack + drop items"
+        }
+        ]
     },
     {
       "name": "Butcher's Room I",
