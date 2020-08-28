@@ -2,28 +2,29 @@ package de.dhbw.project.character;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.Quest;
-import de.dhbw.project.character.Character;
+
+import java.util.List;
 
 public class Friend extends Character {
 
-    @SerializedName("quest")
-    private Quest quest;
+    @SerializedName("quests")
+    private List<Quest> quests;
 
     public Friend() {
 
     }
 
     public Friend(String name, String where, int health, int strengh, String startStatement, String killStatement,
-            boolean killed, Quest quest) {
+            boolean killed, List<Quest> quests) {
         super(name, where, health, strengh, startStatement, killStatement, killed);
-        this.quest = quest;
+        this.quests = quests;
     }
 
-    public Quest getQuest() {
-        return quest;
+    public List<Quest> getQuests() {
+        return quests;
     }
 
-    public void setQuest(Quest quest) {
-        this.quest = quest;
+    public void setQuests(List<Quest> quest) {
+        this.quests = quest;
     }
 }

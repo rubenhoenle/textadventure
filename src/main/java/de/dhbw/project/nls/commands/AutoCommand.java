@@ -1,9 +1,9 @@
 package de.dhbw.project.nls.commands;
 
+import de.dhbw.project.nls.DataStorage;
+
 import java.lang.reflect.Field;
 import java.util.List;
-
-import de.dhbw.project.nls.DataStorage;
 
 public abstract class AutoCommand extends Command {
 

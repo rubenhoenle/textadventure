@@ -2,6 +2,7 @@ package de.dhbw.project;
 
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
+import de.dhbw.project.item.*;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -16,20 +17,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 
 import static org.junit.Assert.*;
-import static org.powermock.api.mockito.PowerMockito.when;
-
 import static org.mockito.Mockito.*;
-
-import de.dhbw.project.item.Book;
-import de.dhbw.project.item.Clothing;
-import de.dhbw.project.item.Food;
-import de.dhbw.project.item.Item;
-import de.dhbw.project.item.Resource;
-import de.dhbw.project.item.Tool;
-import de.dhbw.project.item.Weapon;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.powermock.api.mockito.PowerMockito.when;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)

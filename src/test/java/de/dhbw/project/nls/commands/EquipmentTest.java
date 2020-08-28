@@ -1,13 +1,9 @@
 package de.dhbw.project.nls.commands;
 
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.io.PrintStream;
-import java.util.Arrays;
-
+import de.dhbw.project.*;
+import de.dhbw.project.item.Clothing;
+import de.dhbw.project.item.Item;
+import de.dhbw.project.nls.DataStorage;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -18,14 +14,10 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import de.dhbw.project.EquipmentType;
-import de.dhbw.project.Game;
-import de.dhbw.project.Player;
-import de.dhbw.project.Room;
-import de.dhbw.project.State;
-import de.dhbw.project.item.Clothing;
-import de.dhbw.project.item.Item;
-import de.dhbw.project.nls.DataStorage;
+import java.io.PrintStream;
+import java.util.Arrays;
+
+import static org.mockito.Mockito.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)

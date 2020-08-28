@@ -1,8 +1,8 @@
 package de.dhbw.project.nls;
 
-import java.util.Optional;
-
 import de.dhbw.project.nls.FSA.State;
+
+import java.util.Optional;
 
 public class LanguageProcessor implements IConsumeIndex {
     private int currentIndex = 0;

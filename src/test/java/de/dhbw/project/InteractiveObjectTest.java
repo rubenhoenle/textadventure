@@ -5,14 +5,14 @@ import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.interactive.Material;
 import de.dhbw.project.item.Food;
 import de.dhbw.project.item.Item;
-
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class InteractiveObjectTest {

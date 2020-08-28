@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Enemy extends Character {

@@ -1,7 +1,6 @@
 package de.dhbw.project;
 
 import com.google.gson.Gson;
-
 import de.dhbw.project.nls.Commands;
 import de.dhbw.project.nls.commands.*;
 
@@ -103,6 +102,8 @@ public class Zork {
 
         commands.register(new TalkCommand(game));
         commands.register(new AttackCommand(game));
+        commands.register(new AcceptQuestCommand(game));
+        commands.register(new ShowQuestCommand(game));
 
         commands.register(new InventoryCommand(game));
         commands.register(new ShowEquipmentCommand(game));

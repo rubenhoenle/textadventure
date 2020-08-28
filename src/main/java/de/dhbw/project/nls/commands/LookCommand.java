@@ -1,10 +1,12 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.*;
-import de.dhbw.project.interactive.InteractiveCraftingObject;
+import de.dhbw.project.Constants;
+import de.dhbw.project.Game;
+import de.dhbw.project.Way;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
+import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.item.Item;
 
 public class LookCommand extends AutoCommand {

@@ -1,9 +1,8 @@
 package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
-import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Character;
-
+import de.dhbw.project.character.Enemy;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
 
@@ -19,6 +18,8 @@ public class Player {
     private int strength = 20;
     @SerializedName("inventory")
     private ItemList inventory = new ItemList();
+    @SerializedName("questInventory")
+    private List<Quest> questInventory = new ArrayList<>();
     @SerializedName("roomName")
     private String roomName;
     @SerializedName("equipment")
@@ -56,6 +57,14 @@ public class Player {
 
     public List<Item> getEquipment() {
         return equipment;
+    }
+
+    public List<Quest> getQuestInventory() {
+        return questInventory;
+    }
+
+    public void setQuestInventory(List<Quest> questInventory) {
+        this.questInventory = questInventory;
     }
 
     public List<Item> addItem(Item item) {

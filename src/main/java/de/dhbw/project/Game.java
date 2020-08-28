@@ -1,7 +1,6 @@
 package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
-
 import de.dhbw.project.character.Character;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.nls.Commands;

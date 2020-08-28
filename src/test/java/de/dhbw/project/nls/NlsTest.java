@@ -1,17 +1,16 @@
 package de.dhbw.project.nls;
 
-import static org.junit.Assert.assertTrue;
-
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.Map.Entry;
-
-import org.junit.Test;
-
 import de.dhbw.project.Game;
 import de.dhbw.project.nls.commands.Command;
 import de.dhbw.project.nls.commands.MoveCommand;
 import de.dhbw.project.nls.commands.PutCommand;
+import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Optional;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Natural language support test

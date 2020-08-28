@@ -1,7 +1,6 @@
 package de.dhbw.project.character;
 
 import de.dhbw.project.Quest;
-import de.dhbw.project.QuestTest;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +8,10 @@ import org.junit.runners.MethodSorters;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -29,9 +30,10 @@ public class FriendTest {
         String characterKillStatement = "killStatement";
         boolean characterKilled = false;
         Quest characterQuest = mock(Quest.class);
+        List<Quest> characterQuests = Arrays.asList(characterQuest);
 
         //when
-        Friend f = new Friend(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterQuest);
+        Friend f = new Friend(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterQuests);
 
         //then
         assertEquals(f.getName(),characterName);
@@ -41,7 +43,7 @@ public class FriendTest {
         assertEquals(f.getStartStatement(), characterStartStatement);
         assertEquals(f.getKillStatement(), characterKillStatement);
         assertEquals(f.isKilled(),characterKilled);
-        assertEquals(f.getQuest(),characterQuest);
+        assertEquals(f.getQuests(),characterQuests);
     }
 
 }

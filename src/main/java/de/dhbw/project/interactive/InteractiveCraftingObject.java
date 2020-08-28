@@ -1,7 +1,9 @@
 package de.dhbw.project.interactive;
 
 import com.google.gson.annotations.SerializedName;
-import de.dhbw.project.*;
+import de.dhbw.project.Player;
+import de.dhbw.project.TableList;
+import de.dhbw.project.Thing;
 import de.dhbw.project.item.*;
 
 import java.util.ArrayList;

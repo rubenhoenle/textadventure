@@ -1,8 +1,8 @@
 package de.dhbw.project.nls;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * WordFsa test

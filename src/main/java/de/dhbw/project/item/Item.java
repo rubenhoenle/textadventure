@@ -1,7 +1,6 @@
 package de.dhbw.project.item;
 
 import com.google.gson.annotations.SerializedName;
-
 import de.dhbw.project.Constants;
 import de.dhbw.project.EquipmentType;
 import de.dhbw.project.State;

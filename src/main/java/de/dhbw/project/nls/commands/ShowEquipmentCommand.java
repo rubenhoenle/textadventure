@@ -1,9 +1,9 @@
 package de.dhbw.project.nls.commands;
 
-import java.util.List;
-
 import de.dhbw.project.Game;
 import de.dhbw.project.item.Item;
+
+import java.util.List;
 
 public class ShowEquipmentCommand extends AutoCommand {
 

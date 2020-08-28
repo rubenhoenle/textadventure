@@ -1,6 +1,11 @@
 package de.dhbw.project;
 
 import de.dhbw.project.character.Character;
+import de.dhbw.project.item.Item;
+import de.dhbw.project.item.Resource;
+import de.dhbw.project.nls.DataStorage;
+import de.dhbw.project.nls.commands.DropCommand;
+import de.dhbw.project.nls.commands.TakeCommand;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -11,12 +16,6 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
-
-import de.dhbw.project.item.Item;
-import de.dhbw.project.item.Resource;
-import de.dhbw.project.nls.DataStorage;
-import de.dhbw.project.nls.commands.DropCommand;
-import de.dhbw.project.nls.commands.TakeCommand;
 
 import java.io.PrintStream;
 import java.util.Arrays;

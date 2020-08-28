@@ -1,20 +1,13 @@
 package de.dhbw.project.character;
 
-import de.dhbw.project.Player;
-import de.dhbw.project.Room;
-import de.dhbw.project.Zork;
-import de.dhbw.project.nls.DataStorage;
-import de.dhbw.project.nls.commands.TakeCommand;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
-import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)

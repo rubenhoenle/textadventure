@@ -1,12 +1,12 @@
 package de.dhbw.project.item;
 
-import static org.junit.Assert.assertEquals;
+import de.dhbw.project.EquipmentType;
+import de.dhbw.project.State;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import de.dhbw.project.EquipmentType;
-import de.dhbw.project.State;
+import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ItemListTest {

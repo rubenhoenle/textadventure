@@ -1,10 +1,10 @@
 package de.dhbw.project.regions.ruins;
 
+import de.dhbw.project.Constants;
+
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-
-import de.dhbw.project.Constants;
 
 public class AlienFont {
 

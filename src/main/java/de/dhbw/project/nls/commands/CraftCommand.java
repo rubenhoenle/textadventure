@@ -1,6 +1,6 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.*;
+import de.dhbw.project.Game;
 import de.dhbw.project.interactive.Createable;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 

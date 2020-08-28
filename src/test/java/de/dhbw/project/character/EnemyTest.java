@@ -1,18 +1,14 @@
 package de.dhbw.project.character;
 
+import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemList;
+import de.dhbw.project.item.Resource;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-
-import de.dhbw.project.item.Item;
-import de.dhbw.project.item.ItemList;
-import de.dhbw.project.item.Resource;
-
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
