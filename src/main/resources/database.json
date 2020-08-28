@@ -234,6 +234,12 @@
           "description": "a homemade knife",
           "place": "lies on the table",
           "equipment": "WEAPON"
+        },
+        {
+          "strength": 0,
+          "name": "nails",
+          "description": "some rusty nails",
+          "place": "lies scattered on the table"
         }
       ]
     },
@@ -280,9 +286,9 @@
       "items": [
         {
           "strength": 0,
-          "name": "Rum",
-          "description": "a bottle of rum",
-          "place": "leaning at the trunk"
+          "name": "lunch box",
+          "description": "a small box that contains some food",
+          "place": "is standing by the tent"
         }
       ],
       "characters": []
@@ -349,10 +355,9 @@
       ],
       "items": [
         {
-          "strength": 0,
-          "name": "telescope",
-          "description": "an rusty, old telescope but still working",
-          "place": "on the table"
+          "name": "rum",
+          "description": "a bottle of rum",
+          "place": "standing on the table"
         },
         {
           "strength": 0,
@@ -397,11 +402,10 @@
       "characters": [],
       "items": [
         {
-          "strength": 0,
-          "name": "life jacket",
-          "description": "an orange life jacket that looks like it spent some time in the water",
-          "place": "stuck between two boulders",
-          "equipment": "UPPER_BODY"
+          "strength": 1,
+          "name": "anchor",
+          "description": "not to heavy but enough for a small ship",
+          "place": "stuck between two boulders"
         }
       ]
     },
@@ -718,7 +722,13 @@
           "description": "A big trapdoor, too big to miss, leads down."
         }
         ],
-      "characters": [],
+      "characters" : [
+        {
+          "name": "ugly big troll",
+          "situation": "A stinking big dangerous looking troll is walking through the room.",
+          "intro": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
+          "comment": "TODO attack + drop items"
+        }],
       "items": []
     },
     {
@@ -842,7 +852,13 @@
           "description": "way"
         }
         ],
-      "characters": [],
+        "characters" : [
+          {
+            "name": "wise hovering monk",
+            "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
+            "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
+            "comment": "TODO interaction"
+          }],
       "items": [],
       "defaultItemLocation": "hovers above the ground"
     },
@@ -1700,6 +1716,12 @@
           "name": "bread",
           "description": "A deliciously smelling bread.",
           "place": "is lying on a old wooden table"
+        },
+        {
+          "strength": 0,
+          "name": "bedsheet",
+          "description": "A bedsheet which could be useful.",
+          "place": "is lying on the bed"
         }
       ]
     },
