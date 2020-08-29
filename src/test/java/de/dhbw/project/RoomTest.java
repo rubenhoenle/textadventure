@@ -4,6 +4,7 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
+import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class RoomTest {
@@ -227,4 +229,50 @@ public class RoomTest {
         assertTrue(result.size() == 1);
         assertTrue(result.contains(f));
     }
+
+    @Test
+    public void test13_shouldGetRoomInteractiveObjectsList(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+        InteractiveObject io = mock(InteractiveObject.class);
+        r.setRoomInteractiveObjectsList(Arrays.asList(io));
+
+        //when
+        List<InteractiveObject> result = r.getRoomInteractiveObjectsList();
+
+        //then
+        assertTrue(result.size() == 1);
+        assertTrue(result.contains(io));
+    }
+
+    @Test
+    public void test14_shouldGetRoomInteractiveObjectsNameList(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+        InteractiveObject io = new InteractiveObject("name","description", "place",null, null, true,"wayName", "hint");
+        r.setRoomInteractiveObjectsList(Arrays.asList(io));
+
+        //when
+        List<String> result = r.getRoomInteractiveObjectsNameList();
+
+        //then
+        assertTrue(result.size() == 1);
+        assertTrue(result.contains("name"));
+    }
+
+    @Test
+    public void test15_shouldgetRoomInteractiveObjectByName(){
+        //before
+        Room r = new Room("Test", "TestRoom", "true");
+        InteractiveObject io1 = new InteractiveObject("name","description", "place",null, null, true,"wayName", "hint");
+        InteractiveObject io2 = new InteractiveObject("name2","description2", "place2",null, null, true,"wayName2", "hint2");
+        r.setRoomInteractiveObjectsList(Arrays.asList(io1,io2));
+
+        //when
+        InteractiveObject result = r.getRoomInteractiveObjectByName("name");
+
+        //then
+        assertEquals(result.getName(),"name");
+    }
+
 }

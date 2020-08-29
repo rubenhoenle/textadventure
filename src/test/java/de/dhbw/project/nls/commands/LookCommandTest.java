@@ -1,8 +1,6 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.Game;
-import de.dhbw.project.Player;
-import de.dhbw.project.Room;
+import de.dhbw.project.*;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
@@ -125,5 +123,74 @@ public class LookCommandTest {
 
         //then
         verify(out).println("A friendly looking Shia is surprised on a trampoline.");
+    }
+
+    @Test
+    public void test6_shouldSeeWay() throws Exception {
+        //before
+        Whitebox.setInternalState(command, String.class, "around");
+        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint");
+        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.ACTIVE,"hint");
+        Room r = mock(Room.class);
+
+        when(game.hasWays()).thenReturn(true);
+        when(game.getCurrentRoom()).thenReturn(r);
+        when(r.getRoomWayList()).thenReturn(Arrays.asList(w1,w2));
+        when(r.getRoomItemList()).thenReturn(null);
+        when(r.getCharacterList()).thenReturn(Arrays.asList());
+
+
+        //when
+        command.execute();
+
+        //then
+        verify(out).println("way1description");
+        verify(out).println("way2description");
+    }
+
+    @Test
+    public void test7_shouldNotSeeWay() throws Exception {
+        //before
+        Whitebox.setInternalState(command, String.class, "around");
+        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint");
+        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.INVISIBLE,"hint");
+        Room r = mock(Room.class);
+
+        when(game.hasWays()).thenReturn(true);
+        when(game.getCurrentRoom()).thenReturn(r);
+        when(r.getRoomWayList()).thenReturn(Arrays.asList(w1,w2));
+        when(r.getRoomItemList()).thenReturn(null);
+        when(r.getCharacterList()).thenReturn(Arrays.asList());
+
+
+        //when
+        command.execute();
+
+        //then
+        verify(out).println("way1description");
+        verify(out, times(0)).println("way2description");
+    }
+
+    @Test
+    public void test8_shouldSeeBlockedWay() throws Exception {
+        //before
+        Whitebox.setInternalState(command, String.class, "around");
+        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint");
+        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.BLOCKED,"hint");
+        Room r = mock(Room.class);
+
+        when(game.hasWays()).thenReturn(true);
+        when(game.getCurrentRoom()).thenReturn(r);
+        when(r.getRoomWayList()).thenReturn(Arrays.asList(w1,w2));
+        when(r.getRoomItemList()).thenReturn(null);
+        when(r.getCharacterList()).thenReturn(Arrays.asList());
+
+
+        //when
+        command.execute();
+
+        //then
+        verify(out).println("way1description");
+        verify(out).println("way2description This way is blocked.");
     }
 }

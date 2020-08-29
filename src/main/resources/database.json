@@ -4,12 +4,12 @@
     "strength": 42,
     "name": "Hugo",
     "inventory": {
-      "cloths":[],
-        "foods":[],
-	      "resources":[],
-        "tools":[],
-        "weapons":[]
-      },
+      "cloths": [],
+      "foods": [],
+      "resources": [],
+      "tools": [],
+      "weapons": []
+    },
     "questInventory": [],
     "equipment": [],
     "roomName": "beach"
@@ -18,19 +18,46 @@
     {
       "name": "beach",
       "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your sunken ship. You need to find a way to get home again!",
+      "interactiveObjects": [
+        {
+          "name": "wave",
+          "description": "There are some great waves in the sea ",
+          "place": "rolls at the beach",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [
+              {
+                "strength": 0,
+                "name": "surfboard",
+                "description": "a red surfboard",
+                "place": "is lying in the water",
+                "state": "1"
+              }
+            ],
+            "weapons": []
+          },
+          "removeRequiredItem": false,
+          "wayName": "sandy way",
+          "hint": "These waves look like they could be ride."
+        }
+      ],
       "ways": [
         {
           "direction": "west",
           "from": "beach",
           "to": "lagoon",
           "name": "small path",
-          "description": "In the west you can see a lagoon with some washed up boxes from your sunken ship."
+          "description": "In the west you can see a lagoon with some washed up boxes from your sunken ship.",
+          "hint": "This is a hint to unblock the way"
         },
         {
           "direction": "east",
           "from": "beach",
           "to": "cave on the beach",
           "name": "sandy way",
+          "state": "BLOCKED",
           "description": "An entrance to a cave near the sea is on the east side of the beach."
         },
         {
@@ -42,7 +69,7 @@
         }
       ],
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "strength": 0,
             "name": "backpack",
@@ -58,9 +85,17 @@
             "equipment": "UPPER_BODY"
           }
         ],
-        "foods":[],
-        "tools":[],
-        "weapons":[]
+        "foods": [],
+        "tools": [
+          {
+            "strength": 0,
+            "name": "surfboard",
+            "description": "a red surfboard",
+            "place": "is lying in the water",
+            "state": "1"
+          }
+        ],
+        "weapons": []
       }
     },
     {
@@ -83,8 +118,8 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[
+        "cloths": [],
+        "foods": [
           {
             "strength": 1,
             "name": "rum",
@@ -92,7 +127,7 @@
             "place": "lies next to the pirate skeleton"
           }
         ],
-        "tools":[ 
+        "tools": [
           {
             "strength": 0,
             "name": "telescope",
@@ -100,7 +135,7 @@
             "place": "lies next to the skeleton"
           }
         ],
-        "weapons":[
+        "weapons": [
           {
             "strength": 13,
             "name": "saber",
@@ -124,7 +159,7 @@
         }
       ],
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "strength": 0,
             "name": "swimming goggles",
@@ -133,7 +168,7 @@
             "equipment": "HEAD"
           }
         ],
-        "foods":[
+        "foods": [
           {
             "strength": 0,
             "name": "coconut",
@@ -147,8 +182,8 @@
             "place": "lies in the sand"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -185,8 +220,8 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[
+        "cloths": [],
+        "foods": [
           {
             "strength": 0,
             "name": "apple",
@@ -206,8 +241,8 @@
             "place": "lies in the dirt next to a huge apple tree"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -223,17 +258,17 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-        "tools":[
+        "cloths": [],
+        "foods": [],
+        "tools": [
           {
             "strength": 0,
             "name": "rusty key",
             "description": "This key looks very old ...",
             "place": "lies between two wood planks on the ground"
-            }
+          }
         ],
-        "weapons":[]
+        "weapons": []
       }
     },
     {
@@ -249,17 +284,17 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-        "tools":[
-        {
-          "strength": 0,
-          "name": "nails",
-          "description": "some rusty nails",
-          "place": "lies scattered on the table"
-        }
+        "cloths": [],
+        "foods": [],
+        "tools": [
+          {
+            "strength": 0,
+            "name": "nails",
+            "description": "some rusty nails",
+            "place": "lies scattered on the table"
+          }
         ],
-        "weapons":[
+        "weapons": [
           {
             "strength": 15,
             "name": "bow and some arrows",
@@ -284,7 +319,6 @@
           }
         ]
       }
-
     },
     {
       "name": "Cliff above the ship graveyard",
@@ -326,8 +360,8 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[
+        "cloths": [],
+        "foods": [
           {
             "strength": 0,
             "name": "lunch box",
@@ -335,9 +369,9 @@
             "place": "is standing by the tent"
           }
         ],
-	      "resources":[],
-        "tools":[ ],
-        "weapons":[]
+        "resources": [],
+        "tools": [],
+        "weapons": []
       },
       "characters": []
     },
@@ -361,7 +395,7 @@
         }
       ],
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "strength": 0,
             "name": "sail cloth",
@@ -369,8 +403,8 @@
             "place": "attached to the fallen mast"
           }
         ],
-        "foods":[],
-	      "resources":[
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "rope",
@@ -378,8 +412,8 @@
             "place": "wrapped around the fallen mast"
           }
         ],
-        "tools":[ ],
-        "weapons":[
+        "tools": [],
+        "weapons": [
           {
             "strength": 12,
             "name": "saber",
@@ -410,15 +444,15 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[
-        {
-          "name": "rum",
-          "description": "a bottle of rum",
-          "place": "standing on the table"
-        }
+        "cloths": [],
+        "foods": [
+          {
+            "name": "rum",
+            "description": "a bottle of rum",
+            "place": "standing on the table"
+          }
         ],
-	      "resources":[
+        "resources": [
           {
             "strength": 0,
             "name": "nautical map",
@@ -432,8 +466,8 @@
             "place": "on the table"
           }
         ],
-        "tools":[],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -464,18 +498,18 @@
       ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	    "resources":[],
-        "tools":[
-        {
-          "strength": 1,
-          "name": "anchor",
-          "description": "not to heavy but enough for a small ship",
-          "place": "stuck between two boulders"
-        }
+        "cloths": [],
+        "foods": [],
+        "resources": [],
+        "tools": [
+          {
+            "strength": 1,
+            "name": "anchor",
+            "description": "not to heavy but enough for a small ship",
+            "place": "stuck between two boulders"
+          }
         ],
-        "weapons":[]
+        "weapons": []
       }
     },
     {
@@ -492,24 +526,24 @@
       ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[],
-        "tools":[ 
+        "cloths": [],
+        "foods": [],
+        "resources": [],
+        "tools": [
           {
             "strength": 0,
             "name": "small treasure box",
             "description": "a small treasure box that looks like it might contain something priceless"
           }
         ],
-        "weapons":[]
+        "weapons": []
       }
     },
     {
       "name": "giant rabbit hole",
       "description": "You stand in the middle of a gigantic hole under the earth and feel like \nAlice in Wonderland. On the walls are some roots hanging out and in the \ncorner you can discover a soft bed of grass. Maybe you've landed in \nthe Easter Bunny's apartment...",
       "ways": [
-      	{
+        {
           "direction": "east",
           "from": "giant rabbit hole",
           "to": "Crossroads ape",
@@ -537,14 +571,14 @@
           "name": "hole in the ceiling",
           "description": "A hole in the ceiling is going up."
         }
-       ],
+      ],
       "characters": []
     },
     {
       "name": "Hidden cave",
       "description": "You ended up in some kind of lumber room. Apparently, people used to hide their \nsecrets here and store various things. Judging by the destroyed shelves \nand all the broken glass, these treasures have already been stolen.",
       "ways": [
-      	{
+        {
           "direction": "south",
           "from": "Hidden cave",
           "to": "Secret Grotto",
@@ -565,27 +599,27 @@
           "name": "Trapdoor in the ceiling",
           "description": "A trapdoor in the ceiling leads back to daylight."
         }
-       ],
+      ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 3,
             "name": "sharp sparkling shard of glass",
             "description": "a sharp sparkling shard of glass"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "Living room of a torturer",
       "description": "A large, sparsely furnished living room, which apparently also serves as a bedroom \nand kitchen. There is only a table, covered with crumbs, with a chair and a bed \nof straw. On the floor you will find countless crushed insects in all colours and \nshapes. The shells, legs and antennae of these animals are twisted in unnatural \npositions, which they could not possibly have taken voluntarily.",
       "ways": [
-      	{
+        {
           "direction": "down",
           "from": "Living room of a torturer",
           "to": "Hidden cave",
@@ -599,20 +633,20 @@
           "name": "hole in the wall",
           "description": "On the east side of the room, there is a hole in the wall."
         }
-       ],
+      ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 1,
             "name": "large beetle with a flattened carapace",
             "description": "a large beetle with a flattened carapace"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -658,9 +692,9 @@
       "characters": [],
       "defaultItemLocation": "is swimming in the pool",
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "small water lily",
@@ -668,22 +702,22 @@
             "place": "is swimming in the centre of the pool"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "Cave with the mortal remains of the first men",
       "description": "You are in a cave with ochre walls. \nAs you remove the dust, you can see something that looks like paintings from the stone age. The paintings \nshow different hunting scenes with huge mammoths and sabre-toothed tigers. \nYou are struck by the beauty of these old paintings.\nFrom the west you can smell the salty scent of sea water.",
       "ways": [
-       {
+        {
           "direction": "down",
           "from": "Cave with the mortal remains of the first men",
           "to": "archaeological chamber",
           "name": "hole in the floor",
           "description": "There is a hole in the floor.  Where will the dark tunnel end?."
-	   },
-       {
+        },
+        {
           "direction": "west",
           "from": "Cave with the mortal remains of the first men",
           "to": "Beach below the cliff",
@@ -693,24 +727,24 @@
       ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 1,
             "name": "human skull",
             "description": "human skull that feels a little greasy. The shape of the skull is very different from what you are used to from the mirror and reminds you more of a monkey than a human."
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "Crossroads bat",
       "description": "You're standing at a major underground crossroads, mysteriously \nthe floor is quite warm, but never mind. \nWhen you look up you can understand where the name of this room comes from: The whole cave ceiling is \ncovered by bats of different shapes and sizes. It looks like they are sleeping, so shhhh \n- you don't want to wake the bats.",
       "ways": [
-       {
+        {
           "direction": "east",
           "from": "Crossroads bat",
           "to": "archaeological chamber",
@@ -738,12 +772,12 @@
           "name": "stone staircase",
           "description": "A stone staircase leads down."
         }
-        ],
+      ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "dead bat, neither eaten, stinking or rotting",
@@ -751,15 +785,15 @@
             "place": "is lying on the floor"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "Room under crossroads bat I",
       "description": "You're in a rectangular chamber. It's really hot \nand sweat is dripping from your forehead. It feels like every one of your clothes is just soaked \nwith sweat.  If you look to the west you can see the reason: The room is divided in two by a red-hot \nlava flow. The river is bubbling and hissing, and you have to be careful that your clothes don't \ncatch fire.",
       "ways": [
-       {
+        {
           "direction": "up",
           "from": "Room under crossroads bat I",
           "to": "Crossroads bat",
@@ -773,14 +807,14 @@
           "name": "way over lava stream",
           "description": "way - only use with ladder etc..."
         }
-        ],
+      ],
       "characters": []
     },
     {
       "name": "Room under crossroads bat II",
       "description": "You're in a rectangular chamber. It's really hot \nand sweat is dripping from your forehead. It feels like every one of your clothes is just soaked \nwith sweat.  If you look to the east you can see the reason: The room is divided in two by a red-hot \nlava flow. The river is bubbling and hissing, and you have to be careful that your clothes don't \ncatch fire.",
       "ways": [
-       {
+        {
           "direction": "west",
           "from": "Room under crossroads bat II",
           "to": "Butcher's Room II",
@@ -794,14 +828,14 @@
           "name": "way over lava stream",
           "description": "way - only use with ladder etc..."
         }
-        ],
+      ],
       "characters": []
     },
     {
       "name": "Butcher's Room II",
       "description": "You are in an enormous hall divided in two sections. The walls are tiled in red in a strange way and \nthere are several drains in the floor. Strange... When you look at the walls, you'll notice \nthat there are various sharp tools everywhere, from butchers knives to swords to saws. \nScratching the walls, you'll notice that the red is not the color of the tiles, but dried \nblood...",
       "ways": [
-       {
+        {
           "direction": "east",
           "from": "Butcher's Room II",
           "to": "Room under crossroads bat II",
@@ -822,21 +856,21 @@
           "name": "a big trapdoor",
           "description": "A big trapdoor, too big to miss, leads down."
         }
-        ],
-        "characters" : [
+      ],
+      "characters": [
         {
           "name": "ugly big troll",
           "situation": "A stinking big dangerous looking troll is walking through the room.",
           "intro": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
           "comment": "TODO attack + drop items"
         }
-        ]
+      ]
     },
     {
       "name": "Butcher's Room I",
       "description": "You are in an enormous hall divided in two sections. The walls are tiled in red in a strange way and \nthere are several drains in the floor. Strange... When you look at the walls, you'll notice \nthat there are various sharp tools everywhere, from butchers knives to swords to saws. \nScratching the walls, you'll notice that the red is not the color of the tiles, but dried \nblood...",
       "ways": [
-       {
+        {
           "direction": "east",
           "from": "Butcher's Room I",
           "to": "Butcher's Room II",
@@ -857,35 +891,35 @@
           "name": "small door",
           "description": "You see a small door on the north side of the room."
         },
-         {
+        {
           "direction": "south",
           "from": "Butcher's Room I",
           "to": "Killer Sauna",
           "name": "locked door",
           "description": "A locked door is leading south."
         }
-        ],
+      ],
       "characters": []
     },
     {
       "name": "hidden dungeon",
       "description": "You look into a small cell, it's cold and musty. The walls are scratched and covered with \npaintings, it looks like the last inmates in here have lost their minds. There is a small \nhole in the floor, obviously for food, and in the corner there is a bucket for the rubbish.",
       "ways": [
-       {
+        {
           "direction": "up",
           "from": "hidden dungeon",
           "to": "Butcher's Room I",
           "name": "discrete little hatch",
           "description": "To get to the top, you can take a discrete little hatch."
         }
-        ],
+      ],
       "characters": []
     },
     {
       "name": "cave with nothing but three ways",
       "description": "You are in a cave with nothing but three ways and a trapdoor. There is really nothing in this cave except three ways and a trapdoor. ",
       "ways": [
-       {
+        {
           "direction": "up",
           "from": "cave with nothing but three ways",
           "to": "Butcher's Room II",
@@ -913,26 +947,26 @@
           "name": "way",
           "description": "way"
         }
-        ],
+      ],
       "characters": []
     },
     {
       "name": "magical cave",
       "description": "You're in a round cave. There is total silence. It's so peaceful, everything's even. \nLight from the middle of the ceiling bathes the room in a pleasant light. You imagine \nthat you could stay here forever...",
       "ways": [
-       {
+        {
           "direction": "south",
           "from": "magical cave",
           "to": "cave with nothing but three ways",
           "name": "way",
           "description": "way"
         }
-        ],
+      ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 9000,
             "name": "a giant statue of buddah",
@@ -940,48 +974,49 @@
             "place": "sits on the floor"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "holy grotto",
       "description": "You're in the middle of a big cave. There are stalactites hanging from the ceiling and \nthe floor is littered with stalagmites. You hear the regular dripping of water from \nthe top to the bottom. This is accompanied by the quiet omm of an old, wise monk \nin the middle of the cave.",
       "ways": [
-       {
+        {
           "direction": "west",
           "from": "holy grotto",
           "to": "cave with nothing but three ways",
           "name": "way",
           "description": "way"
         }
-        ],
+      ],
       "characters": [
-          {
-            "name": "wise hovering monk",
-            "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
-            "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
-            "comment": "TODO interaction"
-          }], 
+        {
+          "name": "wise hovering monk",
+          "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
+          "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
+          "comment": "TODO interaction"
+        }
+      ],
       "defaultItemLocation": "hovers above the ground"
     },
     {
       "name": "mineral cave",
       "description": "You're standing in the middle of a coal mine. A fixed oil lamp illuminates the mining area. The air is stuffy and dusty. \nAt the edges you can see different heaps of rocks that have apparently been blasted out of the wall.",
       "ways": [
-       {
+        {
           "direction": "north",
           "from": "mineral cave",
           "to": "cave with nothing but three ways",
           "name": "way",
           "description": "way"
         }
-        ],
+      ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "small lump of coal",
@@ -1001,15 +1036,15 @@
             "place": "is lying on the ground"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "Crossroads ape",
       "description": "You're standing in the middle of a big crossroads. The walls are just clay and stone, \ncovered with a strange pattern and you wonder why the ceiling doesn't fall on your head. \nYou question whether it's only you or whether others before you have had the same thought. \nOn closer inspection you notice that the patterns on the wall are primitive drawings of \napes. Despite the age and the dirt, they are still clearly visible on closer inspection, \nimpressive...",
       "ways": [
-       {
+        {
           "direction": "east",
           "from": "Crossroads ape",
           "to": "Crossroads bat",
@@ -1037,7 +1072,7 @@
       "name": "archaeological chamber",
       "description": "You're in a chamber that for some reason has an electric \nlight on. It looks like someone's been here recently. There's all kinds of archaeological equipment \nscattered around the room. A cupboard with books containing the history of first men has to be implemented.",
       "ways": [
-       {
+        {
           "direction": "up",
           "from": "archaeological chamber",
           "to": "Cave with the mortal remains of the first men",
@@ -1051,7 +1086,7 @@
           "name": "large brick passageway",
           "description": "A large brick passageway leads west."
         }
-        ],
+      ],
       "characters": []
     },
     {
@@ -1075,9 +1110,9 @@
       ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "iron ingot",
@@ -1103,15 +1138,15 @@
             "place": "is lying under some cobwebs"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "Earthworm tunnel",
       "description": "A small tunnel that feels like it was dug by an oversized earthworm. \nIn the absence of light, you can feel the wet, damp earth surrounding \nyou in far too many places on your body. Thank God you haven't eaten \nmuch since you arrived at the beach, otherwise you would be stuck down \nhere forever. Slowly you feel the walls coming closer and closer to you \nfrom all sides. Either you are claustrophobic or the walls are actually \nmoving, but in both cases it's time to leave the tunnel!",
       "ways": [
-       	{
+        {
           "direction": "south",
           "from": "Earthworm tunnel",
           "to": "Butcher's Room I",
@@ -1125,14 +1160,14 @@
           "name": "little earthworm tunnel",
           "description": "A little earthworm tunnel leads back to daylight."
         }
-        ],
+      ],
       "characters": []
     },
     {
       "name": "Cave with underground river",
       "description": "You're standing in a dark cave that smells like rotten fish. Your feet are wet and cold and you feel something muddy. \nIt looks like you are standing in the middle of an underground river. But when you take a closer look you notice \nthat it consists only of garbage, garbage and sewage. Man, it stinks!",
       "ways": [
-       {
+        {
           "direction": "up",
           "from": "Cave with underground river",
           "to": "cave on the beach",
@@ -1146,11 +1181,11 @@
           "name": "a dry way out of this cave",
           "description": "In the north you see a dry way out of this cave."
         }
-        ],
+      ],
       "characters": [],
       "defaultItemLocation": "is swimming in the river",
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "strength": 0,
             "name": "old tattered leather shoe",
@@ -1159,7 +1194,7 @@
             "equipment": "SHOES"
           }
         ],
-        "foods":[
+        "foods": [
           {
             "strength": 1,
             "name": "old ampoule full of fermented wine, mixed with brackish water",
@@ -1167,7 +1202,7 @@
             "place": "is lying on the ground of the river, partly covered with mud "
           }
         ],
-	      "resources":[
+        "resources": [
           {
             "strength": 1,
             "name": "large gnawed rotten brown bone of an animal",
@@ -1175,8 +1210,8 @@
             "place": "is swimming on the surface of the river "
           }
         ],
-        "tools":[ ],
-        "weapons":[
+        "tools": [],
+        "weapons": [
           {
             "strength": 3,
             "name": "old rusty and bent knife",
@@ -1191,7 +1226,7 @@
       "name": "Locker room",
       "description": "You are standing in the middle of a small cave that is apparently used as a \nchanging room. The floor is tiled and heated, and on the walls are small cabins for changing. ",
       "ways": [
-       	{
+        {
           "direction": "up",
           "from": "Locker room",
           "to": "Secret Grotto",
@@ -1205,12 +1240,12 @@
           "name": "a dry way",
           "description": "In the south a dry way leaves the locker room."
         }
-        ],
+      ],
       "characters": [],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "big towel with a kind of flower pattern in blue and pink",
@@ -1218,15 +1253,15 @@
             "place": "is lying on the towel stand"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
       "name": "Killer Sauna",
       "description": "The room is dark and hardly lit. Suddenly you feel so warm and it's so hard to \nbreathe. The air is hot and stuffy, the sweat is running off your forehead. \nYou slowly notice how your vision disappears and your eyes turn black. It's \nmuch too hot in here, even for a sauna. Get out of here!",
       "ways": [
-       {
+        {
           "direction": "south",
           "from": "Killer Sauna",
           "to": "Secret Grotto",
@@ -1240,7 +1275,7 @@
           "name": "locked door",
           "description": "In the north you see a locked door."
         }
-        ],
+      ],
       "characters": []
     },
     {
@@ -1256,18 +1291,18 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-        "resources":[
-        {
-          "strength": 0,
-          "name": "sewing kit",
-          "description": "A sewing kit that can be used to sew pieces of textile together.",
-          "place": "lying on the table"
-        }
+        "cloths": [],
+        "foods": [],
+        "resources": [
+          {
+            "strength": 0,
+            "name": "sewing kit",
+            "description": "A sewing kit that can be used to sew pieces of textile together.",
+            "place": "lying on the table"
+          }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -1304,8 +1339,8 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[
+        "cloths": [],
+        "foods": [
           {
             "strength": 0,
             "name": "grilled pork",
@@ -1313,9 +1348,9 @@
             "place": "hanging on a barbecue skewer over the fire"
           }
         ],
-	      "resources":[],
-        "tools":[ ],
-        "weapons":[]
+        "resources": [],
+        "tools": [],
+        "weapons": []
       },
       "interactiveCraftingObjects": [
         {
@@ -1389,7 +1424,7 @@
         }
       ],
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "name": "iron helmet",
             "description": "A freshly forged, strong helmet made out of iron.",
@@ -1398,17 +1433,17 @@
             "equipment": "HEAD"
           }
         ],
-        "foods":[],
-        "resources":[],
-        "tools":[
+        "foods": [],
+        "resources": [],
+        "tools": [
           {
             "name": "hammer",
             "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
             "place": "is lying on the anvil",
             "strength": 3
           }
-         ],
-        "weapons":[]
+        ],
+        "weapons": []
       },
       "interactiveCraftingObjects": [
         {
@@ -1526,9 +1561,9 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "piece of coal",
@@ -1590,8 +1625,8 @@
             "place": "is lying in a container"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       },
       "interactiveCraftingObjects": []
     },
@@ -1615,24 +1650,24 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-        "resources":[
-        {
-          "strength": 0,
-          "name": "altar cloth",
-          "description": "A white, large piece of textile used to decorate the altar.",
-          "place": "is spear over the altar"
-        },
-        {
-          "strength": 0,
-          "name": "potion",
-          "description": "A little glass bottle with a purple liquid in it. Could be a potion with a magic effect.",
-          "place": "standing on the altar"
-        }
-      ],
-        "tools":[ ],
-        "weapons":[]
+        "cloths": [],
+        "foods": [],
+        "resources": [
+          {
+            "strength": 0,
+            "name": "altar cloth",
+            "description": "A white, large piece of textile used to decorate the altar.",
+            "place": "is spear over the altar"
+          },
+          {
+            "strength": 0,
+            "name": "potion",
+            "description": "A little glass bottle with a purple liquid in it. Could be a potion with a magic effect.",
+            "place": "standing on the altar"
+          }
+        ],
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -1668,9 +1703,9 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "liana",
@@ -1684,8 +1719,8 @@
             "place": "is lying on the ground"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -1715,8 +1750,8 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[
+        "cloths": [],
+        "foods": [
           {
             "strength": 0,
             "name": "berries",
@@ -1724,7 +1759,7 @@
             "place": "are hanging on a bush"
           }
         ],
-	      "resources":[
+        "resources": [
           {
             "strength": 0,
             "name": "step from the tree house",
@@ -1738,8 +1773,8 @@
             "place": "are lying on the ground"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -1763,7 +1798,7 @@
       ],
       "defaultItemLocation": "lying on a small table",
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "strength": 0,
             "name": "pair of shoes",
@@ -1772,7 +1807,7 @@
             "equipment": "SHOES"
           }
         ],
-        "foods":[
+        "foods": [
           {
             "strength": 1,
             "name": "empty water bottle",
@@ -1786,9 +1821,9 @@
             "place": "is lying in a corner"
           }
         ],
-	      "resources":[],
-        "tools":[ ],
-        "weapons":[]
+        "resources": [],
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -1825,8 +1860,8 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[
+        "cloths": [],
+        "foods": [
           {
             "strength": 0,
             "name": "fish",
@@ -1834,22 +1869,22 @@
             "place": "is hanging on a fishing rod"
           }
         ],
-	      "resources":[
-         { 
-          "strength": 1,
-          "name": "broken fishing rod",
-          "description": "A broken fishing rod which can no longer be used.",
-          "place": "is attached to the ground"
-        },
-        {
-          "strength": 1,
-          "name": "broken vase",
-          "description": "A broken vase which was used to transport water.",
-          "place": "is lying next to the river"
-        }
+        "resources": [
+          {
+            "strength": 1,
+            "name": "broken fishing rod",
+            "description": "A broken fishing rod which can no longer be used.",
+            "place": "is attached to the ground"
+          },
+          {
+            "strength": 1,
+            "name": "broken vase",
+            "description": "A broken vase which was used to transport water.",
+            "place": "is lying next to the river"
+          }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -1872,9 +1907,9 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "pile of wood",
@@ -1888,8 +1923,8 @@
             "place": "is lying next to a tree."
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -1913,8 +1948,8 @@
       ],
       "defaultItemLocation": "is lying on a old wooden table",
       "items": {
-        "cloths":[],
-        "foods":[
+        "cloths": [],
+        "foods": [
           {
             "strength": 0,
             "name": "bread",
@@ -1922,7 +1957,7 @@
             "place": "is lying on a old wooden table"
           }
         ],
-	      "resources":[
+        "resources": [
           {
             "strength": 0,
             "name": "old diary",
@@ -1936,15 +1971,15 @@
             "place": "is lying on a old wooden table"
           }
         ],
-        "tools":[
-        {
-          "strength": 0,
-          "name": "bedsheet",
-          "description": "A bedsheet which could be useful.",
-          "place": "is lying on the bed"
-        }
+        "tools": [
+          {
+            "strength": 0,
+            "name": "bedsheet",
+            "description": "A bedsheet which could be useful.",
+            "place": "is lying on the bed"
+          }
         ],
-        "weapons":[
+        "weapons": [
           {
             "strength": 9,
             "name": "axe",
@@ -1976,7 +2011,7 @@
       ],
       "defaultItemLocation": "is lying on a table",
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "strength": 0,
             "name": "diving mask",
@@ -1985,8 +2020,8 @@
             "equipment": "HEAD"
           }
         ],
-        "foods":[],
-	      "resources":[
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "wood",
@@ -2000,8 +2035,8 @@
             "place": "is lying next to the wood"
           }
         ],
-        "tools":[ ],
-        "weapons":[
+        "tools": [],
+        "weapons": [
           {
             "strength": 3,
             "name": "whip",
@@ -2073,7 +2108,7 @@
         }
       ],
       "items": {
-        "cloths":[
+        "cloths": [
           {
             "strength": 7,
             "name": "decorated iron chestplate",
@@ -2081,16 +2116,16 @@
             "equipment": "UPPER_BODY"
           }
         ],
-        "foods":[],
-	      "resources":[
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "stack of torches",
             "description": "A couple of torches."
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -2120,11 +2155,11 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[],
-        "tools":[ ],
-        "weapons":[
+        "cloths": [],
+        "foods": [],
+        "resources": [],
+        "tools": [],
+        "weapons": [
           {
             "strength": 7,
             "name": "rusty iron sword",
@@ -2195,9 +2230,9 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "grass",
@@ -2208,16 +2243,16 @@
             "name": "flowers",
             "description": "The weadow is full of beautiful flowers in all colors."
           },
-        {
-          "strength": 0,
-          "name": "mumble",
-          "description": "mumbles lost by a little child a long time ago"
-        }
+          {
+            "strength": 0,
+            "name": "mumble",
+            "description": "mumbles lost by a little child a long time ago"
+          }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       },
-      "characters" : [
+      "characters": [
         {
           "name": "young girl",
           "situation": "A young girl is sitting on the weadow crying.",
@@ -2239,29 +2274,29 @@
         }
       ],
       "items": {
-        "cloths":[
-        {
-      		"strength": 0,
-      		"name": "straw hat",
-      		"description": "a dented straw hat",
-      		"equipment": "HEAD"
-      	}
-      	],
-        "foods":[],
-	      "resources":[
+        "cloths": [
           {
-      		"strength": 0,
-      		"name": "potted plant",
-      		"description": "a dried up potted plant decorates the altar"
-      	},
-      	{
-      		"strength": 0,
-      		"name": "bible",
-      		"description": "an old dusty bible"
-      	}
+            "strength": 0,
+            "name": "straw hat",
+            "description": "a dented straw hat",
+            "equipment": "HEAD"
+          }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "foods": [],
+        "resources": [
+          {
+            "strength": 0,
+            "name": "potted plant",
+            "description": "a dried up potted plant decorates the altar"
+          },
+          {
+            "strength": 0,
+            "name": "bible",
+            "description": "an old dusty bible"
+          }
+        ],
+        "tools": [],
+        "weapons": []
       },
       "characters": []
     },
@@ -2321,9 +2356,9 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "honey",
@@ -2331,8 +2366,8 @@
             "place": "inside a beehive"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       },
       "characters": []
     },
@@ -2349,9 +2384,9 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "eggs",
@@ -2363,8 +2398,8 @@
             "descripion": "the cat meows mournfully"
           }
         ],
-        "tools":[ ],
-        "weapons":[]
+        "tools": [],
+        "weapons": []
       },
       "characters": []
     },
@@ -2409,16 +2444,16 @@
         }
       ],
       "items": {
-        "cloths":[],
-        "foods":[],
-	      "resources":[
+        "cloths": [],
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "sacks of flour",
             "description": "Sacks of flour are leaning against the wall."
           }
         ],
-        "tools":[
+        "tools": [
           {
             "strength": 0,
             "name": "ladder",
@@ -2430,8 +2465,8 @@
             "description": "a pretty new hammer",
             "equipment": "WEAPON"
           }
-         ],
-        "weapons":[]
+        ],
+        "weapons": []
       },
       "characters": []
     },
@@ -2499,7 +2534,7 @@
       "characters": []
     },
     {
-	  "name": "bottom of the pond",
+      "name": "bottom of the pond",
       "description": "There\u0027s water all around you. You can\u0027t see anything.",
       "enable": "has swimming goggles",
       "ways": [
@@ -2512,35 +2547,35 @@
         }
       ],
       "items": {
-        "cloths":[
-        {
-        	"strength": 0,
-        	"name": "sunglasses",
-        	"description": "colorful sunglasses lost by a vacationer",
-        	"equipment": "HEAD" 
-        }
+        "cloths": [
+          {
+            "strength": 0,
+            "name": "sunglasses",
+            "description": "colorful sunglasses lost by a vacationer",
+            "equipment": "HEAD"
+          }
         ],
-        "foods":[],
-	      "resources":[
+        "foods": [],
+        "resources": [
           {
             "strength": 0,
             "name": "sacks of flour",
             "description": "Sacks of flour are leaning against the wall."
           }
         ],
-        "tools":[
+        "tools": [
           {
-          "strength": 1,
-          "name": "anchor",
-          "description": "A heavy-looking anchor is almost completely covered by sand."
-        },
-        {
-        	"strength": 0,
-        	"name": "holey umbrella",
-        	"description": "an umbrella full of holes"
-        }
-         ],
-        "weapons":[]
+            "strength": 1,
+            "name": "anchor",
+            "description": "A heavy-looking anchor is almost completely covered by sand."
+          },
+          {
+            "strength": 0,
+            "name": "holey umbrella",
+            "description": "an umbrella full of holes"
+          }
+        ],
+        "weapons": []
       },
       "characters": []
     },
@@ -2585,6 +2620,6 @@
         }
       ],
       "characters": []
-    }     
+    }
   ]
 }

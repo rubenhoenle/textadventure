@@ -96,6 +96,9 @@ public class Zork {
         commands.register(new TakeCommand(game));
         commands.register(new DropCommand(game));
         commands.register(new CraftCommand(game));
+        commands.register(new UseCommand(game));
+        // TODO update InvestigateCommand when quests are available
+        // commands.register(new InvestigateCommand(game));
         commands.register(new EquipCommand(game));
         commands.register(new StripOffCommand(game));
         commands.register(new SwitchCommand(game));

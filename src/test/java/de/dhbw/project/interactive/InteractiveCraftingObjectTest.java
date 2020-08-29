@@ -1,8 +1,7 @@
-package de.dhbw.project;
+package de.dhbw.project.interactive;
 
-import de.dhbw.project.interactive.Createable;
-import de.dhbw.project.interactive.InteractiveCraftingObject;
-import de.dhbw.project.interactive.Material;
+import de.dhbw.project.Player;
+import de.dhbw.project.State;
 import de.dhbw.project.item.Food;
 import de.dhbw.project.item.Item;
 import org.junit.FixMethodOrder;
@@ -15,7 +14,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class InteractiveObjectTest {
+public class InteractiveCraftingObjectTest {
 
     @Test
     public void test1_createItemWhenPlayerHasAllMaterials() {

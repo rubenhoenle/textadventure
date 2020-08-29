@@ -18,6 +18,7 @@ public class Constants {
             "take + <item name>", "drop + <item name>", "equip <item name>", "strip off <item name>", "inventory",
             "talk + <character name>", "attack + <character name>", "accept + <quest> + from + <character>+",
             "quest inventory", "quit or exit", "?", "help or info"));
+    // TODO add " "investigate on <interactive object name>", " again
 
     // Location of the jsons for a new or a saved game
     public static final String DEFAULT_PATH = "src/main/resources";

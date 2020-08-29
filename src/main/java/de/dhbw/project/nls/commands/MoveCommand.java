@@ -3,6 +3,7 @@ package de.dhbw.project.nls.commands;
 import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
 import de.dhbw.project.Way;
+import de.dhbw.project.WayState;
 
 public class MoveCommand extends AutoCommand {
 
@@ -35,11 +36,16 @@ public class MoveCommand extends AutoCommand {
             System.out.println("You can't move in this direction.");
         else {
             Way resultWay = game.getWayForDirection(direction);
-            System.out.println("You're taking the " + resultWay.getName() + " " + direction + ". ");
-            game.player.setRoomName(resultWay.getTo());
-            game.player.isAttacked(game);
-            System.out.println(game.getCurrentRoom());
-            System.out.println(game.getCurrentRoom().getDescription());
+            if (resultWay.getState() == WayState.ACTIVE) {
+                System.out.println("You're taking the " + resultWay.getName() + " " + direction + ". ");
+                game.player.setRoomName(resultWay.getTo());
+                game.player.isAttacked(game);
+                System.out.println(game.getCurrentRoom());
+                System.out.println(game.getCurrentRoom().getDescription());
+            } else {
+                System.out.println(
+                        "The way is blocked!" + (resultWay.getHint() != null ? "Hint: " + resultWay.getHint() : ""));
+            }
         }
     }
 

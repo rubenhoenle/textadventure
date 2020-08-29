@@ -3,10 +3,12 @@ package de.dhbw.project.nls.commands;
 import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
 import de.dhbw.project.Way;
+import de.dhbw.project.WayState;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
+import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 
 public class LookCommand extends AutoCommand {
@@ -51,10 +53,14 @@ public class LookCommand extends AutoCommand {
         else if (isEachDirection) {
             // Show available ways in the current room
             for (Way way : game.getCurrentRoom().getRoomWayList()) {
-                if (way.getDescription() != null)
-                    System.out.println(way.getDescription());
-                else
-                    System.out.println("There is a " + way.getName() + " going " + way.getDirection() + ".");
+                if (way.getState() != WayState.INVISIBLE) {
+                    if (way.getDescription() != null)
+                        System.out.println(way.getDescription()
+                                + (way.getState() == WayState.BLOCKED ? " This way is blocked." : ""));
+                    else
+                        System.out.println("There is a " + way.getName() + " going " + way.getDirection() + "."
+                                + (way.getState() == WayState.BLOCKED ? " This way is blocked." : ""));
+                }
             }
             // Show available items in the current room
             if (game.getCurrentRoom().getRoomItemList() != null) {
@@ -63,12 +69,20 @@ public class LookCommand extends AutoCommand {
                 }
             }
 
-            // Show available interactive objects in the current room
-            if (game.getCurrentRoom().getRoomInteractiveObjectsList() != null) {
+            // Show available interactive craft objects in the current room
+            if (game.getCurrentRoom().getRoomInteractiveCraftingObjectsList() != null) {
                 for (InteractiveCraftingObject interactiveCraftingObject : game.getCurrentRoom()
-                        .getRoomInteractiveObjectsList()) {
+                        .getRoomInteractiveCraftingObjectsList()) {
                     System.out.println("A " + interactiveCraftingObject.getName() + " "
                             + interactiveCraftingObject.getWhere() + ". " + interactiveCraftingObject.getUsage());
+                }
+            }
+
+            // Show available interactive objects in the current room
+            if (game.getCurrentRoom().getRoomInteractiveObjectsList() != null) {
+                for (InteractiveObject interactiveObject : game.getCurrentRoom().getRoomInteractiveObjectsList()) {
+                    System.out.println("A " + interactiveObject.getName() + " " + interactiveObject.getPlace() + ". "
+                            + interactiveObject.getHint());
                 }
             }
 

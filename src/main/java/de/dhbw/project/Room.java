@@ -5,6 +5,7 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
+import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
 
@@ -26,6 +27,8 @@ public class Room extends Thing {
     private List<Enemy> enemyList = new ArrayList<>();
     @SerializedName("friends")
     private List<Friend> friendList = new ArrayList<>();
+    @SerializedName("interactiveObjects")
+    private List<InteractiveObject> interactiveObjects = new ArrayList<>();
 
     // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
     // variables
@@ -73,7 +76,32 @@ public class Room extends Thing {
 
     }
 
-    public List<InteractiveCraftingObject> getRoomInteractiveObjectsList() {
+    public List<InteractiveObject> getRoomInteractiveObjectsList() {
+        return interactiveObjects;
+    }
+
+    public void setRoomInteractiveObjectsList(List<InteractiveObject> interactiveObjects) {
+        this.interactiveObjects = interactiveObjects;
+    }
+
+    public List<String> getRoomInteractiveObjectsNameList() {
+        List<String> interactiveObjectNames = new ArrayList<String>();
+        for (InteractiveObject interactiveObject : interactiveObjects) {
+            interactiveObjectNames.add(interactiveObject.getName());
+        }
+        return interactiveObjectNames;
+    }
+
+    public InteractiveObject getRoomInteractiveObjectByName(String name) {
+        for (InteractiveObject interactiveObject : interactiveObjects) {
+            if (interactiveObject.getName().equalsIgnoreCase(name)) {
+                return interactiveObject;
+            }
+        }
+        return null;
+    }
+
+    public List<InteractiveCraftingObject> getRoomInteractiveCraftingObjectsList() {
         return roomInteractiveCraftingObjectsList;
     }
 
@@ -158,5 +186,22 @@ public class Room extends Thing {
             characterNames.add(c.getName());
         }
         return characterNames;
+    }
+
+    public List<String> getRoomWayNameList() {
+        List<String> wayNames = new ArrayList<>();
+        for (Way w : roomWayList) {
+            wayNames.add(w.getName());
+        }
+        return wayNames;
+    }
+
+    public Way getRoomWayByName(String name) {
+        for (Way w : roomWayList) {
+            if (w.getName().equalsIgnoreCase(name)) {
+                return w;
+            }
+        }
+        return null;
     }
 }

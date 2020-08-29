@@ -9,16 +9,19 @@ public class Way extends Thing {
     private String from;
     @SerializedName("to")
     private String to;
-    @SerializedName("enable")
-    private String enabled = "";
+    @SerializedName("state")
+    private WayState state = WayState.ACTIVE;
+    @SerializedName("hint")
+    private String hint;
 
     // Constructor for a way - calls the super constructor of the parent (thing) and adds the way-specific variables
-    public Way(String name, String description, String direction, String from, String to, String enabled) {
+    public Way(String name, String description, String direction, String from, String to, WayState state, String hint) {
         super(name, description);
         this.direction = direction;
         this.from = from;
         this.to = to;
-        this.enabled = enabled;
+        this.state = state;
+        this.hint = hint;
     }
 
     // Method simplifies the default output for a way object
@@ -53,11 +56,19 @@ public class Way extends Thing {
         this.to = to;
     }
 
-    public String getEnabled() {
-        return enabled;
+    public WayState getState() {
+        return state;
     }
 
-    public void setEnabled(String enabled) {
-        this.enabled = enabled;
+    public void setState(WayState state) {
+        this.state = state;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
     }
 }
