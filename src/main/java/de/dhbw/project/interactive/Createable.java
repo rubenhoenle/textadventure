@@ -11,8 +11,8 @@ import java.util.List;
 public class Createable extends Thing {
     @SerializedName("type")
     private String type;
-    @SerializedName("clothingType")
-    private EquipmentType clothingType;
+    @SerializedName("equipmentType")
+    private EquipmentType equipmentType;
     @SerializedName("state")
     private State state;
     @SerializedName("strength")
@@ -49,8 +49,8 @@ public class Createable extends Thing {
         return type;
     }
 
-    public EquipmentType getClothingType() {
-        return clothingType;
+    public EquipmentType getEquipmentType() {
+        return equipmentType;
     }
 
     public State getState() {

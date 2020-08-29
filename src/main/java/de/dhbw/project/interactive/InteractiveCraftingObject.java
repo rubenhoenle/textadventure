@@ -62,7 +62,7 @@ public class InteractiveCraftingObject extends Thing {
         switch (createable.getType()) {
         case "cloth":
             player.addItem(new Clothing(createable.getName(), createable.getDescription(), createable.getState(),
-                    createable.getStrength(), createable.getClothingType()));
+                    createable.getStrength(), createable.getEquipmentType()));
             break;
 
         case "food":
@@ -77,12 +77,12 @@ public class InteractiveCraftingObject extends Thing {
 
         case "tool":
             player.addItem(new Tool(createable.getName(), createable.getDescription(), createable.getState(),
-                    createable.getStrength()));
+                    createable.getStrength(), createable.getEquipmentType()));
             break;
 
         case "weapon":
             player.addItem(new Weapon(createable.getName(), createable.getDescription(), createable.getState(),
-                    createable.getStrength()));
+                    createable.getStrength(), createable.getEquipmentType()));
             break;
         }
 

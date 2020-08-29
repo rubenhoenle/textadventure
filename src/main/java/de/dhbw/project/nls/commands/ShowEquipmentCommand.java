@@ -1,6 +1,7 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
+import de.dhbw.project.TableList;
 import de.dhbw.project.item.Item;
 
 import java.util.List;
@@ -15,16 +16,18 @@ public class ShowEquipmentCommand extends AutoCommand {
 
     @Override
     public void execute() {
-        System.out.println("---Equipment---");
+        TableList table = new TableList(4, "Name", "Description", "Section", "Strength").sortBy(0).withUnicode(true);
         List<Item> equipment = game.player.getEquipment();
         for (Item item : equipment) {
-            System.out.print(item.getName() + " - " + item.getDescription());
-            System.out.print(" (Section: " + item.getEquipmentType().getDescription());
+            String strength = "";
             if (item.getStrength() != 0)
-                System.out.print(", Strength: " + item.getStrength());
-            System.out.println(")");
+            {
+                strength = String.valueOf(item.getStrength());
+            }
+
+            table.addRow(item.getName(), item.getDescription(), item.getEquipmentType().getDescription(), strength);
         }
-        System.out.println("---------------");
+        table.print();
     }
 
     @Override

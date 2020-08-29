@@ -2,6 +2,7 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.State;
+import de.dhbw.project.TableList;
 
 public class InventoryCommand extends AutoCommand {
 
@@ -13,18 +14,34 @@ public class InventoryCommand extends AutoCommand {
 
     @Override
     public void execute() {
-        System.out.println("---Inventory---");
+        TableList table = new TableList(4, "Name", "Description", "Strength", "State").sortBy(0).withUnicode(true);
         for (int i = 0; i < game.player.getInventory().size(); i++) {
-            System.out.println(game.player.getInventory().get(i).getName() + " - "
-                    + game.player.getInventory().get(i).getDescription());
-            if (game.player.getInventory().get(i).getStrength() != 0)
-                System.out.println(" '- Strength: " + game.player.getInventory().get(i).getStrength());
-            if (game.player.getInventory().get(i).getState() != null
-                    && game.player.getInventory().get(i).getState() != State.NOT_USABLE)
-                System.out.println(" '- State: " + game.player.getInventory().get(i).getState());
+            State state = null;
+            String stateAsString = "";
+            String strength = "";
+
+            if (game.player.getInventory().get(i).getStrength() != 0) {
+                strength = String.valueOf(game.player.getInventory().get(i).getStrength());
+            }
+            if ((game.player.getInventory().get(i).getState() != null) && (game.player.getInventory().get(i).getState() != State.NOT_USABLE)) {
+                state = game.player.getInventory().get(i).getState();
+                switch (state) {
+                    case ACTIVE:
+                        stateAsString = "active";
+                        break;
+                    case INACTIVE:
+                        stateAsString = "inactive";
+                        break;
+                    default:
+                        stateAsString = "";
+                        break;
+                }
+            }
+
+            table.addRow(game.player.getInventory().get(i).getName(), game.player.getInventory().get(i).getDescription(), strength, stateAsString);
         }
 
-        System.out.println("---------------");
+        table.print();
     }
 
     @Override
