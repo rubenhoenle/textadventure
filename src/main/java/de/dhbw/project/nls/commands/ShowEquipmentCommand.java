@@ -20,8 +20,7 @@ public class ShowEquipmentCommand extends AutoCommand {
         List<Item> equipment = game.player.getEquipment();
         for (Item item : equipment) {
             String strength = "";
-            if (item.getStrength() != 0)
-            {
+            if (item.getStrength() != 0) {
                 strength = String.valueOf(item.getStrength());
             }
 

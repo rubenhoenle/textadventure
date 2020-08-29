@@ -23,22 +23,24 @@ public class InventoryCommand extends AutoCommand {
             if (game.player.getInventory().get(i).getStrength() != 0) {
                 strength = String.valueOf(game.player.getInventory().get(i).getStrength());
             }
-            if ((game.player.getInventory().get(i).getState() != null) && (game.player.getInventory().get(i).getState() != State.NOT_USABLE)) {
+            if ((game.player.getInventory().get(i).getState() != null)
+                    && (game.player.getInventory().get(i).getState() != State.NOT_USABLE)) {
                 state = game.player.getInventory().get(i).getState();
                 switch (state) {
-                    case ACTIVE:
-                        stateAsString = "active";
-                        break;
-                    case INACTIVE:
-                        stateAsString = "inactive";
-                        break;
-                    default:
-                        stateAsString = "";
-                        break;
+                case ACTIVE:
+                    stateAsString = "active";
+                    break;
+                case INACTIVE:
+                    stateAsString = "inactive";
+                    break;
+                default:
+                    stateAsString = "";
+                    break;
                 }
             }
 
-            table.addRow(game.player.getInventory().get(i).getName(), game.player.getInventory().get(i).getDescription(), strength, stateAsString);
+            table.addRow(game.player.getInventory().get(i).getName(),
+                    game.player.getInventory().get(i).getDescription(), strength, stateAsString);
         }
 
         table.print();
