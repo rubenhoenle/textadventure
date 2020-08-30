@@ -2236,28 +2236,58 @@
           {
             "strength": 0,
             "name": "grass",
-            "description": "The grass has grown very high so that you cannot see the ground."
+            "description": "The grass has grown very high so that you cannot see the ground.",
+            "place": "has grown very high so that you cannot see the ground"
           },
           {
             "strength": 0,
             "name": "flowers",
-            "description": "The weadow is full of beautiful flowers in all colors."
+            "description": "The weadow is full of beautiful flowers in all colors.",
+            "place": "- the weadow is full of beautiful flowers in all colors"
           },
           {
             "strength": 0,
             "name": "mumble",
-            "description": "mumbles lost by a little child a long time ago"
+            "description": "lost by a little child a long time ago"
           }
         ],
         "tools": [],
         "weapons": []
       },
-      "characters": [
+      "friends": [
         {
-          "name": "young girl",
-          "situation": "A young girl is sitting on the weadow crying.",
-          "intro": "I can\u0027t find my cat Findus. He run away and I searched him everywhere, but he disappeared.",
-          "comment": "TODO character + squirrel"
+          "name": "girl",
+          "where": "is sitting on the weadow crying",
+		  "health": 1,
+		  "strength": 0,
+		  "startStatement": "",
+		  "killStatement": "",
+		  "killed": false,
+		  "quests": [
+		  	{
+		  	  "name": "find findus",
+			  "textStart": "I can\u0027t find my cat Findus. He run away and I searched him everywhere, but he disappeared.",
+			  "textAccept": "I'm so glad you're helping me find my cat Findus.",
+			  "textMid": "Have you found any sign of my cat yet?",
+			  "textEnd": "Oooh Findus, I missed you so much! Thanks for your help.",
+			  "completed": false,
+			  "reward": [
+				{
+				  "strength": 0,
+            	  "name": "TODO",
+            	  "descripion": "TODO",
+            	  "type": "TODO"
+				}
+			  ],
+			  "fulfillmentItems": [
+				{
+				  "name": "cat"
+				}
+			  ],
+			  "accepted": false,
+			  "talkedOnce": false
+			}
+		  ]
         }
       ]
     },
@@ -2329,7 +2359,6 @@
           "direction": "up",
           "from": "maple tree",
           "to": "low branches of maple tree",
-          "enable": "has ladder",
           "name": "climbing tree",
           "description": "Maybe you can reach the low hanging branches of the maple tree..."
         }
@@ -2496,11 +2525,40 @@
           "description": "The southern bank in front of you is very flat."
         }
       ],
-      "characters": [
+      "friends": [
         {
           "name": "elder lady",
-          "situation": "An elder lady is siiting on a bench and enjoys the sun.",
-          "intro": "What a sunny day. It\u0027s such a warm sommer. I really like the flowers."
+          "where": "An elder lady is sitting on a bench and enjoys the sun.",
+		  "health": 1,
+		  "strength": 0,
+		  "startStatement": "",
+		  "killStatement": "",
+		  "killed": false,
+		  "quests": [
+		  	{
+		  	  "name": "picking flowers",
+			  "textStart": "What a sunny day. It\u0027s such a warm sommer. I really like the flowers.",
+			  "textAccept": "What a nice gesture of you.",
+			  "textMid": "Take your time. I can wait for the flowers.",
+			  "textEnd": "Thank you so much. I got something usefull for your inventory.",
+			  "completed": false,
+			  "reward": [
+				{
+				  "strength": 0,
+            	  "name": "yarn",
+            	  "description": "a thin thread for sewing",
+            	  "type": "resource"
+				}
+			  ],
+			  "fulfillmentItems": [
+				{
+				  "name": "flowers"
+				}
+			  ],
+			  "accepted": false,
+			  "talkedOnce": false
+			}
+		  ]
         }
       ]
     },
@@ -2519,7 +2577,9 @@
           "direction": "south",
           "from": "pond",
           "to": "waterfall",
-          "enable": "has life jacket",
+          "state": "NEED_EQUIPMENT",
+          "condition": "life jacket",
+          "hint": "You should wear something to save your life...",
           "name": "swim towards waterfall",
           "description": "the waterfall in the south looks dangerous. Sure you want to risk your life?"
         },
@@ -2535,8 +2595,8 @@
     },
     {
       "name": "bottom of the pond",
-      "description": "There\u0027s water all around you. You can\u0027t see anything.",
-      "enable": "has swimming goggles",
+      "description": "There\u0027s water all around you.",
+      "condition": "swimming goggles",
       "ways": [
         {
           "direction": "up",
@@ -2608,6 +2668,9 @@
           "direction": "north",
           "from": "hidden cave",
           "to": "waterfall",
+          "state": "NEED_EQUIPMENT",
+          "condition": "life jacket",
+          "hint": "You should wear something to save your life...",
           "name": "through the waterfall",
           "description": "Directly in front of you the waterfall is splashing into the pond. Maybe you should swim back north."
         },
