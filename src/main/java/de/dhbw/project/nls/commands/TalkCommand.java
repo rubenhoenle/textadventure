@@ -6,8 +6,6 @@ import de.dhbw.project.QuestItem;
 import de.dhbw.project.TableList;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Friend;
-import de.dhbw.project.item.Item;
-
 import java.util.List;
 
 public class TalkCommand extends AutoCommand {
@@ -92,7 +90,7 @@ public class TalkCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "talk <character>+", "talk" };
+        String[] patterns = { "talk to <character>+", "talk <character>+", "talk" };
         return patterns;
     }
 

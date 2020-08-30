@@ -2,7 +2,6 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 
-import de.dhbw.project.item.Clothing;
 import de.dhbw.project.levelEditor.SimpleUserInput;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
@@ -14,9 +13,11 @@ public class Way extends Thing {
     @SerializedName("to")
     private String to;
     @SerializedName("state")
-    private WayState state = WayState.ACTIVE;
+    private WayState state;
     @SerializedName("hint")
     private String hint;
+    @SerializedName("condition")
+    private String conditionalItem;
 
     // Constructor for a way - calls the super constructor of the parent (thing) and adds the way-specific variables
     public Way(String name, String description, String direction, String from, String to, WayState state, String hint) {
@@ -26,6 +27,17 @@ public class Way extends Thing {
         this.to = to;
         this.state = state;
         this.hint = hint;
+    }
+
+    // Constructor for a way - calls the super constructor of the parent (thing) and adds the way-specific variables
+    public Way(String name, String description, String direction, String from, String to, WayState state, String hint, String condition) {
+        super(name, description);
+        this.direction = direction;
+        this.from = from;
+        this.to = to;
+        this.state = state;
+        this.hint = hint;
+        this.conditionalItem = condition;
     }
 
     // Method simplifies the default output for a way object
@@ -79,7 +91,7 @@ public class Way extends Thing {
     public static Way createWay(Room from, Game game) {
         boolean exit = false;
         while (!exit) {
-            String input, name, description, direction, hint;
+            String name, description, direction, hint;
             direction = "up";
             Room toRoom;
             WayState state;
@@ -119,10 +131,18 @@ public class Way extends Thing {
         return null;
     }
 
+    public String getConditionalItem() {
+        return conditionalItem;
+    }
+
+    public void setConditionalItem(String condition) {
+        this.conditionalItem = condition;
+    }
+
     public static Way editWay(Way way, Game game) {
         boolean exit = false;
         while (!exit) {
-            String input, name, description, direction, hint;
+            String name, description, direction, hint;
             direction = "up";
             Room toRoom;
             WayState state;

@@ -44,7 +44,7 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test1_shouldNotLookNoTarget() throws Exception {
+    public void test01_shouldNotLookNoTarget() throws Exception {
         //before not needed
         //when
         command.execute();
@@ -54,7 +54,7 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test2_shouldNotLookNoTarget() throws Exception {
+    public void test02_shouldNotLookNoTarget() throws Exception {
         //before
         Whitebox.setInternalState(command, String.class, "");
 
@@ -66,11 +66,13 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test3_shouldBeStuck() throws Exception {
+    public void test03_shouldBeStuck() throws Exception {
         //before
         Whitebox.setInternalState(command, String.class, "around");
-
+        Room r = mock(Room.class);
+        
         when(game.hasWays()).thenReturn(false);
+        when(game.getCurrentRoom()).thenReturn(r);
 
         //when
         command.execute();
@@ -80,7 +82,7 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test4_shouldSeeEnemy() throws Exception {
+    public void test04_shouldSeeEnemy() throws Exception {
         //before
         Whitebox.setInternalState(command, String.class, "around");
         Character e = mock(Enemy.class);
@@ -103,7 +105,7 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test5_shouldSeeFriend() throws Exception {
+    public void test05_shouldSeeFriend() throws Exception {
         //before
         Whitebox.setInternalState(command, String.class, "around");
         Character f = mock(Friend.class);
@@ -126,11 +128,11 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test6_shouldSeeWay() throws Exception {
+    public void test06_shouldSeeWay() throws Exception {
         //before
         Whitebox.setInternalState(command, String.class, "around");
-        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint");
-        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.ACTIVE,"hint");
+        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint", "condition");
+        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.ACTIVE,"hint", "condition");
         Room r = mock(Room.class);
 
         when(game.hasWays()).thenReturn(true);
@@ -149,11 +151,11 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test7_shouldNotSeeWay() throws Exception {
+    public void test07_shouldNotSeeWay() throws Exception {
         //before
         Whitebox.setInternalState(command, String.class, "around");
-        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint");
-        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.INVISIBLE,"hint");
+        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint", "condition");
+        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.INVISIBLE,"hint", "condition");
         Room r = mock(Room.class);
 
         when(game.hasWays()).thenReturn(true);
@@ -172,11 +174,11 @@ public class LookCommandTest {
     }
 
     @Test
-    public void test8_shouldSeeBlockedWay() throws Exception {
+    public void test08_shouldSeeBlockedWay() throws Exception {
         //before
         Whitebox.setInternalState(command, String.class, "around");
-        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint");
-        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.BLOCKED,"hint");
+        Way w1 = new Way("way", "way1description", "east", "from", "to", WayState.ACTIVE,"hint", "condition");
+        Way w2 = new Way("way", "way2description", "west", "from", "to", WayState.BLOCKED,"hint", "condition");
         Room r = mock(Room.class);
 
         when(game.hasWays()).thenReturn(true);
@@ -192,5 +194,46 @@ public class LookCommandTest {
         //then
         verify(out).println("way1description");
         verify(out).println("way2description This way is blocked.");
+    }
+
+    @Test
+    public void test09_conditionShouldSeeNothing() throws Exception {
+        //before
+        Whitebox.setInternalState(command, String.class, "around");
+        
+        Room room = new Room("room", "desc", "");
+        room.setConditionalItem("condition");
+        
+        when(game.getCurrentRoom()).thenReturn(room);
+
+        //when
+        command.execute();
+
+        //then
+        verify(out).println("You can't see anything.");
+    }
+
+    @Test
+    public void test10_conditionShouldSee() throws Exception {
+        //before
+        Whitebox.setInternalState(command, String.class, "around");
+        
+        String wayDesc = "wayDescription";
+        Way way = new Way("way", wayDesc, "east", "from", "to", WayState.ACTIVE,"hint", "condition");
+        
+        Room room = mock(Room.class);
+        room.setConditionalItem("condition");
+        
+        when(game.getCurrentRoom()).thenReturn(room);
+        when(game.hasWays()).thenReturn(true);
+        when(room.getRoomWayList()).thenReturn(Arrays.asList(way));
+        when(room.getRoomItemList()).thenReturn(null);
+        when(room.getCharacterList()).thenReturn(Arrays.asList());
+
+        //when
+        command.execute();
+
+        //then
+        verify(out).println(wayDesc);
     }
 }
