@@ -19,9 +19,9 @@ public class Quest {
     @SerializedName("completed")
     private boolean completed;
     @SerializedName("reward")
-    private List<Item> reward;
+    private List<QuestItem> reward;
     @SerializedName("fulfillmentItems")
-    private List<Item> fulfillmentItems;
+    private List<QuestItem> fulfillmentItems;
     @SerializedName("accepted")
     private boolean accepted;
     @SerializedName("talkedOnce")
@@ -32,7 +32,7 @@ public class Quest {
     }
 
     public Quest(String name, String textStart, String textAccept, String textMid, String textEnd, boolean completed,
-            List<Item> reward, List<Item> fulfillmentItems, boolean accepted, boolean talkedOnce) {
+            List<QuestItem> reward, List<QuestItem> fulfillmentItems, boolean accepted, boolean talkedOnce) {
         this.name = name;
         this.textStart = textStart;
         this.textAccept = textAccept;
@@ -77,11 +77,11 @@ public class Quest {
         this.completed = completed;
     }
 
-    public List<Item> getReward() {
+    public List<QuestItem> getReward() {
         return reward;
     }
 
-    public void setReward(List<Item> reward) {
+    public void setReward(List<QuestItem> reward) {
         this.reward = reward;
     }
 
@@ -109,11 +109,11 @@ public class Quest {
         this.textEnd = textEnd;
     }
 
-    public List<Item> getFulfillmentItems() {
+    public List<QuestItem> getFulfillmentItems() {
         return fulfillmentItems;
     }
 
-    public void setFulfillmentItems(List<Item> fulfillmentItems) {
+    public void setFulfillmentItems(List<QuestItem> fulfillmentItems) {
         this.fulfillmentItems = fulfillmentItems;
     }
 
@@ -126,12 +126,25 @@ public class Quest {
     }
 
     public boolean checkCompleted(Player p) {
-        for (Item i : fulfillmentItems) {
-            if (!p.getInventory().contains(i)) {
+
+        for (QuestItem qi : fulfillmentItems) {
+            Item item = p.getItemFromEquipment(qi.getName());
+            if (item != null) {
+                System.out.println("You need to strip the " + qi.getName() + " off to complete the quest!");
+            }
+        }
+        for (QuestItem qi : fulfillmentItems) {
+            Item item = p.getItem(qi.getName());
+            if (item == null) {
                 return false;
             }
         }
         return true;
-    }
 
+        /*
+         * for (Item i : fulfillmentItems) { for(Item a : p.getInventory()){ if (!a.getName().equals(i.getName())) {
+         * return false; } } }
+         */
+        // return true;
+    }
 }

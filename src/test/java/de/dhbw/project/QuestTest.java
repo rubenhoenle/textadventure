@@ -32,10 +32,10 @@ public class QuestTest {
         boolean completed = true;
         boolean accepted = true;
         boolean talkedOnce = true;
-        Item reward = mock(Item.class);
-        List<Item> questReward = Arrays.asList(reward);
-        Item fulfillmentItems = mock(Item.class);
-        List<Item> requiredItems = Arrays.asList(fulfillmentItems);
+        QuestItem reward = mock(QuestItem.class);
+        List<QuestItem> questReward = Arrays.asList(reward);
+        QuestItem fulfillmentItems = mock(QuestItem.class);
+        List<QuestItem> requiredItems = Arrays.asList(fulfillmentItems);
 
 
         //when
@@ -71,22 +71,23 @@ public class QuestTest {
         boolean completed = false;
         boolean accepted = true;
         boolean talkedOnce = true;
-        Item reward = mock(Item.class);
-        ArrayList<Item> questReward = new ArrayList<>();
+        QuestItem reward = mock(QuestItem.class);
+        ArrayList<QuestItem> questReward = new ArrayList<>();
         questReward.add(reward);
         //Arrays.asList(reward);
         Item fulfillmentItems = mock(Item.class);
-        ArrayList<Item> requiredItems = new ArrayList<>();
+        ArrayList<QuestItem> requiredItems = new ArrayList<>();
         //requiredItems.add(fulfillmentItems); // muss glaub auskommentiert werden -> ziemlich sicher
         //Arrays.asList(fulfillmentItems);
 
         Player player = new Player();
-        Tool itemFulfill1 = new Tool("item1", "desc_item1", State.ACTIVE, 1);
-        Tool itemFullfill2 = new Tool("item2", "desc_item2", State.ACTIVE, 2);
-        player.addItem(itemFulfill1);
-        player.addItem(itemFullfill2);
+        QuestItem itemFulfill1 = new QuestItem("item1","desc_item1", State.ACTIVE, 1, EquipmentType.SHOES, "cloth");
+        QuestItem itemFulfill2 = new QuestItem("item2", "desc_item2", State.INACTIVE,  2, EquipmentType.SHOES, "cloth");
+                //new Tool("item2", "desc_item2", State.ACTIVE, 2);
+        player.addItem(itemFulfill1.questItemToItem());
+        player.addItem(itemFulfill2.questItemToItem());
         requiredItems.add(itemFulfill1);
-        requiredItems.add(itemFullfill2);
+        requiredItems.add(itemFulfill2);
 
 
 

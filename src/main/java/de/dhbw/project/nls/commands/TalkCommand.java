@@ -2,6 +2,7 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.Quest;
+import de.dhbw.project.QuestItem;
 import de.dhbw.project.TableList;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Friend;
@@ -52,6 +53,7 @@ public class TalkCommand extends AutoCommand {
                         }
                         System.out.println("Questname: " + q.getName());
                         System.out.println(q.getTextStart());
+                        System.out.println("Type: \"accept <questname> from <character>\" to accept the quest.");
 
                         // q.setAccepted(true);
 
@@ -59,8 +61,8 @@ public class TalkCommand extends AutoCommand {
                         if (q.checkCompleted(game.player)) {
                             q.setCompleted(true);
                             game.player.getQuestInventory().remove(q);
-                            for (Item fi : q.getFulfillmentItems()) {
-                                game.player.getInventory().remove(fi);
+                            for (QuestItem qi : q.getFulfillmentItems()) {
+                                game.player.removeItem(game.player.getItem(qi.getName()));
                             }
                             System.out.println(q.getTextEnd());
 
@@ -71,7 +73,9 @@ public class TalkCommand extends AutoCommand {
                                 // Zeile hinzufügen
                                 tabelle.addRow(q.getReward().get(a).getName());
                                 // System.out.println(" '-: " + q.getReward().get(i).getName());
-                                game.player.getInventory().add(q.getReward().get(a));
+                                if (q.getReward().get(a).questItemToItem() != null) {
+                                    game.player.addItem(q.getReward().get(a).questItemToItem());
+                                }
                             }
                             // Tabelle ausgeben
                             tabelle.print();
