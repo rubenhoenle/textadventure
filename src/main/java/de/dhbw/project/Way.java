@@ -10,18 +10,21 @@ public class Way extends Thing {
     @SerializedName("to")
     private String to;
     @SerializedName("state")
-    private WayState state = WayState.ACTIVE;
+    private WayState state;
     @SerializedName("hint")
     private String hint;
+    @SerializedName("condition")
+    private String conditionalItem;
 
     // Constructor for a way - calls the super constructor of the parent (thing) and adds the way-specific variables
-    public Way(String name, String description, String direction, String from, String to, WayState state, String hint) {
+    public Way(String name, String description, String direction, String from, String to, WayState state, String hint, String condition) {
         super(name, description);
         this.direction = direction;
         this.from = from;
         this.to = to;
         this.state = state;
         this.hint = hint;
+        this.conditionalItem = condition;
     }
 
     // Method simplifies the default output for a way object
@@ -57,7 +60,7 @@ public class Way extends Thing {
     }
 
     public WayState getState() {
-        return state;
+        return state != null ? state : WayState.ACTIVE;
     }
 
     public void setState(WayState state) {
@@ -70,5 +73,13 @@ public class Way extends Thing {
 
     public void setHint(String hint) {
         this.hint = hint;
+    }
+
+    public String getConditionalItem() {
+        return conditionalItem;
+    }
+
+    public void setConditionalItem(String condition) {
+        this.conditionalItem = condition;
     }
 }

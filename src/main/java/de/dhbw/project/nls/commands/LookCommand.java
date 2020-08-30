@@ -1,5 +1,7 @@
 package de.dhbw.project.nls.commands;
 
+import java.util.stream.Collectors;
+
 import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
 import de.dhbw.project.Way;
@@ -41,6 +43,15 @@ public class LookCommand extends AutoCommand {
         if (!(Constants.DIRECTIONS).contains(direction) && !isEachDirection)
             System.out.println("No valid direction. Please enter look north / south / west / east / up or down.");
 
+        // Condition of room is not fulfilled -> nothing can be seen
+        String condItem = game.getCurrentRoom().getConditionalItem();
+        if(condItem != null && condItem != "") {
+        	if(game.player.getEquipment().stream().filter(i -> i.getName().equals(condItem)).collect(Collectors.toList()).size() == 0) {
+        		System.out.println("You can\u0027t see anything.");
+        		return;
+        	}
+        }        
+        
         // The current room has no ways (actually this shouldn't happen as you have to enter the room somehow)
         else if (!game.hasWays())
             System.out.println("You're stucked in a room. There's no way hiding there.");

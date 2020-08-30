@@ -1,23 +1,10 @@
 package de.dhbw.project;
 
-import com.google.gson.annotations.SerializedName;
-import de.dhbw.project.character.Character;
-import de.dhbw.project.character.Enemy;
-import de.dhbw.project.character.Friend;
-import de.dhbw.project.interactive.InteractiveCraftingObject;
-import de.dhbw.project.interactive.InteractiveObject;
-import de.dhbw.project.item.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class WayTest {
@@ -32,9 +19,10 @@ public class WayTest {
         String to="to";
         WayState state = WayState.ACTIVE;
         String hint="hint";
+        String condition = "condition";
 
         //when
-        Way w = new Way(name,description,direction,from,to, state,hint);
+        Way w = new Way(name,description,direction,from,to, state,hint, condition);
 
         //then
         assertEquals(w.getName(),name);
@@ -44,6 +32,6 @@ public class WayTest {
         assertEquals(w.getTo(),to);
         assertEquals(w.getState(),state);
         assertEquals(w.getHint(),hint);
-
+        assertEquals(w.getConditionalItem(),condition);
     }
 }
