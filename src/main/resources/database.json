@@ -1604,7 +1604,8 @@
     },
     {
       "name": "vulcan",
-      "description": "You are standing on a vulcan. In front of you there is the crater with the seething lava in it.",
+      "description": "It's very hot here because you are standing on a vulcan. In front of you there is the crater with the seething lava in it, so better keep your distance.",
+
       "ways": [
         {
           "direction": "east",
@@ -1613,7 +1614,22 @@
           "name": "path",
           "description": "In the east a narrow and very steep path going down to the sacrificial altar. If you go down this path, it will get cooler."
         }
-      ]
+      ],
+      "defaultItemLocation": "is lying in the volcanic ash on the ground",
+      "items": {
+        "cloths": [],
+        "foods": [],
+        "resources": [
+          {
+            "strength": 0,
+            "name": "bag of gunpowder",
+            "description": "A brown bag made out of leather with a lot of gunpowder in it.",
+            "place": "is lying in the volcanic ash on the ground"
+          }
+        ],
+        "tools": [],
+        "weapons": []
+      }
     },
     {
       "name": "beginning of the forest",
