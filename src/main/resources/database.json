@@ -1,14 +1,15 @@
 {
   "player": {
     "points": 0,
-    "strength": 42,
+    "strength": 5,
+    "health": 20,
     "inventory": {
       "cloths": [],
       "foods": [],
       "resources": [],
       "tools": [],
-        "weapons":[],
-        "books":[]
+      "weapons":[],
+      "books":[]
     },
     "questInventory": [],
     "equipment": [],

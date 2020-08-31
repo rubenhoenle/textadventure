@@ -110,6 +110,7 @@ public class Zork {
 
         commands.register(new TalkCommand(game));
         commands.register(new AttackCommand(game));
+        commands.register(new EatCommand(game));
         commands.register(new AcceptQuestCommand(game));
         commands.register(new ShowQuestCommand(game));
 
