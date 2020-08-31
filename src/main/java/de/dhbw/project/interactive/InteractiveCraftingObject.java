@@ -104,7 +104,7 @@ public class InteractiveCraftingObject extends Thing {
             }
             tl.print();
 
-            System.out.println("To create an item of this list type: craft " + this.getName() + " <name of item>");
+            System.out.println("To create an item of this list type: \"craft " + this.getName() + " <name of item>\"");
         }
     }
 
