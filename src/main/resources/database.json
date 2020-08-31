@@ -1514,30 +1514,6 @@
               ]
             }
           ]
-        },
-        {
-          "name": "furnance",
-          "description": "An furnance which can be used for melting ores.",
-          "state": "useable",
-          "place": "is standing next to the wall",
-          "usage": "It can be used for melting ores.",
-          "action": "melting",
-          "createables": [
-            {
-              "name": "iron ingot",
-              "description": "An iron ingot. Maybe you can create something with it.",
-              "neededMaterials": [
-                {
-                  "name": "piece of coal",
-                  "number": "1"
-                },
-                {
-                  "name": "iron ore",
-                  "number": "1"
-                }
-              ]
-            }
-          ]
         }
       ]
     },
