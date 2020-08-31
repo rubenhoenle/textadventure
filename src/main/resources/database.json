@@ -1571,7 +1571,36 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "interactiveCraftingObjects": [
+        {
+          "name": "enchanter",
+          "description": "An enchantment table that can be used for enchanting weapons.",
+          "state": "useable",
+          "place": "is standing right of the altar",
+          "usage": "It can be used for enchanting weapons.",
+          "action": "enchanting",
+          "createables": [
+            {
+              "name": "enchanted sword",
+              "description": "An enchanted sword, glittering in the sunlight. There is no better weapon than this, I promise!",
+              "type": "weapon",
+              "state": "",
+              "strength": 25,
+              "neededMaterials": [
+                {
+                  "name": "sword",
+                  "number": 1
+                },
+                {
+                  "name": "enchanted book",
+                  "number": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "vulcan",
