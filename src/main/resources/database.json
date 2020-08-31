@@ -1112,32 +1112,7 @@
       "items": {
         "cloths": [],
         "foods": [],
-        "resources": [
-          {
-            "strength": 0,
-            "name": "iron ingot",
-            "description": "An iron ingot. Maybe you can create something with it.",
-            "place": "is lying under some cobwebs"
-          },
-          {
-            "strength": 0,
-            "name": "iron ingot",
-            "description": "An iron ingot. Maybe you can create something with it.",
-            "place": "is lying under some cobwebs"
-          },
-          {
-            "strength": 0,
-            "name": "iron ingot",
-            "description": "An iron ingot. Maybe you can create something with it.",
-            "place": "is lying under some cobwebs"
-          },
-          {
-            "strength": 0,
-            "name": "iron ingot",
-            "description": "An iron ingot. Maybe you can create something with it.",
-            "place": "is lying under some cobwebs"
-          }
-        ],
+        "resources": [],
         "tools": [],
         "weapons": []
       }
@@ -1542,30 +1517,6 @@
         "resources": [
           {
             "strength": 0,
-            "name": "piece of coal",
-            "description": "A black and dusty piece of coal.",
-            "place": "is lying in a dark corner"
-          },
-          {
-            "strength": 0,
-            "name": "piece of coal",
-            "description": "A black and dusty piece of coal.",
-            "place": "is lying in a dark corner"
-          },
-          {
-            "strength": 0,
-            "name": "piece of coal",
-            "description": "A black and dusty piece of coal.",
-            "place": "is lying in a dark corner"
-          },
-          {
-            "strength": 0,
-            "name": "piece of coal",
-            "description": "A black and dusty piece of coal.",
-            "place": "is lying in a dark corner"
-          },
-          {
-            "strength": 0,
             "name": "wood stick",
             "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
             "place": "is leaning on the wall"
@@ -1575,30 +1526,6 @@
             "name": "wood stick",
             "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
             "place": "is leaning on the wall"
-          },
-          {
-            "strength": 0,
-            "name": "iron ore",
-            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-            "place": "is lying in a container"
-          },
-          {
-            "strength": 0,
-            "name": "iron ore",
-            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-            "place": "is lying in a container"
-          },
-          {
-            "strength": 0,
-            "name": "iron ore",
-            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-            "place": "is lying in a container"
-          },
-          {
-            "strength": 0,
-            "name": "iron ore",
-            "description": "A piece of stone with some iron in it. Maybe you can get the iron out of there by melting it.",
-            "place": "is lying in a container"
           }
         ],
         "tools": [],
