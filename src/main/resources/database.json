@@ -1432,6 +1432,45 @@
     {
       "name": "house in the village",
       "description": "You are in a house at the village with some natives in it.",
+      "friends": [
+        {
+          "name": "Anuk",
+          "where": "sitting on a chair",
+          "health":  200,
+          "strength":  12,
+          "startStatement": "Hello Stranger!",
+          "killStatement": "Why did you kill me!?",
+          "killed": false,
+          "quest": [
+            {
+              "name":"The lost shoes",
+              "textStart":"Hello Stranger! I have lost my shoes somewhere in the forest. I will reward you if you bring them back to me!",
+              "textAccept":"Thanks for helping me!",
+              "textMid":"You did not bring me the shoes yet. Look at the forest!",
+              "textEnd":"Thanks for bringing me my shoes!",
+              "reward":[
+                {
+                  "strength": 0,
+                  "name": "some pears",
+                  "description": "Some delicious pears. They smell really good!",
+                  "type": "food"
+                }
+              ],
+              "completed":false,
+              "talkedOnce":false,
+              "fulfillmentItems":[
+                {
+                  "strength": 0,
+                  "name": "pair of shoes",
+                  "description": "A pair of shoes looking like the owner forgot them. They got the initials G. E. written inside.",
+                  "place": "are lying on a chair",
+                  "equipment": "SHOES"
+                }
+              ],
+              "accepted":false
+            }]
+        }
+      ],
       "ways": [
         {
           "direction": "east",
@@ -2803,8 +2842,8 @@
 			  "reward": [
 				{
 				  "strength": 0,
-            	  "name": "yarn",
-            	  "description": "a thin thread for sewing",
+            	  "name": "yarn and needle",
+            	  "description": "a thin thread for sewing and a needle",
             	  "type": "resource"
 				}
 			  ],
