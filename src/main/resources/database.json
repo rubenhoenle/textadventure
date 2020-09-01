@@ -857,12 +857,17 @@
           "description": "A big trapdoor, too big to miss, leads down."
         }
       ],
-      "characters": [
+      "enemies": [
         {
           "name": "ugly big troll",
+          "healt": "10",
+          "strength": "20",
           "situation": "A stinking big dangerous looking troll is walking through the room.",
-          "intro": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
-          "comment": "TODO attack + drop items"
+          "comment": "TODO attack + drop items",
+          "autoAttack": "true",
+          "startStatement": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
+          "killStatement": "What a relief. Finally this miserable existence has come to an end!",
+          "killed": "false"
         }
       ]
     },
@@ -1172,8 +1177,8 @@
         "foods": [
           {
             "strength": 1,
-            "name": "old ampoule full of fermented wine, mixed with brackish water",
-            "description": "lying there a few years or for decades, the wine is undrinkable",
+            "name": "old ampoule",
+            "description": "full of fermented wine, mixed with brackish water,probably undrinkable",
             "place": "is lying on the ground of the river, partly covered with mud "
           }
         ],
@@ -1223,8 +1228,8 @@
         "resources": [
           {
             "strength": 0,
-            "name": "big towel with a kind of flower pattern in blue and pink",
-            "description": "big towel with a kind of flower pattern in blue and pink",
+            "name": "big towel",
+            "description": "a big towel with a kind of flower pattern in blue and pink",
             "place": "is lying on the towel stand"
           }
         ],
