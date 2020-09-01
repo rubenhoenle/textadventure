@@ -1959,13 +1959,18 @@
           "startStatement": "Hiss Hiss Hiss",
           "killStatement": "HISSSSS!",
           "killed": false,
-          "dropItems": [
-            {
+          "dropItems": {
+            "cloths":[],
+            "foods":[],
+            "resources":[{
               "strength": 2,
               "name": "snake teeth",
               "description": "a very sharp teeth"
-            }
-          ],
+            }],
+            "tools":[],
+            "books":[],
+            "weapons":[]
+          },
           "autoAttack":false
         }
       ],
