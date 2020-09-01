@@ -44,6 +44,7 @@
               ],
               "completed":false,
               "talkedOnce":false,
+              "mainQuest": true,
               "fulfillmentItems":[
                 {
                   "strength": 0,
@@ -90,6 +91,7 @@
               "reward":[],
               "completed":false,
               "talkedOnce":false,
+              "mainQuest": true,
               "fulfillmentItems":[
                 {
                   "name": "hammer",
@@ -126,6 +128,87 @@
                   "name": "anchor",
                   "description": "not to heavy but enough for a small ship",
                   "place": "stuck between two boulders"
+                },
+                {
+                  "name": "ship cannon",
+                  "description": "A little cannon to protect your ship and your treasures from bad people like pirates.",
+                  "type": "ressource",
+                  "equipmentType": "",
+                  "state": "",
+                  "strength": 0
+                },
+                {
+                  "strength": 0,
+                  "name": "sail",
+                  "description": "a sewn sail",
+                  "type": "resource"
+                }],
+              "accepted":false},
+            {
+              "name":"Bringing equipment",
+              "textStart":"You need to search for equipment all over the island and give it to me. I will bring it to your boat!",
+              "textAccept":"Thanks for accepting my task!",
+              "textMid":"You did not bring me enough equipment yet.",
+              "textEnd":"Thanks for bringing me all equipment needed.",
+              "reward":[],
+              "completed":false,
+              "talkedOnce":false,
+              "mainQuest": true,
+              "fulfillmentItems":[
+                {
+                  "strength": 0,
+                  "name": "compass",
+                  "description": "a small, old compass",
+                  "place": "on the table"
+                },
+                {
+                  "strength": 0,
+                  "name": "nautical map",
+                  "description": "an old, nautical map with an island marked on it",
+                  "place": "on the table"
+                },
+                {
+                  "strength": 0,
+                  "name": "life jacket",
+                  "description": "a life jacket from your sunken ship",
+                  "place": "floating in the water",
+                  "equipment": "UPPER_BODY"
+                },
+                {
+                  "strength": 0,
+                  "name": "telescope",
+                  "description": "a golden telescope",
+                  "place": "lies next to the skeleton"
+                },
+                {
+                  "name": "oil lamp",
+                  "description": "and old oil lamp, like those used in ancient times",
+                  "place": "is swimming on the river",
+                  "state": "0"
+                },
+                {
+                  "strength": 0,
+                  "name": "bag of gunpowder",
+                  "description": "A brown bag made out of leather with a lot of gunpowder in it.",
+                  "place": "is lying in the volcanic ash on the ground"
+                }],
+              "accepted":false},
+            {
+              "name":"The ancient amulet",
+              "textStart":"Find the ancient amulet on the island. It is worth a fortune! I will not steal it. I just bring it to your ship cabin.",
+              "textAccept":"Thanks for accepting my task!",
+              "textMid":"You did not bring me the amulet yet.",
+              "textEnd":"Thanks for bringing me the amulet.",
+              "reward":[],
+              "completed":false,
+              "talkedOnce":false,
+              "mainQuest": true,
+              "fulfillmentItems":[
+                {
+                  "strength": 0,
+                  "name": "amulet of cassborough",
+                  "description": "A precious amulet made of gold and valuable gemstones",
+                  "place": "lying on a stone altar"
                 }],
               "accepted":false}
 
