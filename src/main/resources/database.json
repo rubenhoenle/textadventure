@@ -1263,21 +1263,21 @@
           "from": "cave with nothing but three ways",
           "to": "magical cave",
           "name": "way",
-          "description": "way"
+          "description": "There is a way leading north."
         },
         {
           "direction": "east",
           "from": "cave with nothing but three ways",
           "to": "holy grotto",
           "name": "way",
-          "description": "way"
+          "description": "There is a way leading east."
         },
         {
           "direction": "south",
           "from": "cave with nothing but three ways",
           "to": "mineral cave",
           "name": "way",
-          "description": "way"
+          "description": "There is a narrow dirty corridor leading south"
         }
       ],
       "characters": []
@@ -1291,23 +1291,30 @@
           "from": "magical cave",
           "to": "cave with nothing but three ways",
           "name": "way",
-          "description": "way"
+          "description": "There is a way leading south"
         }
       ],
       "characters": [],
       "items": {
         "cloths": [],
         "foods": [],
-        "resources": [
-          {
-            "strength": 9000,
-            "name": "a giant statue of buddah",
-            "description": "too heavy to take, shimmering in the light",
-            "place": "sits on the floor"
-          }
-        ],
+        "resources": [],
         "tools": [],
-        "weapons": []
+        "weapons": [],
+        "interactiveObjects": [
+          {
+            "name": "Buddha",
+            "description": "There is a giant statue of buddha standing on the floor",
+            "place": "standing on the floor",
+            "requiredItem": {
+              "cloths": [],
+              "foods": [],
+              "resources": [],
+              "tools": [],
+              "weapons": []
+            }
+          }
+        ]
       }
     },
     {
@@ -1319,7 +1326,7 @@
           "from": "holy grotto",
           "to": "cave with nothing but three ways",
           "name": "way",
-          "description": "way"
+          "description": "There is a way leading west"
         }
       ],
       "friends": [
@@ -1371,7 +1378,7 @@
           "from": "mineral cave",
           "to": "cave with nothing but three ways",
           "name": "way",
-          "description": "way"
+          "description": "There is a narrow dirty corridor leading north."
         }
       ],
       "characters": [],
