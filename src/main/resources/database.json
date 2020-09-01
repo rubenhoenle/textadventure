@@ -1488,15 +1488,15 @@
               "neededMaterials": [
                 {
                   "name": "iron ingot",
-                  "number": "6"
+                  "number": 6
                 },
                 {
                   "name": "piece of detonating cord",
-                  "number": "1"
+                  "number": 1
                 },
                 {
                   "name": "single piece of wood",
-                  "number": "1"
+                  "number": 1
                 }
               ]
             },
@@ -1510,17 +1510,17 @@
               "neededMaterials": [
                 {
                   "name": "iron ingot",
-                  "number": "4"
+                  "number": 4
                 }
               ]
             },
             {
-              "name": "iron axe",
+              "name": "axe",
               "description": "An axe made out of iron.",
               "type": "weapon",
               "equipmentType": "WEAPON",
               "state": "",
-              "strength": 5,
+              "strength": 9,
               "neededMaterials": [
                 {
                   "name": "iron ingot",
@@ -1632,12 +1632,6 @@
             "name": "altar cloth",
             "description": "A white, large piece of textile used to decorate the altar.",
             "place": "is spear over the altar"
-          },
-          {
-            "strength": 0,
-            "name": "potion",
-            "description": "A little glass bottle with a purple liquid in it. Could be a potion with a magic effect.",
-            "place": "standing on the altar"
           }
         ],
         "tools": [],
@@ -1654,7 +1648,7 @@
           "createables": [
             {
               "name": "lightsaber",
-              "description": "A lightsaber like Yoda uses. There is no better weapon than this, I promise!",
+              "description": "A lightsaber like master Yoda uses. There is no better weapon than this, I promise!",
               "type": "weapon",
               "state": "",
               "strength": 25,
