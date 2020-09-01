@@ -1959,13 +1959,10 @@
           "startStatement": "Hiss Hiss Hiss",
           "killStatement": "HISSSSS!",
           "killed": false,
-          "dropItems": {
-            "cloths":[],
-            "foods":[],
-            "resources":[{
+          "dropItems": [{
+            "resources":[],
               "cloths": [],
               "foods": [],
-              "resources": [],
               "tools": [],
               "weapons": [
                 {
@@ -1975,10 +1972,6 @@
                 }
               ]
             }],
-            "tools":[],
-            "books":[],
-            "weapons":[]
-          },
           "autoAttack":false
         }
       ],
