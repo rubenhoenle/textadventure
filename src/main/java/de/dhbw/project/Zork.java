@@ -122,6 +122,8 @@ public class Zork {
         commands.register(new SaveCommand(game));
         commands.register(new LoadCommand());
 
+        commands.register(new ReadBookCommand(game));
+
         game.commands = commands;
     }
 
