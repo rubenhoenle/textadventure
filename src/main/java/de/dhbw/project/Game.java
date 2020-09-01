@@ -79,6 +79,15 @@ public class Game {
         return null;
     }
 
+    // Helper method: Returns the current room object
+    public Room getRoom(String name) {
+        for (Room r : rooms) {
+            if (r.getName().equals(name))
+                return r;
+        }
+        return null;
+    }
+
     // Helper method: Returns full direction
     public String getFullDirection(char direction) {
         switch (direction) {
