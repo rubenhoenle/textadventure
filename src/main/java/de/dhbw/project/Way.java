@@ -61,7 +61,7 @@ public class Way extends Thing {
     }
 
     public WayState getState() {
-        return state;
+        return (state == null ? WayState.ACTIVE : state);
     }
 
     public void setState(WayState state) {

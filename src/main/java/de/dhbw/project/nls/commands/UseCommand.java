@@ -55,11 +55,19 @@ public class UseCommand extends AutoCommand {
                 Way w = game.getCurrentRoom().getRoomWayByName(io.getWayName());
                 if (w != null) {
                     w.setState(WayState.ACTIVE);
+
+                    for (Way wb : game.getRoom(w.getTo()).getRoomWayList()) {
+                        if (w.getTo().equals(wb.getFrom()) && w.getFrom().equals(wb.getTo())) {
+                            wb.setState(WayState.ACTIVE);
+                        }
+                    }
+
                     if (io.isRemoveRequiredItem()) {
                         game.player.removeItem(i);
                     }
                     System.out.println(
                             "The way " + w.getName() + " in the direction " + w.getDirection() + " is now walkable!");
+                    game.getCurrentRoom().getRoomInteractiveObjectsList().remove(io);
                 }
             }
         }
