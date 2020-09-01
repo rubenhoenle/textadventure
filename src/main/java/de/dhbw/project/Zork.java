@@ -62,6 +62,8 @@ public class Zork {
         } else {
             Game storedGame = Zork.parseData(path.toAbsolutePath().toString());
             game = storedGame;
+            registerCommands();
+            game.play(game.player);
             System.out.println("Game loaded.");
             return game;
         }
