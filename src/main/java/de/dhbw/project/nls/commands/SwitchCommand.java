@@ -39,6 +39,7 @@ public class SwitchCommand extends AutoCommand {
                 item.setItemstate(ItemState.ACTIVE);
                 System.out.println("Item " + itemName + " is now " + ItemState.ACTIVE + ".");
             }
+            game.incTurn();
         }
     }
 

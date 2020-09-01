@@ -68,6 +68,7 @@ public class UseCommand extends AutoCommand {
                     System.out.println(
                             "The way " + w.getName() + " in the direction " + w.getDirection() + " is now walkable!");
                     game.getCurrentRoom().getRoomInteractiveObjectsList().remove(io);
+                    game.incTurn();
                 }
             }
         }

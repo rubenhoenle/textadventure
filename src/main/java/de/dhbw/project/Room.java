@@ -4,6 +4,7 @@ import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
+import de.dhbw.project.character.RoamingEnemy;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
@@ -31,6 +32,8 @@ public class Room extends Thing {
     private List<Enemy> enemyList = new ArrayList<>();
     @SerializedName("friends")
     private List<Friend> friendList = new ArrayList<>();
+    @SerializedName("roamingEnemies")
+    private List<RoamingEnemy> roamingEnemyList = new ArrayList<>();
     @SerializedName("interactiveObjects")
     private List<InteractiveObject> interactiveObjects = new ArrayList<>();
 
@@ -179,7 +182,14 @@ public class Room extends Thing {
     }
 
     public List<Enemy> getEnemyList() {
-        return enemyList;
+        List<Enemy> eList = new ArrayList<>();
+        if (enemyList != null) {
+            eList.addAll(enemyList);
+        }
+        if (roamingEnemyList != null) {
+            eList.addAll(roamingEnemyList);
+        }
+        return eList;
     }
 
     public void setEnemyList(List<Enemy> enemyList) {
@@ -201,6 +211,9 @@ public class Room extends Thing {
         }
         if (enemyList != null) {
             characters.addAll(enemyList);
+        }
+        if (roamingEnemyList != null) {
+            characters.addAll(roamingEnemyList);
         }
         return characters;
     }
@@ -250,5 +263,20 @@ public class Room extends Thing {
         } else {
             return false;
         }
+    }
+
+    public List<RoamingEnemy> getRoamingEnemyList() {
+        if (roamingEnemyList == null) {
+            roamingEnemyList = new ArrayList<>();
+        }
+        return roamingEnemyList;
+    }
+
+    public void removeRoamingEnemy(RoamingEnemy e) {
+        roamingEnemyList.remove(e);
+    }
+
+    public void addRoamingEnemy(RoamingEnemy e){
+        roamingEnemyList.add(e);
     }
 }
