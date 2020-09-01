@@ -63,6 +63,7 @@ public class UseCommandTest {
         when(i.getName()).thenReturn("item");
         when(io.getWayName()).thenReturn("wayName");
         when(r.getRoomWayByName("wayName")).thenReturn(w);
+        when(game.getRoom(any())).thenReturn(r);
 
         //when
         command.execute();
@@ -93,6 +94,7 @@ public class UseCommandTest {
         when(i.getName()).thenReturn("item");
         when(io.getWayName()).thenReturn("wayName");
         when(r.getRoomWayByName("wayName")).thenReturn(w);
+        when(game.getRoom(any())).thenReturn(r);
 
         //when
         command.execute();

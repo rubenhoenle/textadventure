@@ -2,6 +2,10 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 
+import de.dhbw.project.item.Clothing;
+import de.dhbw.project.levelEditor.SimpleUserInput;
+import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+
 public class Way extends Thing {
     @SerializedName("direction")
     private String direction;
@@ -57,7 +61,7 @@ public class Way extends Thing {
     }
 
     public WayState getState() {
-        return state;
+        return (state == null ? WayState.ACTIVE : state);
     }
 
     public void setState(WayState state) {
@@ -71,4 +75,94 @@ public class Way extends Thing {
     public void setHint(String hint) {
         this.hint = hint;
     }
+
+    public static Way createWay(Room from, Game game) {
+        boolean exit = false;
+        while (!exit) {
+            String input, name, description, direction, hint;
+            direction = "up";
+            Room toRoom;
+            WayState state;
+            name = SimpleUserInput.addMethod("Name");
+            description = SimpleUserInput.addMethod("Description");
+            toRoom = SimpleUserInput.addMethodRoom("Destination room", game);
+            if (null == toRoom) {
+                return null;
+            }
+            boolean exit2 = false;
+            while (!exit2) {
+                direction = SimpleUserInput.addMethod("Direction");
+                if (Constants.DIRECTIONS.contains(direction)) {
+                    exit2 = true;
+                } else {
+                    System.out.println("There is no direction '" + direction + "'.");
+                    System.out.println("The following directions are available:");
+                    Constants.DIRECTIONS.forEach(d -> System.out.println("  -" + d));
+                }
+            }
+            state = SimpleUserInput.addMethodWayState("Way State");
+            if (null == state) {
+                return null;
+            }
+            hint = SimpleUserInput.addMethod("Hint");
+            Decision d = SimpleUserInput.storeDialogue("Way");
+            switch (d) {
+            case SAVE:
+                return new Way(name, description, direction, from.getName(), toRoom.getName(), state, hint);
+            case AGAIN:
+                break;
+            case ABBORT:
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+    public static Way editWay(Way way, Game game) {
+        boolean exit = false;
+        while (!exit) {
+            String input, name, description, direction, hint;
+            direction = "up";
+            Room toRoom;
+            WayState state;
+            name = SimpleUserInput.editMethod("Name", way.getName());
+            description = SimpleUserInput.editMethod("Description", way.getDescription());
+            System.out.println("Current destination room: " + way.getTo());
+            toRoom = SimpleUserInput.addMethodRoom("Destination room", game);
+            if (null == toRoom) {
+                return null;
+            }
+            boolean exit2 = false;
+            while (!exit2) {
+                System.out.println("Current Direction: " + way.getDirection());
+                direction = SimpleUserInput.addMethod("Direction");
+                if (Constants.DIRECTIONS.contains(direction)) {
+                    exit2 = true;
+                } else {
+                    System.out.println("There is no direction '" + direction + "'.");
+                    System.out.println("The following directions are available:");
+                    Constants.DIRECTIONS.forEach(d -> System.out.println("  -" + d));
+                }
+            }
+            System.out.println("Current WayState: " + way.getState());
+            state = SimpleUserInput.addMethodWayState("Way State");
+            if (null == state) {
+                return null;
+            }
+            hint = SimpleUserInput.editMethod("Hint", way.getHint());
+            Decision d = SimpleUserInput.storeDialogue("Way");
+            switch (d) {
+            case SAVE:
+                return new Way(name, description, direction, way.getFrom(), toRoom.getName(), state, hint);
+            case AGAIN:
+                break;
+            case ABBORT:
+                return null;
+            }
+        }
+
+        return null;
+    }
+
 }

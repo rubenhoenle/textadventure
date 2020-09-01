@@ -37,6 +37,12 @@ public class Room extends Thing {
         this.enabled = enabled;
     }
 
+    public Room(String name, String description, String enabled, String defaultItemLocation) {
+        super(name, description);
+        this.enabled = enabled;
+        this.defaultItemLocation = defaultItemLocation;
+    }
+
     public Room(String name, String description, String enabled, List<InteractiveCraftingObject> craftingObjects) {
         super(name, description);
         this.enabled = enabled;
@@ -61,6 +67,10 @@ public class Room extends Thing {
         } else {
             return null;
         }
+    }
+
+    public ItemList getRoomsItemList() {
+        return roomItemList;
     }
 
     public List<String> getRoomItemNameList() {
@@ -153,6 +163,10 @@ public class Room extends Thing {
         }
     }
 
+    public void setDefaultItemLocation(String location) {
+        defaultItemLocation = location;
+    }
+
     public List<Enemy> getEnemyList() {
         return enemyList;
     }
@@ -188,6 +202,19 @@ public class Room extends Thing {
         return characterNames;
     }
 
+    public void addWay(Way way) {
+        roomWayList.add(way);
+    }
+
+    public Way getWay(String direction) {
+        for (Way way : roomWayList) {
+            if (way.getDirection().equals(direction)) {
+                return way;
+            }
+        }
+        return null;
+    }
+
     public List<String> getRoomWayNameList() {
         List<String> wayNames = new ArrayList<>();
         for (Way w : roomWayList) {
@@ -203,5 +230,14 @@ public class Room extends Thing {
             }
         }
         return null;
+    }
+
+    public boolean deleteWay(Way way) {
+        if (roomWayList.contains(way)) {
+            roomWayList.remove(way);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

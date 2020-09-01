@@ -79,6 +79,15 @@ public class Game {
         return null;
     }
 
+    // Helper method: Returns the current room object
+    public Room getRoom(String name) {
+        for (Room r : rooms) {
+            if (r.getName().equals(name))
+                return r;
+        }
+        return null;
+    }
+
     // Helper method: Returns full direction
     public String getFullDirection(char direction) {
         switch (direction) {
@@ -98,4 +107,22 @@ public class Game {
             return java.lang.Character.toString(direction);
         }
     }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
+    public boolean deleteRoom(Room room) {
+        if (rooms.contains(room)) {
+            rooms.remove(room);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
