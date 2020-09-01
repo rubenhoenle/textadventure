@@ -5,8 +5,11 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.nls.Commands;
 
+import java.awt.datatransfer.Clipboard;
 import java.util.List;
 import java.util.Scanner;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 
 public class Game {
     public Player player;
@@ -24,6 +27,8 @@ public class Game {
         while (true) {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
+
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(input), null);
 
             if (input.length() == 1) {
                 if (Constants.SHORT_DIRECTIONS.contains(input))
