@@ -26,6 +26,13 @@ public class Player {
     private List<Item> equipment = new ArrayList<>();
 
     // Getters and setters for a player
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getPoints() {
         return points;
@@ -152,5 +159,9 @@ public class Player {
     public List<Item> removeEquipment(Item item) {
         equipment.remove(item);
         return equipment;
+    }
+
+    public ItemList getItemlist() {
+        return inventory;
     }
 }

@@ -98,4 +98,22 @@ public class Game {
             return java.lang.Character.toString(direction);
         }
     }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
+    public boolean deleteRoom(Room room) {
+        if (rooms.contains(room)) {
+            rooms.remove(room);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -248,4 +248,35 @@ public class PlayerTest {
         verify(p).winsFight(e);
         verify(out).println ("Last save game will be loaded! \n");
     }
+
+    @Test
+    public void test9_shouldReturnItemListWithZeoElements(){
+        //before
+        Player p = new Player();
+        
+        //when
+        ItemList list = p.getItemlist();
+
+        //then
+        assertEquals(0, list.getAllItemList().size());
+    }
+
+    @Test
+    public void test10_shouldReturnItemList(){
+        //before
+        Player p = new Player();
+        Weapon w = mock(Weapon.class);
+        Book b = mock(Book.class);
+        Food f = mock(Food.class);
+        p.addItem(w);
+        p.addItem(b);
+        p.addItem(f);
+
+        //when
+        ItemList list = p.getItemlist();
+
+        //then
+        assertEquals(3, list.getAllItemList().size());
+
+    }
 }

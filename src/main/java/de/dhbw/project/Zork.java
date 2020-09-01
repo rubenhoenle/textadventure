@@ -1,6 +1,8 @@
 package de.dhbw.project;
 
 import com.google.gson.Gson;
+
+import de.dhbw.project.levelEditor.Editor;
 import de.dhbw.project.nls.Commands;
 import de.dhbw.project.nls.commands.*;
 
@@ -14,6 +16,7 @@ import java.util.Scanner;
 public class Zork {
     // Class variables; gson for reading and saving the jsons (library in folder libs)
     private static Game game;
+    private static Editor editor;
     private static Gson gson = new Gson();
     private static String gameDir;
     private static Commands commands = new Commands();
@@ -21,7 +24,7 @@ public class Zork {
     // The game is started from here
     public static void main(String[] args) {
         Splash.print();
-        loadGame(Constants.NEW_GAME);
+        menu();
     }
 
     // Method for saving the current game state into file savedGame.json (player, rooms with items and ways)
@@ -41,7 +44,7 @@ public class Zork {
     // Method for loading the game state from the given file
     // For the start of the game this function is called with database.json
     // If this function is called during the game it will try to load savedGame.json if it exists
-    public static void loadGame(String jsonFile) {
+    public static Game loadGame(String jsonFile) {
         Path path = Paths.get(Constants.DEFAULT_PATH + File.separator + jsonFile);
         if (Files.exists(path)) {
             path = Paths.get(Constants.DEFAULT_PATH + File.separator + jsonFile);
@@ -53,14 +56,14 @@ public class Zork {
             path = Paths.get(gameDir + jsonFile);
         }
 
-        if (!Files.exists(path))
+        if (!Files.exists(path)) {
             System.out.println("There's no saved game to load.");
-        else {
+            return null;
+        } else {
             Game storedGame = Zork.parseData(path.toAbsolutePath().toString());
             game = storedGame;
-            registerCommands();
-            game.play(game.player);
             System.out.println("Game loaded.");
+            return game;
         }
     }
 
@@ -118,5 +121,53 @@ public class Zork {
         commands.register(new LoadCommand());
 
         game.commands = commands;
+    }
+
+    private static void play() {
+        game = loadGame(Constants.NEW_GAME);
+        if (null != game) {
+            registerCommands();
+            game.play(game.player);
+        }
+    }
+
+    private static void edit() {
+        game = loadGame(Constants.NEW_GAME);
+        if (null != game) {
+            registerCommands();
+            editor = new Editor();
+            editor.edit(game);
+        }
+    }
+
+    // Methode zum Speichern von Änderungen an der database.json
+    public static void saveModel(Game g) {
+        // Serialization
+        String savedGame = gson.toJson(g);
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(gameDir + Constants.NEW_GAME));
+            writer.write(savedGame);
+            writer.close();
+            System.out.println("Saved.");
+        } catch (IOException e) {
+            System.out.println("Fehler beim Speichern in Datei.");
+        }
+    }
+
+    private static void menu() {
+        boolean Continue = false;
+        while (!Continue) {
+            System.out.println("Please enter 'play' to start the game or enter 'edit' to start the level editor!");
+            Scanner userInput = new Scanner(System.in);
+            String input = userInput.nextLine();
+            input.toLowerCase();
+            if (input.equals("play")) {
+                Continue = true;
+                play();
+            } else {
+                Continue = true;
+                edit();
+            }
+        }
     }
 }

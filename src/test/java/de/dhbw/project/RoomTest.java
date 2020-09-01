@@ -275,4 +275,33 @@ public class RoomTest {
         assertEquals(result.getName(),"name");
     }
 
+    @Test
+    public void test16_shouldAddWay(){
+        //before
+        Room r = new Room("TestRoom", "TestRoomDescription", "true");
+        Way w= new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
+
+        //when
+        r.addWay(w);
+
+        //Then
+        assertEquals(w, r.getWay("W"));
+        assertEquals(1, r.getRoomWayNameList().size());
+        assertEquals(1, r.getRoomWayList().size());
+    }
+
+    @Test
+    public void test17_shouldDeleteWay(){
+        //before
+        Room r = new Room("TestRoom", "TestRoomDescription", "true");
+        Way w = new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
+    
+        //when
+        r.deleteWay(w);
+
+        //then
+        assertEquals(0, r.getRoomWayList().size());
+        assertEquals(0, r.getRoomWayNameList().size());
+    }
+
 }
