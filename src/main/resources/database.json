@@ -1963,9 +1963,17 @@
             "cloths":[],
             "foods":[],
             "resources":[{
-              "strength": 2,
-              "name": "snake teeth",
-              "description": "a very sharp teeth"
+              "cloths": [],
+              "foods": [],
+              "resources": [],
+              "tools": [],
+              "weapons": [
+                {
+                  "strength": 2,
+                  "name": "snake teeth",
+                  "description": "a very sharp teeth"
+                }
+              ]
             }],
             "tools":[],
             "books":[],
@@ -2134,9 +2142,18 @@
           "killed": false,
           "dropItems": [
             {
-              "strength": 0,
-              "name": "tiger skin",
-              "description": "a nice looking tiger skin"
+              "cloths": [],
+              "foods": [],
+              "resources": [
+                {
+                  "strength": 0,
+                  "name": "tiger skin",
+                  "description": "a nice looking tiger skin"
+                }
+              ],
+              "tools": [],
+              "weapons": [
+              ]
             }
           ],
           "autoAttack":true
