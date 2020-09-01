@@ -1757,7 +1757,7 @@
             "strength": 0,
             "name": "altar cloth",
             "description": "A white, large piece of textile used to decorate the altar.",
-            "place": "is spear over the altar"
+            "place": "is spread over the altar"
           }
         ],
         "tools": [],
