@@ -918,7 +918,21 @@
           "description": "To get to the top, you can take a discrete little hatch."
         }
       ],
-      "characters": []
+      "characters": [],
+      "items": {
+        "cloths": [],
+        "foods": [],
+        "resources": [
+          {
+            "strength": 0,
+            "name": "pink fluffy unicorn",
+            "description": "completely starved and grey from captivity",
+            "place": "lying on the floor"
+          }
+        ],
+        "tools": [],
+        "weapons": []
+      }
     },
     {
       "name": "cave with nothing but three ways",
@@ -985,7 +999,7 @@
     },
     {
       "name": "holy grotto",
-      "description": "You're in the middle of a big cave. There are stalactites hanging from the ceiling and \nthe floor is littered with stalagmites. You hear the regular dripping of water from \nthe top to the bottom. This is accompanied by the quiet omm of an old, wise monk \nin the middle of the cave.",
+      "description": "You're in the middle of a big cave. There are stalactites hanging from the ceiling and \nthe floor is littered with stalagmites. You hear the regular dripping of water from \nthe top to the bottom. This is accompanied by a quiet fullfilling ommmm.",
       "ways": [
         {
           "direction": "west",
@@ -995,12 +1009,42 @@
           "description": "way"
         }
       ],
-      "characters": [
+      "friends": [
         {
           "name": "wise hovering monk",
           "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
           "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
-          "comment": "TODO interaction"
+          "comment": "TODO interaction",
+          "quests":[
+            {
+              "name":"Every beeing deserves freedom",
+              "textStart":"I have felt so heavy for some time now. I feel the vibrations of a trapped living being. \nSlowly, very slowly they are penetrating through the tunnels to me. Down here, in the \ncave system a unicorn is trapped. Please free it and bring it to me. ",
+              "textAccept":"You perform a service to the totality of all living beings.",
+              "textMid":"The unicorn is still trapped. I can feel his condition getting worse.",
+              "textEnd":"You have proven yourself worthy. I give you my enchanted book.",
+              "reward":[
+                 {
+                  "strength": 0,
+                  "name": "enchanted book",
+                  "description": "an ancient enchanted book, existing since the creation of worlds",
+                  "place": "is hovering above the ground",
+                  "type": "book",
+                  "state": "0"
+                }
+               ],
+              "completed":false,
+              "talkedOnce":false,
+              "fulfillmentItems":[
+                 {
+                  "strength": 0,
+                  "name": "pink fluffy unicorn",
+                  "description": "completely starved and grey from captivity",
+                  "place": "lying on the floor",
+                  "type": "resource"
+                 }
+                ],
+              "accepted":false
+            }]
         }
       ],
       "defaultItemLocation": "hovers above the ground"
