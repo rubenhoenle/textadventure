@@ -8,10 +8,11 @@ import de.dhbw.project.item.ItemList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Player {
     @SerializedName("name")
-    private String name = "Hugo";
+    private String name = null;
     @SerializedName("points")
     private int points = 0;
     @SerializedName("strength")
@@ -24,6 +25,24 @@ public class Player {
     private String roomName;
     @SerializedName("equipment")
     private List<Item> equipment = new ArrayList<>();
+
+    public void enterPlayerName()
+    {
+        Scanner tastatureingabe = new Scanner(System.in);
+        System.out.println("Please enter your name: ");
+        do {
+            try
+            {
+                this.name = tastatureingabe.nextLine();
+                this.name = this.name.trim();
+            }
+
+            catch (Exception ex)
+            {
+                ex.printStackTrace();
+            }
+        } while((this.name == null) || (this.name.equals("")));
+    }
 
     // Getters and setters for a player
     public String getName() {

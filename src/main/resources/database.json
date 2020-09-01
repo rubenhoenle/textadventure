@@ -2,7 +2,6 @@
   "player": {
     "points": 0,
     "strength": 42,
-    "name": "Hugo",
     "inventory": {
       "cloths": [],
       "foods": [],

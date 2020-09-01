@@ -17,6 +17,13 @@ public class Game {
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
         this.player = player;
+
+        if(player.getName() == null)
+        {
+            player.enterPlayerName();
+        }
+
+        System.out.println("Hello " + player.getName() + "!");
         System.out.println(getCurrentRoom());
         System.out.println(getCurrentRoom().getDescription());
 
