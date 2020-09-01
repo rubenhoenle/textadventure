@@ -31,7 +31,7 @@
             {
               "name":"Repairing the sail",
               "textStart":"You need to search all over the island for things that could be used as a sail.",
-              "textAccept":"Thanks for accepting my quest!",
+              "textAccept":"Thanks for accepting my task!",
               "textMid":"You did not bring me enough parts for the sail yet.",
               "textEnd":"Thanks for bringing me the parts.",
               "reward":[
@@ -80,7 +80,55 @@
                   "description": "a thin thread for sewing and a needle",
                   "type": "resource"
                 }],
+              "accepted":false},
+            {
+              "name":"Repairing the ship",
+              "textStart":"You need to search all over the island for things that could be used to repair the ship.",
+              "textAccept":"Thanks for accepting my task!",
+              "textMid":"You did not bring me enough parts yet.",
+              "textEnd":"Thanks for bringing me the materials.",
+              "reward":[],
+              "completed":false,
+              "talkedOnce":false,
+              "fulfillmentItems":[
+                {
+                  "name": "hammer",
+                  "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
+                  "place": "is lying on the anvil",
+                  "strength": 3
+                },
+                {
+                  "strength": 0,
+                  "name": "nails",
+                  "description": "some rusty nails",
+                  "place": "lies scattered on the table"
+                },
+                {
+                  "strength": 0,
+                  "name": "pile of wood",
+                  "description": "A pile of wood",
+                  "place": "is lying next to the old house"
+                },
+                {
+                  "strength": 0,
+                  "name": "liana",
+                  "description": "A liana hanging from a tree. It seems to be as strong as a rope.",
+                  "place": "hanging from the tree"
+                },
+                {
+                  "strength": 0,
+                  "name": "rope",
+                  "description": "part of the rigging is still intact and can be used as a rope",
+                  "place": "wrapped around the fallen mast"
+                },
+                {
+                  "strength": 1,
+                  "name": "anchor",
+                  "description": "not to heavy but enough for a small ship",
+                  "place": "stuck between two boulders"
+                }],
               "accepted":false}
+
           ]}],
       "interactiveObjects": [
         {
