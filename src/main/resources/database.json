@@ -18,6 +18,70 @@
     {
       "name": "beach",
       "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your sunken ship. You need to find a way to get home again!",
+      "friends":[
+        {
+          "name":"Carl",
+          "where":"standing next to the wreck",
+          "health":100000,
+          "strength":100000,
+          "startStatement":"Hey! Looks like you are stranded. If you bring me the right items I can help you repair your boat!",
+          "killStatement":"NOOOOO! THATS IMPOSSIBLE!!!",
+          "killed":false,
+          "quests":[
+            {
+              "name":"Repairing the sail",
+              "textStart":"You need to search all over the island for things that could be used as a sail.",
+              "textAccept":"Thanks for accepting my quest!",
+              "textMid":"You did not bring me enough parts for the sail yet.",
+              "textEnd":"Thanks for bringing me the parts.",
+              "reward":[
+                {
+                  "strength": 0,
+                  "name": "sail",
+                  "description": "a sewn sail",
+                  "type": "resource"
+                }
+              ],
+              "completed":false,
+              "talkedOnce":false,
+              "fulfillmentItems":[
+                {
+                  "strength": 0,
+                  "name": "bedsheet",
+                  "description": "A bedsheet which could be useful.",
+                  "place": "is lying on the bed"
+                },
+                {
+                  "strength": 0,
+                  "name": "sail cloth",
+                  "description": "a large, torn part of the sail",
+                  "place": "attached to the fallen mast"
+                },
+                {
+                  "strength": 0,
+                  "name": "altar cloth",
+                  "description": "A white, large piece of textile used to decorate the altar.",
+                  "place": "is spear over the altar"
+                },
+                {
+                  "strength": 0,
+                  "name": "sacks of flour",
+                  "description": "Sacks of flour are leaning against the wall."
+                },
+                {
+                  "strength": 0,
+                  "name": "big towel with a kind of flower pattern in blue and pink",
+                  "description": "big towel with a kind of flower pattern in blue and pink",
+                  "place": "is lying on the towel stand"
+                },
+                {
+                  "strength": 0,
+                  "name": "yarn and needle",
+                  "description": "a thin thread for sewing and a needle",
+                  "type": "resource"
+                }],
+              "accepted":false}
+          ]}],
       "interactiveObjects": [
         {
           "name": "wave",
@@ -1959,19 +2023,21 @@
           "startStatement": "Hiss Hiss Hiss",
           "killStatement": "HISSSSS!",
           "killed": false,
-          "dropItems": [{
-            "resources":[],
-              "cloths": [],
-              "foods": [],
-              "tools": [],
-              "weapons": [
-                {
-                  "strength": 2,
-                  "name": "snake teeth",
-                  "description": "a very sharp teeth"
-                }
-              ]
-            }],
+          "dropItems": {
+            "cloths":[],
+            "foods":[],
+            "resources":[
+            ],
+            "tools":[],
+            "books":[],
+            "weapons":[
+              {
+                "strength": 2,
+                "name": "snake teeth",
+                "description": "a very sharp teeth"
+              }
+            ]
+          },
           "autoAttack":false
         }
       ],
@@ -2133,7 +2199,7 @@
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
-          "dropItems": [
+          "dropItems":
             {
               "cloths": [],
               "foods": [],
@@ -2148,7 +2214,7 @@
               "weapons": [
               ]
             }
-          ],
+          ,
           "autoAttack":true
         }
       ],
@@ -2900,8 +2966,8 @@
 			  "reward": [
 				{
 				  "strength": 0,
-            	  "name": "yarn",
-            	  "description": "a thin thread for sewing",
+            	  "name": "yarn and needle",
+            	  "description": "a thin thread for sewing and a needle",
             	  "type": "resource"
 				}
 			  ],
