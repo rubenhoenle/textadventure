@@ -1431,7 +1431,8 @@
     },
     {
       "name": "house in the village",
-      "description": "You are in a house at the village with some natives in it.",
+      "description": "You are in a house at the village with some natives in it and in the corner there is standing a table. ",
+      "defaultItemLocation": "is lying on the table",
       "ways": [
         {
           "direction": "east",
@@ -1444,21 +1445,15 @@
       "items": {
         "cloths": [],
         "foods": [],
-        "resources": [
-          {
-            "strength": 0,
-            "name": "sewing kit",
-            "description": "A sewing kit that can be used to sew pieces of textile together.",
-            "place": "lying on the table"
-          }
-        ],
+        "resources": [],
         "tools": [],
         "weapons": []
       }
     },
     {
       "name": "village square",
-      "description": "You are on the village square in the middle of the village.",
+      "description": "You are on the village square in the middle of the village. This would be a perfect spot to celebrate a party with some belly dancers and traditional music in a warm summer night",
+      "defaultItemLocation": "is lying on the dry and dusty ground",
       "ways": [
         {
           "direction": "west",
@@ -1557,7 +1552,8 @@
     },
     {
       "name": "smithy",
-      "description": "You are in the smithy of the village with a smith and his assistant in it.",
+      "description": "You are in the smithy of the village with a smith and his assistant in it. If you behave well, you'll may be also able to forge something in here.",
+      "defaultItemLocation": "is lying in the shelf",
       "ways": [
         {
           "direction": "west",
@@ -1692,7 +1688,8 @@
     },
     {
       "name": "cellar of the smithy",
-      "description": "You are in cellar of the smithy.",
+      "description": "You are in cellar of the smithy. It's smelling a bit mouldered down here and there are also some spiders and mice moving around.",
+      "defaultItemLocation": "is lying on the ground in front of the cupboard",
       "ways": [
         {
           "direction": "up",
@@ -1759,7 +1756,8 @@
     },
     {
       "name": "sacrificial altar",
-      "description": "You are standing in front of an sacrificial altar where people can make a sacrifice for the forgiveness of their sins.",
+      "description": "You are standing in front of an sacrificial altar where people can make a sacrifice for the forgiveness of their sins. This spot is above the village so you can also see the houses and the village square from here.",
+      "defaultItemLocation": "is lying in the grass",
       "ways": [
         {
           "direction": "south",
@@ -1822,8 +1820,7 @@
     },
     {
       "name": "vulcan",
-      "description": "It's very hot here because you are standing on a vulcan. In front of you there is the crater with the seething lava in it, so better keep your distance.",
-
+      "description": "It's very hot here because you are standing on a vulcan. In front of you there is the crater with the seething lava in it, so better keep your distance. Because of the rising smoke you can't take a look down on the rest of the island.",
       "ways": [
         {
           "direction": "east",
