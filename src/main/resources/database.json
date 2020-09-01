@@ -945,11 +945,34 @@
           "direction": "west",
           "from": "Room under crossroads bat I",
           "to": "Room under crossroads bat II",
-          "name": "way over lava stream",
-          "description": "way - only use with ladder etc..."
+          "name": "ladder over lava stream",
+          "description": "a ladder leads over the the boiling lava stream",
+          "state": "INVISBILE"
         }
       ],
-      "characters": []
+      "characters": [],
+      "interactiveObjects": [
+        {
+          "name": "lava stream",
+          "description": "There is a lava stream at the west side of this room.",
+          "place": "flowing at the east side of this room",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [
+              {
+                "strength": 0,
+              "name": "ladder",
+              "description": "A long ladder is standing in the corner."
+              }
+            ],
+            "weapons": []
+          },
+          "removeRequiredItem": true,
+          "wayName": "sandy way",
+          "hint": "This hot lava stream has to be crossed with a ladder!"
+        }]
     },
     {
       "name": "Room under crossroads bat II",
@@ -966,11 +989,34 @@
           "direction": "east",
           "from": "Room under crossroads bat II",
           "to": "Room under crossroads bat I",
-          "name": "way over lava stream",
-          "description": "way - only use with ladder etc..."
+          "name": "ladder over lava stream",
+          "description": "A ladder leads over the the boiling lava stream",
+          "state": "INVISBILE"
         }
       ],
-      "characters": []
+      "characters": [],
+      "interactiveObjects": [
+        {
+          "name": "lava stream",
+          "description": "There is a lava stream at the east side of this room.",
+          "place": "flowing at the east side of this room",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [
+              {
+                "strength": 0,
+              "name": "ladder",
+              "description": "A long ladder is standing in the corner."
+              }
+            ],
+            "weapons": []
+          },
+          "removeRequiredItem": true,
+          "wayName": "sandy way",
+          "hint": "This hot lava stream has to be crossed with a ladder!"
+        }]
     },
     {
       "name": "Butcher's Room II",
@@ -1408,7 +1454,7 @@
     },
     {
       "name": "archaeological chamber",
-      "description": "You're in a chamber that for some reason has an electric \nlight on. It looks like someone's been here recently. There's all kinds of archaeological equipment \nscattered around the room. A cupboard with books containing the history of first men has to be implemented.",
+      "description": "You're in a chamber that for some reason has an electric \nlight on. It looks like someone's been here recently. There's all kinds of archaeological equipment \nscattered around the room. The walls are full of drawings of excavated objects.",
       "ways": [
         {
           "direction": "up",
