@@ -64,7 +64,7 @@ public class Zork {
             game = storedGame;
             registerCommands();
             System.out.println("Game loaded.");
-            game.play(game.player);
+
             return game;
         }
     }
@@ -125,8 +125,15 @@ public class Zork {
         game.commands = commands;
     }
 
-    private static void play() {
+    private static void playNewGame() {
         game = loadGame(Constants.NEW_GAME);
+        if (null != game) {
+            registerCommands();
+            game.play(game.player);
+        }
+    }
+
+    public static void playLoadedGame() {
         if (null != game) {
             registerCommands();
             game.play(game.player);
@@ -165,8 +172,8 @@ public class Zork {
             input.toLowerCase();
             if (input.equals("play")) {
                 Continue = true;
-                play();
-            } else {
+                playNewGame();
+            } else if (input.equals("edit")) {
                 Continue = true;
                 edit();
             }
