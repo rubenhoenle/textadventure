@@ -12,7 +12,7 @@
     },
     "questInventory": [],
     "equipment": [],
-    "roomName": "smithy"
+    "roomName": "beach"
   },
   "rooms": [
     {
@@ -547,15 +547,21 @@
           "direction": "east",
           "from": "giant rabbit hole",
           "to": "Crossroads ape",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads east.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "south",
           "from": "giant rabbit hole",
           "to": "Hidden cave",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads south.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "down",
@@ -582,15 +588,21 @@
           "direction": "south",
           "from": "Hidden cave",
           "to": "Secret Grotto",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads south.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "north",
           "from": "Hidden cave",
           "to": "giant rabbit hole",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads north.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "up",
@@ -657,15 +669,21 @@
           "direction": "west",
           "from": "Secret Grotto",
           "to": "Hidden cave",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads west.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "east",
           "from": "Secret Grotto",
           "to": "Crossroads bat",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads east.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "down",
@@ -755,15 +773,21 @@
           "direction": "south",
           "from": "Crossroads bat",
           "to": "Secret Grotto",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads south.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "west",
           "from": "Crossroads bat",
           "to": "Crossroads ape",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads west.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "down",
@@ -860,14 +884,30 @@
       "enemies": [
         {
           "name": "ugly big troll",
-          "healt": "10",
+          "healt": "30",
           "strength": "20",
           "situation": "A stinking big dangerous looking troll is walking through the room.",
           "comment": "TODO attack + drop items",
           "autoAttack": "true",
           "startStatement": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
           "killStatement": "What a relief. Finally this miserable existence has come to an end!",
-          "killed": "false"
+          "killed": "false",
+          "dropItems": {
+            "cloths":[],
+            "foods":[],
+            "resources":[
+            ],
+            "tools":[
+              {
+                "strength": 0,
+                "name": "magic necklace",
+                "description": "a small delicate silver magic necklace, very inconspicuous and fine, but it could open ways to different people and even ways",
+                "place": "is lying on the floor"
+              }
+            ],
+            "books":[],
+            "weapons":[]
+          }
         }
       ]
     },
@@ -1223,8 +1263,11 @@
           "direction": "east",
           "from": "Crossroads ape",
           "to": "Crossroads bat",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads east.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         },
         {
           "direction": "up",
@@ -1237,8 +1280,11 @@
           "direction": "west",
           "from": "Crossroads ape",
           "to": "giant rabbit hole",
-          "name": "railway",
-          "description": "later: use railway item"
+          "name": "magic path",
+          "description": "A magic path leads west.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "conditionalItem": "magic necklace"
         }
       ],
       "characters": []
