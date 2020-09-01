@@ -1477,7 +1477,8 @@
     },
     {
       "name": "house in the village",
-      "description": "You are in a house at the village with some natives in it.",
+      "description": "You are in a house at the village with some natives in it and in the corner there is standing a table. ",
+      "defaultItemLocation": "is lying on the table",
       "ways": [
         {
           "direction": "east",
@@ -1490,21 +1491,15 @@
       "items": {
         "cloths": [],
         "foods": [],
-        "resources": [
-          {
-            "strength": 0,
-            "name": "sewing kit",
-            "description": "A sewing kit that can be used to sew pieces of textile together.",
-            "place": "lying on the table"
-          }
-        ],
+        "resources": [],
         "tools": [],
         "weapons": []
       }
     },
     {
       "name": "village square",
-      "description": "You are on the village square in the middle of the village.",
+      "description": "You are on the village square in the middle of the village. This would be a perfect spot to celebrate a party with some belly dancers and traditional music in a warm summer night",
+      "defaultItemLocation": "is lying on the dry and dusty ground",
       "ways": [
         {
           "direction": "west",
@@ -1603,7 +1598,8 @@
     },
     {
       "name": "smithy",
-      "description": "You are in the smithy of the village with a smith and his assistant in it.",
+      "description": "You are in the smithy of the village with a smith and his assistant in it. If you behave well, you'll may be also able to forge something in here.",
+      "defaultItemLocation": "is lying in the shelf",
       "ways": [
         {
           "direction": "west",
@@ -1738,7 +1734,8 @@
     },
     {
       "name": "cellar of the smithy",
-      "description": "You are in cellar of the smithy.",
+      "description": "You are in cellar of the smithy. It's smelling a bit mouldered down here and there are also some spiders and mice moving around.",
+      "defaultItemLocation": "is lying on the ground in front of the cupboard",
       "ways": [
         {
           "direction": "up",
@@ -1805,7 +1802,8 @@
     },
     {
       "name": "sacrificial altar",
-      "description": "You are standing in front of an sacrificial altar where people can make a sacrifice for the forgiveness of their sins.",
+      "description": "You are standing in front of an sacrificial altar where people can make a sacrifice for the forgiveness of their sins. This spot is above the village so you can also see the houses and the village square from here.",
+      "defaultItemLocation": "is lying in the grass",
       "ways": [
         {
           "direction": "south",
@@ -1868,8 +1866,7 @@
     },
     {
       "name": "vulcan",
-      "description": "It's very hot here because you are standing on a vulcan. In front of you there is the crater with the seething lava in it, so better keep your distance.",
-
+      "description": "It's very hot here because you are standing on a vulcan. In front of you there is the crater with the seething lava in it, so better keep your distance. Because of the rising smoke you can't take a look down on the rest of the island.",
       "ways": [
         {
           "direction": "east",
@@ -1914,6 +1911,25 @@
           "description": "A path leading outside the forest in the east."
         }
       ],
+      "enemies": [
+        {
+          "name": "Snake",
+          "where": "moving between leaves",
+          "health":  50,
+          "strength":  5,
+          "startStatement": "Hiss Hiss Hiss",
+          "killStatement": "HISSSSS!",
+          "killed": false,
+          "dropItems": [
+            {
+              "strength": 2,
+              "name": "snake teeth",
+              "description": "a very sharp teeth"
+            }
+          ],
+          "autoAttack":false
+        }
+      ],
       "items": {
         "cloths": [],
         "foods": [],
@@ -1923,12 +1939,6 @@
             "name": "liana",
             "description": "A liana hanging from a tree. It seems to be as strong as a rope.",
             "place": "hanging from the tree"
-          },
-          {
-            "strength": 0,
-            "name": "pile of leaves",
-            "description": "A pile of leaves with something under it.",
-            "place": "is lying on the ground"
           }
         ],
         "tools": [],
@@ -1938,12 +1948,38 @@
     {
       "name": "forest path",
       "description": "A path with trees and a small tree house. \nIt does not look too stable but should be barely enough to lift yourself. \nTo the north is a powering river with a tiger in front of it!",
+      "interactiveObjects": [
+        {
+          "name": "ladder",
+          "description": "A ladder going up to the tree house.",
+          "place": "nailed to the tree",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [
+              {
+                "strength": 0,
+                "name": "step from the tree house",
+                "description": "A step from the tree house which could be used to get up.",
+                "place": "is lying on the ground"
+              }
+            ],
+            "tools": [],
+            "weapons": []
+          },
+          "removeRequiredItem": true,
+          "quest": {},
+          "wayName": "ladder",
+          "hint": "This ladder could be used to go up the tree house."
+        }
+      ],
       "ways": [
         {
           "direction": "up",
           "from": "forest path",
           "to": "tree house",
           "name": "ladder",
+          "state": "BLOCKED",
           "description": "A broken ladder to the tree house. There is a step lying on the ground but the nails are missing."
         },
         {
@@ -1956,6 +1992,7 @@
         {
           "direction": "north",
           "from": "forest path",
+          "state": "BLOCKED",
           "to": "forest path with four directions",
           "name": "bridge made of a cut tree",
           "description": "In the north you could try to balance above the tree which was cut to get over the powering river."
@@ -1967,7 +2004,7 @@
           {
             "strength": 0,
             "name": "berries",
-            "description": "Some berries which seme suspicious.",
+            "description": "Some berries.",
             "place": "are hanging on a bush"
           }
         ],
@@ -1998,6 +2035,7 @@
           "from": "tree house",
           "to": "forest path",
           "name": "ladder",
+          "state": "BLOCKED",
           "description": "You could take the ladder down the tree house. You should climb very slowly to make sure you don\u0027t fall down."
         },
         {
@@ -2041,6 +2079,51 @@
     {
       "name": "forest path with four directions",
       "description": "You reached a forest fork which leads to four directions.",
+      "enemies": [
+        {
+          "name": "Tiger",
+          "where": "standing in the middle of the path",
+          "health":  99,
+          "strength":  10,
+          "startStatement": "Roar Roarrr!",
+          "killStatement": "Roarrrrr",
+          "killed": false,
+          "dropItems": [
+            {
+              "strength": 0,
+              "name": "tiger skin",
+              "description": "a nice looking tiger skin"
+            }
+          ],
+          "autoAttack":true
+        }
+      ],
+      "interactiveObjects": [
+        {
+          "name": "tree",
+          "description": "A big tree stands right before a powering river",
+          "place": "in front the river",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [
+              {
+                "strength": 9,
+                "name": "axe",
+                "description": "A sharp axe which could cut a tree.",
+                "place": "is hanging on the wall",
+                "equipment": "WEAPON"
+              }
+            ]
+          },
+          "removeRequiredItem": false,
+          "quest": {},
+          "wayName": "bridge made of a cut tree",
+          "hint": "Maybe this tree could be used as a bridge"
+        }
+      ],
       "ways": [
         {
           "direction": "west",
@@ -2068,6 +2151,7 @@
           "from": "forest path with four directions",
           "to": "forest path",
           "name": "bridge made of a cut tree",
+          "state": "BLOCKED",
           "description": "In the south you could try to balance above the tree which was cut to get over the powering river to get to the side with the tree house."
         }
       ],
@@ -2078,7 +2162,7 @@
             "strength": 0,
             "name": "fish",
             "description": "A caught fish",
-            "place": "is hanging on a fishing rod"
+            "place": "is lying on the ground"
           }
         ],
         "resources": [
@@ -2086,7 +2170,7 @@
             "strength": 1,
             "name": "broken fishing rod",
             "description": "A broken fishing rod which can no longer be used.",
-            "place": "is attached to the ground"
+            "place": "sticks in the ground"
           },
           {
             "strength": 1,
@@ -2228,7 +2312,7 @@
             "strength": 0,
             "name": "diving mask",
             "description": "A mask which helps to dive.",
-            "place": "is lying in the chest",
+            "place": "is lying on a table",
             "equipment": "HEAD"
           }
         ],
@@ -2236,15 +2320,9 @@
         "resources": [
           {
             "strength": 0,
-            "name": "wood",
-            "description": "Some wood.",
+            "name": "single piece of wood",
+            "description": "A piece of wood.",
             "place": "is lying in a corner"
-          },
-          {
-            "strength": 0,
-            "name": "chest",
-            "description": "A chest with something in it.",
-            "place": "is lying next to the wood"
           }
         ],
         "tools": [],
@@ -2284,7 +2362,18 @@
           "name": "path",
           "description": "A path leading east to a court with scattered debris."
         }
-      ]
+      ],
+      "items": {
+        "cloths": [],
+        "foods": [],
+        "resources": [{
+            "strength": 0,
+            "name": "piece of detonating cord",
+            "description": "A piece of fuse cord that can be used to detonate the gunpowder of a cannon.",
+            "place": "lies beneath an irreparably damaged cannon"
+          }],
+        "tools": [],
+        "weapons": []}
     },
     {
       "name": "ruins riddle",
