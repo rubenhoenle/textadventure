@@ -12,7 +12,7 @@
     },
     "questInventory": [],
     "equipment": [],
-    "roomName": "beach"
+    "roomName": "smithy"
   },
   "rooms": [
     {
@@ -1279,7 +1279,8 @@
           "direction": "north",
           "from": "Pillaged armory",
           "to": "cellar of the smithy",
-          "name": "cupboard",
+          "state": "BLOCKED",
+          "name": "large hole in the wall",
           "description": "On the north side there is a big hole in the wall."
         }
       ],
@@ -1704,8 +1705,9 @@
           "direction": "south",
           "from": "cellar of the smithy",
           "to": "Pillaged armory",
-          "name": "cupboard",
-          "description": "A big cupboard southern standing next to the wall. Could be something special..."
+          "state": "INVISIBLE",
+          "name": "large hole in the wall",
+          "description": "There is a large hole in the wall going south. It's hidden inside the cupboard."
         }
       ],
       "items": {
@@ -1728,6 +1730,31 @@
         "tools": [],
         "weapons": []
       },
+      "interactiveObjects": [
+        {
+          "name": "cupboard",
+          "description": "A big cupboard southern standing in front of the wall. Could be something special...",
+          "place": "is standing in front of the wall",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [
+              {
+                "name": "hammer",
+                "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
+                "place": "is lying on the anvil",
+                "strength": 3
+              }
+            ],
+            "weapons": []
+          },
+          "removeRequiredItem": false,
+          "quest": {},
+          "wayName": "large hole in the wall",
+          "hint": "The door of this cupboard is locked. But the lock doesn't look very stable..."
+        }
+      ],
       "interactiveCraftingObjects": []
     },
     {
