@@ -1430,6 +1430,28 @@
           "action": "forging",
           "createables": [
             {
+              "name": "ship cannon",
+              "description": "A little cannon to protect your ship and your treasures from bad people like pirates.",
+              "type": "ressource",
+              "equipmentType": "",
+              "state": "",
+              "strength": 0,
+              "neededMaterials": [
+                {
+                  "name": "iron ingot",
+                  "number": "6"
+                },
+                {
+                  "name": "piece of detonating cord",
+                  "number": "1"
+                },
+                {
+                  "name": "wood",
+                  "number": "1"
+                }
+              ]
+            },
+            {
               "name": "iron boots",
               "description": "Boots made out of iron to protect your feet.",
               "type": "cloth",
@@ -1519,13 +1541,13 @@
             "strength": 0,
             "name": "wood stick",
             "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
-            "place": "is leaning on the wall"
+            "place": "is leaning in the corner of the wall"
           },
           {
             "strength": 0,
             "name": "wood stick",
             "description": "A wooden stick, nothing special. Maybe you can use it to create something.",
-            "place": "is leaning on the wall"
+            "place": "is leaning in the corner of the wall"
           }
         ],
         "tools": [],
@@ -1582,14 +1604,14 @@
           "action": "enchanting",
           "createables": [
             {
-              "name": "enchanted sword",
-              "description": "An enchanted sword, glittering in the sunlight. There is no better weapon than this, I promise!",
+              "name": "lightsaber",
+              "description": "A lightsaber like Yoda uses. There is no better weapon than this, I promise!",
               "type": "weapon",
               "state": "",
               "strength": 25,
               "neededMaterials": [
                 {
-                  "name": "sword",
+                  "name": "saber",
                   "number": 1
                 },
                 {
