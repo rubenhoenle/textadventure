@@ -1068,21 +1068,147 @@
         "resources": [
           {
             "strength": 0,
-            "name": "small lump of coal",
-            "description": "there is nothing special about this lump of coal",
-            "place": "is lying on the ground"
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
           },
           {
             "strength": 0,
-            "name": "big lump of coal",
-            "description": "there is nothing special about this lump of coal",
-            "place": "is lying on the ground"
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
           },
           {
             "strength": 0,
-            "name": "lump of coal of medium size",
-            "description": "there is nothing special about this lump of coal",
-            "place": "is lying on the ground"
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "piece of coal",
+            "description": "there is nothing special about this piece of coal",
+            "place": "is lying on a pile of coal pieces"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
+          },
+          {
+            "strength": 0,
+            "name": "iron ore",
+            "description": "there is nothing special about this iron ore",
+            "place": "is lying on a stack of iron ore"
           }
         ],
         "tools": [],
