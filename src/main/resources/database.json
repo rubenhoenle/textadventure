@@ -1089,8 +1089,10 @@
           "direction": "down",
           "from": "Butcher's Room I",
           "to": "hidden dungeon",
-          "name": "discrete little hatch",
-          "description": "A discrete little hatch leads down."
+          "name": "hole in the floor",
+          "description": "A discrete little hole in the floor leads down.",
+          "state": "BLOCKED",
+          "hint": "Take care of the little hatch!"
         },
         {
           "direction": "north",
@@ -1107,7 +1109,31 @@
           "description": "A locked door is leading south."
         }
       ],
-      "characters": []
+      "characters": [],
+      "interactiveObjects": [
+        {
+          "name": "little hatch",
+          "description": "A massive hatch leads down.",
+          "place": "in the floor",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [
+              {
+                "strength": 9,
+                "name": "axe",
+                "description": "A sharp axe which could cut a tree.",
+                "equipment": "WEAPON"
+              }
+            ]
+          },
+          "removeRequiredItem": false,
+          "quest": {},
+          "wayName": "hole in the floor",
+          "hint": "It looks like this hatch needs a little violence from something like an axe!"
+        }]
     },
     {
       "name": "hidden dungeon",
@@ -1117,8 +1143,9 @@
           "direction": "up",
           "from": "hidden dungeon",
           "to": "Butcher's Room I",
-          "name": "discrete little hatch",
-          "description": "To get to the top, you can take a discrete little hatch."
+          "name": "discrete little hole",
+          "description": "To get to the top, you can take a discrete little hole in the ceiling.",
+          "state": "BLOCKED"
         }
       ],
       "characters": [],
