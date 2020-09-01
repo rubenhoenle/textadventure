@@ -2319,7 +2319,18 @@
           "name": "path",
           "description": "A path leading east to a court with scattered debris."
         }
-      ]
+      ],
+      "items": {
+        "cloths": [],
+        "foods": [],
+        "resources": [{
+            "strength": 0,
+            "name": "piece of detonating cord",
+            "description": "A piece of fuse cord that can be used to detonate the gunpowder of a cannon.",
+            "place": "lies beneath an irreparably damaged cannon"
+          }],
+        "tools": [],
+        "weapons": []}
     },
     {
       "name": "ruins riddle",
