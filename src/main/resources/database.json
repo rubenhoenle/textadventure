@@ -687,7 +687,12 @@
             "description": "a sharp sparkling shard of glass"
           }
         ],
-        "tools": [],
+        "tools": [{
+          "name": "oil lamp",
+          "description": "an old oil lamp, like those used in ancient times",
+          "place": "is hangs on the wall",
+          "state": "0"
+        }],
         "weapons": []
       }
     },
@@ -949,7 +954,7 @@
         {
           "name": "ugly big troll",
           "healt": "30",
-          "strength": "20",
+          "strength": "50",
           "situation": "A stinking big dangerous looking troll is walking through the room.",
           "comment": "TODO attack + drop items",
           "autoAttack": "true",
@@ -1471,7 +1476,14 @@
             "place": "is swimming on the surface of the river "
           }
         ],
-        "tools": [],
+        "tools": [
+          {
+            "name": "oil lamp",
+            "description": "and old oil lamp, like those used in ancient times",
+            "place": "is swimming on the river",
+            "state": "0"
+          }
+        ],
         "weapons": [
           {
             "strength": 3,
