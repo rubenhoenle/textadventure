@@ -143,9 +143,9 @@ public class AlienFont {
         alienltrs.put("z-4", "# #");
 
         alienltrs.put(",-1", "   ");
-        alienltrs.put(",-1", "   ");
-        alienltrs.put(",-1", "#  ");
-        alienltrs.put(",-1", "#  ");
+        alienltrs.put(",-2", "   ");
+        alienltrs.put(",-3", "#  ");
+        alienltrs.put(",-4", "#  ");
 
         alienltrs.put(".-1", "#  ");
         alienltrs.put(".-2", "#  ");
@@ -291,6 +291,78 @@ public class AlienFont {
                 AlienFont.toAlien(tempstring, displaychars);
             }
         }
+    }
+
+    public static int getWidthOfMixedOutput(String input) {
+        // TODO Auto-generated method stub
+        // (Integer.min(pages[page-1].length(),50))
+        int result = 0;
+
+        int i = 0;
+        boolean writingnormal = true;
+        String tempstring = "";
+        while (i < input.length()) {
+            if (input.startsWith(AlienFont.switchstring, i)) {
+                i += AlienFont.switchstring.length();
+                if (tempstring.equals("") == false) {
+                    if (writingnormal) {
+                        // System.out.println(tempstring);
+                        // System.out.println();
+                        for (String stringpart : tempstring.split("\n")) {
+                            result = Integer.max(result, stringpart.length());
+                        }
+                    } else {
+                        result = Integer.max(result, AlienFont.getWidthOfAlienOutput(tempstring));
+                    }
+                }
+                tempstring = "";
+                writingnormal = !writingnormal;
+            } else {
+                tempstring = tempstring + input.charAt(i);
+                i++;
+            }
+        }
+        if (tempstring.equals("") == false) {
+            if (writingnormal) {
+                // System.out.println(tempstring);
+                for (String stringpart : tempstring.split("\n")) {
+                    result = Integer.max(result, stringpart.length());
+                }
+            } else {
+                // AlienFont.toAlien(tempstring, displaychars);
+                result = Integer.max(result, AlienFont.getWidthOfAlienOutput(tempstring));
+            }
+        }
+
+        return result;
+    }
+
+    private static int getWidthOfAlienOutput(String input) {
+        int result = 0;
+
+        String printstring = input.toLowerCase(Locale.ROOT);
+        int i = 0;
+        while (i < printstring.length()) {
+            String line1 = "";
+
+            for (int j = 0; j < Constants.ANCIENTFONT_AUTONL && i < printstring.length(); j++) {
+                if (printstring.charAt(i) == '\n') {
+                    i++;
+                    break;
+                } else if (j != 0 && printstring.charAt(i) == ' ') {
+                    line1 = line1.concat("    ");
+                    i++;
+                }
+
+                else if (alienltrs.containsKey(printstring.charAt(i) + "-1")) {
+                    line1 = line1.concat(alienltrs.get(printstring.charAt(i) + "-1") + "  ");
+                    i++;
+                }
+            }
+            result = Integer.max(result, line1.length());
+        }
+
+        return Integer.max(0, result - 2);
     }
 
 }

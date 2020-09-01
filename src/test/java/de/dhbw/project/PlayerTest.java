@@ -15,6 +15,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -66,7 +67,8 @@ public class PlayerTest {
         Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99);
+        List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
+        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
         p.addItem(c);
         p.addItem(f);
         p.addItem(r);
@@ -95,7 +97,8 @@ public class PlayerTest {
         Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99);
+        List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
+        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
         p.addItem(c);
         p.addItem(f);
         p.addItem(r);
