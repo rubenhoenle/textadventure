@@ -1868,6 +1868,25 @@
           "description": "A path leading outside the forest in the east."
         }
       ],
+      "enemies": [
+        {
+          "name": "Snake",
+          "where": "moving between leaves",
+          "health":  50,
+          "strength":  5,
+          "startStatement": "Hiss Hiss Hiss",
+          "killStatement": "HISSSSS!",
+          "killed": false,
+          "dropItems": [
+            {
+              "strength": 2,
+              "name": "snake teeth",
+              "description": "a very sharp teeth"
+            }
+          ],
+          "autoAttack":false
+        }
+      ],
       "items": {
         "cloths": [],
         "foods": [],
@@ -1877,12 +1896,6 @@
             "name": "liana",
             "description": "A liana hanging from a tree. It seems to be as strong as a rope.",
             "place": "hanging from the tree"
-          },
-          {
-            "strength": 0,
-            "name": "pile of leaves",
-            "description": "A pile of leaves with something under it.",
-            "place": "is lying on the ground"
           }
         ],
         "tools": [],
@@ -1892,12 +1905,38 @@
     {
       "name": "forest path",
       "description": "A path with trees and a small tree house. \nIt does not look too stable but should be barely enough to lift yourself. \nTo the north is a powering river with a tiger in front of it!",
+      "interactiveObjects": [
+        {
+          "name": "ladder",
+          "description": "A ladder going up to the tree house.",
+          "place": "nailed to the tree",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [
+              {
+                "strength": 0,
+                "name": "step from the tree house",
+                "description": "A step from the tree house which could be used to get up.",
+                "place": "is lying on the ground"
+              }
+            ],
+            "tools": [],
+            "weapons": []
+          },
+          "removeRequiredItem": true,
+          "quest": {},
+          "wayName": "ladder",
+          "hint": "This ladder could be used to go up the tree house."
+        }
+      ],
       "ways": [
         {
           "direction": "up",
           "from": "forest path",
           "to": "tree house",
           "name": "ladder",
+          "state": "BLOCKED",
           "description": "A broken ladder to the tree house. There is a step lying on the ground but the nails are missing."
         },
         {
@@ -1910,6 +1949,7 @@
         {
           "direction": "north",
           "from": "forest path",
+          "state": "BLOCKED",
           "to": "forest path with four directions",
           "name": "bridge made of a cut tree",
           "description": "In the north you could try to balance above the tree which was cut to get over the powering river."
@@ -1921,7 +1961,7 @@
           {
             "strength": 0,
             "name": "berries",
-            "description": "Some berries which seme suspicious.",
+            "description": "Some berries.",
             "place": "are hanging on a bush"
           }
         ],
@@ -1952,6 +1992,7 @@
           "from": "tree house",
           "to": "forest path",
           "name": "ladder",
+          "state": "BLOCKED",
           "description": "You could take the ladder down the tree house. You should climb very slowly to make sure you don\u0027t fall down."
         },
         {
@@ -1995,6 +2036,51 @@
     {
       "name": "forest path with four directions",
       "description": "You reached a forest fork which leads to four directions.",
+      "enemies": [
+        {
+          "name": "Tiger",
+          "where": "standing in the middle of the path",
+          "health":  99,
+          "strength":  10,
+          "startStatement": "Roar Roarrr!",
+          "killStatement": "Roarrrrr",
+          "killed": false,
+          "dropItems": [
+            {
+              "strength": 0,
+              "name": "tiger skin",
+              "description": "a nice looking tiger skin"
+            }
+          ],
+          "autoAttack":true
+        }
+      ],
+      "interactiveObjects": [
+        {
+          "name": "tree",
+          "description": "A big tree stands right before a powering river",
+          "place": "in front the river",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [
+              {
+                "strength": 9,
+                "name": "axe",
+                "description": "A sharp axe which could cut a tree.",
+                "place": "is hanging on the wall",
+                "equipment": "WEAPON"
+              }
+            ]
+          },
+          "removeRequiredItem": false,
+          "quest": {},
+          "wayName": "bridge made of a cut tree",
+          "hint": "Maybe this tree could be used as a bridge"
+        }
+      ],
       "ways": [
         {
           "direction": "west",
@@ -2022,6 +2108,7 @@
           "from": "forest path with four directions",
           "to": "forest path",
           "name": "bridge made of a cut tree",
+          "state": "BLOCKED",
           "description": "In the south you could try to balance above the tree which was cut to get over the powering river to get to the side with the tree house."
         }
       ],
@@ -2032,7 +2119,7 @@
             "strength": 0,
             "name": "fish",
             "description": "A caught fish",
-            "place": "is hanging on a fishing rod"
+            "place": "is lying on the ground"
           }
         ],
         "resources": [
@@ -2040,7 +2127,7 @@
             "strength": 1,
             "name": "broken fishing rod",
             "description": "A broken fishing rod which can no longer be used.",
-            "place": "is attached to the ground"
+            "place": "sticks in the ground"
           },
           {
             "strength": 1,
@@ -2182,7 +2269,7 @@
             "strength": 0,
             "name": "diving mask",
             "description": "A mask which helps to dive.",
-            "place": "is lying in the chest",
+            "place": "is lying on a table",
             "equipment": "HEAD"
           }
         ],
@@ -2190,15 +2277,9 @@
         "resources": [
           {
             "strength": 0,
-            "name": "wood",
-            "description": "Some wood.",
+            "name": "single piece of wood",
+            "description": "A piece of wood.",
             "place": "is lying in a corner"
-          },
-          {
-            "strength": 0,
-            "name": "chest",
-            "description": "A chest with something in it.",
-            "place": "is lying next to the wood"
           }
         ],
         "tools": [],
