@@ -40,6 +40,7 @@ public class EquipCommand extends AutoCommand {
                 if (equip) {
                     game.getCurrentRoom().removeItem(takenItem);
                     System.out.println("You added " + takenItem.getName() + " to your equipment.");
+                    game.incTurn();
                 } else {
                     System.out.println(
                             "The section " + takenItem.getEquipmentType().getDescription() + " is already taken.");
@@ -57,6 +58,7 @@ public class EquipCommand extends AutoCommand {
                 if (equip) {
                     game.player.removeItem(takenItem);
                     System.out.println("You added " + takenItem.getName() + " to your equipment.");
+                    game.incTurn();
                 } else {
                     System.out.println(
                             "The section " + takenItem.getEquipmentType().getDescription() + " is already taken.");

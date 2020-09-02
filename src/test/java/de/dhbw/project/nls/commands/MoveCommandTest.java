@@ -169,6 +169,7 @@ public class MoveCommandTest {
         command.execute();
 
         //then
+        verify(game).incTurn();
         verify(out).println ("You're taking the " + w.getName() + " " + direction + ". ");
         verify(game.player).setRoomName(w.getTo());
         verify(game.player).isAttacked(game);
@@ -232,7 +233,8 @@ public class MoveCommandTest {
         command.execute();
 
         //then
-        verify(out).println ("You're taking the " + w.getName() + " " + direction + ". ");
+        verify(game).incTurn();
+        verify(out).println("You're taking the " + w.getName() + " " + direction + ". ");
         verify(game.player).setRoomName(w.getTo());
         verify(game.player).isAttacked(game);
         verify(out).println(game.getCurrentRoom());

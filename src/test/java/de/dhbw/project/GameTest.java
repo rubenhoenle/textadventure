@@ -1,5 +1,6 @@
 package de.dhbw.project;
 
+import de.dhbw.project.character.*;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
@@ -21,6 +22,7 @@ import org.powermock.reflect.Whitebox;
 
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -200,5 +202,69 @@ public class GameTest {
         //then
         assertNotNull(rio);
         assertEquals(rio,io);
+    }
+
+    @Test
+    public void test9_incTurn() throws Exception {
+        //before
+        Whitebox.setInternalState(game, "turn", 10);
+        //when
+        game.incTurn();
+        //then
+        assertEquals(game.getTurn(), 11);
+    }
+
+    @Test
+    public void test10_getTurn() throws Exception {
+        //before
+        Whitebox.setInternalState(game, "turn", 10);
+        //when
+        int res = game.getTurn();
+        //then
+        assertEquals(res, 10);
+    }
+
+    @Test
+    public void test11_roamAllRoamingEnemies() throws Exception {
+        //before
+        Room r = mock(Room.class);
+        Room r2 = mock(Room.class);
+        List<Room> rooms = Arrays.asList(r);
+        Whitebox.setInternalState(game, List.class, rooms);
+        RoamingEnemy e = mock(RoamingEnemy.class);
+        List<RoamingEnemy> el = Arrays.asList(e);
+        PowerMockito.doReturn(el).when(r, "getRoamingEnemyList");
+        PowerMockito.doReturn(false).when(e, "isKilled");
+        PowerMockito.doReturn("foo").when(r, "getName");
+        PowerMockito.doReturn("bar").when(e, "getNextRoom","foo");
+        PowerMockito.doReturn(r2).when(game, "getRoom", "bar");
+        //when
+        game.roamAllRoamingEnemies();
+        //then
+        verify(e).isKilled();
+        verify(e).getNextRoom("foo");
+        verify(r).removeRoamingEnemy(e);
+        verify(r2).addRoamingEnemy(e);
+
+    }
+
+    @Test
+    public void test12_roamAllRoamingEnemies() throws Exception {
+        //before
+        Room r = mock(Room.class);
+        Room r2 = mock(Room.class);
+        List<Room> rooms = Arrays.asList(r);
+        Whitebox.setInternalState(game, List.class, rooms);
+        RoamingEnemy e = mock(RoamingEnemy.class);
+        List<RoamingEnemy> el = Arrays.asList(e);
+        PowerMockito.doReturn(el).when(r, "getRoamingEnemyList");
+        PowerMockito.doReturn(true).when(e, "isKilled");
+        //when
+        game.roamAllRoamingEnemies();
+        //then
+        verify(e).isKilled();
+        verify(e,never()).getNextRoom("foo");
+        verify(r,never()).removeRoamingEnemy(e);
+        verify(r2,never()).addRoamingEnemy(e);
     }
 }

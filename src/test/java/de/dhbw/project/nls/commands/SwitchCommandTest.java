@@ -123,6 +123,7 @@ public class SwitchCommandTest {
         command.execute();
 
         //then
+        verify(game).incTurn();
         verify(i, times(3)).getItemstate();
         verify(i).setItemstate(ItemState.INACTIVE);
         verify(out).println("Item foo is now " + ItemState.INACTIVE + ".");
@@ -141,6 +142,7 @@ public class SwitchCommandTest {
         command.execute();
 
         //then
+        verify(game).incTurn();
         verify(i, times(3)).getItemstate();
         verify(i).setItemstate(ItemState.ACTIVE);
         verify(out).println("Item foo is now " + ItemState.ACTIVE + ".");

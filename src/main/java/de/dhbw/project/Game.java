@@ -2,12 +2,14 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.character.Character;
+import de.dhbw.project.character.RoamingEnemy;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
 
+import java.util.ArrayList;
 import java.awt.datatransfer.Clipboard;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,8 @@ public class Game {
     @SerializedName("rooms")
     private List<Room> rooms;
     public transient Commands commands;
+    @SerializedName("turn")
+    private int turn;
     private boolean gameEnd = false;
     private int counter = 0;
 
@@ -51,6 +55,11 @@ public class Game {
 
             if (playerCanSeeSomething(input)) {
                 commands.execute(input + "\0");
+                if (turn % Constants.ROTATION_INTERVAL == 0) {
+                    turn++;
+                    roamAllRoamingEnemies();
+                    player.isAttacked(this);
+                }
             }
         }
     }
@@ -141,6 +150,27 @@ public class Game {
         return null;
     }
 
+    public void roamAllRoamingEnemies() {
+        // list of already moved RoamingEnemies
+        List<RoamingEnemy> moved = new ArrayList<>();
+        // move RoamingEnemy room by room
+        for (Room room : rooms) {
+            // check and move every enemy in room
+            List<RoamingEnemy> tmp = new ArrayList<>();
+            tmp.addAll(room.getRoamingEnemyList());
+            for (RoamingEnemy e : tmp) {
+                // RoamingEnemy was just moved to this room
+                if (moved.contains(e) || e.isKilled())
+                    continue;
+                // RoamingEnemy is moved and added to list
+                Room next = getRoom(e.getNextRoom(room.getName()));
+                room.removeRoamingEnemy(e);
+                next.addRoamingEnemy(e);
+                moved.add(e);
+            }
+        }
+    }
+
     // Helper method: Returns the current room object
     public Room getCurrentRoom() {
         for (Room r : rooms) {
@@ -150,7 +180,6 @@ public class Game {
         return null;
     }
 
-    // Helper method: Returns the current room object
     public Room getRoom(String name) {
         for (Room r : rooms) {
             if (r.getName().equals(name))
@@ -198,6 +227,14 @@ public class Game {
         } else {
             return false;
         }
+    }
+
+    public void incTurn() {
+        this.turn++;
+    }
+
+    public int getTurn() {
+        return turn;
     }
 
     public boolean isGameEnd() {

@@ -35,12 +35,14 @@ public class DropCommand extends AutoCommand {
                 dropItemInventory.setWhere(game.getCurrentRoom().getDefaultItemLocation());
                 System.out.println("The item " + dropItemInventory.getName() + " was dropped in room '"
                         + game.getCurrentRoom().getName() + "'.");
+                game.incTurn();
             } else if (dropItemEquipment != null) {
                 game.player.removeEquipment(dropItemEquipment);
                 game.getCurrentRoom().addItem(dropItemEquipment);
                 dropItemEquipment.setWhere(game.getCurrentRoom().getDefaultItemLocation());
                 System.out.println("The item " + dropItemEquipment.getName() + " was dropped in room '"
                         + game.getCurrentRoom().getName() + "'.");
+                game.incTurn();
             } else {
                 System.out.println(
                         "The item " + itemName + " was not found in inventory or equipment and cannot be dropped.");
