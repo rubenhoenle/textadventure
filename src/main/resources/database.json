@@ -2647,7 +2647,7 @@
             "resources": [
               {
                 "strength": 0,
-                "name": "step from the tree house",
+                "name": "step",
                 "description": "A step from the tree house which could be used to get up.",
                 "place": "is lying on the ground"
               }
@@ -2739,7 +2739,7 @@
         "resources": [
           {
             "strength": 0,
-            "name": "step from the tree house",
+            "name": "step",
             "description": "A step from the tree house which could be used to get up.",
             "place": "is lying on the ground"
           },
