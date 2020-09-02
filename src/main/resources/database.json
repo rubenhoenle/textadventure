@@ -524,14 +524,16 @@
           "from": "Cliff above the ship graveyard",
           "to": "Deck of an old stranded ship",
           "name": "plank",
-          "description": "An old plank in the west is connecting the deck of the ship with the cliff."
+          "description": "An old plank in the west is connecting the deck of the ship with the cliff.",
+          "state": "ACTIVE"
         },
         {
           "direction": "south",
           "from": "Cliff above the ship graveyard",
           "to": "Camp site",
           "name": "path",
-          "description": "A southern beaten path leads to a small camp site."
+          "description": "A southern beaten path leads to a small camp site.",
+          "state": "ACTIVE"
         },
         {
           "direction": "east",
@@ -551,7 +553,8 @@
           "from": "Camp site",
           "to": "Cliff above the ship graveyard",
           "name": "path",
-          "description": "In the north a beaten path leads to a cliff."
+          "description": "In the north a beaten path leads to a cliff.",
+          "state": "ACTIVE"
         }
       ],
       "items": {
@@ -568,25 +571,93 @@
         "tools": [],
         "weapons": []
       },
-      "characters": []
+      "friends": [
+        {
+          "name": "Travis",
+          "where": "sitting before the tent",
+          "health": 16,
+          "strength": 10,
+          "startStatement": "I'm Travis the treasure hunter",
+          "killStatement": "Why me?",
+          "killed": false,
+          "quests": [
+            {
+              "name": "treasure hunt",
+              "textStart": "You need to search the treasure in the sunken ship wreaks and bring it to me.",
+              "textAccept": "Good luck and look out for your self.",
+              "textMid": "You did not bring me the treasure yet!",
+              "textEnd": "Finally my search has an and thank you so much for help. I couldn't have done it without you.",
+              "reward": [
+                {
+                  "strength": 3,
+                  "name": "pirate tricorne",
+                  "description": "an old tricorne of a pirate",
+                  "equipment": "HEAD",
+                  "type": "cloth",
+                  "state": "0"
+                }
+              ],
+              "completed": false,
+              "talkedOnce": false,
+              "fulfillmentItems": [
+                {
+                  "strength": 0,
+                  "name": "small treasure box",
+                  "description": "a small treasure box that looks like it might contain something priceless",
+                  "place": "lying in the captains cabin of a sunken pirate ship",
+                  "state": "0"
+                }
+              ],
+              "accepted": false
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Deck of an old stranded ship",
       "description": "You have boarded an old three mast sailing ship. Everything is creaking and roting. \nOne mast is completely gone, one is still standing with torn, flapping sails and one is broken lying on the deck.",
+      "interactiveObjects": [
+        {
+          "name": "mast",
+          "description": "There is a broken mast laying on top of the trapdoor into the ship interior.",
+          "place": "rolls at the beach",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [
+              {
+                "strength": 9,
+                "name": "axe",
+                "description": "A sharp axe which could cut a tree.",
+                "place": "is hanging on the wall",
+                "equipment": "WEAPON"
+              }
+            ]
+          },
+          "removeRequiredItem": false,
+          "wayName": "trapdoor",
+          "hint": "The mast could be chopped in half."
+        }
+      ],
       "ways": [
         {
           "direction": "east",
           "from": "Deck of an old stranded ship",
           "to": "Cliff above the ship graveyard",
           "name": "plank",
-          "description": "An old plank in the east is connecting the deck of the ship with the cliff."
+          "description": "An old plank in the east is connecting the deck of the ship with the cliff.",
+          "state": "ACTIVE"
         },
         {
           "direction": "down",
           "from": "Deck of an old stranded ship",
           "to": "ship interior",
           "name": "trapdoor",
-          "description": "A trapdoor is blocked by a fallen mast."
+          "description": "A trapdoor is blocked by a fallen mast.",
+          "state": "BLOCKED"
         }
       ],
       "items": {
@@ -628,14 +699,16 @@
           "from": "ship interior",
           "to": "Deck of an old stranded ship",
           "name": "trapdoor",
-          "description": "A trapdoor is blocked by a fallen mast."
+          "description": "A trapdoor leading to the ship deck.",
+          "state": "ACTIVE"
         },
         {
           "direction": "south",
           "from": "ship interior",
           "to": "Beach below the cliff",
           "name": "hole",
-          "description": "On the south side there's a hole in the the ship hull."
+          "description": "On the south side there's a hole in the the ship hull.",
+          "state": "ACTIVE"
         }
       ],
       "items": {
@@ -668,20 +741,46 @@
     {
       "name": "Beach below the cliff",
       "description": "You are at a small beach enclosed by boulders and the cliff. The sea is clear and you can see the sunken ships through the surface. \nThe waves are crashing against the boulders on either side. It seems that there must be a reef before the small beach, since the waves in this area are almost non existent.",
+      "interactiveObjects": [
+        {
+          "name": "dolphin",
+          "description": "There is a dolphin stranded on the beach only barely alive.",
+          "place": "lying on the beach",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [
+              {
+                "strength": 0,
+                "name": "fish",
+                "description": "A caught fish",
+                "place": "is hanging on a fishing rod"
+              }
+            ],
+            "resources": [],
+            "tools": [],
+            "weapons": []
+          },
+          "removeRequiredItem": true,
+          "wayName": "sea",
+          "hint": "The dolphin can be saved by pushing him into the water and feeding him some fish."
+        }
+      ],
       "ways": [
         {
           "direction": "north",
           "from": "Beach below the cliff",
           "to": "ship interior",
           "name": "hole",
-          "description": "A short climb over the boulder leads to the hole in the ship hull in the north."
+          "description": "A short climb over the boulder leads to the hole in the ship hull in the north.",
+          "state": "ACTIVE"
         },
         {
           "direction": "west",
           "from": "Beach below the cliff",
           "to": "Sunken ships in the sea",
           "name": "sea",
-          "description": "There's a short swim and dive to the sunk ship wreck in the west."
+          "description": "There's a short swim and dive to the sunk ship wreck in the west.",
+          "status": "BLOCKED"
         },
         {
           "direction": "east",
@@ -691,7 +790,6 @@
           "description": "East there's a big cave in the cliff."
         }
       ],
-      "characters": [],
       "items": {
         "cloths": [],
         "foods": [],
@@ -716,7 +814,8 @@
           "from": "Sunken ships in the sea",
           "to": "Beach below the cliff",
           "name": "sea",
-          "description": "In the east you can emerge from the depth and swim to shore."
+          "description": "In the east you can emerge from the depth and swim to shore.",
+          "state": "ACTIVE"
         }
       ],
       "characters": [],
@@ -1130,7 +1229,7 @@
       "enemies": [
         {
           "name": "ugly big troll",
-          "healt": "30",
+          "health": "30",
           "strength": "50",
           "situation": "A stinking big dangerous looking troll is walking through the room.",
           "comment": "TODO attack + drop items",
