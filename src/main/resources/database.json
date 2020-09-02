@@ -538,14 +538,14 @@
           "to": "rundown hut on the hill",
           "name": "hillside",
           "state": "BLOCKED",
-          "description": "In the west a slope leads gently downwards to a rundown hut."
+          "description": "In the north a slope leads gently downwards to a rundown hut."
         },
         {
           "direction": "west",
           "from": "hill",
           "to": "flower meadow",
           "name": "serpentines",
-          "description": "A rocky winding mountain path leads down in serpentines."
+          "description": "A rocky winding mountain path leads down west in serpentines."
         }
       ],
       "items": {
