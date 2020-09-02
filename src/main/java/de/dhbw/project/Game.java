@@ -2,11 +2,15 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.character.Character;
+import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.nls.Commands;
 
+import java.awt.datatransfer.Clipboard;
 import java.util.List;
 import java.util.Scanner;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
 
 public class Game {
     public Player player;
@@ -17,6 +21,13 @@ public class Game {
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
         this.player = player;
+
+        if(player.getName() == null)
+        {
+            player.enterPlayerName();
+        }
+
+        System.out.println("Hello " + player.getName() + "!");
         System.out.println(getCurrentRoom());
         System.out.println(getCurrentRoom().getDescription());
 
@@ -24,6 +35,8 @@ public class Game {
         while (true) {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
+
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(input), null);
 
             if (input.length() == 1) {
                 if (Constants.SHORT_DIRECTIONS.contains(input))
@@ -65,6 +78,15 @@ public class Game {
         for (Character c : getCurrentRoom().getCharacterList()) {
             if (c.getName().equals(characterName)) {
                 return c;
+            }
+        }
+        return null;
+    }
+
+    public InteractiveObject getInteractiveObjectFromCurrentRoom(String interactiveObjectName) {
+        for (InteractiveObject io : getCurrentRoom().getRoomInteractiveObjectsList()) {
+            if (io.getName().equals(interactiveObjectName)) {
+                return io;
             }
         }
         return null;

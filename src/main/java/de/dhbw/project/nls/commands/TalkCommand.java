@@ -6,8 +6,6 @@ import de.dhbw.project.QuestItem;
 import de.dhbw.project.TableList;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Friend;
-import de.dhbw.project.item.Item;
-
 import java.util.List;
 
 public class TalkCommand extends AutoCommand {
@@ -59,26 +57,7 @@ public class TalkCommand extends AutoCommand {
 
                     } else {
                         if (q.checkCompleted(game.player)) {
-                            q.setCompleted(true);
-                            game.player.getQuestInventory().remove(q);
-                            for (QuestItem qi : q.getFulfillmentItems()) {
-                                game.player.removeItem(game.player.getItem(qi.getName()));
-                            }
-                            System.out.println(q.getTextEnd());
-
-                            // Tabelle erstellen
-                            TableList tabelle = new TableList(1, "Quest Rewards").sortBy(0).withUnicode(true);
-                            // System.out.println("Quest Rewards: ");
-                            for (int a = 0; a < q.getReward().size(); a++) {
-                                // Zeile hinzufügen
-                                tabelle.addRow(q.getReward().get(a).getName());
-                                // System.out.println(" '-: " + q.getReward().get(i).getName());
-                                if (q.getReward().get(a).questItemToItem() != null) {
-                                    game.player.addItem(q.getReward().get(a).questItemToItem());
-                                }
-                            }
-                            // Tabelle ausgeben
-                            tabelle.print();
+                            q.finishQuest(game.player, true);
                         } else {
                             System.out.println(q.getTextMid());
                         }
@@ -92,7 +71,7 @@ public class TalkCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "talk <character>+", "talk" };
+        String[] patterns = { "talk to <character>+", "talk <character>+", "talk" };
         return patterns;
     }
 

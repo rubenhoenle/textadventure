@@ -8,6 +8,7 @@ public class LoadCommand extends AutoCommand {
     @Override
     public void execute() {
         Zork.loadGame(Constants.SAVED_GAME);
+        Zork.playLoadedGame();
     }
 
     @Override

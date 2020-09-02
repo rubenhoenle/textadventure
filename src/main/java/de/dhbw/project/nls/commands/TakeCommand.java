@@ -1,8 +1,10 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
+import de.dhbw.project.Quest;
 import de.dhbw.project.item.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TakeCommand extends AutoCommand {
@@ -36,6 +38,16 @@ public class TakeCommand extends AutoCommand {
                 game.player.addItem(takenItem);
                 game.getCurrentRoom().removeItem(takenItem);
                 System.out.println("You took " + takenItem.getName() + " and added it to the inventory.");
+
+                // quest handling
+                List<Quest> questInventory = new ArrayList<Quest>();
+                questInventory.addAll(game.player.getQuestInventory());
+                for (Quest q : questInventory) {
+                    if (q.isAutoComplete() && q.getFulfillmentItems() != null && q.getFulfillmentItems().size() >= 1
+                            && q.checkCompleted(game.player)) {
+                        q.finishQuest(game.player, false);
+                    }
+                }
             }
         }
     }
