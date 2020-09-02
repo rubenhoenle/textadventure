@@ -1819,7 +1819,17 @@
         "foods": [],
         "resources": [],
         "tools": [],
-        "weapons": []
+        "weapons": [
+          {
+            "strength": 2,
+            "name": "walking cane",
+            "description": "a walking cane which was lost by a man",
+            "place": "leaning to the wall",
+            "equipmentType": "",
+            "state": "0",
+            "type": "weapon"
+          }
+        ]
       }
     },
     {
@@ -2529,6 +2539,49 @@
     {
       "name": "in front of the old house",
       "description": "You are in front of the old house. You can see some footsteps leading inside. \nThere could be a person inside the house which you can\u0027t see because of the barricaded windows. You should better watch out.",
+      "friends": [
+        {
+          "name": "Old John",
+          "where": "sitting on a bank",
+          "health":  70,
+          "strength":  3,
+          "startStatement": "Hello my friend.",
+          "killStatement": "Why did you kill an old guy like me!?",
+          "killed": false,
+          "quest":[
+          {
+            "name":"Helping an old man",
+            "textStart":"Could you do me a favour and search my walking cane?",
+            "textAccept":"Thanks you for helping me out!",
+            "textMid":"You did not bring me my walking cane yet. It is somewhere in the village.",
+            "textEnd":"Thanks for bringing me my walking cane.",
+            "reward":[
+              {
+                "strength": 0,
+                "name": "freshly polished lamp",
+                "description": "a lamp that shines very bright",
+                "equipmentType": "",
+                "type": "tool",
+                "state": "1"
+              }
+            ],
+            "completed":false,
+            "talkedOnce":false,
+            "fulfillmentItems":[
+              {
+                "strength": 2,
+                "name": "walking cane",
+                "description": "a walking cane which was lost by a man",
+                "place": "leaning to the wall",
+                "equipmentType": "",
+                "state": "0",
+                "type": "weapon"
+              }
+            ],
+            "accepted":false
+          }]
+        }
+      ],
       "ways": [
         {
           "direction": "west",
