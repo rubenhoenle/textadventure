@@ -2477,7 +2477,16 @@
             "place": "hanging from the tree"
           }
         ],
-        "tools": [],
+        "tools": [
+          {
+            "strength": 0,
+            "name": "fishing rod",
+            "description": "a fishing rod made from the finest wood.",
+            "place": "hangs on a tree between branches",
+            "state": "0",
+            "type": "tool"
+          }
+        ],
         "weapons": []
       }
     },
@@ -2507,6 +2516,46 @@
           "quest": {},
           "wayName": "ladder",
           "hint": "This ladder could be used to go up the tree house."
+        },
+        {
+          "name": "fishing place",
+          "description": "A nice looking place which is perfect for fishing.",
+          "place": "next to the river",
+          "requiredItem": {},
+          "removeRequiredItem": false,
+          "wayName": "",
+          "quest": {
+            "name": "Fishing time",
+            "textStart": "You need to catch a fish!",
+            "textAccept": "You accepted the quest!",
+            "textMid": "",
+            "textEnd": "You successfully caught a fish!",
+            "reward": [
+              {
+                "strength": 0,
+                "name": "fish",
+                "description": "A caught fish",
+                "place": "is lying on the ground",
+                "type": "food"
+              }
+            ],
+            "completed": false,
+            "talkedOnce": true,
+            "fulfillmentItems": [
+              {
+                "strength": 0,
+                "name": "fishing rod",
+                "description": "a fishing rod made from the finest wood.",
+                "place": "lying in the grass",
+                "state": "0",
+                "type": "tool"
+              }
+            ],
+            "accepted": false,
+            "autoComplete": true,
+            "fulfillmentKill": ""
+          },
+          "hint": "You should try to fish!"
         }
       ],
       "ways": [
@@ -2516,7 +2565,7 @@
           "to": "tree house",
           "name": "ladder",
           "state": "BLOCKED",
-          "description": "A broken ladder to the tree house. There is a step lying on the ground but the nails are missing."
+          "description": "A ladder to the tree house."
         },
         {
           "direction": "east",
