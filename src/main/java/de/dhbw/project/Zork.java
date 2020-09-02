@@ -62,7 +62,9 @@ public class Zork {
         } else {
             Game storedGame = Zork.parseData(path.toAbsolutePath().toString());
             game = storedGame;
+            registerCommands();
             System.out.println("Game loaded.");
+
             return game;
         }
     }
@@ -100,14 +102,14 @@ public class Zork {
         commands.register(new DropCommand(game));
         commands.register(new CraftCommand(game));
         commands.register(new UseCommand(game));
-        // TODO update InvestigateCommand when quests are available
-        // commands.register(new InvestigateCommand(game));
+        commands.register(new InvestigateCommand(game));
         commands.register(new EquipCommand(game));
         commands.register(new StripOffCommand(game));
         commands.register(new SwitchCommand(game));
 
         commands.register(new TalkCommand(game));
         commands.register(new AttackCommand(game));
+        commands.register(new EatCommand(game));
         commands.register(new AcceptQuestCommand(game));
         commands.register(new ShowQuestCommand(game));
 
@@ -120,11 +122,20 @@ public class Zork {
         commands.register(new SaveCommand(game));
         commands.register(new LoadCommand());
 
+        commands.register(new ReadBookCommand(game));
+
         game.commands = commands;
     }
 
-    private static void play() {
+    private static void playNewGame() {
         game = loadGame(Constants.NEW_GAME);
+        if (null != game) {
+            registerCommands();
+            game.play(game.player);
+        }
+    }
+
+    public static void playLoadedGame() {
         if (null != game) {
             registerCommands();
             game.play(game.player);
@@ -163,8 +174,8 @@ public class Zork {
             input.toLowerCase();
             if (input.equals("play")) {
                 Continue = true;
-                play();
-            } else {
+                playNewGame();
+            } else if (input.equals("edit")) {
                 Continue = true;
                 edit();
             }

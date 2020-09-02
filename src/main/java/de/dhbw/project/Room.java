@@ -21,6 +21,8 @@ public class Room extends Thing {
     private List<InteractiveCraftingObject> roomInteractiveCraftingObjectsList = new ArrayList<>();
     @SerializedName("enable")
     private String enabled = "";
+    @SerializedName("condition")
+    private String conditionalItem;
     @SerializedName("defaultItemLocation")
     private String defaultItemLocation; // The location the an item gets if it is dropped in this room
     @SerializedName("enemies")
@@ -81,7 +83,7 @@ public class Room extends Thing {
             }
             return itemNames;
         } else {
-            return null;
+            return new ArrayList<String>();
         }
 
     }
@@ -138,6 +140,14 @@ public class Room extends Thing {
 
     public void setEnabled(String enabled) {
         this.enabled = enabled;
+    }
+
+    public String getConditionalItem() {
+        return conditionalItem;
+    }
+
+    public void setConditionalItem(String condition) {
+        this.conditionalItem = condition;
     }
 
     public ItemList addItem(Item item) {

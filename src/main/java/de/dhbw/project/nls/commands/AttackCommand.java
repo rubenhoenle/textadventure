@@ -1,8 +1,11 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
+import de.dhbw.project.Quest;
+import de.dhbw.project.QuestItem;
 import de.dhbw.project.character.Character;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AttackCommand extends AutoCommand {
@@ -31,6 +34,17 @@ public class AttackCommand extends AutoCommand {
         } else {
             Character c = game.getCharacterFromCurrentRoom(characterName);
             game.player.fight(c, game.getCurrentRoom());
+
+            // quest handling
+            if (c.isKilled()) {
+                List<Quest> questInventory = new ArrayList<Quest>();
+                questInventory.addAll(game.player.getQuestInventory());
+                for (Quest q : questInventory) {
+                    if (q.isAutoComplete() && c.getName().equals(q.getFulfillmentKill())) {
+                        q.finishQuest(game.player, false);
+                    }
+                }
+            }
         }
     }
 

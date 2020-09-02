@@ -1,6 +1,5 @@
 package de.dhbw.project;
 
-import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.item.*;
 import org.junit.Before;
@@ -15,6 +14,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -66,7 +66,8 @@ public class PlayerTest {
         Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99);
+        List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
+        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
         p.addItem(c);
         p.addItem(f);
         p.addItem(r);
@@ -95,7 +96,8 @@ public class PlayerTest {
         Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99);
+        List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
+        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
         p.addItem(c);
         p.addItem(f);
         p.addItem(r);
@@ -119,6 +121,7 @@ public class PlayerTest {
         assertEquals(w, resultW);
         assertEquals(b, resultB);
     }
+    
     @Test
     public void test4_shouldNotGetItem(){
         //before
@@ -131,33 +134,6 @@ public class PlayerTest {
 
         //then
         assertNull(result);
-    }
-
-    @Test
-    public void test5_WinsFight(){
-        //before
-        Player p = new Player();
-        Character c = new Character();
-        Player p1= new Player();
-        Character c1= new Character();
-        Player p2= new Player();
-        Character c2 = new Character();
-        p.setStrength(20);
-        c.setStrength(10);
-        p1.setStrength(20);
-        c1.setStrength(20);
-        p2.setStrength(10);
-        c2.setStrength(20);
-
-        //when
-        boolean r = p.winsFight(c);
-        boolean r1 = p1.winsFight(c1);
-        boolean r2 = p2.winsFight(c2);
-
-        //then
-        assertTrue(r);
-        assertTrue(r1);
-        assertFalse(r2);
     }
 
     @Test
@@ -206,47 +182,70 @@ public class PlayerTest {
     @Test
     public void test7_shouldFightWin(){
         //before
+    	p.setStrength(5);
+        p.setHealth(20);
+        p.addEquipment(new Weapon("name", "description", State.ACTIVE, 10, EquipmentType.WEAPON));
+        
         Room r = mock(Room.class);
-        Enemy e = mock(Enemy.class);
-        Item i = mock(Item.class);
-
-        when(e.isKilled()).thenReturn(false);
-        when(e.getDropItemListElements()).thenReturn(Arrays.asList(i));
-        when(e.getName()).thenReturn("Yoda");
-        when(i.getName()).thenReturn("lightsaber");
-
+        
+        ItemList list = new ItemList();
+        Item i = new Tool("tool", "", State.ACTIVE, 0);
+        list.addItem(i);
+        
+        Enemy e = new Enemy("Yoda", "", 12, 5, "start", "killed", false, list, false);
+        
         //when
         p.fight(e, r);
 
         //then
-        verify(e, times(5)).getName();
-        verify(e).getStartStatement();
-        verify(p).winsFight(e);
-        verify(e).getKillStatement();
+        verify(out).println("You fight with " + e.getName() + "!");
+        verify(out).println(e.getName() + ": " + e.getStartStatement());
+        verify(out).println(e.getName() + ": " + e.getKillStatement());
+        verify(out).println("You win the fight against " + e.getName() + "!");
         verify(r).addItem(i);
-        verify(e).setKilled(true);
-        verify(out).println("Yoda drops lightsaber");
+        verify(out).println("Yoda drops " + i.getName());
     }
-
+    
     @Test
     public void test8_shouldFightLose(){
         //before
+    	p.setStrength(5);
+        p.setHealth(10);
+        p.addEquipment(new Weapon("name", "description", State.ACTIVE, 10, EquipmentType.WEAPON));
+        
         Room r = mock(Room.class);
-        Enemy e = mock(Enemy.class);
-
+        
+        Enemy e = new Enemy("Yoda", "", 20, 50, "start", "killed", false, null, false);
+        
         PowerMockito.mockStatic(Zork.class);
-        when(e.isKilled()).thenReturn(false);
-        doReturn(false).when(p).winsFight(e);
-
-
+        
         //when
         p.fight(e, r);
 
         //then
-        verify(e, times(3)).getName();
-        verify(e).getStartStatement();
-        verify(p).winsFight(e);
-        verify(out).println ("Last save game will be loaded! \n");
+        verify(out).println("You lose the fight against " + e.getName() + "! You faint!");
+        verify(out).println("----------");
+        verify(out).println("Last save game will be loaded! \n");
+    }
+    
+    @Test
+    public void test9_shouldFightIndecided(){
+        //before
+    	p.setStrength(5);
+        p.setHealth(20);
+        p.addEquipment(new Weapon("name", "description", State.ACTIVE, 10, EquipmentType.WEAPON));
+        
+        Room r = mock(Room.class);
+        
+        Enemy e = new Enemy("Yoda", "", 20, 5, "start", "killed", false, null, false);
+        
+        PowerMockito.mockStatic(Zork.class);
+        
+        //when
+        p.fight(e, r);
+
+        //then
+        verify(out).println("Your opponent is bruised, but you also got a few scratches.");
     }
 
     @Test

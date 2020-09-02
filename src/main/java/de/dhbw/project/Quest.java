@@ -22,17 +22,22 @@ public class Quest {
     private List<QuestItem> reward;
     @SerializedName("fulfillmentItems")
     private List<QuestItem> fulfillmentItems;
+    @SerializedName("fulfillmentKill")
+    private String fulfillmentKill;
     @SerializedName("accepted")
     private boolean accepted;
     @SerializedName("talkedOnce")
     private boolean talkedOnce;
+    @SerializedName("autoComplete")
+    private boolean autoComplete = false;
 
     public Quest() {
 
     }
 
     public Quest(String name, String textStart, String textAccept, String textMid, String textEnd, boolean completed,
-            List<QuestItem> reward, List<QuestItem> fulfillmentItems, boolean accepted, boolean talkedOnce) {
+            List<QuestItem> reward, List<QuestItem> fulfillmentItems, String fulfillmentKill, boolean accepted,
+            boolean talkedOnce, boolean autoComplete) {
         this.name = name;
         this.textStart = textStart;
         this.textAccept = textAccept;
@@ -41,8 +46,10 @@ public class Quest {
         this.completed = completed;
         this.reward = reward;
         this.fulfillmentItems = fulfillmentItems;
+        this.fulfillmentKill = fulfillmentKill;
         this.accepted = accepted;
         this.talkedOnce = talkedOnce;
+        this.autoComplete = autoComplete;
     }
 
     public String getName() {
@@ -117,6 +124,22 @@ public class Quest {
         this.fulfillmentItems = fulfillmentItems;
     }
 
+    public String getFulfillmentKill() {
+        return fulfillmentKill;
+    }
+
+    public void setFulfillmentKill(String fulfillmentKill) {
+        this.fulfillmentKill = fulfillmentKill;
+    }
+
+    public boolean isAutoComplete() {
+        return autoComplete;
+    }
+
+    public void setAutoComplete(boolean autoComplete) {
+        this.autoComplete = autoComplete;
+    }
+
     public boolean isTalkedOnce() {
         return talkedOnce;
     }
@@ -146,5 +169,32 @@ public class Quest {
          * return false; } } }
          */
         // return true;
+    }
+
+    public void finishQuest(Player player, boolean removeItems) {
+        setCompleted(true);
+        player.getQuestInventory().remove(this);
+        if (removeItems) {
+            for (QuestItem qi : getFulfillmentItems()) {
+                player.removeItem(player.getItem(qi.getName()));
+            }
+        }
+        System.out.println(getTextEnd());
+
+        if (this.getReward() != null && this.getReward().size() >= 1) {
+            // Tabelle erstellen
+            TableList tabelle = new TableList(1, "Quest Rewards").sortBy(0).withUnicode(true);
+            // System.out.println("Quest Rewards: ");
+            for (int a = 0; a < getReward().size(); a++) {
+                // Zeile hinzufügen
+                tabelle.addRow(getReward().get(a).getName());
+                // System.out.println(" '-: " + q.getReward().get(i).getName());
+                if (getReward().get(a).questItemToItem() != null) {
+                    player.addItem(getReward().get(a).questItemToItem());
+                }
+            }
+            // Tabelle ausgeben
+            tabelle.print();
+        }
     }
 }

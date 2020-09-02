@@ -1,5 +1,8 @@
 package de.dhbw.project;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.item.*;
 
@@ -30,7 +33,8 @@ public class QuestItem extends Item {
         case "food":
             return new Food(this.getName(), this.getDescription(), this.getState(), this.getStrength());
         case "book":
-            return new Book(this.getName(), this.getDescription(), this.getState(), this.getStrength());
+            List<String> temparray = Arrays.asList("");
+            return new Book(this.getName(), this.getDescription(), this.getState(), this.getStrength(), temparray);
         case "resource":
             return new Resource(this.getName(), this.getDescription(), this.getState(), this.getStrength());
         case "weapon":

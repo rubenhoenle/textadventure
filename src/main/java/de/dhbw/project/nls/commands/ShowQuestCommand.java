@@ -14,7 +14,8 @@ public class ShowQuestCommand extends AutoCommand {
     public void execute() {
         // System.out.println("---Quest Inventory---");
         // Tabelle erstellen
-        TableList tabelle = new TableList(2, "Questname", "Required Items").sortBy(0).withUnicode(true);
+        TableList tabelle = new TableList(2, "Questname", "Required Items / Kill Character").sortBy(0)
+                .withUnicode(true);
 
         for (int i = 0; i < game.player.getQuestInventory().size(); i++) {
             // System.out.println("Quest Name: " + game.player.getQuestInventory().get(i).getName());
@@ -33,6 +34,12 @@ public class ShowQuestCommand extends AutoCommand {
                     // System.out.println(" '-: " +
                     // game.player.getQuestInventory().get(i).getFulfillmentItems().get(a).getName());
                 }
+            }
+
+            if (game.player.getQuestInventory().get(i).getFulfillmentKill() != null
+                    && game.player.getQuestInventory().get(i).getFulfillmentKill().length() > 0) {
+                tabelle.addRow(game.player.getQuestInventory().get(i).getName(),
+                        game.player.getQuestInventory().get(i).getFulfillmentKill());
             }
         }
         // Tabelle ausgeben

@@ -1,14 +1,15 @@
 {
   "player": {
     "points": 0,
-    "strength": 42,
-    "name": "Hugo",
+    "strength": 5,
+    "health": 20,
     "inventory": {
       "cloths": [],
       "foods": [],
       "resources": [],
       "tools": [],
-      "weapons": []
+      "weapons":[],
+      "books":[]
     },
     "questInventory": [],
     "equipment": [],
@@ -236,6 +237,97 @@
           "removeRequiredItem": false,
           "wayName": "sandy way",
           "hint": "These waves look like they could be ride."
+        },
+        {
+          "name": "message in a bottle",
+          "description": "An old bottle with a message in it",
+          "place": "floating in the water",
+          "requiredItem": {},
+          "removeRequiredItem": false,
+          "wayName": "",
+          "quest": {
+            "name": "The life of a jacket",
+            "textStart": "You need to search for a life jacket!",
+            "textAccept": "You accepted the quest!",
+            "textMid": "",
+            "textEnd": "Successful take the life jacket!",
+            "reward": [
+              {
+                "strength": 0,
+                "name": "backpack",
+                "description": "a backpack where you can store some additional items",
+                "place": "is lying in the sand",
+                "equipmentType": "UPPER_BODY",
+                "type": "cloth",
+                "state": "0"
+              }
+            ],
+            "completed": false,
+            "talkedOnce": true,
+            "fulfillmentItems": [
+              {
+                "strength": 0,
+                "name": "life jacket",
+                "description": "a life jacket from your sunken ship",
+                "place": "floating in the water",
+                "equipmentType": "UPPER_BODY",
+                "state": "0",
+                "type": "cloth"
+              }
+            ],
+            "accepted": false,
+            "autoComplete": true,
+            "fulfillmentKill": ""
+          },
+          "hint": "I GOT A QUEST"
+        },
+        {
+          "name": "message in another bottle",
+          "description": "An old bottle with a message in it",
+          "place": "floating in the water",
+          "requiredItem": {},
+          "removeRequiredItem": false,
+          "wayName": "",
+          "quest": {
+            "name": "Kill John Wick",
+            "textStart": "You need to kill John Wick!",
+            "textAccept": "You accepted the quest!",
+            "textMid": "",
+            "textEnd": "Successful closed the Quest: Kill John Wick!",
+            "reward": [],
+            "completed": false,
+            "talkedOnce": true,
+            "fulfillmentItems": [],
+            "accepted": false,
+            "autoComplete": true,
+            "fulfillmentKill": "John Wick"
+          },
+          "hint": "I GOT A QUEST"
+        }
+      ],
+      "enemies": [
+        {
+          "name": "John Wick",
+          "where": "moving up and down the beach",
+          "health": 1,
+          "strength": 1,
+          "startStatement": "This was a mistake!",
+          "killStatement": "At least not my dog!",
+          "killed": false,
+          "dropItems": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [
+              {
+                "strength": 5,
+                "name": "sword",
+                "description": "a very sharp sword"
+              }
+            ]
+          },
+          "autoAttack": true
         }
       ],
       "ways": [
@@ -302,7 +394,8 @@
           "from": "cave on the beach",
           "to": "beach",
           "name": "beach",
-          "description": "On the west side you can see the beach where this nightmare started."
+          "description": "On the west side you can see the beach where this nightmare started.",
+          "state": "BLOCKED"
         },
         {
           "direction": "down",
@@ -2962,15 +3055,27 @@
             "strength": 0,
             "name": "potted plant",
             "description": "a dried up potted plant decorates the altar"
-          },
-          {
-            "strength": 0,
-            "name": "bible",
-            "description": "an old dusty bible"
           }
         ],
         "tools": [],
-        "weapons": []
+        "weapons": [],
+        "books":[{
+            "name": "staple of notes",
+            "description": "they contain information about symbols found at the ruins",
+            "place": "are lying on a table",
+            "pages": [
+            "Day 1\nI have studied the ancient ruins in the north. I noticed symbols. \nI have never seen inscriptions like them before. I wrote some of \nthem in my notes. I am not sure if they even have a meaning or if \nthey are only an elaborate decoration.\n\nDay 2\nI went again to the ruins. I noticed that many symbols are used\nmultiple times, some more often than others. My suspicion that the \nsymbols may have more use than being only decoration.\n\nDay 3\nI examined the symbols again. I noticed that the top line is almost \nalways \" \", \"# #\" or \"###\". I will check if this helps me to understand \nthe symbols.",
+            "Day 5\nI could find eight distinct symbols with \" \" at the top, ten with \"# #\" \nand 20 with \"###\". It must have a meaning, but I don't know, what that \ncould be...\n\nDay 6\nThere are ten diffrent digits. Could it be that symbols with \"# #\" \nrepresent numbers? If this is the case, it could be the case that \" \" \nare vowels and \"###\" consonants, But there are only five vowels, and \nI found more than five symbols starting with \" \"...\n\nDay 7\nI noticed that I could bring the potential number symbols in an order. \nThere is a symbol with 2 filled squares, a symbol with 2 filled squares... \nand so on until a symbol with 11 squares. Ignoreing the two squares \nat the top, we had the numbers from 0 to 9. I'll think that it is \nplausible to assume that these are the digits from 0 to 9:\n\n 0    1    2    3    4    5    6    7    8    9   [ALFONT]0123456789[ALFONT]",
+			"Day 9\nI found an old book written with the strange symbols. It is now safe \nto assume that these symbols contain valuable information. I only must \nlearn how to read all of them.\n\nDay 10\nI noticed now that some symbols are similar to others, one symbol is \neven a simple mirror of an other. Maybe the letters they stand for are \nalso similar. It will be still hard to decipher the messages, without \nknowing more about them.\n\nDay 14\nI started to assign randomly letters to the symbols, but found no useful \nassignment so far. There are over 100 possible assignments of five vowels \nto five symbols, and I don't know which of the possible vowel symbols \ncontain vowels, and which not. For the consonants, it is even worse. \nI must think of a way to narrow down the combinations...\n\nDay 16\nI started to group together similar sounding letters and similar looking \nsymbols. I also started to work on the shortest words. I won't discover \nmany correct mappings at once, but every symbol mapped to a letter makes \nit more easy to decipher the rest of the text.",
+			"Day 18\nI think I found the first correct mappings and am able now to decipher \nmore words easier.\n\nDay 21\nI finished the mappings. I learnt that the language is very similar to \nEnglish but some words are written in a slightly, different way.\n\n A    B    C    D    E    F    G    H    I    J    K    L    M    N    O    P    Q    R    S    T   [ALFONT]abcdefghijklmnopqrst[ALFONT] U    V    W    X    Y    Z        0    1    2    3    4    5    6    7    8    9        .    ,  [ALFONT]uvwxyz 0123456789 .,[ALFONT]\n\nDay 22\nI transcribed multiple texts in the ruins, but found no interesting \ninformation. I will now translate the book and look if there is more \ninteresting information in it."
+			]
+            },
+            {"name": "bible",
+            "description": "an old, dusty bible written with strange symbols",
+            "place": "is lying on a table",
+            "pages": [
+            "Text to be implemented"
+            ]}]
       },
       "characters": []
     },

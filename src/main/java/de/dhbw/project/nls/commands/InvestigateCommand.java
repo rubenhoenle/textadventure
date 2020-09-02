@@ -1,6 +1,7 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
+import de.dhbw.project.Quest;
 import de.dhbw.project.interactive.InteractiveObject;
 
 import java.util.List;
@@ -35,13 +36,16 @@ public class InvestigateCommand extends AutoCommand {
 
         // get quest
         if (io.getQuest() != null) {
-            // TODO add quest to quest inventory
+            Quest q = io.getQuest();
+            System.out.println("Questname: " + q.getName());
+            System.out.println(q.getTextStart());
+            System.out.println("Type: \"accept <questname> from <interactive object>\" to accept the quest.");
         }
     }
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "investigate", "investigate on <interactiveObject>+" };
+        String[] patterns = { "investigate", "investigate <interactiveObject>+" };
         return patterns;
     }
 }
