@@ -46,7 +46,9 @@ public class AcceptQuestCommand extends AutoCommand {
                 game.player.getQuestInventory().add(q);
                 System.out.println("Quest \"" + q.getName() + "\" was added to quest inventory");
                 if (questInteractiveObject != null) {
-                    game.getCurrentRoom().getRoomInteractiveObjectsList().remove(questInteractiveObject);
+                    if (null != game.getCurrentRoom().getRoomInteractiveObjectsList()) {
+                        game.getCurrentRoom().getRoomInteractiveObjectsList().remove(questInteractiveObject);
+                    }
                 }
             } else {
                 System.out.println("You can not do this!");
