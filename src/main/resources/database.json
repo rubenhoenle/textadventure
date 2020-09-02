@@ -2177,7 +2177,6 @@
             "description": "a walking cane which was lost by a man",
             "place": "leaning to the wall",
             "equipmentType": "",
-            "itemstate": "0",
             "type": "weapon"
           }
         ]
@@ -2602,8 +2601,8 @@
         {
           "name": "Snake",
           "where": "moving between leaves",
-          "health": 50,
-          "strength": 5,
+          "health": 20,
+          "strength": 1,
           "startStatement": "Hiss Hiss Hiss",
           "killStatement": "HISSSSS!",
           "killed": false,
@@ -2650,7 +2649,7 @@
     },
     {
       "name": "forest path",
-      "description": "A path with trees and a small tree house.\nIt does not look too stable but should be barely enough to lift yourself.\nTo the north is a powering river with a tiger in front of it!",
+      "description": "A path with trees and a small tree house.\nIt does not look too stable but should be barely enough to lift yourself.\nTo the north is a powering river.",
       "interactiveObjects": [
         {
           "name": "ladder",
@@ -2760,7 +2759,7 @@
           },
           {
             "strength": 1,
-            "name": "rusty curved nails",
+            "name": "a pair of rusty curved nails",
             "description": "Some rusty curved nails which can not be used anymore.",
             "place": "are lying on the ground"
           }
@@ -2826,8 +2825,8 @@
         {
           "name": "Tiger",
           "where": "standing in the middle of the path",
-          "health": 99,
-          "strength": 10,
+          "health": 30,
+          "strength": 3,
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
@@ -2935,6 +2934,7 @@
     {
       "name": "in front of the old house",
       "description": "You are in front of the old house. You can see some footsteps leading inside.\nThere could be a person inside the house which you can\u0027t see because of the barricaded windows. You should better watch out.",
+      "interactiveObjects": [],
       "friends": [
         {
           "name": "Old John",
@@ -2944,7 +2944,7 @@
           "startStatement": "Hello my friend.",
           "killStatement": "Why did you kill an old guy like me!?",
           "killed": false,
-          "quest": [
+          "quests": [
             {
               "name": "Helping an old man",
               "textStart": "Could you do me a favour and search my walking cane?",
@@ -2956,7 +2956,6 @@
                   "strength": 0,
                   "name": "freshly polished lamp",
                   "description": "a lamp that shines very bright",
-                  "equipmentType": "",
                   "type": "tool",
                   "itemstate": "0"
                 }
@@ -2969,8 +2968,6 @@
                   "name": "walking cane",
                   "description": "a walking cane which was lost by a man",
                   "place": "leaning to the wall",
-                  "equipmentType": "",
-                  "itemstate": "0",
                   "type": "weapon"
                 }
               ],
@@ -3749,6 +3746,47 @@
     {
       "name": "shore of the pond",
       "description": "An idyllic pond with water lilies on it.",
+      "interactiveObjects": [],
+      "friends": [
+        {
+          "name": "elder lady",
+          "where": "An elder lady is sitting on a bench and enjoys the sun.",
+          "health": 1,
+          "strength": 0,
+          "startStatement": "",
+          "killStatement": "",
+          "killed": false,
+          "quests": [
+            {
+              "name": "picking flowers",
+              "where": "test",
+              "textStart": "What a sunny day. It\u0027s such a warm sommer. I really like the flowers.",
+              "textAccept": "What a nice gesture of you.",
+              "textMid": "Take your time. I can wait for the flowers.",
+              "textEnd": "Thank you so much. I got something usefull for your inventory.",
+              "reward": [
+                {
+                  "strength": 0,
+                  "name": "yarn and needle",
+                  "description": "a thin thread for sewing and a needle",
+                  "type": "resource"
+                }
+              ],
+              "completed": false,
+              "talkedOnce": false,
+              "fulfillmentItems": [
+                {
+                  "strength": 0,
+                  "name": "flowers",
+                  "description": "The weadow is full of beautiful flowers in all colors.",
+                  "place": "- the weadow is full of beautiful flowers in all colors"
+                }
+              ],
+              "accepted": false
+            }
+          ]
+        }
+      ],
       "ways": [
         {
           "direction": "west",
@@ -3770,42 +3808,6 @@
           "to": "pond",
           "name": "into the pond",
           "description": "The southern bank in front of you is very flat."
-        }
-      ],
-      "friends": [
-        {
-          "name": "elder lady",
-          "where": "An elder lady is sitting on a bench and enjoys the sun.",
-          "health": 1,
-          "strength": 0,
-          "startStatement": "",
-          "killStatement": "",
-          "killed": false,
-          "quests": [
-            {
-              "name": "picking flowers",
-              "textStart": "What a sunny day. It\u0027s such a warm sommer. I really like the flowers.",
-              "textAccept": "What a nice gesture of you.",
-              "textMid": "Take your time. I can wait for the flowers.",
-              "textEnd": "Thank you so much. I got something usefull for your inventory.",
-              "completed": false,
-              "reward": [
-                {
-                  "strength": 0,
-                  "name": "yarn and needle",
-                  "description": "a thin thread for sewing and a needle",
-                  "type": "resource"
-                }
-              ],
-              "fulfillmentItems": [
-                {
-                  "name": "flowers"
-                }
-              ],
-              "accepted": false,
-              "talkedOnce": false
-            }
-          ]
         }
       ]
     },
