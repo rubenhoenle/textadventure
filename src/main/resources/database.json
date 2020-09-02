@@ -2422,7 +2422,7 @@
     },
     {
       "name": "beginning of the forest",
-      "description": "You find yourself at the beginning of a forest. \nThere are different noises coming from the inside. They do not sound friendly. \nThere is a sign leading inside the forest.",
+      "description": "You find yourself at the beginning of a forest.\nThere are different noises coming from the inside. They do not sound friendly.\nThere is a sign leading inside the forest.",
       "ways": [
         {
           "direction": "west",
@@ -2483,7 +2483,7 @@
     },
     {
       "name": "forest path",
-      "description": "A path with trees and a small tree house. \nIt does not look too stable but should be barely enough to lift yourself. \nTo the north is a powering river with a tiger in front of it!",
+      "description": "A path with trees and a small tree house.\nIt does not look too stable but should be barely enough to lift yourself.\nTo the north is a powering river with a tiger in front of it!",
       "interactiveObjects": [
         {
           "name": "ladder",
@@ -2564,7 +2564,7 @@
     },
     {
       "name": "tree house",
-      "description": "You find yourself inside the tree house which is pretty high above the ground. \nYou decide to better not look down. The wood is creaking under you!",
+      "description": "You find yourself inside the tree house which is pretty high above the ground.\nYou decide to better not look down. The wood is creaking under you!",
       "ways": [
         {
           "direction": "down",
@@ -2730,7 +2730,7 @@
     },
     {
       "name": "in front of the old house",
-      "description": "You are in front of the old house. You can see some footsteps leading inside. \nThere could be a person inside the house which you can\u0027t see because of the barricaded windows. You should better watch out.",
+      "description": "You are in front of the old house. You can see some footsteps leading inside.\nThere could be a person inside the house which you can\u0027t see because of the barricaded windows. You should better watch out.",
       "friends": [
         {
           "name": "Old John",
@@ -2844,12 +2844,6 @@
         "resources": [
           {
             "strength": 0,
-            "name": "old diary",
-            "description": "A diary from someone.",
-            "place": "is lying on a old wooden table"
-          },
-          {
-            "strength": 0,
             "name": "bag of gold",
             "description": "A small bag full of gold.",
             "place": "is lying on a old wooden table"
@@ -2871,12 +2865,25 @@
             "place": "is hanging on the wall",
             "equipment": "WEAPON"
           }
-        ]
+        ],
+        "books": [{
+          "name": "old diary",
+          "description": "a old diary from another stranded person",
+          "place": "is lying on a old wooden table",
+          "pages": [
+            "Day 1\nThis is my first day at this island. My ship was wrecked by a stone. How should I ever get away from that island!?\nI heard from a cave system. I think i should check it out.",
+            "Day 2\nI found the cave system but it is very dark down there. I could not encourage myself to go in the cave. But I found a village in the distance.\nI hope the native people are friendly. Its late now but I will go there tomorrow.",
+            "Day 3\nToday I went to the village and had a good meal for the first time since I stranded. The native people were very friendly to me.",
+            "Day 4\nThis day was the worst so far! I got bit by a snake!?\nThankfully the native people could help me out. Tomorrow I will take a break from exploring and rest for a while.",
+            "Day 5\nI slept a lot today and took a break as I mentioned yesterday. Not much to tell today.",
+            "Day 6\nToday I feel much better. I also found a lamp which I could use in the cave.\nI think that I will go there tomorrow. I hope there is no danger down there! ..."
+          ]
+        }]
       }
     },
     {
       "name": "cellar of the old house in the forest",
-      "description": "A cellar with a torture chamber and a pile of wood. You see a person tied to a rack. He seems very scared!",
+      "description": "A cellar with a torture chamber. You wonder how many people have been tortured here.\nJust the thought of it will make you leave this place as soon as possible.",
       "ways": [
         {
           "direction": "up",
