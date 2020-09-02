@@ -43,6 +43,97 @@
           "removeRequiredItem": false,
           "wayName": "sandy way",
           "hint": "These waves look like they could be ride."
+        },
+        {
+          "name": "message in a bottle",
+          "description": "An old bottle with a message in it",
+          "place": "floating in the water",
+          "requiredItem": {},
+          "removeRequiredItem": false,
+          "wayName": "",
+          "quest": {
+            "name": "The life of a jacket",
+            "textStart": "You need to search for a life jacket!",
+            "textAccept": "You accepted the quest!",
+            "textMid": "",
+            "textEnd": "Successful take the life jacket!",
+            "reward": [
+              {
+                "strength": 0,
+                "name": "backpack",
+                "description": "a backpack where you can store some additional items",
+                "place": "is lying in the sand",
+                "equipmentType": "UPPER_BODY",
+                "type": "cloth",
+                "state": "0"
+              }
+            ],
+            "completed": false,
+            "talkedOnce": true,
+            "fulfillmentItems": [
+              {
+                "strength": 0,
+                "name": "life jacket",
+                "description": "a life jacket from your sunken ship",
+                "place": "floating in the water",
+                "equipmentType": "UPPER_BODY",
+                "state": "0",
+                "type": "cloth"
+              }
+            ],
+            "accepted": false,
+            "autoComplete": true,
+            "fulfillmentKill": ""
+          },
+          "hint": "I GOT A QUEST"
+        },
+        {
+          "name": "message in another bottle",
+          "description": "An old bottle with a message in it",
+          "place": "floating in the water",
+          "requiredItem": {},
+          "removeRequiredItem": false,
+          "wayName": "",
+          "quest": {
+            "name": "Kill John Wick",
+            "textStart": "You need to kill John Wick!",
+            "textAccept": "You accepted the quest!",
+            "textMid": "",
+            "textEnd": "Successful closed the Quest: Kill John Wick!",
+            "reward": [],
+            "completed": false,
+            "talkedOnce": true,
+            "fulfillmentItems": [],
+            "accepted": false,
+            "autoComplete": true,
+            "fulfillmentKill": "John Wick"
+          },
+          "hint": "I GOT A QUEST"
+        }
+      ],
+      "enemies": [
+        {
+          "name": "John Wick",
+          "where": "moving up and down the beach",
+          "health": 1,
+          "strength": 1,
+          "startStatement": "This was a mistake!",
+          "killStatement": "At least not my dog!",
+          "killed": false,
+          "dropItems": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [
+              {
+                "strength": 5,
+                "name": "sword",
+                "description": "a very sharp sword"
+              }
+            ]
+          },
+          "autoAttack": true
         }
       ],
       "ways": [
@@ -109,7 +200,8 @@
           "from": "cave on the beach",
           "to": "beach",
           "name": "beach",
-          "description": "On the west side you can see the beach where this nightmare started."
+          "description": "On the west side you can see the beach where this nightmare started.",
+          "state": "BLOCKED"
         },
         {
           "direction": "down",
