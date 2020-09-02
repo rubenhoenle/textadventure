@@ -6,7 +6,8 @@
     "inventory": {
       "cloths": [],
       "foods": [],
-      "resources": [],
+      "resources": [
+      ],
       "tools": [],
       "weapons": [],
       "books": []
@@ -1558,6 +1559,46 @@
           "to": "cave with nothing but three ways",
           "name": "way",
           "description": "There is a way leading south"
+        },
+        {
+        "direction": "north",
+        "from": "magical cave",
+        "to": "cave with nothing but three ways",
+        "name": "Portal",
+        "description": "There is a portal leading north"
+        },
+        {
+          "direction": "north",
+          "from": "magical cave",
+          "to": "beach",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },
+        {
+          "direction": "north",
+          "from": "magical cave",
+          "to": "flower meadow",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },{
+          "direction": "north",
+          "from": "magical cave",
+          "to": "forest path with four directions",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },{
+          "direction": "north",
+          "from": "magical cave",
+          "to": "village square",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },
+        {
+          "direction": "north",
+          "from": "magical cave",
+          "to": "Cliff above the ship graveyard",
+          "name": "Portal",
+          "description": "There is a portal leading north"
         }
       ],
       "characters": [],
@@ -1566,22 +1607,31 @@
         "foods": [],
         "resources": [],
         "tools": [],
-        "weapons": [],
-        "interactiveObjects": [
-          {
-            "name": "Buddha",
-            "description": "There is a giant statue of buddha standing on the floor",
-            "place": "standing on the floor",
-            "requiredItem": {
-              "cloths": [],
-              "foods": [],
-              "resources": [],
-              "tools": [],
-              "weapons": []
-            }
-          }
-        ]
-      },
+        "weapons": []
+          },
+          "interactiveObjects": [
+            {
+              "name": "statue of Buddha",
+              "description": "There is a giant statue of buddha standing on the floor",
+              "place": "standing on the floor",
+              "requiredItem": {
+                "cloths": [],
+                "foods": [],
+                "resources": [
+                  {
+                    "strength": 0,
+                    "name": "grass",
+                    "description": "The grass has grown very high so that you cannot see the ground.",
+                    "place": "has grown very high so that you cannot see the ground"
+                  }
+                ],
+                "tools": [],
+                "weapons": [],
+                "hint": "Bring me some grass and we will see...",
+                "wayName": "Portal",
+                "place": "is sitting on the floor"
+              }
+      }],
       "isDark": true
     },
     {
