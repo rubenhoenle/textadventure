@@ -1,7 +1,6 @@
 package de.dhbw.project.item;
 
 import de.dhbw.project.EquipmentType;
-import de.dhbw.project.State;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -18,13 +17,14 @@ public class ItemListTest {
     public void test1_shouldAddItem(){
         //before
         ItemList itemList = new ItemList();
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages) ;
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages) ;
 
         //when
         itemList.addItem(c);
@@ -43,13 +43,15 @@ public class ItemListTest {
     public void test2_shouldRemoveItem(){
         //before
         ItemList itemList = new ItemList();
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+
         itemList.addItem(c);
         itemList.addItem(f);
         itemList.addItem(r);
@@ -74,13 +76,15 @@ public class ItemListTest {
     public void test3_shouldGetItem(){
         //before
         ItemList itemList = new ItemList();
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test"); 
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+
         itemList.addItem(c);
         itemList.addItem(f);
         itemList.addItem(r);
@@ -108,13 +112,15 @@ public class ItemListTest {
     public void test4_shouldGetNumberOfItem(){
         //before
         ItemList itemList = new ItemList();
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+
         for (int i=0; i<=10; i++){
             itemList.addItem(c);
             itemList.addItem(f);

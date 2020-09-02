@@ -151,7 +151,7 @@ public class TalkCommandTest {
         when(c.getQuests()).thenReturn(Arrays.asList(q));
         when(q.isAccepted()).thenReturn(true);
         when(q.isCompleted()).thenReturn(true);
-        when(q.checkCompleted(player)).thenReturn(true);
+        when(q.checkCompleted(game)).thenReturn(true);
 
         //when
         command.execute();
@@ -159,7 +159,7 @@ public class TalkCommandTest {
         //then
         verify(c).getStartStatement();
         verify(out).println("baz");
-        verify(q).finishQuest(player,true);
+        verify(q).finishQuest(game,true);
     }
 
 }

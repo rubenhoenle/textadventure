@@ -1,7 +1,7 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
-import de.dhbw.project.State;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.Item;
 
 import java.util.List;
@@ -29,15 +29,15 @@ public class SwitchCommand extends AutoCommand {
         Item item = game.player.getItem(itemName);
         if (item == null) {
             System.out.println("Item " + itemName + " not found in player inventory.");
-        } else if (item.getState() == State.NOT_USABLE || item.getState() == null) {
+        } else if (item.getItemstate() == ItemState.NOT_USABLE || item.getItemstate() == null) {
             System.out.println("Item " + itemName + " has no state.");
         } else {
-            if (item.getState() == State.ACTIVE) {
-                item.setState(State.INACTIVE);
-                System.out.println("Item " + itemName + " is now " + State.INACTIVE + ".");
+            if (item.getItemstate() == ItemState.ACTIVE) {
+                item.setItemstate(ItemState.INACTIVE);
+                System.out.println("Item " + itemName + " is now " + ItemState.INACTIVE + ".");
             } else {
-                item.setState(State.ACTIVE);
-                System.out.println("Item " + itemName + " is now " + State.ACTIVE + ".");
+                item.setItemstate(ItemState.ACTIVE);
+                System.out.println("Item " + itemName + " is now " + ItemState.ACTIVE + ".");
             }
         }
     }

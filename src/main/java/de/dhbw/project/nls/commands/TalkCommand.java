@@ -6,6 +6,8 @@ import de.dhbw.project.QuestItem;
 import de.dhbw.project.TableList;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Friend;
+import de.dhbw.project.item.Item;
+
 import java.util.List;
 
 public class TalkCommand extends AutoCommand {
@@ -56,8 +58,10 @@ public class TalkCommand extends AutoCommand {
                         // q.setAccepted(true);
 
                     } else {
-                        if (q.checkCompleted(game.player)) {
-                            q.finishQuest(game.player, true);
+                        if (q.checkCompleted(game)) {
+                            q.finishQuest(game, true);
+                        } else if (q.isCompleted()) {
+                            System.out.println(q.getTextEnd());
                         } else {
                             System.out.println(q.getTextMid());
                         }

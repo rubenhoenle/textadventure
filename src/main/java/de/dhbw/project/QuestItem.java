@@ -11,9 +11,9 @@ public class QuestItem extends Item {
     @SerializedName("type")
     private String type;
 
-    public QuestItem(String name, String description, State state, int strength, EquipmentType equipmentType,
+    public QuestItem(String name, String description, ItemState itemstate, int strength, EquipmentType equipmentType,
             String type) {
-        super(name, description, state, strength, equipmentType);
+        super(name, description, itemstate, strength, equipmentType);
         this.type = type;
     }
 
@@ -28,20 +28,20 @@ public class QuestItem extends Item {
     public Item questItemToItem() {
         switch (this.getType()) {
         case "cloth":
-            return new Clothing(this.getName(), this.getDescription(), this.getState(), this.getStrength(),
+            return new Clothing(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(),
                     this.getEquipmentType());
         case "food":
-            return new Food(this.getName(), this.getDescription(), this.getState(), this.getStrength());
+            return new Food(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength());
         case "book":
             List<String> temparray = Arrays.asList("");
-            return new Book(this.getName(), this.getDescription(), this.getState(), this.getStrength(), temparray);
+            return new Book(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(), temparray);
         case "resource":
-            return new Resource(this.getName(), this.getDescription(), this.getState(), this.getStrength());
+            return new Resource(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength());
         case "weapon":
-            return new Weapon(this.getName(), this.getDescription(), this.getState(), this.getStrength(),
+            return new Weapon(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(),
                     this.getEquipmentType());
         case "tool":
-            return new Tool(this.getName(), this.getDescription(), this.getState(), this.getStrength(),
+            return new Tool(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(),
                     this.getEquipmentType());
         }
         return null;

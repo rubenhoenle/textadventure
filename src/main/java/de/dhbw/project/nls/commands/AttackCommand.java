@@ -41,7 +41,7 @@ public class AttackCommand extends AutoCommand {
                 questInventory.addAll(game.player.getQuestInventory());
                 for (Quest q : questInventory) {
                     if (q.isAutoComplete() && c.getName().equals(q.getFulfillmentKill())) {
-                        q.finishQuest(game.player, false);
+                        q.finishQuest(game, false);
                     }
                 }
             }

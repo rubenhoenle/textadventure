@@ -3,12 +3,11 @@ package de.dhbw.project.item;
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.Constants;
 import de.dhbw.project.EquipmentType;
-import de.dhbw.project.State;
 import de.dhbw.project.Thing;
 
 public abstract class Item extends Thing {
-    @SerializedName("state")
-    private State state;
+    @SerializedName("itemstate")
+    private ItemState itemstate;
     @SerializedName("strength")
     private int strength;
     @SerializedName("place")
@@ -17,29 +16,29 @@ public abstract class Item extends Thing {
     private EquipmentType equipment;
 
     // Constructor for an item - calls the super constructor of the parent (thing) and adds the item-specific variables
-    public Item(String name, String description, State state, int strength) {
+    public Item(String name, String description, ItemState itemstate, int strength) {
         super(name, description);
         this.strength = strength;
-        this.state = state;
+        this.itemstate = itemstate;
     }
 
-    public Item(String name, String description, State state, int strength, EquipmentType equipmentType) {
+    public Item(String name, String description, ItemState itemstate, int strength, EquipmentType equipmentType) {
         super(name, description);
         this.strength = strength;
-        this.state = state;
+        this.itemstate = itemstate;
         this.equipment = equipmentType;
     }
 
     // Getters and setters for an item
 
-    public State getState() {
-        return state;
+    public ItemState getItemstate() {
+        return this.itemstate;
     }
 
-    public void setState(State state) {
-        if (state == null)
-            state = State.NOT_USABLE;
-        this.state = state;
+    public void setItemstate(ItemState itemstate) {
+        if (itemstate == null)
+            itemstate = ItemState.NOT_USABLE;
+        this.itemstate = itemstate;
     }
 
     public int getStrength() {

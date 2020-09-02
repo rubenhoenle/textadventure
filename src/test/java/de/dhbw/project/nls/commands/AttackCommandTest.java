@@ -128,6 +128,6 @@ public class AttackCommandTest {
 
         //then
         verify(game.player).fight(c, r);
-        verify(q).finishQuest(player,false);
+        verify(q).finishQuest(game,false);
     }
 }

@@ -1,7 +1,7 @@
 package de.dhbw.project.interactive;
 
 import de.dhbw.project.Player;
-import de.dhbw.project.State;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.Food;
 import de.dhbw.project.item.Item;
 import org.junit.FixMethodOrder;
@@ -21,9 +21,9 @@ public class InteractiveCraftingObjectTest {
         //before
         InteractiveCraftingObject interactiveCraftingObject = new InteractiveCraftingObject("name", "desc", "state", "place", "usage", "action");
         Player player = new Player();
-        player.addItem(new Food("item1", "desc", State.NOT_USABLE, 0));
-        player.addItem(new Food("item1", "desc", State.NOT_USABLE, 0));
-        player.addItem(new Food("item2", "desc", State.NOT_USABLE, 0));
+        player.addItem(new Food("item1", "desc", ItemState.NOT_USABLE, 0));
+        player.addItem(new Food("item1", "desc", ItemState.NOT_USABLE, 0));
+        player.addItem(new Food("item2", "desc", ItemState.NOT_USABLE, 0));
         List<Material> materials = new ArrayList<>();
         materials.add(new Material("item1", "desc", 2));
         materials.add(new Material("item2", "desc", 1));
@@ -58,8 +58,8 @@ public class InteractiveCraftingObjectTest {
         //before
         InteractiveCraftingObject interactiveCraftingObject = new InteractiveCraftingObject("name", "desc", "state", "place", "usage", "action");
         Player player = new Player();
-        player.addItem(new Food("item1", "desc", State.NOT_USABLE, 0));
-        player.addItem(new Food("item2", "desc", State.NOT_USABLE, 0));
+        player.addItem(new Food("item1", "desc", ItemState.NOT_USABLE, 0));
+        player.addItem(new Food("item2", "desc", ItemState.NOT_USABLE, 0));
         List<Material> materials = new ArrayList<>();
         materials.add(new Material("item1", "desc", 2));
         materials.add(new Material("item2", "desc", 1));
@@ -76,7 +76,7 @@ public class InteractiveCraftingObjectTest {
     public void test4_createItemWhenPlayerHasOnlySomeMaterials() {
         Player player = new Player();
 
-        Item item = new Food("item1", "desc", State.NOT_USABLE, 0);
+        Item item = new Food("item1", "desc", ItemState.NOT_USABLE, 0);
 
         player.removeItem(item);
     }

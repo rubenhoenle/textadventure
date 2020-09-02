@@ -2,7 +2,7 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.Player;
-import de.dhbw.project.State;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.Item;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -85,7 +85,7 @@ public class SwitchCommandTest {
         Item i = mock(Item.class);
 
         when(game.player.getItem("foo")).thenReturn(i);
-        when(i.getState()).thenReturn(State.NOT_USABLE);
+        when(i.getItemstate()).thenReturn(ItemState.NOT_USABLE);
 
         //when
         command.execute();
@@ -101,7 +101,7 @@ public class SwitchCommandTest {
         Item i = mock(Item.class);
 
         when(game.player.getItem("foo")).thenReturn(i);
-        when(i.getState()).thenReturn(null);
+        when(i.getItemstate()).thenReturn(null);
 
         //when
         command.execute();
@@ -117,15 +117,15 @@ public class SwitchCommandTest {
         Item i = mock(Item.class);
 
         when(game.player.getItem("foo")).thenReturn(i);
-        when(i.getState()).thenReturn(State.ACTIVE);
+        when(i.getItemstate()).thenReturn(ItemState.ACTIVE);
 
         //when
         command.execute();
 
         //then
-        verify(i, times(3)).getState();
-        verify(i).setState(State.INACTIVE);
-        verify(out).println("Item foo is now " + State.INACTIVE + ".");
+        verify(i, times(3)).getItemstate();
+        verify(i).setItemstate(ItemState.INACTIVE);
+        verify(out).println("Item foo is now " + ItemState.INACTIVE + ".");
     }
 
     @Test
@@ -135,14 +135,14 @@ public class SwitchCommandTest {
         Item i = mock(Item.class);
 
         when(game.player.getItem("foo")).thenReturn(i);
-        when(i.getState()).thenReturn(State.INACTIVE);
+        when(i.getItemstate()).thenReturn(ItemState.INACTIVE);
 
         //when
         command.execute();
 
         //then
-        verify(i, times(3)).getState();
-        verify(i).setState(State.ACTIVE);
-        verify(out).println("Item foo is now " + State.ACTIVE + ".");
+        verify(i, times(3)).getItemstate();
+        verify(i).setItemstate(ItemState.ACTIVE);
+        verify(out).println("Item foo is now " + ItemState.ACTIVE + ".");
     }
 }

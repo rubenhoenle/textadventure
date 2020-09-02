@@ -44,8 +44,8 @@ public class TakeCommand extends AutoCommand {
                 questInventory.addAll(game.player.getQuestInventory());
                 for (Quest q : questInventory) {
                     if (q.isAutoComplete() && q.getFulfillmentItems() != null && q.getFulfillmentItems().size() >= 1
-                            && q.checkCompleted(game.player)) {
-                        q.finishQuest(game.player, false);
+                            && q.checkCompleted(game)) {
+                        q.finishQuest(game, false);
                     }
                 }
             }

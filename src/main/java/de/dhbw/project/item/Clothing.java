@@ -1,14 +1,13 @@
 package de.dhbw.project.item;
 
 import de.dhbw.project.EquipmentType;
-import de.dhbw.project.State;
 import de.dhbw.project.levelEditor.SimpleUserInput;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 public class Clothing extends Item {
 
-    public Clothing(String name, String description, State state, int strength, EquipmentType clothingType) {
-        super(name, description, state, strength, clothingType);
+    public Clothing(String name, String description, ItemState itemstate, int strength, EquipmentType clothingType) {
+        super(name, description, itemstate, strength, clothingType);
     }
 
     public static Clothing create() {
@@ -24,7 +23,7 @@ public class Clothing extends Item {
             Decision d = SimpleUserInput.storeDialogue("Clothing");
             switch (d) {
             case SAVE:
-                return new Clothing(name, description, State.NOT_USABLE, strength, typ);
+                return new Clothing(name, description, ItemState.NOT_USABLE, strength, typ);
             case AGAIN:
                 break;
             case ABBORT:
@@ -48,7 +47,7 @@ public class Clothing extends Item {
             Decision d = SimpleUserInput.storeDialogue("Clothing");
             switch (d) {
             case SAVE:
-                return new Clothing(name, description, clothing.getState(), strength, typ);
+                return new Clothing(name, description, clothing.getItemstate(), strength, typ);
             case AGAIN:
                 break;
             case ABBORT:
