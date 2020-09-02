@@ -254,8 +254,9 @@ public class AlienFont {
                     i++;
                 }
 
-                else
+                else {
                     i++;
+                }
             }
             System.out.println();
             if (displaychars) {
@@ -348,7 +349,7 @@ public class AlienFont {
                 result = Integer.max(result, AlienFont.getWidthOfAlienOutput(tempstring));
             }
         }
-        //System.out.println("exiting mixedcalc");
+        // System.out.println("exiting mixedcalc");
         return result;
     }
 
@@ -375,8 +376,9 @@ public class AlienFont {
                 else if (alienltrs.containsKey(printstring.charAt(i) + "-1")) {
                     line1 = line1.concat(alienltrs.get(printstring.charAt(i) + "-1") + "  ");
                     i++;
-                } else
+                } else {
                     i++;
+                }
             }
             result = Integer.max(result, line1.length());
         }
