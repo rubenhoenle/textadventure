@@ -70,6 +70,7 @@ public class EquipmentTest {
 
         //then
         verify(player).addEquipment(item1);
+        verify(game).incTurn();
         verify(currentRoom).removeItem(item1);
         verify(out).println("You added " + item1.getName() + " to your equipment.");
         verify(out).println("The section " + item1.getEquipmentType().getDescription() + " is already taken."); 
@@ -98,6 +99,7 @@ public class EquipmentTest {
         equipCommand.execute();
 
         //then
+        verify(game).incTurn();
         verify(player).addEquipment(item);
         verify(player).removeItem(item);
         verify(out).println("You added " + item.getName() + " to your equipment.");
@@ -125,6 +127,7 @@ public class EquipmentTest {
         stripOffCommand.execute();
 
         //then
+        verify(game).incTurn();
         verify(player).removeEquipment(item1);
         verify(player).addItem(item1);
         verify(out).println("The item " + item1.getName() + " was shifted to inventory.");

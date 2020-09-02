@@ -48,6 +48,7 @@ public class TakeCommand extends AutoCommand {
                         q.finishQuest(game, false);
                     }
                 }
+                game.incTurn();
             }
         }
     }

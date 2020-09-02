@@ -70,6 +70,7 @@ public class TalkCommand extends AutoCommand {
                 }
 
             }
+            game.incTurn();
         }
     }
 

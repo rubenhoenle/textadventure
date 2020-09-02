@@ -83,6 +83,7 @@ public class TalkCommandTest {
         command.execute();
 
         //then
+        verify(game,never()).incTurn();
         verify(r).getName();
         verify(out).println("No character named foo in area bar");
     }
@@ -103,6 +104,7 @@ public class TalkCommandTest {
         command.execute();
 
         //then
+        verify(game).incTurn();
         verify(c).getStartStatement();
         verify(out).println("baz");
     }
@@ -129,6 +131,7 @@ public class TalkCommandTest {
         command.execute();
 
         //then
+        verify(game).incTurn();
         verify(c).getStartStatement();
         verify(out).println("baz");
         verify(q).setTalkedOnce(true);
@@ -157,6 +160,7 @@ public class TalkCommandTest {
         command.execute();
 
         //then
+        verify(game).incTurn();
         verify(c).getStartStatement();
         verify(out).println("baz");
         verify(q).finishQuest(game,true);

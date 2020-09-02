@@ -44,6 +44,7 @@ public class InvestigateCommand extends AutoCommand {
             System.out.println("Questname: " + q.getName());
             System.out.println(q.getTextStart());
             System.out.println("Type: \"accept <questname> from <interactive object>\" to accept the quest.");
+            game.incTurn();
         }
     }
 
