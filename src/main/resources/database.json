@@ -1496,6 +1496,46 @@
           "to": "cave with nothing but three ways",
           "name": "way",
           "description": "There is a way leading south"
+        },
+        {
+        "direction": "north",
+        "from": "magical cave",
+        "to": "cave with nothing but three ways",
+        "name": "Portal",
+        "description": "There is a portal leading north"
+        },
+        {
+          "direction": "north",
+          "from": "magical cave",
+          "to": "beach",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },
+        {
+          "direction": "north",
+          "from": "magical cave",
+          "to": "flower meadow",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },{
+          "direction": "north",
+          "from": "magical cave",
+          "to": "forest path with four directions",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },{
+          "direction": "north",
+          "from": "magical cave",
+          "to": "village square",
+          "name": "Portal",
+          "description": "There is a portal leading north"
+        },
+        {
+          "direction": "north",
+          "from": "magical cave",
+          "to": "Cliff above the ship graveyard",
+          "name": "Portal",
+          "description": "There is a portal leading north"
         }
       ],
       "characters": [],
@@ -1513,7 +1553,14 @@
             "requiredItem": {
               "cloths": [],
               "foods": [],
-              "resources": [],
+              "resources": [
+                {
+                  "strength": 0,
+                  "name": "grass",
+                  "description": "The grass has grown very high so that you cannot see the ground.",
+                  "place": "has grown very high so that you cannot see the ground"
+                }
+              ],
               "tools": [],
               "weapons": []
             }
