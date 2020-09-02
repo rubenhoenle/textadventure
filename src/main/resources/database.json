@@ -8,8 +8,8 @@
       "foods": [],
       "resources": [],
       "tools": [],
-      "weapons":[],
-      "books":[]
+      "weapons": [],
+      "books": []
     },
     "questInventory": [],
     "equipment": [],
@@ -18,24 +18,24 @@
   "rooms": [
     {
       "name": "beach",
-      "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your sunken ship. You need to find a way to get home again!",
-      "friends":[
+      "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your sunken ship. You need to find a way to get home again!\nMaybe you should talk to Carl which seems to have survived too!",
+      "friends": [
         {
-          "name":"Carl",
-          "where":"standing next to the wreck",
-          "health":100000,
-          "strength":100000,
-          "startStatement":"Hey! Looks like you are stranded. If you bring me the right items I can help you repair your boat!",
-          "killStatement":"NOOOOO! THATS IMPOSSIBLE!!!",
-          "killed":false,
-          "quests":[
+          "name": "Carl",
+          "where": "standing next to the wreck",
+          "health": 100000,
+          "strength": 100000,
+          "startStatement": "Hey! Looks like you are stranded like me. If you bring me the right items I can help you repair your boat!",
+          "killStatement": "NOOOOO! THATS IMPOSSIBLE!!!",
+          "killed": false,
+          "quests": [
             {
-              "name":"Repairing the sail",
-              "textStart":"You need to search all over the island for things that could be used as a sail.",
-              "textAccept":"Thanks for accepting my task!",
-              "textMid":"You did not bring me enough parts for the sail yet.",
-              "textEnd":"Thanks for bringing me the parts.",
-              "reward":[
+              "name": "Repairing the sail",
+              "textStart": "You need to search all over the island for things that could be used as a sail.",
+              "textAccept": "Thanks for accepting my task!",
+              "textMid": "You did not bring me enough parts for the sail yet.",
+              "textEnd": "Thanks for bringing me the parts.",
+              "reward": [
                 {
                   "strength": 0,
                   "name": "sail",
@@ -43,10 +43,10 @@
                   "type": "resource"
                 }
               ],
-              "completed":false,
-              "talkedOnce":false,
+              "completed": false,
+              "talkedOnce": false,
               "mainQuest": true,
-              "fulfillmentItems":[
+              "fulfillmentItems": [
                 {
                   "strength": 0,
                   "name": "bedsheet",
@@ -81,19 +81,21 @@
                   "name": "yarn and needle",
                   "description": "a thin thread for sewing and a needle",
                   "type": "resource"
-                }],
-              "accepted":false},
+                }
+              ],
+              "accepted": false
+            },
             {
-              "name":"Repairing the ship",
-              "textStart":"You need to search all over the island for things that could be used to repair the ship.",
-              "textAccept":"Thanks for accepting my task!",
-              "textMid":"You did not bring me enough parts yet.",
-              "textEnd":"Thanks for bringing me the materials.",
-              "reward":[],
-              "completed":false,
-              "talkedOnce":false,
+              "name": "Repairing the ship",
+              "textStart": "You need to search all over the island for things that could be used to repair the ship.",
+              "textAccept": "Thanks for accepting my task!",
+              "textMid": "You did not bring me enough parts yet.",
+              "textEnd": "Thanks for bringing me the materials.",
+              "reward": [],
+              "completed": false,
+              "talkedOnce": false,
               "mainQuest": true,
-              "fulfillmentItems":[
+              "fulfillmentItems": [
                 {
                   "name": "hammer",
                   "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
@@ -143,19 +145,21 @@
                   "name": "sail",
                   "description": "a sewn sail",
                   "type": "resource"
-                }],
-              "accepted":false},
+                }
+              ],
+              "accepted": false
+            },
             {
-              "name":"Bringing equipment",
-              "textStart":"You need to search for equipment all over the island and give it to me. I will bring it to your boat!",
-              "textAccept":"Thanks for accepting my task!",
-              "textMid":"You did not bring me enough equipment yet.",
-              "textEnd":"Thanks for bringing me all equipment needed.",
-              "reward":[],
-              "completed":false,
-              "talkedOnce":false,
+              "name": "Bringing equipment",
+              "textStart": "You need to search for equipment all over the island and give it to me. I will bring it to your boat!",
+              "textAccept": "Thanks for accepting my task!",
+              "textMid": "You did not bring me enough equipment yet.",
+              "textEnd": "Thanks for bringing me all equipment needed.",
+              "reward": [],
+              "completed": false,
+              "talkedOnce": false,
               "mainQuest": true,
-              "fulfillmentItems":[
+              "fulfillmentItems": [
                 {
                   "strength": 0,
                   "name": "compass",
@@ -192,31 +196,36 @@
                   "name": "bag of gunpowder",
                   "description": "A brown bag made out of leather with a lot of gunpowder in it.",
                   "place": "is lying in the volcanic ash on the ground"
-                }],
-              "accepted":false},
+                }
+              ],
+              "accepted": false
+            },
             {
-              "name":"The ancient amulet",
-              "textStart":"Find the ancient amulet on the island. It is worth a fortune! I will not steal it. I just bring it to your ship cabin.",
-              "textAccept":"Thanks for accepting my task!",
-              "textMid":"You did not bring me the amulet yet.",
-              "textEnd":"Thanks for bringing me the amulet.",
-              "reward":[],
-              "completed":false,
-              "talkedOnce":false,
+              "name": "The ancient amulet",
+              "textStart": "Find the ancient amulet on the island. It is worth a fortune! I will not steal it. I just bring it to your ship cabin.",
+              "textAccept": "Thanks for accepting my task!",
+              "textMid": "You did not bring me the amulet yet.",
+              "textEnd": "Thanks for bringing me the amulet.",
+              "reward": [],
+              "completed": false,
+              "talkedOnce": false,
               "mainQuest": true,
-              "fulfillmentItems":[
+              "fulfillmentItems": [
                 {
                   "strength": 0,
                   "name": "amulet of cassborough",
                   "description": "A precious amulet made of gold and valuable gemstones",
                   "place": "lying on a stone altar"
-                }],
-              "accepted":false}
-
-          ]}],
+                }
+              ],
+              "accepted": false
+            }
+          ]
+        }
+      ],
       "interactiveObjects": [
         {
-          "name": "wave",
+          "name": "waves",
           "description": "There are some great waves in the sea ",
           "place": "rolls at the beach",
           "requiredItem": {
@@ -236,7 +245,7 @@
           },
           "removeRequiredItem": false,
           "wayName": "sandy way",
-          "hint": "These waves look like they could be ride."
+          "hint": "These waves look like they could be ride with a surfboard!"
         },
         {
           "name": "message in a bottle",
@@ -279,55 +288,7 @@
             "autoComplete": true,
             "fulfillmentKill": ""
           },
-          "hint": "I GOT A QUEST"
-        },
-        {
-          "name": "message in another bottle",
-          "description": "An old bottle with a message in it",
-          "place": "floating in the water",
-          "requiredItem": {},
-          "removeRequiredItem": false,
-          "wayName": "",
-          "quest": {
-            "name": "Kill John Wick",
-            "textStart": "You need to kill John Wick!",
-            "textAccept": "You accepted the quest!",
-            "textMid": "",
-            "textEnd": "Successful closed the Quest: Kill John Wick!",
-            "reward": [],
-            "completed": false,
-            "talkedOnce": true,
-            "fulfillmentItems": [],
-            "accepted": false,
-            "autoComplete": true,
-            "fulfillmentKill": "John Wick"
-          },
-          "hint": "I GOT A QUEST"
-        }
-      ],
-      "enemies": [
-        {
-          "name": "John Wick",
-          "where": "moving up and down the beach",
-          "health": 1,
-          "strength": 1,
-          "startStatement": "This was a mistake!",
-          "killStatement": "At least not my dog!",
-          "killed": false,
-          "dropItems": {
-            "cloths": [],
-            "foods": [],
-            "resources": [],
-            "tools": [],
-            "weapons": [
-              {
-                "strength": 5,
-                "name": "sword",
-                "description": "a very sharp sword"
-              }
-            ]
-          },
-          "autoAttack": true
+          "hint": "In the bottle is a letter, maybe you should read the letter!"
         }
       ],
       "ways": [
@@ -336,8 +297,7 @@
           "from": "beach",
           "to": "lagoon",
           "name": "small path",
-          "description": "In the west you can see a lagoon with some washed up boxes from your sunken ship.",
-          "hint": "This is a hint to unblock the way"
+          "description": "In the west you can see a lagoon with some washed up boxes from your sunken ship."
         },
         {
           "direction": "east",
@@ -345,7 +305,8 @@
           "to": "cave on the beach",
           "name": "sandy way",
           "state": "BLOCKED",
-          "description": "An entrance to a cave near the sea is on the east side of the beach."
+          "description": "An entrance to a cave near the sea is on the east side of the beach.",
+          "hint": "Maybe you can use something to surf to get to the cave"
         },
         {
           "direction": "north",
@@ -357,13 +318,6 @@
       ],
       "items": {
         "cloths": [
-          {
-            "strength": 0,
-            "name": "backpack",
-            "description": "a backpack where you can store some additional items",
-            "place": "is lying in the sand",
-            "state": "1"
-          },
           {
             "strength": 0,
             "name": "life jacket",
@@ -382,7 +336,13 @@
             "state": "1"
           }
         ],
-        "weapons": []
+        "weapons": [{
+          "strength": 3,
+          "name": "wood stick",
+          "description": "a old wood stick",
+          "place": "floating in the water",
+          "equipment": "WEAPON"
+        }]
       }
     },
     {
@@ -405,33 +365,45 @@
           "description": "A winding tunnel leads deeper into the cave, but it's pretty dark in there."
         }
       ],
+      "enemies": [
+        {
+          "name": "pirate skeleton",
+          "where": "moving up and down the cave",
+          "health":  10,
+          "strength":  3,
+          "startStatement": "I'll kill you and break finally the curse!",
+          "killStatement": "Ugahhhhhh",
+          "killed": false,
+          "dropItems": {
+              "cloths": [],
+              "foods": [{
+                "strength": 1,
+                "name": "rum",
+                "description": "an old dusty bottle of rum",
+                "place": "lies next to the pirate skeleton"
+              }],
+              "tools": [{
+                "strength": 0,
+                "name": "telescope",
+                "description": "a golden telescope",
+                "place": "lies next to the skeleton"
+              }],
+              "weapons": [{
+                "strength": 13,
+                "name": "saber",
+                "description": "a rusty saber of the pirate",
+                "place": "is in the belt buckle of the pirate skeleton",
+                "equipment": "WEAPON"
+              }]
+            },
+          "autoAttack": false
+        }
+      ],
       "items": {
         "cloths": [],
-        "foods": [
-          {
-            "strength": 1,
-            "name": "rum",
-            "description": "an old dusty bottle of rum",
-            "place": "lies next to the pirate skeleton"
-          }
-        ],
-        "tools": [
-          {
-            "strength": 0,
-            "name": "telescope",
-            "description": "a golden telescope",
-            "place": "lies next to the skeleton"
-          }
-        ],
-        "weapons": [
-          {
-            "strength": 13,
-            "name": "saber",
-            "description": "a rusty saber of the pirate",
-            "place": "is in the belt buckle of the pirate skeleton",
-            "equipment": "WEAPON"
-          }
-        ]
+        "foods": [],
+        "tools": [],
+        "weapons": []
       }
     },
     {
@@ -444,6 +416,50 @@
           "to": "beach",
           "name": "small path",
           "description": "A small path leads east from the lagoon."
+        }
+      ],
+      "enemies": [
+        {
+          "name": "komodo dragon",
+          "where": "laying in the sand",
+          "health":  20,
+          "strength":  8,
+          "startStatement": "The komodo dragon hisses you!",
+          "killStatement": "The Komodo dragon lays dead in front of you!",
+          "killed": false,
+          "dropItems": {
+            "cloths": [],
+            "foods": [{
+              "strength": 0,
+              "name": "komodo dragon meat",
+              "description": "a bloody part of meat",
+              "place": "in the open body of the dragon"
+            }],
+            "tools": [],
+            "weapons": []
+          },
+          "autoAttack": false
+        },
+        {
+          "name": "komodo dragon",
+          "where": "walking along the lagoon",
+          "health":  20,
+          "strength":  8,
+          "startStatement": "The komodo dragon hisses you!",
+          "killStatement": "The Komodo dragon lays dead in front of you!",
+          "killed": false,
+          "dropItems": {
+            "cloths": [],
+            "foods": [{
+              "strength": 0,
+              "name": "komodo dragon meat",
+              "description": "a bloody part of meat",
+              "place": "in the open body of the dragon"
+            }],
+            "tools": [],
+            "weapons": []
+          },
+          "autoAttack": false
         }
       ],
       "items": {
@@ -477,6 +493,29 @@
     {
       "name": "hill",
       "description": "You walk through a little forest and end up in front of a little hill. You climb up the hill so you have a better overview and can orientate yourself. \nOn top of the hill you can see almost over the entire island. Maybe you can get even a little higher!",
+      "interactiveObjects": [
+        {
+          "name": "lock",
+          "description": "there is a rusty lock at the door of the hut",
+          "place": "at the door of the rundown hut",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [{
+              "strength": 0,
+              "name": "keychain",
+              "description": "This key looks very old ...",
+              "place": "lies between two wood planks on the ground"
+            }],
+            "weapons": []
+          },
+          "removeRequiredItem": true,
+          "quest": {},
+          "wayName": "hillside",
+          "hint": "Maybe this tree could be used as a bridge"
+        }
+      ],
       "ways": [
         {
           "direction": "south",
@@ -497,7 +536,8 @@
           "from": "hill",
           "to": "rundown hut on the hill",
           "name": "hillside",
-          "description": "In the west a slope leads gently downwards."
+          "state": "BLOCKED",
+          "description": "In the west a slope leads gently downwards to a rundown hut."
         },
         {
           "direction": "west",
@@ -551,8 +591,8 @@
         "tools": [
           {
             "strength": 0,
-            "name": "rusty key",
-            "description": "This key looks very old ...",
+            "name": "keychain",
+            "description": "These keys looks very old ...",
             "place": "lies between two wood planks on the ground"
           }
         ],
@@ -568,20 +608,37 @@
           "from": "rundown hut on the hill",
           "to": "hill",
           "name": "hillside",
+          "state": "BLOCKED",
           "description": "To the east of the hut is a wide slope."
+        }
+      ],
+      "enemies": [
+        {
+          "name": "little goblin",
+          "where": "jumping up and down the hut",
+          "health":  10,
+          "strength":  3,
+          "startStatement": "What?! Who are you?! Get out of my hut!",
+          "killStatement": "Okay now it's your hut!",
+          "killed": false,
+          "dropItems": {
+            "cloths": [],
+            "foods": [],
+            "tools": [{
+              "strength": 0,
+              "name": "nails",
+              "description": "some rusty nails",
+              "place": "lies scattered on the table"
+            }],
+            "weapons": []
+          },
+          "autoAttack": true
         }
       ],
       "items": {
         "cloths": [],
         "foods": [],
-        "tools": [
-          {
-            "strength": 0,
-            "name": "nails",
-            "description": "some rusty nails",
-            "place": "lies scattered on the table"
-          }
-        ],
+        "tools": [],
         "weapons": [
           {
             "strength": 15,
@@ -1011,12 +1068,14 @@
             "description": "a sharp sparkling shard of glass"
           }
         ],
-        "tools": [{
-          "name": "oil lamp",
-          "description": "an old oil lamp, like those used in ancient times",
-          "place": "is hangs on the wall",
-          "state": "0"
-        }],
+        "tools": [
+          {
+            "name": "oil lamp",
+            "description": "an old oil lamp, like those used in ancient times",
+            "place": "is hangs on the wall",
+            "state": "0"
+          }
+        ],
         "weapons": []
       },
       "isDark": true
@@ -1244,8 +1303,8 @@
             "tools": [
               {
                 "strength": 0,
-              "name": "ladder",
-              "description": "A long ladder is standing in the corner."
+                "name": "ladder",
+                "description": "A long ladder is standing in the corner."
               }
             ],
             "weapons": []
@@ -1253,8 +1312,9 @@
           "removeRequiredItem": true,
           "wayName": "sandy way",
           "hint": "This hot lava stream has to be crossed with a ladder!"
-        }],
-        "isDark": true
+        }
+      ],
+      "isDark": true
     },
     {
       "name": "Room under crossroads bat II",
@@ -1289,8 +1349,8 @@
             "tools": [
               {
                 "strength": 0,
-              "name": "ladder",
-              "description": "A long ladder is standing in the corner."
+                "name": "ladder",
+                "description": "A long ladder is standing in the corner."
               }
             ],
             "weapons": []
@@ -1298,8 +1358,9 @@
           "removeRequiredItem": true,
           "wayName": "sandy way",
           "hint": "This hot lava stream has to be crossed with a ladder!"
-        }],
-        "isDark": true
+        }
+      ],
+      "isDark": true
     },
     {
       "name": "Butcher's Room II",
@@ -1339,11 +1400,11 @@
           "killStatement": "What a relief. Finally this miserable existence has come to an end!",
           "killed": "false",
           "dropItems": {
-            "cloths":[],
-            "foods":[],
-            "resources":[
+            "cloths": [],
+            "foods": [],
+            "resources": [
             ],
-            "tools":[
+            "tools": [
               {
                 "strength": 0,
                 "name": "magic necklace",
@@ -1351,8 +1412,8 @@
                 "place": "is lying on the floor"
               }
             ],
-            "books":[],
-            "weapons":[]
+            "books": [],
+            "weapons": []
           }
         }
       ],
@@ -1417,8 +1478,9 @@
           "quest": {},
           "wayName": "hole in the floor",
           "hint": "It looks like this hatch needs a little violence from something like an axe!"
-        }],
-        "isDark": true
+        }
+      ],
+      "isDark": true
     },
     {
       "name": "hidden dungeon",
@@ -1540,15 +1602,15 @@
           "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
           "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
           "comment": "TODO interaction",
-          "quests":[
+          "quests": [
             {
-              "name":"Every beeing deserves freedom",
-              "textStart":"I have felt so heavy for some time now. I feel the vibrations of a trapped living being. \nSlowly, very slowly they are penetrating through the tunnels to me. Down here, in the \ncave system a unicorn is trapped. Please free it and bring it to me. ",
-              "textAccept":"You perform a service to the totality of all living beings.",
-              "textMid":"The unicorn is still trapped. I can feel his condition getting worse.",
-              "textEnd":"You have proven yourself worthy. I give you my enchanted book.",
-              "reward":[
-                 {
+              "name": "Every beeing deserves freedom",
+              "textStart": "I have felt so heavy for some time now. I feel the vibrations of a trapped living being. \nSlowly, very slowly they are penetrating through the tunnels to me. Down here, in the \ncave system a unicorn is trapped. Please free it and bring it to me. ",
+              "textAccept": "You perform a service to the totality of all living beings.",
+              "textMid": "The unicorn is still trapped. I can feel his condition getting worse.",
+              "textEnd": "You have proven yourself worthy. I give you my enchanted book.",
+              "reward": [
+                {
                   "strength": 0,
                   "name": "enchanted book",
                   "description": "an ancient enchanted book, existing since the creation of worlds",
@@ -1556,20 +1618,21 @@
                   "type": "book",
                   "state": "0"
                 }
-               ],
-              "completed":false,
-              "talkedOnce":false,
-              "fulfillmentItems":[
-                 {
+              ],
+              "completed": false,
+              "talkedOnce": false,
+              "fulfillmentItems": [
+                {
                   "strength": 0,
                   "name": "pink fluffy unicorn",
                   "description": "completely starved and grey from captivity",
                   "place": "lying on the floor",
                   "type": "resource"
-                 }
-                ],
-              "accepted":false
-            }]
+                }
+              ],
+              "accepted": false
+            }
+          ]
         }
       ],
       "defaultItemLocation": "hovers above the ground",
@@ -1915,8 +1978,7 @@
             "equipment": "WEAPON"
           }
         ]
-      }
-      ,
+      },
       "isDark": true
     },
     {
@@ -1952,8 +2014,7 @@
         ],
         "tools": [],
         "weapons": []
-      }
-      ,
+      },
       "isDark": true
     },
     {
@@ -1986,19 +2047,19 @@
         {
           "name": "Anuk",
           "where": "sitting on a chair",
-          "health":  200,
-          "strength":  12,
+          "health": 200,
+          "strength": 12,
           "startStatement": "Hello Stranger!",
           "killStatement": "Why did you kill me!?",
           "killed": false,
           "quest": [
             {
-              "name":"The lost shoes",
-              "textStart":"Hello Stranger! I have lost my shoes somewhere in the forest. I will reward you if you bring them back to me!",
-              "textAccept":"Thanks for helping me!",
-              "textMid":"You did not bring me the shoes yet. Look at the forest!",
-              "textEnd":"Thanks for bringing me my shoes!",
-              "reward":[
+              "name": "The lost shoes",
+              "textStart": "Hello Stranger! I have lost my shoes somewhere in the forest. I will reward you if you bring them back to me!",
+              "textAccept": "Thanks for helping me!",
+              "textMid": "You did not bring me the shoes yet. Look at the forest!",
+              "textEnd": "Thanks for bringing me my shoes!",
+              "reward": [
                 {
                   "strength": 0,
                   "name": "some pears",
@@ -2006,9 +2067,9 @@
                   "type": "food"
                 }
               ],
-              "completed":false,
-              "talkedOnce":false,
-              "fulfillmentItems":[
+              "completed": false,
+              "talkedOnce": false,
+              "fulfillmentItems": [
                 {
                   "strength": 0,
                   "name": "pair of shoes",
@@ -2017,8 +2078,9 @@
                   "equipment": "SHOES"
                 }
               ],
-              "accepted":false
-            }]
+              "accepted": false
+            }
+          ]
         }
       ],
       "ways": [
@@ -2467,19 +2529,19 @@
         {
           "name": "Snake",
           "where": "moving between leaves",
-          "health":  50,
-          "strength":  5,
+          "health": 50,
+          "strength": 5,
           "startStatement": "Hiss Hiss Hiss",
           "killStatement": "HISSSSS!",
           "killed": false,
           "dropItems": {
-            "cloths":[],
-            "foods":[],
-            "resources":[
+            "cloths": [],
+            "foods": [],
+            "resources": [
             ],
-            "tools":[],
-            "books":[],
-            "weapons":[
+            "tools": [],
+            "books": [],
+            "weapons": [
               {
                 "strength": 2,
                 "name": "snake teeth",
@@ -2487,7 +2549,7 @@
               }
             ]
           },
-          "autoAttack":false
+          "autoAttack": false
         }
       ],
       "items": {
@@ -2692,28 +2754,26 @@
         {
           "name": "Tiger",
           "where": "standing in the middle of the path",
-          "health":  99,
-          "strength":  10,
+          "health": 99,
+          "strength": 10,
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
-          "dropItems":
-            {
-              "cloths": [],
-              "foods": [],
-              "resources": [
-                {
-                  "strength": 0,
-                  "name": "tiger skin",
-                  "description": "a nice looking tiger skin"
-                }
-              ],
-              "tools": [],
-              "weapons": [
-              ]
-            }
-          ,
-          "autoAttack":true
+          "dropItems": {
+            "cloths": [],
+            "foods": [],
+            "resources": [
+              {
+                "strength": 0,
+                "name": "tiger skin",
+                "description": "a nice looking tiger skin"
+              }
+            ],
+            "tools": [],
+            "weapons": [
+            ]
+          },
+          "autoAttack": true
         }
       ],
       "interactiveObjects": [
@@ -2808,43 +2868,44 @@
         {
           "name": "Old John",
           "where": "sitting on a bank",
-          "health":  70,
-          "strength":  3,
+          "health": 70,
+          "strength": 3,
           "startStatement": "Hello my friend.",
           "killStatement": "Why did you kill an old guy like me!?",
           "killed": false,
-          "quest":[
-          {
-            "name":"Helping an old man",
-            "textStart":"Could you do me a favour and search my walking cane?",
-            "textAccept":"Thanks you for helping me out!",
-            "textMid":"You did not bring me my walking cane yet. It is somewhere in the village.",
-            "textEnd":"Thanks for bringing me my walking cane.",
-            "reward":[
-              {
-                "strength": 0,
-                "name": "freshly polished lamp",
-                "description": "a lamp that shines very bright",
-                "equipmentType": "",
-                "type": "tool",
-                "state": "0"
-              }
-            ],
-            "completed":false,
-            "talkedOnce":false,
-            "fulfillmentItems":[
-              {
-                "strength": 2,
-                "name": "walking cane",
-                "description": "a walking cane which was lost by a man",
-                "place": "leaning to the wall",
-                "equipmentType": "",
-                "state": "0",
-                "type": "weapon"
-              }
-            ],
-            "accepted":false
-          }]
+          "quest": [
+            {
+              "name": "Helping an old man",
+              "textStart": "Could you do me a favour and search my walking cane?",
+              "textAccept": "Thanks you for helping me out!",
+              "textMid": "You did not bring me my walking cane yet. It is somewhere in the village.",
+              "textEnd": "Thanks for bringing me my walking cane.",
+              "reward": [
+                {
+                  "strength": 0,
+                  "name": "freshly polished lamp",
+                  "description": "a lamp that shines very bright",
+                  "equipmentType": "",
+                  "type": "tool",
+                  "state": "0"
+                }
+              ],
+              "completed": false,
+              "talkedOnce": false,
+              "fulfillmentItems": [
+                {
+                  "strength": 2,
+                  "name": "walking cane",
+                  "description": "a walking cane which was lost by a man",
+                  "place": "leaning to the wall",
+                  "equipmentType": "",
+                  "state": "0",
+                  "type": "weapon"
+                }
+              ],
+              "accepted": false
+            }
+          ]
         }
       ],
       "ways": [
@@ -2939,19 +3000,21 @@
             "equipment": "WEAPON"
           }
         ],
-        "books": [{
-          "name": "old diary",
-          "description": "a old diary from another stranded person",
-          "place": "is lying on a old wooden table",
-          "pages": [
-            "Day 1\nThis is my first day at this island. My ship was wrecked by a stone. How should I ever get away from that island!?\nI heard from a cave system. I think i should check it out.",
-            "Day 2\nI found the cave system but it is very dark down there. I could not encourage myself to go in the cave. But I found a village in the distance.\nI hope the native people are friendly. Its late now but I will go there tomorrow.",
-            "Day 3\nToday I went to the village and had a good meal for the first time since I stranded. The native people were very friendly to me.",
-            "Day 4\nThis day was the worst so far! I got bit by a snake!?\nThankfully the native people could help me out. Tomorrow I will take a break from exploring and rest for a while.",
-            "Day 5\nI slept a lot today and took a break as I mentioned yesterday. Not much to tell today.",
-            "Day 6\nToday I feel much better. I also found a lamp which I could use in the cave.\nI think that I will go there tomorrow. I hope there is no danger down there! ..."
-          ]
-        }]
+        "books": [
+          {
+            "name": "old diary",
+            "description": "a old diary from another stranded person",
+            "place": "is lying on a old wooden table",
+            "pages": [
+              "Day 1\nThis is my first day at this island. My ship was wrecked by a stone. How should I ever get away from that island!?\nI heard from a cave system. I think i should check it out.",
+              "Day 2\nI found the cave system but it is very dark down there. I could not encourage myself to go in the cave. But I found a village in the distance.\nI hope the native people are friendly. Its late now but I will go there tomorrow.",
+              "Day 3\nToday I went to the village and had a good meal for the first time since I stranded. The native people were very friendly to me.",
+              "Day 4\nThis day was the worst so far! I got bit by a snake!?\nThankfully the native people could help me out. Tomorrow I will take a break from exploring and rest for a while.",
+              "Day 5\nI slept a lot today and took a break as I mentioned yesterday. Not much to tell today.",
+              "Day 6\nToday I feel much better. I also found a lamp which I could use in the cave.\nI think that I will go there tomorrow. I hope there is no danger down there! ..."
+            ]
+          }
+        ]
       }
     },
     {
@@ -3005,9 +3068,7 @@
         ]
       }
     },
-    
-
-{
+    {
       "name": "ruins entry",
       "description": "It is a delerict building. It was abandoned ages ago.",
       "ways": [
@@ -3036,14 +3097,17 @@
       "items": {
         "cloths": [],
         "foods": [],
-        "resources": [{
+        "resources": [
+          {
             "strength": 0,
             "name": "piece of detonating cord",
             "description": "A piece of fuse cord that can be used to detonate the gunpowder of a cannon.",
             "place": "lies beneath an irreparably damaged cannon"
-          }],
+          }
+        ],
         "tools": [],
-        "weapons": []}
+        "weapons": []
+      }
     },
     {
       "name": "ruins riddle",
@@ -3057,18 +3121,28 @@
           "description": "A path leading back to the building in the west."
         }
       ],
-      "items": {"books":[
-        {"strength":0,
-        "name": "chiseled stone tablet", 
-        "description": "A carefully chiseled stone tablet", 
-        "location":"lies on the ground",
-        "pages" :[ "[ALFONT]the treasure is concealed by stone[ALFONT]"]
-        },{"strength":0,
-        "name": "decorated stone tablet", 
-        "description": "A stone tablet", 
-        "location":"lies on the ground",
-        "pages" :[ "[ALFONT]valuable items are hidden beneath the castle[ALFONT]"]
-        }]}
+      "items": {
+        "books": [
+          {
+            "strength": 0,
+            "name": "chiseled stone tablet",
+            "description": "A carefully chiseled stone tablet",
+            "location": "lies on the ground",
+            "pages": [
+              "[ALFONT]the treasure is concealed by stone[ALFONT]"
+            ]
+          },
+          {
+            "strength": 0,
+            "name": "decorated stone tablet",
+            "description": "A stone tablet",
+            "location": "lies on the ground",
+            "pages": [
+              "[ALFONT]valuable items are hidden beneath the castle[ALFONT]"
+            ]
+          }
+        ]
+      }
     },
     {
       "name": "ruins basement",
@@ -3130,11 +3204,17 @@
             "resources": [],
             "tools": [],
             "weapons": [],
-			"books": [{"pages": ["You concluded that the treasure is hidden beneath the ruin, somehow behind stone. \n\nYou must now find the described place."],
-					"state": "-1",
-					"strength": 0,
-					"name": "treasureknowledge",
-					"description": ""}]
+            "books": [
+              {
+                "pages": [
+                  "You concluded that the treasure is hidden beneath the ruin, somehow behind stone. \n\nYou must now find the described place."
+                ],
+                "state": "-1",
+                "strength": 0,
+                "name": "treasureknowledge",
+                "description": ""
+              }
+            ]
           },
           "removeRequiredItem": false,
           "wayName": "hole",
@@ -3168,38 +3248,46 @@
         "resources": [],
         "tools": [],
         "weapons": [],
-        "books": [{"strength":0,
-        "name": "cracked stone tablet", 
-        "description": "An old stone tablet with multiple cracks", 
-        "location":"lies on the ground",
-        "pages" :[ "[ALFONT]only the wisest persons may find the treasure[ALFONT]"]
-        }]
+        "books": [
+          {
+            "strength": 0,
+            "name": "cracked stone tablet",
+            "description": "An old stone tablet with multiple cracks",
+            "location": "lies on the ground",
+            "pages": [
+              "[ALFONT]only the wisest persons may find the treasure[ALFONT]"
+            ]
+          }
+        ]
       },
-      
-      
-      "interactiveObjects": [{
-	"name": "blocked passage",
-	"description": "There is a passage, but it's blocked by a massive door made of stone",
-	"place": "at the wall",
-	"requiredItem": {
-		"cloths": [],
-		"foods": [],
-		"resources": [],
-		"tools": [],
-		"weapons": [],
-		"books": [{
-			"strength": 0,
-			"name": "translation of cracked stone tablet",
-			"description": "An old stone tablet with multiple cracks",
-			"location": "lies on the ground",
-			"pages": ["only the wisest persons may find the treasure"]
-		}]
-	},
-	"removeRequiredItem": false,
-	"wayName": "passage",
-	"hint": " "
-}]
-      
+      "interactiveObjects": [
+        {
+          "name": "blocked passage",
+          "description": "There is a passage, but it's blocked by a massive door made of stone",
+          "place": "at the wall",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": [
+              {
+                "strength": 0,
+                "name": "translation of cracked stone tablet",
+                "description": "An old stone tablet with multiple cracks",
+                "location": "lies on the ground",
+                "pages": [
+                  "only the wisest persons may find the treasure"
+                ]
+              }
+            ]
+          },
+          "removeRequiredItem": false,
+          "wayName": "passage",
+          "hint": " "
+        }
+      ]
     },
     {
       "name": "ruins treasure",
@@ -3224,24 +3312,24 @@
         ],
         "foods": [],
         "resources": [
-         {
+          {
             "strength": 0,
             "name": "amulet of cassborough",
             "description": "A precious amulet made of gold and valuable gemstones",
             "place": "is lying on a stone altar"
-         },
-         {
+          },
+          {
             "strength": 0,
             "name": "small pile of gemstones",
             "description": "A small amount of rubies, amethysts and a colorful varity of diamonds",
             "place": "is lying on the floor"
-         }
+          }
         ],
         "tools": [],
         "weapons": []
       }
     },
-        {
+    {
       "name": "ruins top",
       "description": "Up from here, you can see far.",
       "ways": [
@@ -3274,9 +3362,6 @@
         }
       ]
     },
-
-
-
     {
       "name": "flower meadow",
       "description": "A large meadow with cute squirrels and chirping birds.",
@@ -3332,36 +3417,36 @@
         {
           "name": "girl",
           "where": "is sitting on the weadow crying",
-		  "health": 1,
-		  "strength": 0,
-		  "startStatement": "",
-		  "killStatement": "",
-		  "killed": false,
-		  "quests": [
-		  	{
-		  	  "name": "find findus",
-			  "textStart": "I can\u0027t find my cat Findus. He run away and I searched him everywhere, but he disappeared.",
-			  "textAccept": "I'm so glad you're helping me find my cat Findus.",
-			  "textMid": "Have you found any sign of my cat yet?",
-			  "textEnd": "Oooh Findus, I missed you so much! Thanks for your help.",
-			  "completed": false,
-			  "reward": [
-				{
-				  "strength": 0,
-            	  "name": "TODO",
-            	  "descripion": "TODO",
-            	  "type": "TODO"
-				}
-			  ],
-			  "fulfillmentItems": [
-				{
-				  "name": "cat"
-				}
-			  ],
-			  "accepted": false,
-			  "talkedOnce": false
-			}
-		  ]
+          "health": 1,
+          "strength": 0,
+          "startStatement": "",
+          "killStatement": "",
+          "killed": false,
+          "quests": [
+            {
+              "name": "find findus",
+              "textStart": "I can\u0027t find my cat Findus. He run away and I searched him everywhere, but he disappeared.",
+              "textAccept": "I'm so glad you're helping me find my cat Findus.",
+              "textMid": "Have you found any sign of my cat yet?",
+              "textEnd": "Oooh Findus, I missed you so much! Thanks for your help.",
+              "completed": false,
+              "reward": [
+                {
+                  "strength": 0,
+                  "name": "TODO",
+                  "descripion": "TODO",
+                  "type": "TODO"
+                }
+              ],
+              "fulfillmentItems": [
+                {
+                  "name": "cat"
+                }
+              ],
+              "accepted": false,
+              "talkedOnce": false
+            }
+          ]
         }
       ]
     },
@@ -3396,23 +3481,27 @@
         ],
         "tools": [],
         "weapons": [],
-        "books":[{
+        "books": [
+          {
             "name": "staple of notes",
             "description": "they contain information about symbols found at the ruins",
             "place": "are lying on a table",
             "pages": [
-            "Day 1\nI have studied the ancient ruins in the north. I noticed symbols. \nI have never seen inscriptions like them before. I wrote some of \nthem in my notes. I am not sure if they even have a meaning or if \nthey are only an elaborate decoration.\n\nDay 2\nI went again to the ruins. I noticed that many symbols are used\nmultiple times, some more often than others. My suspicion that the \nsymbols may have more use than being only decoration.\n\nDay 3\nI examined the symbols again. I noticed that the top line is almost \nalways \" \", \"# #\" or \"###\". I will check if this helps me to understand \nthe symbols.",
-            "Day 5\nI could find eight distinct symbols with \" \" at the top, ten with \"# #\" \nand 20 with \"###\". It must have a meaning, but I don't know, what that \ncould be...\n\nDay 6\nThere are ten diffrent digits. Could it be that symbols with \"# #\" \nrepresent numbers? If this is the case, it could be the case that \" \" \nare vowels and \"###\" consonants, But there are only five vowels, and \nI found more than five symbols starting with \" \"...\n\nDay 7\nI noticed that I could bring the potential number symbols in an order. \nThere is a symbol with 2 filled squares, a symbol with 2 filled squares... \nand so on until a symbol with 11 squares. Ignoreing the two squares \nat the top, we had the numbers from 0 to 9. I'll think that it is \nplausible to assume that these are the digits from 0 to 9:\n\n 0    1    2    3    4    5    6    7    8    9   [ALFONT]0123456789[ALFONT]",
-			"Day 9\nI found an old book written with the strange symbols. It is now safe \nto assume that these symbols contain valuable information. I only must \nlearn how to read all of them.\n\nDay 10\nI noticed now that some symbols are similar to others, one symbol is \neven a simple mirror of an other. Maybe the letters they stand for are \nalso similar. It will be still hard to decipher the messages, without \nknowing more about them.\n\nDay 14\nI started to assign randomly letters to the symbols, but found no useful \nassignment so far. There are over 100 possible assignments of five vowels \nto five symbols, and I don't know which of the possible vowel symbols \ncontain vowels, and which not. For the consonants, it is even worse. \nI must think of a way to narrow down the combinations...\n\nDay 16\nI started to group together similar sounding letters and similar looking \nsymbols. I also started to work on the shortest words. I won't discover \nmany correct mappings at once, but every symbol mapped to a letter makes \nit more easy to decipher the rest of the text.",
-			"Day 18\nI think I found the first correct mappings and am able now to decipher \nmore words easier.\n\nDay 21\nI finished the mappings. I learnt that the language is very similar to \nEnglish but some words are written in a slightly, different way.\n\n A    B    C    D    E    F    G    H    I    J    K    L    M    N    O    P    Q    R    S    T   [ALFONT]abcdefghijklmnopqrst[ALFONT] U    V    W    X    Y    Z        0    1    2    3    4    5    6    7    8    9        .    ,  [ALFONT]uvwxyz 0123456789 .,[ALFONT]\n\nDay 22\nI transcribed multiple texts in the ruins, but found no interesting \ninformation. I will now translate the book and look if there is more \ninteresting information in it."
-			]
-            },
-            {"name": "bible",
+              "Day 1\nI have studied the ancient ruins in the north. I noticed symbols. \nI have never seen inscriptions like them before. I wrote some of \nthem in my notes. I am not sure if they even have a meaning or if \nthey are only an elaborate decoration.\n\nDay 2\nI went again to the ruins. I noticed that many symbols are used\nmultiple times, some more often than others. My suspicion that the \nsymbols may have more use than being only decoration.\n\nDay 3\nI examined the symbols again. I noticed that the top line is almost \nalways \" \", \"# #\" or \"###\". I will check if this helps me to understand \nthe symbols.",
+              "Day 5\nI could find eight distinct symbols with \" \" at the top, ten with \"# #\" \nand 20 with \"###\". It must have a meaning, but I don't know, what that \ncould be...\n\nDay 6\nThere are ten diffrent digits. Could it be that symbols with \"# #\" \nrepresent numbers? If this is the case, it could be the case that \" \" \nare vowels and \"###\" consonants, But there are only five vowels, and \nI found more than five symbols starting with \" \"...\n\nDay 7\nI noticed that I could bring the potential number symbols in an order. \nThere is a symbol with 2 filled squares, a symbol with 2 filled squares... \nand so on until a symbol with 11 squares. Ignoreing the two squares \nat the top, we had the numbers from 0 to 9. I'll think that it is \nplausible to assume that these are the digits from 0 to 9:\n\n 0    1    2    3    4    5    6    7    8    9   [ALFONT]0123456789[ALFONT]",
+              "Day 9\nI found an old book written with the strange symbols. It is now safe \nto assume that these symbols contain valuable information. I only must \nlearn how to read all of them.\n\nDay 10\nI noticed now that some symbols are similar to others, one symbol is \neven a simple mirror of an other. Maybe the letters they stand for are \nalso similar. It will be still hard to decipher the messages, without \nknowing more about them.\n\nDay 14\nI started to assign randomly letters to the symbols, but found no useful \nassignment so far. There are over 100 possible assignments of five vowels \nto five symbols, and I don't know which of the possible vowel symbols \ncontain vowels, and which not. For the consonants, it is even worse. \nI must think of a way to narrow down the combinations...\n\nDay 16\nI started to group together similar sounding letters and similar looking \nsymbols. I also started to work on the shortest words. I won't discover \nmany correct mappings at once, but every symbol mapped to a letter makes \nit more easy to decipher the rest of the text.",
+              "Day 18\nI think I found the first correct mappings and am able now to decipher \nmore words easier.\n\nDay 21\nI finished the mappings. I learnt that the language is very similar to \nEnglish but some words are written in a slightly, different way.\n\n A    B    C    D    E    F    G    H    I    J    K    L    M    N    O    P    Q    R    S    T   [ALFONT]abcdefghijklmnopqrst[ALFONT] U    V    W    X    Y    Z        0    1    2    3    4    5    6    7    8    9        .    ,  [ALFONT]uvwxyz 0123456789 .,[ALFONT]\n\nDay 22\nI transcribed multiple texts in the ruins, but found no interesting \ninformation. I will now translate the book and look if there is more \ninteresting information in it."
+            ]
+          },
+          {
+            "name": "bible",
             "description": "an old, dusty bible written with strange symbols",
             "place": "is lying on a table",
             "pages": [
-            "Text to be implemented"
-            ]}]
+              "Text to be implemented"
+            ]
+          }
+        ]
       },
       "characters": []
     },
@@ -3615,36 +3704,36 @@
         {
           "name": "elder lady",
           "where": "An elder lady is sitting on a bench and enjoys the sun.",
-		  "health": 1,
-		  "strength": 0,
-		  "startStatement": "",
-		  "killStatement": "",
-		  "killed": false,
-		  "quests": [
-		  	{
-		  	  "name": "picking flowers",
-			  "textStart": "What a sunny day. It\u0027s such a warm sommer. I really like the flowers.",
-			  "textAccept": "What a nice gesture of you.",
-			  "textMid": "Take your time. I can wait for the flowers.",
-			  "textEnd": "Thank you so much. I got something usefull for your inventory.",
-			  "completed": false,
-			  "reward": [
-				{
-				  "strength": 0,
-            	  "name": "yarn and needle",
-            	  "description": "a thin thread for sewing and a needle",
-            	  "type": "resource"
-				}
-			  ],
-			  "fulfillmentItems": [
-				{
-				  "name": "flowers"
-				}
-			  ],
-			  "accepted": false,
-			  "talkedOnce": false
-			}
-		  ]
+          "health": 1,
+          "strength": 0,
+          "startStatement": "",
+          "killStatement": "",
+          "killed": false,
+          "quests": [
+            {
+              "name": "picking flowers",
+              "textStart": "What a sunny day. It\u0027s such a warm sommer. I really like the flowers.",
+              "textAccept": "What a nice gesture of you.",
+              "textMid": "Take your time. I can wait for the flowers.",
+              "textEnd": "Thank you so much. I got something usefull for your inventory.",
+              "completed": false,
+              "reward": [
+                {
+                  "strength": 0,
+                  "name": "yarn and needle",
+                  "description": "a thin thread for sewing and a needle",
+                  "type": "resource"
+                }
+              ],
+              "fulfillmentItems": [
+                {
+                  "name": "flowers"
+                }
+              ],
+              "accepted": false,
+              "talkedOnce": false
+            }
+          ]
         }
       ]
     },
