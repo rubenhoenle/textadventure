@@ -136,7 +136,7 @@
                   "description": "A little cannon to protect your ship and your treasures from bad people like pirates.",
                   "type": "ressource",
                   "equipmentType": "",
-                  "state": "",
+                  "itemstate": "",
                   "strength": 0
                 },
                 {
@@ -188,7 +188,7 @@
                   "name": "oil lamp",
                   "description": "and old oil lamp, like those used in ancient times",
                   "place": "is swimming on the river",
-                  "state": "0"
+                  "itemstate": "0"
                 },
                 {
                   "strength": 0,
@@ -267,7 +267,7 @@
                 "place": "is lying in the sand",
                 "equipmentType": "UPPER_BODY",
                 "type": "cloth",
-                "state": "0"
+                "itemstate": "0"
               }
             ],
             "completed": false,
@@ -279,7 +279,7 @@
                 "description": "a life jacket from your sunken ship",
                 "place": "floating in the water",
                 "equipmentType": "UPPER_BODY",
-                "state": "0",
+                "itemstate": "0",
                 "type": "cloth"
               }
             ],
@@ -759,7 +759,7 @@
                   "description": "an old tricorne of a pirate",
                   "equipment": "HEAD",
                   "type": "cloth",
-                  "state": "0"
+                  "itemstate": "0"
                 }
               ],
               "completed": false,
@@ -770,7 +770,7 @@
                   "name": "small treasure box",
                   "description": "a small treasure box that looks like it might contain something priceless",
                   "place": "lying in the captains cabin of a sunken pirate ship",
-                  "state": "0"
+                  "itemstate": "0"
                 }
               ],
               "accepted": false
@@ -1088,7 +1088,7 @@
             "name": "oil lamp",
             "description": "an old oil lamp, like those used in ancient times",
             "place": "is hangs on the wall",
-            "state": "0"
+            "itemstate": "0"
           }
         ],
         "weapons": []
@@ -1689,7 +1689,7 @@
                   "description": "an ancient enchanted book, existing since the creation of worlds",
                   "place": "is hovering above the ground",
                   "type": "book",
-                  "state": "0"
+                  "itemstate": "0"
                 }
               ],
               "completed": false,
@@ -2039,7 +2039,7 @@
             "name": "oil lamp",
             "description": "and old oil lamp, like those used in ancient times",
             "place": "is swimming on the river",
-            "state": "0"
+            "itemstate": "0"
           }
         ],
         "weapons": [
@@ -2177,7 +2177,7 @@
             "description": "a walking cane which was lost by a man",
             "place": "leaning to the wall",
             "equipmentType": "",
-            "state": "0",
+            "itemstate": "0",
             "type": "weapon"
           }
         ]
@@ -2339,7 +2339,7 @@
               "description": "A little cannon to protect your ship and your treasures from bad people like pirates.",
               "type": "ressource",
               "equipmentType": "",
-              "state": "",
+              "itemstate": "",
               "strength": 0,
               "neededMaterials": [
                 {
@@ -2375,7 +2375,7 @@
               "description": "An axe made out of iron.",
               "type": "weapon",
               "equipmentType": "WEAPON",
-              "state": "",
+              "itemstate": "",
               "strength": 9,
               "neededMaterials": [
                 {
@@ -2534,7 +2534,7 @@
               "name": "lightsaber",
               "description": "A lightsaber like master Yoda uses. There is no better weapon than this, I promise!",
               "type": "weapon",
-              "state": "",
+              "itemstate": "",
               "strength": 25,
               "neededMaterials": [
                 {
@@ -2641,7 +2641,7 @@
             "name": "fishing rod",
             "description": "a fishing rod made from the finest wood.",
             "place": "hangs on a tree between branches",
-            "state": "0",
+            "itemstate": "0",
             "type": "tool"
           }
         ],
@@ -2705,7 +2705,7 @@
                 "name": "fishing rod",
                 "description": "a fishing rod made from the finest wood.",
                 "place": "lying in the grass",
-                "state": "0",
+                "itemstate": "0",
                 "type": "tool"
               }
             ],
@@ -2958,7 +2958,7 @@
                   "description": "a lamp that shines very bright",
                   "equipmentType": "",
                   "type": "tool",
-                  "state": "0"
+                  "itemstate": "0"
                 }
               ],
               "completed": false,
@@ -2970,7 +2970,7 @@
                   "description": "a walking cane which was lost by a man",
                   "place": "leaning to the wall",
                   "equipmentType": "",
-                  "state": "0",
+                  "itemstate": "0",
                   "type": "weapon"
                 }
               ],
@@ -3252,7 +3252,13 @@
       "items": {
         "cloths": [],
         "foods": [],
-        "resources": [],
+        "resources": [
+          {
+            "strength": 0,
+            "name": "amulet of cassborough",
+            "description": "A precious amulet made of gold and valuable gemstones",
+            "place": "is lying on a stone altar"
+          }],
         "tools": [],
         "weapons": [
           {
@@ -3280,7 +3286,7 @@
                 "pages": [
                   "You concluded that the treasure is hidden beneath the ruin, somehow behind stone. \n\nYou must now find the described place."
                 ],
-                "state": "-1",
+                "itemstate": "-1",
                 "strength": 0,
                 "name": "treasureknowledge",
                 "description": ""
@@ -3383,12 +3389,6 @@
         ],
         "foods": [],
         "resources": [
-          {
-            "strength": 0,
-            "name": "amulet of cassborough",
-            "description": "A precious amulet made of gold and valuable gemstones",
-            "place": "is lying on a stone altar"
-          },
           {
             "strength": 0,
             "name": "small pile of gemstones",
