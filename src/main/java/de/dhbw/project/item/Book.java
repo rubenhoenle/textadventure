@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-import de.dhbw.project.State;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.regions.ruins.AlienFont;
 import de.dhbw.project.levelEditor.SimpleUserInput;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
@@ -18,8 +18,8 @@ public class Book extends Item {
     @SerializedName("pages")
     private List<String> pages;
 
-    public Book(String name, String description, State state, int strength, List<String> pages) {
-        super(name, description, state, strength);
+    public Book(String name, String description, ItemState itemstate, int strength, List<String> pages) {
+        super(name, description, itemstate, strength);
         this.pages = pages;
     }
 
@@ -107,7 +107,7 @@ public class Book extends Item {
             Decision d = SimpleUserInput.storeDialogue("Book");
             switch (d) {
             case SAVE:
-                return new Book(name, description, State.NOT_USABLE, 0, Arrays.asList(""));
+                return new Book(name, description, ItemState.NOT_USABLE, 0, Arrays.asList(""));
             case AGAIN:
                 break;
             case ABBORT:
@@ -127,7 +127,7 @@ public class Book extends Item {
             Decision d = SimpleUserInput.storeDialogue("book");
             switch (d) {
             case SAVE:
-                return new Book(name, description, book.getState(), book.getStrength(), book.pages);
+                return new Book(name, description, book.getItemstate(), book.getStrength(), book.pages);
             case AGAIN:
                 break;
             case ABBORT:

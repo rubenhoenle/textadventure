@@ -3,9 +3,11 @@ package de.dhbw.project;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.Tool;
 import de.dhbw.project.nls.commands.UseCommand;
 import org.junit.Before;
+
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -119,6 +121,7 @@ public class QuestTest {
         when(game.getCharacter("John Wick")).thenReturn(e);
         when(e.isKilled()).thenReturn(true);
 
+
         //when
         boolean returnValue = q.checkCompleted(game);
 
@@ -132,17 +135,17 @@ public class QuestTest {
         Game game = PowerMockito.spy(new Game());
 
         ArrayList<QuestItem> rewards1 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward1","desc_item1", State.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
         ArrayList<QuestItem> fulfillment1 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill1","desc_item1", State.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
         ArrayList<QuestItem> rewards2 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward2","desc_item1", State.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
         ArrayList<QuestItem> fulfillment2 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill2","desc_item1", State.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
         ArrayList<QuestItem> rewards3 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward3","desc_item1", State.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
         ArrayList<QuestItem> fulfillment3 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill3","desc_item1", State.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
 
         ArrayList<Quest> quests = new ArrayList<>();
         quests.add(new Quest("name1","start","accept","mid","end",false,rewards1,fulfillment1,false,true,false,"ahhh",false));
@@ -151,7 +154,7 @@ public class QuestTest {
         Friend friend = new Friend("friend_name","place",100,100,"start","kill",false,quests);
         ArrayList<Friend> friends = new ArrayList<>();
         friends.add(friend);
-        Room room = new Room("room_name","room_desc",friends);
+        Room room = new Room("room_name","room_desc","", "", null, friends, null, false);
         ArrayList<Room> rooms = new ArrayList<>();
         rooms.add(room);
 

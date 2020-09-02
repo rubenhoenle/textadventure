@@ -1,21 +1,18 @@
 package de.dhbw.project.item;
 
-import java.time.format.SignStyle;
-
 import de.dhbw.project.EquipmentType;
-import de.dhbw.project.State;
 import de.dhbw.project.levelEditor.SimpleUserInput;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 public class Tool extends Item {
 
-    public Tool(String name, String description, State state, int strength) {
-        super(name, description, state, strength);
+    public Tool(String name, String description, ItemState itemstate, int strength) {
+        super(name, description, itemstate, strength);
         // TODO Auto-generated constructor stub
     }
 
-    public Tool(String name, String description, State state, int strength, EquipmentType equipmentType) {
-        super(name, description, state, strength, equipmentType);
+    public Tool(String name, String description, ItemState itemstate, int strength, EquipmentType equipmentType) {
+        super(name, description, itemstate, strength, equipmentType);
     }
 
     public static Tool create() {
@@ -31,7 +28,7 @@ public class Tool extends Item {
             Decision d = SimpleUserInput.storeDialogue("Tool");
             switch (d) {
             case SAVE:
-                return new Tool(name, description, State.NOT_USABLE, strength, typ);
+                return new Tool(name, description, ItemState.NOT_USABLE, strength, typ);
             case AGAIN:
                 break;
             case ABBORT:
@@ -55,7 +52,7 @@ public class Tool extends Item {
             Decision d = SimpleUserInput.storeDialogue("Tool");
             switch (d) {
             case SAVE:
-                return new Tool(name, description, tool.getState(), strength, typ);
+                return new Tool(name, description, tool.getItemstate(), strength, typ);
             case AGAIN:
                 break;
             case ABBORT:

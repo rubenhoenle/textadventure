@@ -4,9 +4,10 @@ import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemState;
+import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
 
-import java.awt.datatransfer.Clipboard;
 import java.util.List;
 import java.util.Scanner;
 import java.awt.Toolkit;
@@ -46,8 +47,34 @@ public class Game {
                     input = "look around";
             }
 
-            commands.execute(input + "\0");
+            if (playerCanSeeSomething(input)) {
+                commands.execute(input + "\0");
+            }
         }
+    }
+
+    private boolean playerCanSeeSomething(String input) {
+        boolean showInventory = (input.toLowerCase().contains("inventory") || input.trim().toLowerCase().equals("i"));
+        boolean switchLamp = (input.toLowerCase().contains("switch"));
+        if ((getCurrentRoom().isDark()) && (player.getLampState() == LampState.OFF) && !switchLamp && !showInventory) {
+            System.out.println(
+                    "It's dark here. You must switch your lamp on again to see something before you can do any action.");
+            return false;
+        }
+
+        else if (getCurrentRoom().isDark() && input.toLowerCase().contains("drop")) {
+            for (String lampname : Constants.LAMP_NAMES) {
+                Item lamp = player.getItem(lampname);
+                if ((lamp != null) && input.toLowerCase().contains(lampname)
+                        && (lamp.getItemstate() == ItemState.ACTIVE)) {
+                    System.out.println(
+                            "I'm sorry but you can't drop this. It's dark in here and without this lamp you couldn't see anything.");
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     // Helper method: Checks if the current room has ways

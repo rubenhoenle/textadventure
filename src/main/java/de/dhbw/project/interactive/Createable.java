@@ -2,7 +2,7 @@ package de.dhbw.project.interactive;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.EquipmentType;
-import de.dhbw.project.State;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.Thing;
 
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ public class Createable extends Thing {
     private String type;
     @SerializedName("equipmentType")
     private EquipmentType equipmentType;
-    @SerializedName("state")
-    private State state;
+    @SerializedName("itemstate")
+    private ItemState itemstate;
     @SerializedName("strength")
     private int strength;
     @SerializedName("neededMaterials")
@@ -53,7 +53,7 @@ public class Createable extends Thing {
         return equipmentType;
     }
 
-    public State getState() {
-        return state;
+    public ItemState getItemstate() {
+        return this.itemstate;
     }
 }

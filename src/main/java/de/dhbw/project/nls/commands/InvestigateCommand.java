@@ -34,7 +34,7 @@ public class InvestigateCommand extends AutoCommand {
 
         InteractiveObject io = game.getCurrentRoom().getRoomInteractiveObjectByName(interactiveObjectName);
 
-        if(io.getHint() != null && io.getHint().length() > 0){
+        if (io.getHint() != null && io.getHint().length() > 0) {
             System.out.println(io.getHint());
         }
 

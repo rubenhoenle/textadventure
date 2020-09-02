@@ -78,7 +78,7 @@
                 "name": "surfboard",
                 "description": "a red surfboard",
                 "place": "is lying in the water",
-                "state": "1"
+                "itemstate": "1"
               }
             ],
             "weapons": []
@@ -211,7 +211,7 @@
             "name": "backpack",
             "description": "a backpack where you can store some additional items",
             "place": "is lying in the sand",
-            "state": "1"
+            "itemstate": "1"
           },
           {
             "strength": 0,
@@ -228,7 +228,7 @@
             "name": "surfboard",
             "description": "a red surfboard",
             "place": "is lying in the water",
-            "state": "1"
+            "itemstate": "1"
           }
         ],
         "weapons": []
@@ -1502,7 +1502,7 @@
               "name": "fried fish",
               "description": "A good looking and very good smelling fried fish.",
               "type": "food",
-              "state": "",
+              "itemstate": "",
               "strength": 0,
               "neededMaterials": [
                 {
@@ -1515,7 +1515,7 @@
               "name": "baked apple",
               "description": "A delicious looking baked apple. Smells like these your mom made on christmas every year.",
               "type": "food",
-              "state": "",
+              "itemstate": "",
               "strength": 0,
               "neededMaterials": [
                 {
@@ -1528,7 +1528,7 @@
               "name": "fried egg",
               "description": "A fried egg, nothing special. But it looks very jummy.",
               "type": "food",
-              "state": "",
+              "itemstate": "",
               "strength": 0,
               "neededMaterials": [
                 {
@@ -1567,7 +1567,8 @@
             "description": "A freshly forged, strong helmet made out of iron.",
             "place": "is lying in the shelf",
             "strength": 5,
-            "equipment": "HEAD"
+            "equipment": "HEAD",
+            "itemstate": ""
           }
         ],
         "foods": [],
@@ -1577,7 +1578,8 @@
             "name": "hammer",
             "description": "A hammer with an heavy iron head and a wooden handle which can be used for forging.",
             "place": "is lying on the anvil",
-            "strength": 3
+            "strength": 3,
+            "itemstate": ""
           }
         ],
         "weapons": []
@@ -1596,7 +1598,7 @@
               "description": "Boots made out of iron to protect your feet.",
               "type": "cloth",
               "equipmentType": "SHOES",
-              "state": "",
+              "itemstate": "",
               "strength": 5,
               "neededMaterials": [
                 {
@@ -1610,7 +1612,7 @@
               "description": "An axe made out of iron.",
               "type": "weapon",
               "equipmentType": "WEAPON",
-              "state": "",
+              "itemstate": "",
               "strength": 5,
               "neededMaterials": [
                 {
@@ -1637,7 +1639,7 @@
               "name": "iron ingot",
               "description": "An iron ingot. Maybe you can create something with it.",
               "type": "resource",
-              "state": "",
+              "itemstate": "",
               "strength": 0,
               "neededMaterials": [
                 {
@@ -1697,6 +1699,7 @@
           "description": "A big cupboard southern standing next to the wall. Could be something special..."
         }
       ],
+      "isDark": "true",
       "items": {
         "cloths": [],
         "foods": [],

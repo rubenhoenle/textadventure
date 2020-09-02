@@ -1,7 +1,7 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
-import de.dhbw.project.State;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.TableList;
 
 public class InventoryCommand extends AutoCommand {
@@ -16,16 +16,16 @@ public class InventoryCommand extends AutoCommand {
     public void execute() {
         TableList table = new TableList(4, "Name", "Description", "Strength", "State").sortBy(0).withUnicode(true);
         for (int i = 0; i < game.player.getInventory().size(); i++) {
-            State state = null;
+            ItemState state = null;
             String stateAsString = "";
             String strength = "";
 
             if (game.player.getInventory().get(i).getStrength() != 0) {
                 strength = String.valueOf(game.player.getInventory().get(i).getStrength());
             }
-            if ((game.player.getInventory().get(i).getState() != null)
-                    && (game.player.getInventory().get(i).getState() != State.NOT_USABLE)) {
-                state = game.player.getInventory().get(i).getState();
+            if ((game.player.getInventory().get(i).getItemstate() != null)
+                    && (game.player.getInventory().get(i).getItemstate() != ItemState.NOT_USABLE)) {
+                state = game.player.getInventory().get(i).getItemstate();
                 switch (state) {
                 case ACTIVE:
                     stateAsString = "active";

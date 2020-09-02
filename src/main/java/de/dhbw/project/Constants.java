@@ -30,4 +30,6 @@ public class Constants {
 
     // Number of letters / white spaces before automatic line break
     public static final int ANCIENTFONT_AUTONL = 20;
+
+    public static final List<String> LAMP_NAMES = new ArrayList<>(Arrays.asList("lamp", "pocket lamp"));
 }

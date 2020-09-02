@@ -5,6 +5,8 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
+import de.dhbw.project.item.ItemState;
+import de.dhbw.project.item.LampState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -218,5 +220,36 @@ public class Player {
 
     public ItemList getItemlist() {
         return inventory;
+    }
+
+    public LampState getLampState() {
+        if (Constants.LAMP_NAMES.isEmpty()) {
+            return LampState.HAS_NO_LAMP;
+        }
+
+        boolean hasActiveLamp = false;
+        boolean hasInactiveLamp = false;
+
+        for (String lampname : Constants.LAMP_NAMES) {
+            Item lamp = this.getItem(lampname);
+
+            if (lamp != null) {
+                if (lamp.getItemstate() == ItemState.ACTIVE) { // lamp is switched on
+                    hasActiveLamp = true;
+                } else {
+                    hasInactiveLamp = true;
+                }
+            }
+        }
+
+        if (hasActiveLamp) {
+            return LampState.ON;
+        }
+
+        if (hasInactiveLamp) {
+            return LampState.OFF;
+        }
+
+        return LampState.HAS_NO_LAMP;
     }
 }
