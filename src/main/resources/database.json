@@ -6,7 +6,8 @@
     "inventory": {
       "cloths": [],
       "foods": [],
-      "resources": [],
+      "resources": [
+      ],
       "tools": [],
       "weapons":[],
       "books":[]
@@ -1544,29 +1545,31 @@
         "foods": [],
         "resources": [],
         "tools": [],
-        "weapons": [],
-        "interactiveObjects": [
-          {
-            "name": "Buddha",
-            "description": "There is a giant statue of buddha standing on the floor",
-            "place": "standing on the floor",
-            "requiredItem": {
-              "cloths": [],
-              "foods": [],
-              "resources": [
-                {
-                  "strength": 0,
-                  "name": "grass",
-                  "description": "The grass has grown very high so that you cannot see the ground.",
-                  "place": "has grown very high so that you cannot see the ground"
-                }
-              ],
-              "tools": [],
-              "weapons": []
-            }
-          }
-        ]
-      },
+        "weapons": []
+          },
+          "interactiveObjects": [
+            {
+              "name": "statue of Buddha",
+              "description": "There is a giant statue of buddha standing on the floor",
+              "place": "standing on the floor",
+              "requiredItem": {
+                "cloths": [],
+                "foods": [],
+                "resources": [
+                  {
+                    "strength": 0,
+                    "name": "grass",
+                    "description": "The grass has grown very high so that you cannot see the ground.",
+                    "place": "has grown very high so that you cannot see the ground"
+                  }
+                ],
+                "tools": [],
+                "weapons": [],
+                "hint": "Bring me some grass and we will see...",
+                "wayName": "Portal",
+                "place": "is sitting on the floor"
+              }
+      }],
       "isDark": true
     },
     {
