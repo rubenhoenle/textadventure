@@ -14,7 +14,7 @@
     },
     "questInventory": [],
     "equipment": [],
-    "roomName": "beach"
+    "roomName": "Room under crossroads bat I"
   },
   "rooms": [
     {
@@ -1288,7 +1288,7 @@
           "to": "Room under crossroads bat II",
           "name": "ladder over lava stream",
           "description": "a ladder leads over the the boiling lava stream",
-          "state": "INVISBILE"
+          "state": "INVISIBLE"
         }
       ],
       "characters": [],
@@ -1311,7 +1311,7 @@
             "weapons": []
           },
           "removeRequiredItem": true,
-          "wayName": "sandy way",
+          "wayName": "ladder over lava stream",
           "hint": "This hot lava stream has to be crossed with a ladder!"
         }
       ],
@@ -1357,7 +1357,7 @@
             "weapons": []
           },
           "removeRequiredItem": true,
-          "wayName": "sandy way",
+          "wayName": "ladder over lava stream",
           "hint": "This hot lava stream has to be crossed with a ladder!"
         }
       ],
@@ -1565,40 +1565,46 @@
         "from": "magical cave",
         "to": "cave with nothing but three ways",
         "name": "Portal",
-        "description": "There is a portal leading north"
+        "description": "There is a portal leading north",
+        "state": "INVISIBLE"
         },
         {
           "direction": "north",
           "from": "magical cave",
           "to": "beach",
           "name": "Portal",
-          "description": "There is a portal leading north"
+          "description": "There is a portal leading north",
+          "state": "INVISIBLE"
         },
         {
           "direction": "north",
           "from": "magical cave",
           "to": "flower meadow",
           "name": "Portal",
-          "description": "There is a portal leading north"
+          "description": "There is a portal leading north",
+          "state": "INVISIBLE"
         },{
           "direction": "north",
           "from": "magical cave",
           "to": "forest path with four directions",
           "name": "Portal",
-          "description": "There is a portal leading north"
+          "description": "There is a portal leading north",
+          "state": "INVISIBLE"
         },{
           "direction": "north",
           "from": "magical cave",
           "to": "village square",
           "name": "Portal",
-          "description": "There is a portal leading north"
+          "description": "There is a portal leading north",
+          "state": "INVISIBLE"
         },
         {
           "direction": "north",
           "from": "magical cave",
           "to": "Cliff above the ship graveyard",
           "name": "Portal",
-          "description": "There is a portal leading north"
+          "description": "There is a portal leading north",
+          "state": "INVISIBLE"
         }
       ],
       "characters": [],
