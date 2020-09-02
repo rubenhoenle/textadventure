@@ -3,12 +3,15 @@ package de.dhbw.project;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
+import de.dhbw.project.character.RoamingEnemy;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.reflect.Whitebox;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +25,7 @@ import static org.mockito.Mockito.mock;
 public class RoomTest {
 
     @Test
-    public void test1_shouldAddItem(){
+    public void test1_shouldAddItem() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
@@ -37,15 +40,14 @@ public class RoomTest {
         r.addItem(re);
         r.addItem(t);
         r.addItem(w);
-        
-        
+
 
         //then
         assertTrue(r.getRoomItemList().size() == 5);
     }
 
     @Test
-    public void test2_shouldRemoveItem(){
+    public void test2_shouldRemoveItem() {
         //before
         Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
@@ -72,7 +74,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test3_shouldRemoveNonExistingItem(){
+    public void test3_shouldRemoveNonExistingItem() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Item i = new Resource("TestItem", "TestItem", ItemState.NOT_USABLE, 99);
@@ -85,7 +87,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test4_shouldListRoomItems(){
+    public void test4_shouldListRoomItems() {
         //before
         Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
@@ -112,7 +114,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test5_shouldGetRoomInteractiveCraftingObjectsNameList(){
+    public void test5_shouldGetRoomInteractiveCraftingObjectsNameList() {
         //before
         List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
@@ -128,7 +130,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test6_shouldGetRoomInteractiveCraftingObjectByName(){
+    public void test6_shouldGetRoomInteractiveCraftingObjectByName() {
         //before
         List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
@@ -143,7 +145,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test7_shouldListRoomCharacter(){
+    public void test7_shouldListRoomCharacter() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Enemy e = new Enemy();
@@ -158,7 +160,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test8_shouldListRoomCharacter(){
+    public void test8_shouldListRoomCharacter() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
 
@@ -170,7 +172,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test9_shouldListRoomCharacter(){
+    public void test9_shouldListRoomCharacter() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
 
@@ -182,7 +184,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test10_shouldListRoomCharacter(){
+    public void test10_shouldListRoomCharacter() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Enemy e = new Enemy();
@@ -198,25 +200,28 @@ public class RoomTest {
     }
 
     @Test
-    public void test11_shouldListRoomCharacter(){
+    public void test11_shouldListRoomCharacter() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Enemy e = new Enemy();
+        RoamingEnemy re = new RoamingEnemy();
         Friend f = new Friend();
         r.setEnemyList(Arrays.asList(e));
         r.setFriendList(Arrays.asList(f));
+        r.addRoamingEnemy(re);
 
         //when
         List<Character> result = r.getCharacterList();
 
         //then
-        assertTrue(result.size() == 2);
+        assertTrue(result.size() == 3);
         assertTrue(result.contains(e));
         assertTrue(result.contains(f));
+        assertTrue(result.contains(re));
     }
 
     @Test
-    public void test12_shouldListRoomCharacter(){
+    public void test12_shouldListRoomCharacter() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Friend f = new Friend();
@@ -231,7 +236,7 @@ public class RoomTest {
     }
 
     @Test
-    public void test13_shouldGetRoomInteractiveObjectsList(){
+    public void test13_shouldGetRoomInteractiveObjectsList() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         InteractiveObject io = mock(InteractiveObject.class);
@@ -246,10 +251,10 @@ public class RoomTest {
     }
 
     @Test
-    public void test14_shouldGetRoomInteractiveObjectsNameList(){
+    public void test14_shouldGetRoomInteractiveObjectsNameList() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        InteractiveObject io = new InteractiveObject("name","description", "place",null, null, true,"wayName", "hint");
+        InteractiveObject io = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint");
         r.setRoomInteractiveObjectsList(Arrays.asList(io));
 
         //when
@@ -261,25 +266,25 @@ public class RoomTest {
     }
 
     @Test
-    public void test15_shouldgetRoomInteractiveObjectByName(){
+    public void test15_shouldgetRoomInteractiveObjectByName() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        InteractiveObject io1 = new InteractiveObject("name","description", "place",null, null, true,"wayName", "hint");
-        InteractiveObject io2 = new InteractiveObject("name2","description2", "place2",null, null, true,"wayName2", "hint2");
-        r.setRoomInteractiveObjectsList(Arrays.asList(io1,io2));
+        InteractiveObject io1 = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint");
+        InteractiveObject io2 = new InteractiveObject("name2", "description2", "place2", null, null, true, "wayName2", "hint2");
+        r.setRoomInteractiveObjectsList(Arrays.asList(io1, io2));
 
         //when
         InteractiveObject result = r.getRoomInteractiveObjectByName("name");
 
         //then
-        assertEquals(result.getName(),"name");
+        assertEquals(result.getName(), "name");
     }
 
     @Test
-    public void test16_shouldAddWay(){
+    public void test16_shouldAddWay() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        Way w= new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
+        Way w = new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
 
         //when
         r.addWay(w);
@@ -291,11 +296,11 @@ public class RoomTest {
     }
 
     @Test
-    public void test17_shouldDeleteWay(){
+    public void test17_shouldDeleteWay() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Way w = new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
-    
+
         //when
         r.deleteWay(w);
 
@@ -304,4 +309,103 @@ public class RoomTest {
         assertEquals(0, r.getRoomWayNameList().size());
     }
 
+    @Test
+    public void test18_addRoamingEnemy() {
+        //before
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        RoamingEnemy re = new RoamingEnemy();
+
+        //when
+        r.addRoamingEnemy(re);
+
+        //Then
+        assertTrue(r.getRoamingEnemyList().contains(re));
+        assertEquals(1, r.getRoamingEnemyList().size());
+    }
+
+    @Test
+    public void test19_removeRoamingEnemy() {
+        //before
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        RoamingEnemy re = new RoamingEnemy();
+        r.addRoamingEnemy(re);
+
+        //when
+        r.removeRoamingEnemy(re);
+
+        //Then
+        assertTrue(r.getRoamingEnemyList().isEmpty());
+    }
+
+    @Test
+    public void test20_getRoamingEnemyList() {
+        //before
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+
+        //when
+        List<RoamingEnemy> res = r.getRoamingEnemyList();
+
+        //Then
+        assertTrue(res.isEmpty());
+    }
+
+    @Test
+    public void test21_getEnemyList() {
+        //before
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+
+        //when
+        List<Enemy> res = r.getEnemyList();
+
+        //Then
+        assertTrue(res.isEmpty());
+    }
+
+    @Test
+    public void test22_getEnemyList() {
+        //before
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Enemy e = new Enemy();
+        r.setEnemyList(Arrays.asList(e));
+
+        //when
+        List<Enemy> res = r.getEnemyList();
+
+        //Then
+        assertTrue(res.contains(e));
+        assertEquals(res.size(), 1);
+    }
+
+    @Test
+    public void test23_getEnemyList() {
+        //before
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        RoamingEnemy e = new RoamingEnemy();
+        r.addRoamingEnemy(e);
+
+        //when
+        List<Enemy> res = r.getEnemyList();
+
+        //Then
+        assertTrue(res.contains(e));
+        assertEquals(res.size(), 1);
+    }
+
+    @Test
+    public void test24_getEnemyList() {
+        //before
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        RoamingEnemy re = new RoamingEnemy();
+        Enemy e = new Enemy();
+        r.addRoamingEnemy(re);
+        r.setEnemyList(Arrays.asList(e));
+
+        //when
+        List<Enemy> res = r.getEnemyList();
+
+        //Then
+        assertTrue(res.contains(e));
+        assertTrue(res.contains(re));
+        assertEquals(res.size(), 2);
+    }
 }
