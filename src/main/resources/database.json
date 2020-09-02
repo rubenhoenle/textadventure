@@ -2661,7 +2661,7 @@
                 "description": "a lamp that shines very bright",
                 "equipmentType": "",
                 "type": "tool",
-                "state": "1"
+                "state": "0"
               }
             ],
             "completed":false,
