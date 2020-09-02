@@ -339,8 +339,8 @@
         ],
         "weapons": [{
           "strength": 3,
-          "name": "wood stick",
-          "description": "a old wood stick",
+          "name": "wood rod",
+          "description": "a old wood rod",
           "place": "floating in the water",
           "equipment": "WEAPON"
         }]
