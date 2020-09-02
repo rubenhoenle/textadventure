@@ -159,7 +159,7 @@ public class TalkCommandTest {
         //then
         verify(c).getStartStatement();
         verify(out).println("baz");
-        verify(q).finishQuest(player,true);
+        verify(q).finishQuest(player,true,game);
     }
 
 }

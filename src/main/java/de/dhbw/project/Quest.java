@@ -30,14 +30,16 @@ public class Quest {
     private boolean talkedOnce;
     @SerializedName("autoComplete")
     private boolean autoComplete = false;
+    @SerializedName("mainQuest")
+    private boolean mainQuest = false;
+    private int counter=0;
 
     public Quest() {
 
     }
 
     public Quest(String name, String textStart, String textAccept, String textMid, String textEnd, boolean completed,
-            List<QuestItem> reward, List<QuestItem> fulfillmentItems, String fulfillmentKill, boolean accepted,
-            boolean talkedOnce, boolean autoComplete) {
+            List<QuestItem> reward, List<QuestItem> fulfillmentItems, boolean accepted, boolean talkedOnce, boolean mainQuest, String fulfillmentKill, boolean autoComplete ) {
         this.name = name;
         this.textStart = textStart;
         this.textAccept = textAccept;
@@ -46,9 +48,10 @@ public class Quest {
         this.completed = completed;
         this.reward = reward;
         this.fulfillmentItems = fulfillmentItems;
-        this.fulfillmentKill = fulfillmentKill;
         this.accepted = accepted;
         this.talkedOnce = talkedOnce;
+        this.mainQuest = mainQuest;
+        this.fulfillmentKill = fulfillmentKill;
         this.autoComplete = autoComplete;
     }
 
@@ -170,8 +173,14 @@ public class Quest {
          */
         // return true;
     }
+    public boolean isMainQuest() {
+        return mainQuest;
+    }
 
-    public void finishQuest(Player player, boolean removeItems) {
+    public void setMainQuest(boolean mainQuest) {
+        this.mainQuest = mainQuest;
+    }
+    public void finishQuest(Player player, boolean removeItems, Game game) {
         setCompleted(true);
         player.getQuestInventory().remove(this);
         if (removeItems) {
@@ -195,6 +204,16 @@ public class Quest {
             }
             // Tabelle ausgeben
             tabelle.print();
+
+            //Checks if all main quests are completed -> game end
+            if(this.isCompleted() && this.isMainQuest()){
+                counter++;
+                if(game.getMainQuestNumber() == counter){
+                    game.setGameEnd(true);
+                    return;
+                }
+            }
         }
     }
+
 }

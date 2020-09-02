@@ -19,6 +19,50 @@
     {
       "name": "beach",
       "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your sunken ship. You need to find a way to get home again!",
+      "friends":[
+        {
+          "name":"John Wick",
+          "where":"sitting in the sand",
+          "health":99,
+          "strength":10,
+          "startStatement":"Hey Stranger!",
+          "killStatement":"NOOOOO! THATS IMPOSSIBLE!!!",
+          "killed":false,
+          "quests":[
+            {
+              "name":"The life of a jacket",
+              "textStart":"You need to search for a life jacket!",
+              "textAccept":"Thanks for accepting my quest!",
+              "textMid":"You did not bring me the life jacket yet!",
+              "textEnd":"Thanks for bringing me the life jacket!",
+              "reward":[
+                {
+                  "strength": 0,
+                  "name": "backpack",
+                  "description": "a backpack where you can store some additional items",
+                  "place": "is lying in the sand",
+                  "equipmentType": "UPPER_BODY",
+                  "type": "cloth",
+                  "state": "0"
+                }
+              ],
+              "mainQuest": true,
+              "completed":false,
+              "talkedOnce":false,
+              "fulfillmentItems":[
+                {
+                  "strength": 0,
+                  "name": "life jacket",
+                  "description": "a life jacket from your sunken ship",
+                  "place": "floating in the water",
+                  "equipmentType": "UPPER_BODY",
+                  "state": "0",
+                  "type": "cloth"
+                }
+              ],
+              "accepted":false}
+          ]}],
+
       "interactiveObjects": [
         {
           "name": "wave",

@@ -24,8 +24,14 @@ public class ShowQuestCommand extends AutoCommand {
                 if (game.player.getQuestInventory().get(i).getFulfillmentItems().get(a).getName() != null) {
                     // Zeile hinzufügen
                     if (a == 0) {
-                        tabelle.addRow(game.player.getQuestInventory().get(i).getName(),
-                                game.player.getQuestInventory().get(i).getFulfillmentItems().get(a).getName());
+                        if(game.player.getQuestInventory().get(i).isMainQuest()){
+                            tabelle.addRow("Main Quest - " + game.player.getQuestInventory().get(i).getName(),
+                                    game.player.getQuestInventory().get(i).getFulfillmentItems().get(a).getName());
+                        }
+                        else{
+                            tabelle.addRow(game.player.getQuestInventory().get(i).getName(),
+                                    game.player.getQuestInventory().get(i).getFulfillmentItems().get(a).getName());
+                        }
                     } else if (a != 0) {
                         tabelle.addRow("",
                                 game.player.getQuestInventory().get(i).getFulfillmentItems().get(a).getName());

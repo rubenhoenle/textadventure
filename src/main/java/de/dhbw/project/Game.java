@@ -17,6 +17,8 @@ public class Game {
     @SerializedName("rooms")
     private List<Room> rooms;
     public transient Commands commands;
+    private boolean gameEnd = false;
+    private int counter = 0;
 
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
@@ -32,7 +34,7 @@ public class Game {
         System.out.println(getCurrentRoom().getDescription());
 
         // While-loop for listening to the input commands after each action
-        while (true) {
+        while (!gameEnd) {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
 
@@ -138,6 +140,10 @@ public class Game {
         rooms.add(room);
     }
 
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     public boolean deleteRoom(Room room) {
         if (rooms.contains(room)) {
             rooms.remove(room);
@@ -147,4 +153,47 @@ public class Game {
         }
     }
 
+    public boolean isGameEnd() {
+        return gameEnd;
+    }
+
+    public void setGameEnd(boolean gameEnd) {
+
+        EndScreen.print();
+        System.out.println("Congratulations!!! You successfully finished the game!");
+        System.out.println("You managed to repair your ship and find the treasure full of gold!");
+        System.out.println("As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
+
+        this.gameEnd = gameEnd;
+    }
+
+    public int getMainQuestNumber(){
+        if(getRooms() != null){
+            for(int i=0; i<getRooms().size(); i++){
+                if(getRooms().get(i).getRoomInteractiveObjectsList() != null){
+                    for(int a=0; a<getRooms().get(i).getRoomInteractiveObjectsList().size(); a++){
+                        if(getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest() != null){
+                            if(getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest().isMainQuest()){
+                                counter++;
+                            }
+                        }
+                    }
+                }
+                if(getRooms().get(i).getFriendList() != null){
+                    for(int b=0; b<getRooms().get(i).getFriendList().size(); b++){
+                        if(getRooms().get(i).getFriendList().get(b).getQuests() != null){
+                            for(int c=0; c<getRooms().get(i).getFriendList().get(b).getQuests().size(); c++) {
+                                if(getRooms().get(i).getFriendList().get(b).getQuests() != null) {
+                                    if (getRooms().get(i).getFriendList().get(b).getQuests().get(c).isMainQuest()) {
+                                        counter++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return counter;
+    }
 }

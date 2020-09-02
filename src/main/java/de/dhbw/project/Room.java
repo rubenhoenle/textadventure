@@ -51,6 +51,12 @@ public class Room extends Thing {
         this.roomInteractiveCraftingObjectsList = craftingObjects;
     }
 
+    public Room(String name, String description, List<Friend> friendList) {
+        super(name, description);
+        this.enabled = enabled;
+        this.friendList = friendList;
+    }
+
     // Method simplifies the default output for a room object
     @Override
     public String toString() {
