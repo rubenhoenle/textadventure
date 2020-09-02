@@ -965,7 +965,8 @@
           "description": "A hole in the ceiling is going up."
         }
       ],
-      "characters": []
+      "characters": [],
+      "isDark": true
     },
     {
       "name": "Hidden cave",
@@ -1017,7 +1018,8 @@
           "state": "0"
         }],
         "weapons": []
-      }
+      },
+      "isDark": true
     },
     {
       "name": "Living room of a torturer",
@@ -1051,7 +1053,8 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "isDark": true
     },
     {
       "name": "Secret Grotto",
@@ -1114,7 +1117,8 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "isDark": false
     },
     {
       "name": "Cave with the mortal remains of the first men",
@@ -1148,7 +1152,8 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "isDark": true
     },
     {
       "name": "Crossroads bat",
@@ -1203,7 +1208,8 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "isDark": true
     },
     {
       "name": "Room under crossroads bat I",
@@ -1247,7 +1253,8 @@
           "removeRequiredItem": true,
           "wayName": "sandy way",
           "hint": "This hot lava stream has to be crossed with a ladder!"
-        }]
+        }],
+        "isDark": true
     },
     {
       "name": "Room under crossroads bat II",
@@ -1291,7 +1298,8 @@
           "removeRequiredItem": true,
           "wayName": "sandy way",
           "hint": "This hot lava stream has to be crossed with a ladder!"
-        }]
+        }],
+        "isDark": true
     },
     {
       "name": "Butcher's Room II",
@@ -1347,7 +1355,8 @@
             "weapons":[]
           }
         }
-      ]
+      ],
+      "isDark": true
     },
     {
       "name": "Butcher's Room I",
@@ -1408,7 +1417,8 @@
           "quest": {},
           "wayName": "hole in the floor",
           "hint": "It looks like this hatch needs a little violence from something like an axe!"
-        }]
+        }],
+        "isDark": true
     },
     {
       "name": "hidden dungeon",
@@ -1437,7 +1447,8 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "isDark": true
     },
     {
       "name": "cave with nothing but three ways",
@@ -1472,7 +1483,8 @@
           "description": "There is a narrow dirty corridor leading south"
         }
       ],
-      "characters": []
+      "characters": [],
+      "isDark": true
     },
     {
       "name": "magical cave",
@@ -1507,7 +1519,8 @@
             }
           }
         ]
-      }
+      },
+      "isDark": true
     },
     {
       "name": "holy grotto",
@@ -1559,7 +1572,8 @@
             }]
         }
       ],
-      "defaultItemLocation": "hovers above the ground"
+      "defaultItemLocation": "hovers above the ground",
+      "isDark": true
     },
     {
       "name": "mineral cave",
@@ -1725,7 +1739,8 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "isDark": true
     },
     {
       "name": "Crossroads ape",
@@ -1759,7 +1774,8 @@
           "conditionalItem": "magic necklace"
         }
       ],
-      "characters": []
+      "characters": [],
+      "isDark": true
     },
     {
       "name": "archaeological chamber",
@@ -1780,7 +1796,8 @@
           "description": "A large brick passageway leads west."
         }
       ],
-      "characters": []
+      "characters": [],
+      "isDark": true
     },
     {
       "name": "Pillaged armory",
@@ -1809,7 +1826,8 @@
         "resources": [],
         "tools": [],
         "weapons": []
-      }
+      },
+      "isDark": true
     },
     {
       "name": "Earthworm tunnel",
@@ -1830,7 +1848,8 @@
           "description": "A little earthworm tunnel leads back to daylight."
         }
       ],
-      "characters": []
+      "characters": [],
+      "isDark": true
     },
     {
       "name": "Cave with underground river",
@@ -1897,6 +1916,8 @@
           }
         ]
       }
+      ,
+      "isDark": true
     },
     {
       "name": "Locker room",
@@ -1932,6 +1953,8 @@
         "tools": [],
         "weapons": []
       }
+      ,
+      "isDark": true
     },
     {
       "name": "Killer Sauna",
@@ -1952,7 +1975,8 @@
           "description": "In the north you see a locked door."
         }
       ],
-      "characters": []
+      "characters": [],
+      "isDark": true
     },
     {
       "name": "house in the village",
