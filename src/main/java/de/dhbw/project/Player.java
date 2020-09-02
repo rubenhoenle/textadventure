@@ -8,6 +8,7 @@ import de.dhbw.project.item.ItemList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Player {
     @SerializedName("name")
@@ -15,7 +16,9 @@ public class Player {
     @SerializedName("points")
     private int points = 0;
     @SerializedName("strength")
-    private int strength = 20;
+    private int strength = 5;
+    @SerializedName("health")
+    private int health = 20;
     @SerializedName("inventory")
     private ItemList inventory = new ItemList();
     @SerializedName("questInventory")
@@ -48,6 +51,18 @@ public class Player {
 
     public void setStrength(int strength) {
         this.strength = strength;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void addHealth(int health) {
+        this.health += health;
     }
 
     public List<Item> getInventory() {
@@ -89,11 +104,6 @@ public class Player {
         return inventory.getItem(itemName);
     }
 
-    public boolean winsFight(Character c) {
-        // TODO find better algorithm to fight -> player health, equipped weapons, ...
-        return getStrength() >= c.getStrength();
-    }
-
     public void isAttacked(Game g) {
         Room r = g.getCurrentRoom();
         if (r.getEnemyList() != null) {
@@ -109,9 +119,23 @@ public class Player {
 
     public void fight(Character c, Room r) {
         if (!c.isKilled()) {
+            List<Item> weaponList = equipment.stream().filter(i -> i.getEquipmentType() == EquipmentType.WEAPON)
+                    .collect(Collectors.toList());
+            if (weaponList.size() == 0) {
+                System.out.println("It'll be a hard fight without any weapon!");
+            }
+
             System.out.println("You fight with " + c.getName() + "!");
             System.out.println(c.getName() + ": " + c.getStartStatement());
-            if (winsFight(c)) {
+
+            int enemyHealth = calculateFightAgainst(c);
+
+            if (health <= 0) {
+                System.out.println("You lose the fight against " + c.getName() + "! You faint!");
+                System.out.println("----------");
+                System.out.println("Last save game will be loaded! \n");
+                Zork.loadGame(Constants.SAVED_GAME);
+            } else if (enemyHealth <= 0) {
                 System.out.println(c.getName() + ": " + c.getKillStatement());
                 System.out.println("You win the fight against " + c.getName() + "!");
                 if (c instanceof Enemy) {
@@ -122,12 +146,27 @@ public class Player {
                 }
                 c.setKilled(true);
             } else {
-                System.out.println("You lose the fight against " + c.getName() + "! You faint!");
-                System.out.println("----------");
-                System.out.println("Last save game will be loaded! \n");
-                Zork.loadGame(Constants.SAVED_GAME);
+                System.out.println("Your opponent is bruised, but you also got a few scratches.");
             }
         }
+    }
+
+    // calculates how many "health points" each opponent loses
+    private int calculateFightAgainst(Character enemy) {
+        int weaponStrength = 0;
+
+        int damage = enemy.getStrength();
+        for (Item item : equipment) {
+            if (item.getEquipmentType() == EquipmentType.WEAPON)
+                weaponStrength = item.getStrength();
+            else
+                damage -= item.getStrength();
+        }
+        addHealth((-1) * (damage < 0 ? 0 : damage));
+
+        int enemyHealth = enemy.getHealth() - (strength + weaponStrength);
+        enemy.setHealth(enemyHealth);
+        return enemyHealth;
     }
 
     // counts how often the player has a specific item in his inventory (returns -1 when item is not found)
