@@ -22,8 +22,7 @@ public class Game {
     public void play(Player player) {
         this.player = player;
 
-        if(player.getName() == null)
-        {
+        if (player.getName() == null) {
             player.enterPlayerName();
         }
 

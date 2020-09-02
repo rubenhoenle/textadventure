@@ -2981,7 +2981,9 @@
         ]
       }
     },
-    {
+    
+
+{
       "name": "ruins entry",
       "description": "It is a delerict building. It was abandoned ages ago.",
       "ways": [
@@ -3029,49 +3031,20 @@
           "to": "ruins entry",
           "name": "path",
           "description": "A path leading back to the building in the west."
-        },
-        {
-          "direction": "north",
-          "from": "ruins riddle",
-          "to": "ruins treasure",
-          "enable": "ruins riddle completed",
-          "name": "path",
-          "description": "In the north you can recognize a path from the deciphered inscription."
-        }
-      ]
-    },
-    {
-      "name": "ruins treasure",
-      "description": "The place indicated by the deciphered inscription.",
-      "ways": [
-        {
-          "direction": "south",
-          "from": "ruins treasure",
-          "to": "ruins riddle",
-          "name": "path",
-          "description": "The path in the south is leading back to the scattered debris."
         }
       ],
-      "items": {
-        "cloths": [
-          {
-            "strength": 7,
-            "name": "decorated iron chestplate",
-            "description": "The chestplate is decorated with valuable gems.",
-            "equipment": "UPPER_BODY"
-          }
-        ],
-        "foods": [],
-        "resources": [
-          {
-            "strength": 0,
-            "name": "stack of torches",
-            "description": "A couple of torches."
-          }
-        ],
-        "tools": [],
-        "weapons": []
-      }
+      "items": {"books":[
+        {"strength":0,
+        "name": "chiseled stone tablet", 
+        "description": "A carefully chiseled stone tablet", 
+        "location":"lies on the ground",
+        "pages" :[ "[ALFONT]the treasure is concealed by stone[ALFONT]"]
+        },{"strength":0,
+        "name": "decorated stone tablet", 
+        "description": "A stone tablet", 
+        "location":"lies on the ground",
+        "pages" :[ "[ALFONT]valuable items are hidden beneath the castle[ALFONT]"]
+        }]}
     },
     {
       "name": "ruins basement",
@@ -3082,7 +3055,7 @@
           "from": "ruins basement",
           "to": "ruins outside",
           "name": "archway",
-          "description": "Ther northern archway is leading outside."
+          "description": "The northern archway is leading outside."
         },
         {
           "direction": "east",
@@ -3097,6 +3070,14 @@
           "to": "ruins top",
           "name": "bricks",
           "description": "Multiple bricks protrude from the wall, enabling a bold climb to the top of the ruin."
+        },
+        {
+          "direction": "down",
+          "from": "ruins basement",
+          "to": "ruins cellar",
+          "name": "hole",
+          "state": "INVISIBLE",
+          "description": "A hole in the floor is leading into the cellar of the ruin."
         }
       ],
       "items": {
@@ -3113,9 +3094,130 @@
             "equipment": "WEAPON"
           }
         ]
-      }
+      },
+      "interactiveObjects": [
+        {
+          "name": "few cracked stone plates",
+          "description": "The ground is covered with old, cracked stone plates",
+          "place": "are on the floor",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+			"books": [{"pages": ["You concluded that the treasure is hidden beneath the ruin, somehow behind stone. \n\nYou must now find the described place."],
+					"state": "-1",
+					"strength": 0,
+					"name": "treasureknowledge",
+					"description": ""}]
+          },
+          "removeRequiredItem": false,
+          "wayName": "hole",
+          "hint": " "
+        }
+      ]
     },
     {
+      "name": "ruins cellar",
+      "description": "A room with no openings, except for the hole in the ceiling. You see some paragraphs of the foreign script. Below each, there is a button.",
+      "ways": [
+        {
+          "direction": "up",
+          "from": "ruins cellar",
+          "to": "ruins basement",
+          "name": "hole",
+          "description": "A hole in the ceiling is leading upwards."
+        },
+        {
+          "direction": "north",
+          "from": "ruins basement",
+          "to": "ruins treasure",
+          "name": "passage",
+          "state": "INVISIBLE",
+          "description": "A passage in the north leads to the treasure chamber."
+        }
+      ],
+      "items": {
+        "cloths": [],
+        "foods": [],
+        "resources": [],
+        "tools": [],
+        "weapons": [],
+        "books": [{"strength":0,
+        "name": "cracked stone tablet", 
+        "description": "An old stone tablet with multiple cracks", 
+        "location":"lies on the ground",
+        "pages" :[ "[ALFONT]only the wisest persons may find the treasure[ALFONT]"]
+        }]
+      },
+      
+      
+      "interactiveObjects": [{
+	"name": "blocked passage",
+	"description": "There is a passage, but it's blocked by a massive door made of stone",
+	"place": "at the wall",
+	"requiredItem": {
+		"cloths": [],
+		"foods": [],
+		"resources": [],
+		"tools": [],
+		"weapons": [],
+		"books": [{
+			"strength": 0,
+			"name": "translation of cracked stone tablet",
+			"description": "An old stone tablet with multiple cracks",
+			"location": "lies on the ground",
+			"pages": ["only the wisest persons may find the treasure"]
+		}]
+	},
+	"removeRequiredItem": false,
+	"wayName": "passage",
+	"hint": " "
+}]
+      
+    },
+    {
+      "name": "ruins treasure",
+      "description": "A room full of gold and precious artefacts.",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "ruins treasure",
+          "to": "ruins cellar",
+          "name": "passage",
+          "description": "A passage in the south is leading back."
+        }
+      ],
+      "items": {
+        "cloths": [
+          {
+            "strength": 7,
+            "name": "decorated iron chestplate",
+            "description": "The chestplate is decorated with valuable gems.",
+            "equipment": "UPPER_BODY"
+          }
+        ],
+        "foods": [],
+        "resources": [
+         {
+            "strength": 0,
+            "name": "amulet of cassborough",
+            "description": "A precious amulet made of gold and valuable gemstones",
+            "place": "is lying on a stone altar"
+         },
+         {
+            "strength": 0,
+            "name": "small pile of gemstones",
+            "description": "A small amount of rubies, amethysts and a colorful varity of diamonds",
+            "place": "is lying on the floor"
+         }
+        ],
+        "tools": [],
+        "weapons": []
+      }
+    },
+        {
       "name": "ruins top",
       "description": "Up from here, you can see far.",
       "ways": [
@@ -3148,6 +3250,9 @@
         }
       ]
     },
+
+
+
     {
       "name": "flower meadow",
       "description": "A large meadow with cute squirrels and chirping birds.",
