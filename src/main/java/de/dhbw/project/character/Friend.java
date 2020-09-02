@@ -3,6 +3,7 @@ package de.dhbw.project.character;
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.Quest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Friend extends Character {
@@ -21,10 +22,16 @@ public class Friend extends Character {
     }
 
     public List<Quest> getQuests() {
+        if (null == quests){
+            quests = new ArrayList<>();
+        }
         return quests;
     }
 
     public void setQuests(List<Quest> quest) {
+        if (null == quests){
+            quests = new ArrayList<>();
+        }
         this.quests = quest;
     }
 }
