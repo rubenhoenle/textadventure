@@ -1567,7 +1567,8 @@
                 "weapons": [],
                 "hint": "Bring me some grass and we will see...",
                 "wayName": "Portal",
-                "place": "is sitting on the floor"
+                "place": "is sitting on the floor",
+                "removeRequiredItem": true
               }
       }],
       "isDark": true
