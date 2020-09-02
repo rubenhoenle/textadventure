@@ -6,8 +6,7 @@
     "inventory": {
       "cloths": [],
       "foods": [],
-      "resources": [
-      ],
+      "resources": [],
       "tools": [],
       "weapons": [],
       "books": []
@@ -337,13 +336,15 @@
             "state": "1"
           }
         ],
-        "weapons": [{
-          "strength": 3,
-          "name": "wood rod",
-          "description": "a old wood rod",
-          "place": "floating in the water",
-          "equipment": "WEAPON"
-        }]
+        "weapons": [
+          {
+            "strength": 3,
+            "name": "wood rod",
+            "description": "a old wood rod",
+            "place": "floating in the water",
+            "equipment": "WEAPON"
+          }
+        ]
       }
     },
     {
@@ -370,33 +371,39 @@
         {
           "name": "pirate skeleton",
           "where": "moving up and down the cave",
-          "health":  10,
-          "strength":  3,
+          "health": 10,
+          "strength": 3,
           "startStatement": "I'll kill you and break finally the curse!",
           "killStatement": "Ugahhhhhh",
           "killed": false,
           "dropItems": {
-              "cloths": [],
-              "foods": [{
+            "cloths": [],
+            "foods": [
+              {
                 "strength": 1,
                 "name": "rum",
                 "description": "an old dusty bottle of rum",
                 "place": "lies next to the pirate skeleton"
-              }],
-              "tools": [{
+              }
+            ],
+            "tools": [
+              {
                 "strength": 0,
                 "name": "telescope",
                 "description": "a golden telescope",
                 "place": "lies next to the skeleton"
-              }],
-              "weapons": [{
+              }
+            ],
+            "weapons": [
+              {
                 "strength": 13,
                 "name": "saber",
                 "description": "a rusty saber of the pirate",
                 "place": "is in the belt buckle of the pirate skeleton",
                 "equipment": "WEAPON"
-              }]
-            },
+              }
+            ]
+          },
           "autoAttack": false
         }
       ],
@@ -423,19 +430,21 @@
         {
           "name": "komodo dragon",
           "where": "laying in the sand",
-          "health":  20,
-          "strength":  8,
+          "health": 20,
+          "strength": 8,
           "startStatement": "The komodo dragon hisses you!",
           "killStatement": "The Komodo dragon lays dead in front of you!",
           "killed": false,
           "dropItems": {
             "cloths": [],
-            "foods": [{
-              "strength": 0,
-              "name": "komodo dragon meat",
-              "description": "a bloody part of meat",
-              "place": "in the open body of the dragon"
-            }],
+            "foods": [
+              {
+                "strength": 0,
+                "name": "komodo dragon meat",
+                "description": "a bloody part of meat",
+                "place": "in the open body of the dragon"
+              }
+            ],
             "tools": [],
             "weapons": []
           },
@@ -444,19 +453,21 @@
         {
           "name": "komodo dragon",
           "where": "walking along the lagoon",
-          "health":  20,
-          "strength":  8,
+          "health": 20,
+          "strength": 8,
           "startStatement": "The komodo dragon hisses you!",
           "killStatement": "The Komodo dragon lays dead in front of you!",
           "killed": false,
           "dropItems": {
             "cloths": [],
-            "foods": [{
-              "strength": 0,
-              "name": "komodo dragon meat",
-              "description": "a bloody part of meat",
-              "place": "in the open body of the dragon"
-            }],
+            "foods": [
+              {
+                "strength": 0,
+                "name": "komodo dragon meat",
+                "description": "a bloody part of meat",
+                "place": "in the open body of the dragon"
+              }
+            ],
             "tools": [],
             "weapons": []
           },
@@ -503,12 +514,14 @@
             "cloths": [],
             "foods": [],
             "resources": [],
-            "tools": [{
-              "strength": 0,
-              "name": "keychain",
-              "description": "This key looks very old ...",
-              "place": "lies between two wood planks on the ground"
-            }],
+            "tools": [
+              {
+                "strength": 0,
+                "name": "keychain",
+                "description": "This key looks very old ...",
+                "place": "lies between two wood planks on the ground"
+              }
+            ],
             "weapons": []
           },
           "removeRequiredItem": true,
@@ -617,20 +630,22 @@
         {
           "name": "little goblin",
           "where": "jumping up and down the hut",
-          "health":  10,
-          "strength":  3,
+          "health": 10,
+          "strength": 3,
           "startStatement": "What?! Who are you?! Get out of my hut!",
           "killStatement": "Okay now it's your hut!",
           "killed": false,
           "dropItems": {
             "cloths": [],
             "foods": [],
-            "tools": [{
-              "strength": 0,
-              "name": "nails",
-              "description": "some rusty nails",
-              "place": "lies scattered on the table"
-            }],
+            "tools": [
+              {
+                "strength": 0,
+                "name": "nails",
+                "description": "some rusty nails",
+                "place": "lies scattered on the table"
+              }
+            ],
             "weapons": []
           },
           "autoAttack": true
@@ -1403,8 +1418,7 @@
           "dropItems": {
             "cloths": [],
             "foods": [],
-            "resources": [
-            ],
+            "resources": [],
             "tools": [
               {
                 "strength": 0,
@@ -1561,12 +1575,12 @@
           "description": "There is a way leading south"
         },
         {
-        "direction": "north",
-        "from": "magical cave",
-        "to": "cave with nothing but three ways",
-        "name": "Portal",
-        "description": "There is a portal leading north",
-        "state": "INVISIBLE"
+          "direction": "north",
+          "from": "magical cave",
+          "to": "cave with nothing but three ways",
+          "name": "Portal",
+          "description": "There is a portal leading north",
+          "state": "INVISIBLE"
         },
         {
           "direction": "north",
@@ -1583,14 +1597,16 @@
           "name": "Portal",
           "description": "There is a portal leading north",
           "state": "INVISIBLE"
-        },{
+        },
+        {
           "direction": "north",
           "from": "magical cave",
           "to": "forest path with four directions",
           "name": "Portal",
           "description": "There is a portal leading north",
           "state": "INVISIBLE"
-        },{
+        },
+        {
           "direction": "north",
           "from": "magical cave",
           "to": "village square",
@@ -1614,31 +1630,32 @@
         "resources": [],
         "tools": [],
         "weapons": []
-          },
-          "interactiveObjects": [
-            {
-              "name": "statue of Buddha",
-              "description": "There is a giant statue of buddha standing on the floor",
-              "place": "standing on the floor",
-              "requiredItem": {
-                "cloths": [],
-                "foods": [],
-                "resources": [
-                  {
-                    "strength": 0,
-                    "name": "grass",
-                    "description": "The grass has grown very high so that you cannot see the ground.",
-                    "place": "has grown very high so that you cannot see the ground"
-                  }
-                ],
-                "tools": [],
-                "weapons": [],
-                "hint": "Bring me some grass and we will see...",
-                "wayName": "Portal",
-                "place": "is sitting on the floor",
-                "removeRequiredItem": true
+      },
+      "interactiveObjects": [
+        {
+          "name": "statue of Buddha",
+          "description": "There is a giant statue of buddha standing on the floor",
+          "place": "standing on the floor",
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [
+              {
+                "strength": 0,
+                "name": "grass",
+                "description": "The grass has grown very high so that you cannot see the ground.",
+                "place": "has grown very high so that you cannot see the ground"
               }
-      }],
+            ],
+            "tools": [],
+            "weapons": [],
+            "hint": "Bring me some grass and we will see...",
+            "wayName": "Portal",
+            "place": "is sitting on the floor",
+            "removeRequiredItem": true
+          }
+        }
+      ],
       "isDark": true
     },
     {
@@ -2594,8 +2611,7 @@
           "dropItems": {
             "cloths": [],
             "foods": [],
-            "resources": [
-            ],
+            "resources": [],
             "tools": [],
             "books": [],
             "weapons": [
@@ -2827,8 +2843,7 @@
               }
             ],
             "tools": [],
-            "weapons": [
-            ]
+            "weapons": []
           },
           "autoAttack": true
         }
@@ -3554,8 +3569,9 @@
             "name": "bible",
             "description": "an old, dusty bible written with strange symbols",
             "place": "is lying on a table",
-            "pages": ["[ALFONT]Genesis 1, 1-19[ALFONT]\n[ALFONT]1 In the beginning God created the heavens and the earth.[ALFONT]\n[ALFONT]2 Now the earth was formless and empty. Darkness was on the surface of the deep. God's Spirit was hovering over the surface of the waters.[ALFONT]",
-            		  "[ALFONT]3 God said, \"Let there be light,\" and there was light.[ALFONT][ALFONT]4 God saw the light, and saw that it was good. God divided the light from the darkness.[ALFONT][ALFONT]5 God called the light \"day,\" and the darkness he called \"night.\" There was evening and there was morning, one day.[ALFONT]"
+            "pages": [
+              "[ALFONT]Genesis 1, 1-19[ALFONT]\n[ALFONT]1 In the beginning God created the heavens and the earth.[ALFONT]\n[ALFONT]2 Now the earth was formless and empty. Darkness was on the surface of the deep. God's Spirit was hovering over the surface of the waters.[ALFONT]",
+              "[ALFONT]3 God said, \"Let there be light,\" and there was light.[ALFONT][ALFONT]4 God saw the light, and saw that it was good. God divided the light from the darkness.[ALFONT][ALFONT]5 God called the light \"day,\" and the darkness he called \"night.\" There was evening and there was morning, one day.[ALFONT]"
             ]
           }
         ]
