@@ -29,7 +29,7 @@ public class Player {
     @SerializedName("roomName")
     private String roomName;
     @SerializedName("equipment")
-    private List<Item> equipment = new ArrayList<>();
+    private ItemList equipment = new ItemList();
 
     public void enterPlayerName() {
         Scanner tastatureingabe = new Scanner(System.in);
@@ -96,7 +96,7 @@ public class Player {
     }
 
     public List<Item> getEquipment() {
-        return equipment;
+        return equipment.getAllItemList();
     }
 
     public List<Quest> getQuestInventory() {
@@ -137,7 +137,7 @@ public class Player {
 
     public void fight(Character c, Room r) {
         if (!c.isKilled()) {
-            List<Item> weaponList = equipment.stream().filter(i -> i.getEquipmentType() == EquipmentType.WEAPON)
+            List<Item> weaponList = equipment.getAllItemList().stream().filter(i -> i.getEquipmentType() == EquipmentType.WEAPON)
                     .collect(Collectors.toList());
             if (weaponList.size() == 0) {
                 System.out.println("It'll be a hard fight without any weapon!");
@@ -174,7 +174,7 @@ public class Player {
         int weaponStrength = 0;
 
         int damage = enemy.getStrength();
-        for (Item item : equipment) {
+        for (Item item : equipment.getAllItemList()) {
             if (item.getEquipmentType() == EquipmentType.WEAPON)
                 weaponStrength = item.getStrength();
             else
@@ -194,7 +194,7 @@ public class Player {
 
     // getItem Method: returns an item, if an item with itemName was found, else returns null
     public Item getItemFromEquipment(String itemName) {
-        for (Item i : equipment) {
+        for (Item i : equipment.getAllItemList()) {
             if (i.getName().equals(itemName)) {
                 return i;
             }
@@ -205,17 +205,17 @@ public class Player {
     public boolean addEquipment(Item newItem) {
         if (newItem.getEquipmentType() == null)
             return false;
-        for (Item item : equipment) {
+        for (Item item : equipment.getAllItemList()) {
             if (item.getEquipmentType() == newItem.getEquipmentType())
                 return false;
         }
-        equipment.add(newItem);
+        equipment.addItem(newItem);
         return true;
     }
 
     public List<Item> removeEquipment(Item item) {
-        equipment.remove(item);
-        return equipment;
+        equipment.removeItem(item);
+        return equipment.getAllItemList();
     }
 
     public ItemList getItemlist() {
