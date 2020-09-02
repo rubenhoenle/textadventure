@@ -3255,7 +3255,13 @@
       "items": {
         "cloths": [],
         "foods": [],
-        "resources": [],
+        "resources": [
+          {
+            "strength": 0,
+            "name": "amulet of cassborough",
+            "description": "A precious amulet made of gold and valuable gemstones",
+            "place": "is lying on a stone altar"
+          }],
         "tools": [],
         "weapons": [
           {
@@ -3386,12 +3392,6 @@
         ],
         "foods": [],
         "resources": [
-          {
-            "strength": 0,
-            "name": "amulet of cassborough",
-            "description": "A precious amulet made of gold and valuable gemstones",
-            "place": "is lying on a stone altar"
-          },
           {
             "strength": 0,
             "name": "small pile of gemstones",
