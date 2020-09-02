@@ -2,6 +2,7 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.Player;
+import de.dhbw.project.Quest;
 import de.dhbw.project.Room;
 import de.dhbw.project.character.Character;
 import org.junit.Before;
@@ -102,5 +103,31 @@ public class AttackCommandTest {
         //then
         verify(r).getName();
         verify(out).println("No character named foo in area bar");
+    }
+
+    @Test
+    public void test5_shouldAttackAndFinishQuest() throws Exception {
+        //before
+        Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
+        Character c = mock(Character.class);
+        Room r = mock(Room.class);
+        Quest q = mock(Quest.class);
+        List<Quest> ql = Arrays.asList(q);
+
+        when(game.getCurrentRoom()).thenReturn(r);
+        when(game.getCurrentRoom().getCharacterNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCharacterFromCurrentRoom("foo")).thenReturn(c);
+        when(c.isKilled()).thenReturn(true);
+        when(player.getQuestInventory()).thenReturn(ql);
+        when(q.isAutoComplete()).thenReturn(true);
+        when(c.getName()).thenReturn("questKill");
+        when(q.getFulfillmentKill()).thenReturn("questKill");
+
+        //when
+        command.execute();
+
+        //then
+        verify(game.player).fight(c, r);
+        verify(q).finishQuest(player,false);
     }
 }

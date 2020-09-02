@@ -35,12 +35,14 @@ public class QuestTest {
         QuestItem reward = mock(QuestItem.class);
         List<QuestItem> questReward = Arrays.asList(reward);
         QuestItem fulfillmentItems = mock(QuestItem.class);
+        String fulfillmentKill="killMe";
         List<QuestItem> requiredItems = Arrays.asList(fulfillmentItems);
+        boolean autoComplete = false;
 
 
         //when
         //Quest q = new Quest(questName,questTextStart,questCompleted,questReward);
-        Quest q = new Quest(name,textStart,textAccept,textMid,textEnd,completed,questReward,requiredItems,accepted,talkedOnce);
+        Quest q = new Quest(name,textStart,textAccept,textMid,textEnd,completed,questReward,requiredItems,fulfillmentKill,accepted,talkedOnce,autoComplete);
 
         //then
         assertEquals(q.getName(),name);
@@ -54,10 +56,9 @@ public class QuestTest {
         assertEquals(q.getReward(),questReward);
         assertTrue(q.getReward().size() == 1);
         assertEquals(q.getFulfillmentItems(),requiredItems);
+        assertEquals(q.getFulfillmentKill(),fulfillmentKill);
         assertTrue(q.getFulfillmentItems().size() == 1);
-
-
-
+        assertEquals(q.isAutoComplete(),autoComplete);
     }
 
     @Test
@@ -74,11 +75,10 @@ public class QuestTest {
         QuestItem reward = mock(QuestItem.class);
         ArrayList<QuestItem> questReward = new ArrayList<>();
         questReward.add(reward);
-        //Arrays.asList(reward);
         Item fulfillmentItems = mock(Item.class);
         ArrayList<QuestItem> requiredItems = new ArrayList<>();
-        //requiredItems.add(fulfillmentItems); // muss glaub auskommentiert werden -> ziemlich sicher
-        //Arrays.asList(fulfillmentItems);
+        String fulfillmentKill = "killMe";
+        boolean autoComplete = false;
 
         Player player = new Player();
         QuestItem itemFulfill1 = new QuestItem("item1","desc_item1", State.ACTIVE, 1, EquipmentType.SHOES, "cloth");
@@ -93,7 +93,7 @@ public class QuestTest {
 
         //when
         //Quest q = new Quest(questName,questTextStart,questCompleted,questReward);
-        Quest q = new Quest(name,textStart,textAccept,textMid,textEnd,completed,questReward,requiredItems,accepted,talkedOnce);
+        Quest q = new Quest(name,textStart,textAccept,textMid,textEnd,completed,questReward,requiredItems,fulfillmentKill,accepted,talkedOnce,autoComplete);
         if(q.checkCompleted(player)){
             q.setCompleted(true);
         }
@@ -111,8 +111,7 @@ public class QuestTest {
         assertTrue(q.getReward().size() == 1);
         assertEquals(q.getFulfillmentItems(),requiredItems);
         assertTrue(q.getFulfillmentItems().size() == player.getInventory().size());
-
-
-
+        assertEquals(q.getFulfillmentKill(),fulfillmentKill);
+        assertEquals(q.isAutoComplete(),autoComplete);
     }
 }

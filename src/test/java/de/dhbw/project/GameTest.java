@@ -1,6 +1,7 @@
 package de.dhbw.project;
 
 import de.dhbw.project.character.Character;
+import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.Resource;
 import de.dhbw.project.nls.DataStorage;
@@ -20,8 +21,7 @@ import org.powermock.reflect.Whitebox;
 import java.io.PrintStream;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -182,5 +182,22 @@ public class GameTest {
 
         //then
         assertNull(r);
+    }
+
+    @Test
+    public void test8_shouldGetInteractiveObjectFromCurrentRoom() throws Exception {
+        //before
+        Room currentRoom = mock(Room.class);
+        InteractiveObject io = mock(InteractiveObject.class);
+        PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
+        PowerMockito.when(currentRoom.getRoomInteractiveObjectsList()).thenReturn(Arrays.asList(io));
+        PowerMockito.when(io.getName()).thenReturn("interactiveObject");
+
+        //when
+        InteractiveObject rio = game.getInteractiveObjectFromCurrentRoom("interactiveObject");
+
+        //then
+        assertNotNull(rio);
+        assertEquals(rio,io);
     }
 }

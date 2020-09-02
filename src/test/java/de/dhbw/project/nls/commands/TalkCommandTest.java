@@ -2,8 +2,10 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.Player;
+import de.dhbw.project.Quest;
 import de.dhbw.project.Room;
 import de.dhbw.project.character.Character;
+import de.dhbw.project.character.Friend;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -104,4 +106,60 @@ public class TalkCommandTest {
         verify(c).getStartStatement();
         verify(out).println("baz");
     }
+
+    @Test
+    public void test5_shouldTalkOfferQuest() throws Exception {
+        //before
+        Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
+        Friend c = mock(Friend.class);
+        Room r = mock(Room.class);
+        Quest q = mock(Quest.class);
+
+        when(game.getCurrentRoom()).thenReturn(r);
+        when(game.getCurrentRoom().getCharacterNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCharacterFromCurrentRoom("foo")).thenReturn(c);
+        when(c.getStartStatement()).thenReturn("baz");
+        when(c.getQuests()).thenReturn(Arrays.asList(q));
+        when(q.isAccepted()).thenReturn(false);
+        when(q.isCompleted()).thenReturn(false);
+        when(q.getName()).thenReturn("QName");
+        when(q.getTextStart()).thenReturn("QTextStart");
+
+        //when
+        command.execute();
+
+        //then
+        verify(c).getStartStatement();
+        verify(out).println("baz");
+        verify(q).setTalkedOnce(true);
+        verify(out).println("I got a task for you:");
+        verify(out).println("Type: \"accept <questname> from <character>\" to accept the quest.");
+    }
+
+    @Test
+    public void test6_shouldTalkFinishQuest() throws Exception {
+        //before
+        Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
+        Friend c = mock(Friend.class);
+        Room r = mock(Room.class);
+        Quest q = mock(Quest.class);
+
+        when(game.getCurrentRoom()).thenReturn(r);
+        when(game.getCurrentRoom().getCharacterNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCharacterFromCurrentRoom("foo")).thenReturn(c);
+        when(c.getStartStatement()).thenReturn("baz");
+        when(c.getQuests()).thenReturn(Arrays.asList(q));
+        when(q.isAccepted()).thenReturn(true);
+        when(q.isCompleted()).thenReturn(true);
+        when(q.checkCompleted(player)).thenReturn(true);
+
+        //when
+        command.execute();
+
+        //then
+        verify(c).getStartStatement();
+        verify(out).println("baz");
+        verify(q).finishQuest(player,true);
+    }
+
 }

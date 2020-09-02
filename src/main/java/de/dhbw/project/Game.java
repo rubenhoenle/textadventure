@@ -2,6 +2,7 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.character.Character;
+import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.nls.Commands;
 
@@ -77,6 +78,15 @@ public class Game {
         for (Character c : getCurrentRoom().getCharacterList()) {
             if (c.getName().equals(characterName)) {
                 return c;
+            }
+        }
+        return null;
+    }
+
+    public InteractiveObject getInteractiveObjectFromCurrentRoom(String interactiveObjectName) {
+        for (InteractiveObject io : getCurrentRoom().getRoomInteractiveObjectsList()) {
+            if (io.getName().equals(interactiveObjectName)) {
+                return io;
             }
         }
         return null;
