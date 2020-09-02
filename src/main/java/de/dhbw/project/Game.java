@@ -8,6 +8,8 @@ import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
 
+import java.awt.datatransfer.Clipboard;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.awt.Toolkit;
@@ -83,11 +85,19 @@ public class Game {
     }
 
     // Helper method: Returns the way in the given direction if available (otherwise the way is null)
+    // If there are several ways in the same direction, there is one randomly chosen
     public Way getWayForDirection(String direction) {
+        List<Way> wayList = new ArrayList<>();
         for (Way way : getCurrentRoom().getRoomWayList()) {
             if (way.getDirection().equals(direction)) {
-                return way;
+                wayList.add(way);
             }
+        }
+        if (1 == wayList.size()) {
+            return wayList.get(0);
+        } else if (1 < wayList.size()) {
+            float randomFloat = (float) (Math.random() * wayList.size());
+            return wayList.get((int) randomFloat);
         }
         return null;
     }
