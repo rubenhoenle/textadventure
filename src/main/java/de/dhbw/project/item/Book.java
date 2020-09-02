@@ -33,11 +33,17 @@ public class Book extends Item {
                 System.out.println("This page is empty.");
             } else {
                 String decorationline = "";
+                //System.out.println("kurz vor Rahmenberechnung");
                 for (int i = 0; i < AlienFont.getWidthOfMixedOutput(pages.get(page - 1)); i++) {
                     decorationline = decorationline + "-";
                 }
+                //  System.out.println("nach Rahmenberechnung");
                 System.out.println(decorationline);
-                AlienFont.mixedDisplay(pages.get(page - 1));
+                if (this.getName().equals("bible")) {
+                    AlienFont.mixedDisplay(pages.get(page - 1), true);
+                } else {
+                    AlienFont.mixedDisplay(pages.get(page - 1));
+                }
                 System.out.println(decorationline);
             }
         } else {

@@ -9,7 +9,7 @@ import java.util.Map;
 public class AlienFont {
 
     static String switchstring = "[ALFONT]";
-    static Map<String, String> alienltrs = new HashMap<String, String>(148, 0.75f);
+    static Map<String, String> alienltrs = new HashMap<String, String>(180, 0.75f);
     static {
 
         alienltrs.put("a-1", "   ");
@@ -147,10 +147,20 @@ public class AlienFont {
         alienltrs.put(",-3", "#  ");
         alienltrs.put(",-4", "#  ");
 
+        alienltrs.put(";-1", "   ");
+        alienltrs.put(";-2", "#  ");
+        alienltrs.put(";-3", "#  ");
+        alienltrs.put(";-4", "#  ");
+
         alienltrs.put(".-1", "#  ");
         alienltrs.put(".-2", "#  ");
         alienltrs.put(".-3", "#  ");
         alienltrs.put(".-4", "#  ");
+
+        alienltrs.put("'-1", "## ");
+        alienltrs.put("'-2", "   ");
+        alienltrs.put("'-3", "   ");
+        alienltrs.put("'-4", "   ");
 
         alienltrs.put("--1", "   ");
         alienltrs.put("--2", "   ");
@@ -243,6 +253,9 @@ public class AlienFont {
                     line4 = line4.concat(alienltrs.get(printstring.charAt(i) + "-4") + "  ");
                     i++;
                 }
+
+                else
+                    i++;
             }
             System.out.println();
             if (displaychars) {
@@ -294,6 +307,7 @@ public class AlienFont {
     }
 
     public static int getWidthOfMixedOutput(String input) {
+        // System.out.println("entering mixedcalc");
         // TODO Auto-generated method stub
         // (Integer.min(pages[page-1].length(),50))
         int result = 0;
@@ -302,6 +316,7 @@ public class AlienFont {
         boolean writingnormal = true;
         String tempstring = "";
         while (i < input.length()) {
+            // System.out.println("rechnen " + i);
             if (input.startsWith(AlienFont.switchstring, i)) {
                 i += AlienFont.switchstring.length();
                 if (tempstring.equals("") == false) {
@@ -333,19 +348,22 @@ public class AlienFont {
                 result = Integer.max(result, AlienFont.getWidthOfAlienOutput(tempstring));
             }
         }
-
+        //System.out.println("exiting mixedcalc");
         return result;
     }
 
     private static int getWidthOfAlienOutput(String input) {
+        // System.out.println("entering alien calc");
         int result = 0;
-
+        // System.out.println("calcing " + input);
         String printstring = input.toLowerCase(Locale.ROOT);
         int i = 0;
         while (i < printstring.length()) {
+            // System.out.println("outer loop i=" + i);
             String line1 = "";
 
             for (int j = 0; j < Constants.ANCIENTFONT_AUTONL && i < printstring.length(); j++) {
+                // System.out.println("inner loop i=" + i + "; j=" + j);
                 if (printstring.charAt(i) == '\n') {
                     i++;
                     break;
@@ -357,11 +375,13 @@ public class AlienFont {
                 else if (alienltrs.containsKey(printstring.charAt(i) + "-1")) {
                     line1 = line1.concat(alienltrs.get(printstring.charAt(i) + "-1") + "  ");
                     i++;
-                }
+                } else
+                    i++;
             }
             result = Integer.max(result, line1.length());
         }
 
+        // System.out.println("entering alien calc");
         return Integer.max(0, result - 2);
     }
 

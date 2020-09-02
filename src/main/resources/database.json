@@ -3410,8 +3410,8 @@
             {"name": "bible",
             "description": "an old, dusty bible written with strange symbols",
             "place": "is lying on a table",
-            "pages": [
-            "Text to be implemented"
+            "pages": ["[ALFONT]Genesis 1, 1-19[ALFONT]\n[ALFONT]1 In the beginning God created the heavens and the earth.[ALFONT]\n[ALFONT]2 Now the earth was formless and empty. Darkness was on the surface of the deep. God's Spirit was hovering over the surface of the waters.[ALFONT]",
+            		  "[ALFONT]3 God said, \"Let there be light,\" and there was light.[ALFONT][ALFONT]4 God saw the light, and saw that it was good. God divided the light from the darkness.[ALFONT][ALFONT]5 God called the light \"day,\" and the darkness he called \"night.\" There was evening and there was morning, one day.[ALFONT]"
             ]}]
       },
       "characters": []
