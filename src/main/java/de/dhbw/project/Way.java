@@ -30,7 +30,8 @@ public class Way extends Thing {
     }
 
     // Constructor for a way - calls the super constructor of the parent (thing) and adds the way-specific variables
-    public Way(String name, String description, String direction, String from, String to, WayState state, String hint, String condition) {
+    public Way(String name, String description, String direction, String from, String to, WayState state, String hint,
+            String condition) {
         super(name, description);
         this.direction = direction;
         this.from = from;

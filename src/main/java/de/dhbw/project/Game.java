@@ -24,8 +24,7 @@ public class Game {
     public void play(Player player) {
         this.player = player;
 
-        if(player.getName() == null)
-        {
+        if (player.getName() == null) {
             player.enterPlayerName();
         }
 
@@ -80,6 +79,17 @@ public class Game {
         for (Character c : getCurrentRoom().getCharacterList()) {
             if (c.getName().equals(characterName)) {
                 return c;
+            }
+        }
+        return null;
+    }
+
+    public Character getCharacter(String characterName) {
+        for (Room r : getRooms()) {
+            for (Character c : r.getCharacterList()) {
+                if (c.getName().equals(characterName)) {
+                    return c;
+                }
             }
         }
         return null;
@@ -162,28 +172,29 @@ public class Game {
         EndScreen.print();
         System.out.println("Congratulations!!! You successfully finished the game!");
         System.out.println("You managed to repair your ship and find the treasure full of gold!");
-        System.out.println("As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
+        System.out.println(
+                "As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
 
         this.gameEnd = gameEnd;
     }
 
-    public int getMainQuestNumber(){
-        if(getRooms() != null){
-            for(int i=0; i<getRooms().size(); i++){
-                if(getRooms().get(i).getRoomInteractiveObjectsList() != null){
-                    for(int a=0; a<getRooms().get(i).getRoomInteractiveObjectsList().size(); a++){
-                        if(getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest() != null){
-                            if(getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest().isMainQuest()){
+    public int getMainQuestNumber() {
+        if (getRooms() != null) {
+            for (int i = 0; i < getRooms().size(); i++) {
+                if (getRooms().get(i).getRoomInteractiveObjectsList() != null) {
+                    for (int a = 0; a < getRooms().get(i).getRoomInteractiveObjectsList().size(); a++) {
+                        if (getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest() != null) {
+                            if (getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest().isMainQuest()) {
                                 counter++;
                             }
                         }
                     }
                 }
-                if(getRooms().get(i).getFriendList() != null){
-                    for(int b=0; b<getRooms().get(i).getFriendList().size(); b++){
-                        if(getRooms().get(i).getFriendList().get(b).getQuests() != null){
-                            for(int c=0; c<getRooms().get(i).getFriendList().get(b).getQuests().size(); c++) {
-                                if(getRooms().get(i).getFriendList().get(b).getQuests() != null) {
+                if (getRooms().get(i).getFriendList() != null) {
+                    for (int b = 0; b < getRooms().get(i).getFriendList().size(); b++) {
+                        if (getRooms().get(i).getFriendList().get(b).getQuests() != null) {
+                            for (int c = 0; c < getRooms().get(i).getFriendList().get(b).getQuests().size(); c++) {
+                                if (getRooms().get(i).getFriendList().get(b).getQuests() != null) {
                                     if (getRooms().get(i).getFriendList().get(b).getQuests().get(c).isMainQuest()) {
                                         counter++;
                                     }

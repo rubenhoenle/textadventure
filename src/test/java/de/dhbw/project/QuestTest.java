@@ -1,16 +1,22 @@
 package de.dhbw.project;
 
+import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.Tool;
+import de.dhbw.project.nls.commands.UseCommand;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
+import org.mockito.Mock;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+import org.powermock.reflect.Whitebox;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,11 +24,30 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Quest.class)
 public class QuestTest {
+
+    @Mock
+    Game game;
+
+    Quest q = PowerMockito.spy(new Quest());
+
+    @Mock
+    Player player;
+
+    @Mock
+    PrintStream out;
+
+    @Before
+    public void prepareTest() {
+        System.setOut(out);
+        game.player = player;
+    }
+
     @Test
     public void test1_shouldCreateQuest() throws Exception {
         //before
@@ -45,7 +70,8 @@ public class QuestTest {
 
         //when
         //Quest q = new Quest(questName,questTextStart,questCompleted,questReward);
-        Quest q = new Quest(name,textStart,textAccept,textMid,textEnd,completed,questReward,requiredItems,accepted,talkedOnce,mainQuest,fulfillmentKill,autoComplete);
+        Quest q = new Quest(name, textStart, textAccept, textMid, textEnd,  completed,
+                questReward, requiredItems,  accepted,  talkedOnce, mainQuest, fulfillmentKill, autoComplete) ;
 
         //then
         assertEquals(q.getName(),name);
@@ -65,63 +91,43 @@ public class QuestTest {
     }
 
     @Test
-    public void test2_shouldCompleteQuest() throws Exception {
+    public void test2_shouldCompleteQuestWithItem() throws Exception {
+
         //before
-        String name = "name";
-        String textStart = "Start Text!";
-        String textAccept = "Accept Text!";
-        String textMid = "Mid Text!";
-        String textEnd = "End Text!";
-        boolean completed = false;
-        boolean accepted = true;
-        boolean talkedOnce = true;
-        boolean mainQuest = false;
-        QuestItem reward = mock(QuestItem.class);
-        ArrayList<QuestItem> questReward = new ArrayList<>();
-        questReward.add(reward);
-        Item fulfillmentItems = mock(Item.class);
-        ArrayList<QuestItem> requiredItems = new ArrayList<>();
-        String fulfillmentKill = "killMe";
-        boolean autoComplete = false;
+        QuestItem qi = mock(QuestItem.class);
+        Whitebox.setInternalState(q, "fulfillmentItems", Arrays.asList(qi));
+        when(qi.getName()).thenReturn("qi");
+        when(game.player.getItemFromEquipment("qi")).thenReturn(null);
+        when(game.player.getItem("qi")).thenReturn(qi);
 
-        Player player = new Player();
-        QuestItem itemFulfill1 = new QuestItem("item1","desc_item1", State.ACTIVE, 1, EquipmentType.SHOES, "cloth");
-        QuestItem itemFulfill2 = new QuestItem("item2", "desc_item2", State.INACTIVE,  2, EquipmentType.SHOES, "cloth");
-        //new Tool("item2", "desc_item2", State.ACTIVE, 2);
-        player.addItem(itemFulfill1.questItemToItem());
-        player.addItem(itemFulfill2.questItemToItem());
-        requiredItems.add(itemFulfill1);
-        requiredItems.add(itemFulfill2);
-
-
+        Whitebox.setInternalState(q, "fulfillmentKill", "");
 
         //when
-        //Quest q = new Quest(questName,questTextStart,questCompleted,questReward);
-        Quest q = new Quest(name,textStart,textAccept,textMid,textEnd,completed,questReward,requiredItems,accepted,talkedOnce,mainQuest,fulfillmentKill,autoComplete);
-        if(q.checkCompleted(player)){
-            q.setCompleted(true);
-        }
+        boolean returnValue = q.checkCompleted(game);
 
         //then
-        assertEquals(q.getName(),name);
-        assertEquals(q.getTextStart(),textStart);
-        assertEquals(q.getTextAccept(),textAccept);
-        assertEquals(q.getTextMid(),textMid);
-        assertEquals(q.getTextEnd(),textEnd);
-        assertEquals(q.isCompleted(),true);
-        assertEquals(q.isAccepted(),accepted);
-        assertEquals(q.isTalkedOnce(),talkedOnce);
-        assertEquals(q.getReward(),questReward);
-        assertTrue(q.getReward().size() == 1);
-        assertEquals(q.getFulfillmentItems(),requiredItems);
-        assertTrue(q.getFulfillmentItems().size() == player.getInventory().size());
-        assertEquals(q.getFulfillmentKill(),fulfillmentKill);
-        assertEquals(q.isAutoComplete(),autoComplete);
-
-
+        assertTrue(returnValue);
     }
+
     @Test
-    public void test3_shouldFinishGame() throws Exception {
+    public void test3_shouldCompleteQuestWithKill() throws Exception {
+
+        //before
+        Whitebox.setInternalState(q, "fulfillmentItems", Arrays.asList());
+        Whitebox.setInternalState(q, "fulfillmentKill", "John Wick");
+        Enemy e = mock(Enemy.class);
+        when(game.getCharacter("John Wick")).thenReturn(e);
+        when(e.isKilled()).thenReturn(true);
+
+        //when
+        boolean returnValue = q.checkCompleted(game);
+
+        //then
+        assertTrue(returnValue);
+    }
+
+    @Test
+    public void test4_shouldFinishGame() throws Exception {
         //before
         Game game = PowerMockito.spy(new Game());
 

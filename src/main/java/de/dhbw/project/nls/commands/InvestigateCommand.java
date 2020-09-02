@@ -34,6 +34,10 @@ public class InvestigateCommand extends AutoCommand {
 
         InteractiveObject io = game.getCurrentRoom().getRoomInteractiveObjectByName(interactiveObjectName);
 
+        if(io.getHint() != null && io.getHint().length() > 0){
+            System.out.println(io.getHint());
+        }
+
         // get quest
         if (io.getQuest() != null) {
             Quest q = io.getQuest();

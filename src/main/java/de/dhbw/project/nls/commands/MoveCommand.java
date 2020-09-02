@@ -42,23 +42,25 @@ public class MoveCommand extends AutoCommand {
             Way resultWay = game.getWayForDirection(direction);
             if (resultWay.getState() == WayState.ACTIVE) {
                 move(resultWay);
-            } else if(resultWay.getState() == WayState.NEED_EQUIPMENT) {
-            	List<Item> equipedItem = game.player.getEquipment().stream().filter(i -> i.getName().equals(resultWay.getConditionalItem())).collect(Collectors.toList());
-            	if(equipedItem.size() > 0) {
-            		move(resultWay);
-            	} else {
-            		System.out.print("You can't go that way.");
-            		if(resultWay.getHint() != null) System.out.println(" Hint: " + resultWay.getHint());
-            	}
+            } else if (resultWay.getState() == WayState.NEED_EQUIPMENT) {
+                List<Item> equipedItem = game.player.getEquipment().stream()
+                        .filter(i -> i.getName().equals(resultWay.getConditionalItem())).collect(Collectors.toList());
+                if (equipedItem.size() > 0) {
+                    move(resultWay);
+                } else {
+                    System.out.print("You can't go that way.");
+                    if (resultWay.getHint() != null)
+                        System.out.println(" Hint: " + resultWay.getHint());
+                }
             } else {
                 System.out.println(
                         "The way is blocked!" + (resultWay.getHint() != null ? "Hint: " + resultWay.getHint() : ""));
             }
         }
     }
-    
+
     private void move(Way resultWay) {
-    	System.out.println("You're taking the " + resultWay.getName() + " " + direction + ". ");
+        System.out.println("You're taking the " + resultWay.getName() + " " + direction + ". ");
         game.player.setRoomName(resultWay.getTo());
         game.player.isAttacked(game);
         System.out.println(game.getCurrentRoom());

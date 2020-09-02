@@ -29,22 +29,19 @@ public class Player {
     @SerializedName("equipment")
     private List<Item> equipment = new ArrayList<>();
 
-    public void enterPlayerName()
-    {
+    public void enterPlayerName() {
         Scanner tastatureingabe = new Scanner(System.in);
         System.out.println("Please enter your name: ");
         do {
-            try
-            {
+            try {
                 this.name = tastatureingabe.nextLine();
                 this.name = this.name.trim();
             }
 
-            catch (Exception ex)
-            {
+            catch (Exception ex) {
                 ex.printStackTrace();
             }
-        } while((this.name == null) || (this.name.equals("")));
+        } while ((this.name == null) || (this.name.equals("")));
     }
 
     // Getters and setters for a player

@@ -1,6 +1,7 @@
 package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
+import de.dhbw.project.character.Character;
 import de.dhbw.project.item.Item;
 
 import java.util.List;
@@ -32,14 +33,15 @@ public class Quest {
     private boolean autoComplete = false;
     @SerializedName("mainQuest")
     private boolean mainQuest = false;
-    private int counter=0;
+    private int counter = 0;
 
     public Quest() {
 
     }
 
     public Quest(String name, String textStart, String textAccept, String textMid, String textEnd, boolean completed,
-            List<QuestItem> reward, List<QuestItem> fulfillmentItems, boolean accepted, boolean talkedOnce, boolean mainQuest, String fulfillmentKill, boolean autoComplete ) {
+            List<QuestItem> reward, List<QuestItem> fulfillmentItems, boolean accepted, boolean talkedOnce,
+            boolean mainQuest, String fulfillmentKill, boolean autoComplete) {
         this.name = name;
         this.textStart = textStart;
         this.textAccept = textAccept;
@@ -151,20 +153,28 @@ public class Quest {
         this.talkedOnce = talkedOnce;
     }
 
-    public boolean checkCompleted(Player p) {
+    public boolean checkCompleted(Game g) {
 
         for (QuestItem qi : fulfillmentItems) {
-            Item item = p.getItemFromEquipment(qi.getName());
+            Item item = g.player.getItemFromEquipment(qi.getName());
             if (item != null) {
                 System.out.println("You need to strip the " + qi.getName() + " off to complete the quest!");
             }
         }
         for (QuestItem qi : fulfillmentItems) {
-            Item item = p.getItem(qi.getName());
+            Item item = g.player.getItem(qi.getName());
             if (item == null) {
                 return false;
             }
         }
+
+        if (fulfillmentKill != null && fulfillmentKill.length() > 0) {
+            Character c = g.getCharacter(fulfillmentKill);
+            if (c != null && !c.isKilled()) {
+                return false;
+            }
+        }
+
         return true;
 
         /*
@@ -173,6 +183,7 @@ public class Quest {
          */
         // return true;
     }
+
     public boolean isMainQuest() {
         return mainQuest;
     }
@@ -180,12 +191,13 @@ public class Quest {
     public void setMainQuest(boolean mainQuest) {
         this.mainQuest = mainQuest;
     }
-    public void finishQuest(Player player, boolean removeItems, Game game) {
+
+    public void finishQuest(Game game, boolean removeItems) {
         setCompleted(true);
-        player.getQuestInventory().remove(this);
+        game.player.getQuestInventory().remove(this);
         if (removeItems) {
             for (QuestItem qi : getFulfillmentItems()) {
-                player.removeItem(player.getItem(qi.getName()));
+                game.player.removeItem(game.player.getItem(qi.getName()));
             }
         }
         System.out.println(getTextEnd());
@@ -199,16 +211,16 @@ public class Quest {
                 tabelle.addRow(getReward().get(a).getName());
                 // System.out.println(" '-: " + q.getReward().get(i).getName());
                 if (getReward().get(a).questItemToItem() != null) {
-                    player.addItem(getReward().get(a).questItemToItem());
+                    game.player.addItem(getReward().get(a).questItemToItem());
                 }
             }
             // Tabelle ausgeben
             tabelle.print();
 
-            //Checks if all main quests are completed -> game end
-            if(this.isCompleted() && this.isMainQuest()){
+            // Checks if all main quests are completed -> game end
+            if (this.isCompleted() && this.isMainQuest()) {
                 counter++;
-                if(game.getMainQuestNumber() == counter){
+                if (game.getMainQuestNumber() == counter) {
                     game.setGameEnd(true);
                     return;
                 }
