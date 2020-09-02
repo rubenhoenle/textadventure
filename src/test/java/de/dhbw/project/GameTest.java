@@ -207,7 +207,7 @@ public class GameTest {
     @Test
     public void test9_incTurn() throws Exception {
         //before
-        Whitebox.setInternalState(game, int.class, 10);
+        Whitebox.setInternalState(game, "turn", 10);
         //when
         game.incTurn();
         //then
@@ -217,7 +217,7 @@ public class GameTest {
     @Test
     public void test10_getTurn() throws Exception {
         //before
-        Whitebox.setInternalState(game, int.class, 10);
+        Whitebox.setInternalState(game, "turn", 10);
         //when
         int res = game.getTurn();
         //then

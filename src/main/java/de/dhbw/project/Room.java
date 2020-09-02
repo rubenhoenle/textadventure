@@ -276,7 +276,7 @@ public class Room extends Thing {
         roamingEnemyList.remove(e);
     }
 
-    public void addRoamingEnemy(RoamingEnemy e){
+    public void addRoamingEnemy(RoamingEnemy e) {
         roamingEnemyList.add(e);
     }
 }

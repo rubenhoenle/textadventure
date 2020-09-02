@@ -55,11 +55,11 @@ public class Game {
 
             if (playerCanSeeSomething(input)) {
                 commands.execute(input + "\0");
-            if (turn % Constants.ROTATION_INTERVAL == 0) {
-                turn++;
-                roamAllRoamingEnemies();
-                player.isAttacked(this);
-            }
+                if (turn % Constants.ROTATION_INTERVAL == 0) {
+                    turn++;
+                    roamAllRoamingEnemies();
+                    player.isAttacked(this);
+                }
             }
         }
     }
@@ -160,7 +160,8 @@ public class Game {
             tmp.addAll(room.getRoamingEnemyList());
             for (RoamingEnemy e : tmp) {
                 // RoamingEnemy was just moved to this room
-                if (moved.contains(e) || e.isKilled()) continue;
+                if (moved.contains(e) || e.isKilled())
+                    continue;
                 // RoamingEnemy is moved and added to list
                 Room next = getRoom(e.getNextRoom(room.getName()));
                 room.removeRoamingEnemy(e);
@@ -190,20 +191,20 @@ public class Game {
     // Helper method: Returns full direction
     public String getFullDirection(char direction) {
         switch (direction) {
-            case 'n':
-                return "north";
-            case 'e':
-                return "east";
-            case 's':
-                return "south";
-            case 'w':
-                return "west";
-            case 'u':
-                return "up";
-            case 'd':
-                return "down";
-            default:
-                return java.lang.Character.toString(direction);
+        case 'n':
+            return "north";
+        case 'e':
+            return "east";
+        case 's':
+            return "south";
+        case 'w':
+            return "west";
+        case 'u':
+            return "up";
+        case 'd':
+            return "down";
+        default:
+            return java.lang.Character.toString(direction);
         }
     }
 
@@ -228,7 +229,6 @@ public class Game {
         }
     }
 
-
     public void incTurn() {
         this.turn++;
     }
@@ -236,6 +236,7 @@ public class Game {
     public int getTurn() {
         return turn;
     }
+
     public boolean isGameEnd() {
         return gameEnd;
     }

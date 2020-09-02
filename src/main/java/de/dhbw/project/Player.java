@@ -137,8 +137,8 @@ public class Player {
 
     public void fight(Character c, Room r) {
         if (!c.isKilled()) {
-            List<Item> weaponList = equipment.getAllItemList().stream().filter(i -> i.getEquipmentType() == EquipmentType.WEAPON)
-                    .collect(Collectors.toList());
+            List<Item> weaponList = equipment.getAllItemList().stream()
+                    .filter(i -> i.getEquipmentType() == EquipmentType.WEAPON).collect(Collectors.toList());
             if (weaponList.size() == 0) {
                 System.out.println("It'll be a hard fight without any weapon!");
             }
