@@ -15,6 +15,8 @@ import java.util.List;
 public class Room extends Thing {
     @SerializedName("ways")
     private List<Way> roomWayList = new ArrayList<>();
+    @SerializedName("isDark")
+    private boolean isDark = false;
     @SerializedName("items")
     private ItemList roomItemList = new ItemList();
     @SerializedName("interactiveCraftingObjects")
@@ -34,20 +36,15 @@ public class Room extends Thing {
 
     // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
     // variables
-    public Room(String name, String description, String enabled) {
-        super(name, description);
-        this.enabled = enabled;
-    }
-
-    public Room(String name, String description, String enabled, String defaultItemLocation) {
+    public Room(String name, String description, String enabled, String defaultItemLocation,
+            List<InteractiveCraftingObject> craftingObjects, List<Friend> friendList, List<Enemy> enemyList,
+            boolean isDark) {
         super(name, description);
         this.enabled = enabled;
         this.defaultItemLocation = defaultItemLocation;
-    }
-
-    public Room(String name, String description, String enabled, List<InteractiveCraftingObject> craftingObjects) {
-        super(name, description);
-        this.enabled = enabled;
+        this.isDark = isDark;
+        this.friendList = friendList;
+        this.enemyList = enemyList;
         this.roomInteractiveCraftingObjectsList = craftingObjects;
     }
 
@@ -140,6 +137,10 @@ public class Room extends Thing {
 
     public void setEnabled(String enabled) {
         this.enabled = enabled;
+    }
+
+    public boolean isDark() {
+        return isDark;
     }
 
     public String getConditionalItem() {

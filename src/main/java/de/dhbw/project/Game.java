@@ -4,9 +4,12 @@ import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemState;
+import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
 
 import java.awt.datatransfer.Clipboard;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.awt.Toolkit;
@@ -17,6 +20,8 @@ public class Game {
     @SerializedName("rooms")
     private List<Room> rooms;
     public transient Commands commands;
+    private boolean gameEnd = false;
+    private int counter = 0;
 
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
@@ -31,7 +36,7 @@ public class Game {
         System.out.println(getCurrentRoom().getDescription());
 
         // While-loop for listening to the input commands after each action
-        while (true) {
+        while (!gameEnd) {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
 
@@ -44,8 +49,34 @@ public class Game {
                     input = "look around";
             }
 
-            commands.execute(input + "\0");
+            if (playerCanSeeSomething(input)) {
+                commands.execute(input + "\0");
+            }
         }
+    }
+
+    private boolean playerCanSeeSomething(String input) {
+        boolean showInventory = (input.toLowerCase().contains("inventory") || input.trim().toLowerCase().equals("i"));
+        boolean switchLamp = (input.toLowerCase().contains("switch"));
+        if ((getCurrentRoom().isDark()) && (player.getLampState() == LampState.OFF) && !switchLamp && !showInventory) {
+            System.out.println(
+                    "It's dark here. You must switch your lamp on again to see something before you can do any action.");
+            return false;
+        }
+
+        else if (getCurrentRoom().isDark() && input.toLowerCase().contains("drop")) {
+            for (String lampname : Constants.LAMP_NAMES) {
+                Item lamp = player.getItem(lampname);
+                if ((lamp != null) && input.toLowerCase().contains(lampname)
+                        && (lamp.getItemstate() == ItemState.ACTIVE)) {
+                    System.out.println(
+                            "I'm sorry but you can't drop this. It's dark in here and without this lamp you couldn't see anything.");
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
     // Helper method: Checks if the current room has ways
@@ -54,11 +85,19 @@ public class Game {
     }
 
     // Helper method: Returns the way in the given direction if available (otherwise the way is null)
+    // If there are several ways in the same direction, there is one randomly chosen
     public Way getWayForDirection(String direction) {
+        List<Way> wayList = new ArrayList<>();
         for (Way way : getCurrentRoom().getRoomWayList()) {
             if (way.getDirection().equals(direction)) {
-                return way;
+                wayList.add(way);
             }
+        }
+        if (1 == wayList.size()) {
+            return wayList.get(0);
+        } else if (1 < wayList.size()) {
+            float randomFloat = (float) (Math.random() * wayList.size());
+            return wayList.get((int) randomFloat);
         }
         return null;
     }
@@ -77,6 +116,17 @@ public class Game {
         for (Character c : getCurrentRoom().getCharacterList()) {
             if (c.getName().equals(characterName)) {
                 return c;
+            }
+        }
+        return null;
+    }
+
+    public Character getCharacter(String characterName) {
+        for (Room r : getRooms()) {
+            for (Character c : r.getCharacterList()) {
+                if (c.getName().equals(characterName)) {
+                    return c;
+                }
             }
         }
         return null;
@@ -137,6 +187,10 @@ public class Game {
         rooms.add(room);
     }
 
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     public boolean deleteRoom(Room room) {
         if (rooms.contains(room)) {
             rooms.remove(room);
@@ -146,4 +200,48 @@ public class Game {
         }
     }
 
+    public boolean isGameEnd() {
+        return gameEnd;
+    }
+
+    public void setGameEnd(boolean gameEnd) {
+
+        EndScreen.print();
+        System.out.println("Congratulations!!! You successfully finished the game!");
+        System.out.println("You managed to repair your ship and find the treasure full of gold!");
+        System.out.println(
+                "As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
+
+        this.gameEnd = gameEnd;
+    }
+
+    public int getMainQuestNumber() {
+        if (getRooms() != null) {
+            for (int i = 0; i < getRooms().size(); i++) {
+                if (getRooms().get(i).getRoomInteractiveObjectsList() != null) {
+                    for (int a = 0; a < getRooms().get(i).getRoomInteractiveObjectsList().size(); a++) {
+                        if (getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest() != null) {
+                            if (getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest().isMainQuest()) {
+                                counter++;
+                            }
+                        }
+                    }
+                }
+                if (getRooms().get(i).getFriendList() != null) {
+                    for (int b = 0; b < getRooms().get(i).getFriendList().size(); b++) {
+                        if (getRooms().get(i).getFriendList().get(b).getQuests() != null) {
+                            for (int c = 0; c < getRooms().get(i).getFriendList().get(b).getQuests().size(); c++) {
+                                if (getRooms().get(i).getFriendList().get(b).getQuests() != null) {
+                                    if (getRooms().get(i).getFriendList().get(b).getQuests().get(c).isMainQuest()) {
+                                        counter++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return counter;
+    }
 }

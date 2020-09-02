@@ -39,11 +39,11 @@ public class PlayerTest {
     public void test1_shouldAddItem(){
         //before
         Player p = new Player();
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
 
 
         //when
@@ -61,13 +61,15 @@ public class PlayerTest {
     public void test2_shouldRemoveItem(){
         //before
         Player p = new Player();
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+
         p.addItem(c);
         p.addItem(f);
         p.addItem(r);
@@ -91,13 +93,15 @@ public class PlayerTest {
     public void test3_shouldGetItem(){
         //before
         Player p = new Player();
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", State.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+
         p.addItem(c);
         p.addItem(f);
         p.addItem(r);
@@ -126,7 +130,7 @@ public class PlayerTest {
     public void test4_shouldNotGetItem(){
         //before
         Player p = new Player();
-        Item i = new Resource("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Item i = new Resource("TestItem", "TestItem", ItemState.NOT_USABLE, 99);
         p.addItem(i);
 
         //when
@@ -184,12 +188,12 @@ public class PlayerTest {
         //before
     	p.setStrength(5);
         p.setHealth(20);
-        p.addEquipment(new Weapon("name", "description", State.ACTIVE, 10, EquipmentType.WEAPON));
+        p.addEquipment(new Weapon("name", "description", ItemState.ACTIVE, 10, EquipmentType.WEAPON));
         
         Room r = mock(Room.class);
         
         ItemList list = new ItemList();
-        Item i = new Tool("tool", "", State.ACTIVE, 0);
+        Item i = new Tool("tool", "", ItemState.ACTIVE, 0);
         list.addItem(i);
         
         Enemy e = new Enemy("Yoda", "", 12, 5, "start", "killed", false, list, false);
@@ -211,7 +215,7 @@ public class PlayerTest {
         //before
     	p.setStrength(5);
         p.setHealth(10);
-        p.addEquipment(new Weapon("name", "description", State.ACTIVE, 10, EquipmentType.WEAPON));
+        p.addEquipment(new Weapon("name", "description", ItemState.ACTIVE, 10, EquipmentType.WEAPON));
         
         Room r = mock(Room.class);
         
@@ -233,7 +237,7 @@ public class PlayerTest {
         //before
     	p.setStrength(5);
         p.setHealth(20);
-        p.addEquipment(new Weapon("name", "description", State.ACTIVE, 10, EquipmentType.WEAPON));
+        p.addEquipment(new Weapon("name", "description", ItemState.ACTIVE, 10, EquipmentType.WEAPON));
         
         Room r = mock(Room.class);
         

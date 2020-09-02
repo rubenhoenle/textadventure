@@ -24,12 +24,12 @@ public class RoomTest {
     @Test
     public void test1_shouldAddItem(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource re = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource re = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
 
         //when
         r.addItem(c);
@@ -47,12 +47,12 @@ public class RoomTest {
     @Test
     public void test2_shouldRemoveItem(){
         //before
-        Room room = new Room("Test", "TestRoom", "true");
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         room.addItem(c);
         room.addItem(f);
         room.addItem(r);
@@ -74,8 +74,8 @@ public class RoomTest {
     @Test
     public void test3_shouldRemoveNonExistingItem(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
-        Item i = new Resource("TestItem", "TestItem", State.NOT_USABLE, 99);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Item i = new Resource("TestItem", "TestItem", ItemState.NOT_USABLE, 99);
 
         //when
         r.removeItem(i);
@@ -87,12 +87,12 @@ public class RoomTest {
     @Test
     public void test4_shouldListRoomItems(){
         //before
-        Room room = new Room("Test", "TestRoom", "true");
-        Clothing c = new Clothing("TestClothing", "TestClothing", State.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
-        Food f = new Food("TestFood", "TestFood", State.NOT_USABLE, 99);
-        Resource r = new Resource("TestResource", "TestResource", State.NOT_USABLE, 99);
-        Tool t = new Tool("TestTool", "TestTool", State.NOT_USABLE, 99);
-        Weapon w = new Weapon("TestWeapon", "TestWeapon", State.NOT_USABLE, 99);
+        Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
+        Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
+        Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
+        Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         room.addItem(c);
         room.addItem(f);
         room.addItem(r);
@@ -117,7 +117,7 @@ public class RoomTest {
         List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject2", "desc", "state", "place", "usage", "action"));
-        Room r = new Room("Test", "TestRoom", "true", craftingObjects);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", craftingObjects, null, null,false);
 
         //when
         List<String> names = r.getRoomInteractiveCraftingObjectsNameList();
@@ -133,7 +133,7 @@ public class RoomTest {
         List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject2", "desc", "state", "place", "usage", "action"));
-        Room r = new Room("Test", "TestRoom", "true", craftingObjects);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", craftingObjects, null, null,false);
 
         //when
         InteractiveCraftingObject interactiveCraftingObject = r.getRoomInteractiveCraftingObjectByName("interactiveCraftingObject1");
@@ -145,7 +145,7 @@ public class RoomTest {
     @Test
     public void test7_shouldListRoomCharacter(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Enemy e = new Enemy();
         r.setEnemyList(Arrays.asList(e));
 
@@ -160,7 +160,7 @@ public class RoomTest {
     @Test
     public void test8_shouldListRoomCharacter(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
 
         //when
         List<Character> result = r.getCharacterList();
@@ -172,7 +172,7 @@ public class RoomTest {
     @Test
     public void test9_shouldListRoomCharacter(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
 
         //when
         List<String> result = r.getCharacterNameList();
@@ -184,7 +184,7 @@ public class RoomTest {
     @Test
     public void test10_shouldListRoomCharacter(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Enemy e = new Enemy();
         e.setName("foo");
         r.setEnemyList(Arrays.asList(e));
@@ -200,7 +200,7 @@ public class RoomTest {
     @Test
     public void test11_shouldListRoomCharacter(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Enemy e = new Enemy();
         Friend f = new Friend();
         r.setEnemyList(Arrays.asList(e));
@@ -218,7 +218,7 @@ public class RoomTest {
     @Test
     public void test12_shouldListRoomCharacter(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Friend f = new Friend();
         r.setFriendList(Arrays.asList(f));
 
@@ -233,7 +233,7 @@ public class RoomTest {
     @Test
     public void test13_shouldGetRoomInteractiveObjectsList(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         InteractiveObject io = mock(InteractiveObject.class);
         r.setRoomInteractiveObjectsList(Arrays.asList(io));
 
@@ -248,7 +248,7 @@ public class RoomTest {
     @Test
     public void test14_shouldGetRoomInteractiveObjectsNameList(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         InteractiveObject io = new InteractiveObject("name","description", "place",null, null, true,"wayName", "hint");
         r.setRoomInteractiveObjectsList(Arrays.asList(io));
 
@@ -263,7 +263,7 @@ public class RoomTest {
     @Test
     public void test15_shouldgetRoomInteractiveObjectByName(){
         //before
-        Room r = new Room("Test", "TestRoom", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         InteractiveObject io1 = new InteractiveObject("name","description", "place",null, null, true,"wayName", "hint");
         InteractiveObject io2 = new InteractiveObject("name2","description2", "place2",null, null, true,"wayName2", "hint2");
         r.setRoomInteractiveObjectsList(Arrays.asList(io1,io2));
@@ -278,7 +278,7 @@ public class RoomTest {
     @Test
     public void test16_shouldAddWay(){
         //before
-        Room r = new Room("TestRoom", "TestRoomDescription", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Way w= new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
 
         //when
@@ -293,7 +293,7 @@ public class RoomTest {
     @Test
     public void test17_shouldDeleteWay(){
         //before
-        Room r = new Room("TestRoom", "TestRoomDescription", "true");
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
         Way w = new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
     
         //when
