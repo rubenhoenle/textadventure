@@ -3440,13 +3440,13 @@
           {
             "strength": 0,
             "name": "grass",
-            "description": "The grass has grown very high so that you cannot see the ground.",
+            "description": "high grown green grass",
             "place": "has grown very high so that you cannot see the ground"
           },
           {
             "strength": 0,
             "name": "flowers",
-            "description": "The weadow is full of beautiful flowers in all colors.",
+            "description": "beautiful flowers in all colors",
             "place": "- the weadow is full of beautiful flowers in all colors"
           },
           {
@@ -3461,7 +3461,7 @@
       "friends": [
         {
           "name": "girl",
-          "where": "is sitting on the weadow crying",
+          "where": "sitting on the weadow crying",
           "health": 1,
           "strength": 0,
           "startStatement": "",
@@ -3477,10 +3477,10 @@
               "completed": false,
               "reward": [
                 {
-                  "strength": 0,
-                  "name": "TODO",
-                  "descripion": "TODO",
-                  "type": "TODO"
+                  "strength": 5,
+                  "name": "chocolate",
+                  "description": "a bar of chocolate",
+                  "type": "food"
                 }
               ],
               "fulfillmentItems": [
@@ -3627,7 +3627,7 @@
           {
             "strength": 0,
             "name": "honey",
-            "descripion": "the beehive is full of honey",
+            "description": "the beehive is full of honey",
             "place": "inside a beehive"
           }
         ],
@@ -3655,12 +3655,14 @@
           {
             "strength": 0,
             "name": "eggs",
-            "descripion": "in a birds nest are lying some eggs"
+            "description": "eggs stolen from a birds nest",
+            "place": "are lying in a birds nest"
           },
           {
             "strength": 0,
             "name": "cat",
-            "descripion": "the cat meows mournfully"
+            "description": "the cat meows mournfully",
+            "place": "crouches on a branch"
           }
         ],
         "tools": [],
@@ -3742,7 +3744,7 @@
       "friends": [
         {
           "name": "elder lady",
-          "where": "An elder lady is sitting on a bench and enjoys the sun.",
+          "where": "sitting on a bench and enjoys the sun",
           "health": 1,
           "strength": 0,
           "startStatement": "",
@@ -3770,7 +3772,7 @@
                 {
                   "strength": 0,
                   "name": "flowers",
-                  "description": "The weadow is full of beautiful flowers in all colors.",
+                  "description": "beautiful flowers in all colors",
                   "place": "- the weadow is full of beautiful flowers in all colors"
                 }
               ],
@@ -3857,13 +3859,7 @@
           }
         ],
         "foods": [],
-        "resources": [
-          {
-            "strength": 0,
-            "name": "sacks of flour",
-            "description": "Sacks of flour are leaning against the wall."
-          }
-        ],
+        "resources": [],
         "tools": [
           {
             "strength": 1,
