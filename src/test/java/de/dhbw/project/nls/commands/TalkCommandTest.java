@@ -136,7 +136,7 @@ public class TalkCommandTest {
         verify(out).println("baz");
         verify(q).setTalkedOnce(true);
         verify(out).println("I got a task for you:");
-        verify(out).println("Type: \"accept <questname> from <character>\" to accept the quest.");
+        System.out.println("Type: \"accept " + q.getName() + " from "+ c + "\" to accept the quest.");
     }
 
     @Test
