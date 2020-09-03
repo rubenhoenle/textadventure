@@ -40,8 +40,10 @@ public class LookCommand extends AutoCommand {
         boolean isEachDirection = direction.equals(Constants.EACH_DIRECTION);
 
         // Entered phrase is not "look around" and is not "look + valid direction"
-        if (!(Constants.DIRECTIONS).contains(direction) && !isEachDirection)
+        if (!(Constants.DIRECTIONS).contains(direction) && !isEachDirection) {
             System.out.println("No valid direction. Please enter look north / south / west / east / up or down.");
+            return;
+        }
 
         // Condition of room is not fulfilled -> nothing can be seen
         String condItem = game.getCurrentRoom().getConditionalItem();
@@ -54,7 +56,7 @@ public class LookCommand extends AutoCommand {
         }
 
         // The current room has no ways (actually this shouldn't happen as you have to enter the room somehow)
-        else if (!game.hasWays())
+        if (!game.hasWays())
             System.out.println("You're stucked in a room. There's no way hiding there.");
 
         // Entered phrase is "look + valid direction" but there is no way in the chosen direction
