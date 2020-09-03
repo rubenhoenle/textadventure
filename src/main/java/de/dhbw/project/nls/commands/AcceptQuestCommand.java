@@ -31,7 +31,7 @@ public class AcceptQuestCommand extends AutoCommand {
         Quest q = null;
 
         if (questCharacter != null || questInteractiveObject != null) {
-            if (questCharacter != null && questCharacter instanceof Friend) {
+            if (questCharacter != null && questCharacter instanceof Friend && !questCharacter.isKilled()) {
                 for (int i = 0; i < ((Friend) questCharacter).getQuests().size(); i++) {
                     if (((Friend) questCharacter).getQuests().get(i).getName().equals(questName)) {
                         q = ((Friend) questCharacter).getQuests().get(i);
@@ -50,7 +50,10 @@ public class AcceptQuestCommand extends AutoCommand {
                         game.getCurrentRoom().getRoomInteractiveObjectsList().remove(questInteractiveObject);
                     }
                 }
-            } else {
+            } else if(questCharacter.isKilled() && questCharacter != null){
+                System.out.println("You cant talk to " + questCharacter.getName() + " because you killed him!!");
+            }
+            else {
                 System.out.println("You can not do this!");
             }
         } else {
