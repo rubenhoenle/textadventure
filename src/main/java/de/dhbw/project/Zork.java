@@ -124,7 +124,7 @@ public class Zork {
 
         commands.register(new ReadBookCommand(game));
         commands.register(new TranslateStoneTabletsCommand(game));
-        
+
         commands.register(new RuinsRiddleCommand(game));
 
         commands.register(new ShowHealthCommand(game));

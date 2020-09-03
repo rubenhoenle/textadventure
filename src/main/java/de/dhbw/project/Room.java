@@ -89,7 +89,7 @@ public class Room extends Thing {
     }
 
     public List<InteractiveObject> getRoomInteractiveObjectsList() {
-        if (null == interactiveObjects){
+        if (null == interactiveObjects) {
             interactiveObjects = new ArrayList<>();
         }
         return interactiveObjects;

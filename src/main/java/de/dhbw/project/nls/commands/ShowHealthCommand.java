@@ -24,7 +24,7 @@ public class ShowHealthCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "[get|show|look|watch|see][ me| my] health", "health"};
+        String[] patterns = { "[get|show|look|watch|see][ me| my] health", "health" };
         return patterns;
     }
 }

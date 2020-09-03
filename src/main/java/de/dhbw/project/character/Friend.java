@@ -22,14 +22,14 @@ public class Friend extends Character {
     }
 
     public List<Quest> getQuests() {
-        if (null == quests){
+        if (null == quests) {
             quests = new ArrayList<>();
         }
         return quests;
     }
 
     public void setQuests(List<Quest> quest) {
-        if (null == quests){
+        if (null == quests) {
             quests = new ArrayList<>();
         }
         this.quests = quest;

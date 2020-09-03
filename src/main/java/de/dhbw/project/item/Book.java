@@ -27,10 +27,8 @@ public class Book extends Item {
     public int getPageAmmount() {
         return pages.size();
     }
-    
 
-
-	public void printPage(int page, boolean translate) {
+    public void printPage(int page, boolean translate) {
         if (page > 0 && page <= pages.size()) {
             if (pages.get(page - 1).length() == 0) {
                 System.out.println("This page is empty.");
@@ -45,7 +43,7 @@ public class Book extends Item {
                 if (this.getName().equals("bible") || this.getName().equals("staple of notes")) {
                     AlienFont.mixedDisplay(pages.get(page - 1), true);
                 } else {
-                    AlienFont.mixedDisplay(pages.get(page - 1),translate);
+                    AlienFont.mixedDisplay(pages.get(page - 1), translate);
                 }
                 System.out.println(decorationline);
             }
@@ -53,10 +51,10 @@ public class Book extends Item {
             System.out.println("No page was found with this number.");
             System.out.println("Please enter a number between 1 and " + pages.size());
         }
-	}
+    }
 
     public void printPage(int page) {
-    	this.printPage(page,false);
+        this.printPage(page, false);
     }
 
     public void openBookReader() {
@@ -150,7 +148,6 @@ public class Book extends Item {
         }
         return null;
     }
-
 
     public List<String> getPages() {
         List<String> pages = new ArrayList<String>();

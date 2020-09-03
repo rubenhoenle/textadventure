@@ -24,8 +24,7 @@ public class ShowStrengthCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "[get|show|look|watch|see][ me| my] strength", "strength"};
+        String[] patterns = { "[get|show|look|watch|see][ me| my] strength", "strength" };
         return patterns;
     }
 }
-
