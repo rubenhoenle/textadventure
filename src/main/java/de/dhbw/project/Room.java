@@ -280,6 +280,9 @@ public class Room extends Thing {
     }
 
     public void addRoamingEnemy(RoamingEnemy e) {
+        if (roamingEnemyList == null) {
+            roamingEnemyList = new ArrayList<>();
+        }
         roamingEnemyList.add(e);
     }
 }

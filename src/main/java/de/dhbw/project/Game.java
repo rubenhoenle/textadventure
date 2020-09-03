@@ -58,8 +58,8 @@ public class Game {
                 if (turn % Constants.ROTATION_INTERVAL == 0) {
                     turn++;
                     roamAllRoamingEnemies();
-                    player.isAttacked(this);
                 }
+                player.isAttacked(this);
             }
         }
     }

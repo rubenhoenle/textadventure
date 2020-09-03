@@ -1,4 +1,5 @@
 {
+  "turn": 1,
   "player": {
     "points": 0,
     "strength": 5,
@@ -687,42 +688,73 @@
       }
     },
     {
-      "name": "Cliff above the ship graveyard",
+      "name": "cliff above the ship graveyard",
       "description": "You can smell the sea and feel the spray on your face. You are standing on top off a cliff site with reefs in the sea and many shipwrecks in the water. \nAnd a big old shipwreck connecting the cliff top with the boulder and beach below.",
       "ways": [
         {
           "direction": "west",
-          "from": "Cliff above the ship graveyard",
-          "to": "Deck of an old stranded ship",
+          "from": "cliff above the ship graveyard",
+          "to": "deck of an old stranded ship",
           "name": "plank",
           "description": "An old plank in the west is connecting the deck of the ship with the cliff.",
           "state": "ACTIVE"
         },
         {
           "direction": "south",
-          "from": "Cliff above the ship graveyard",
-          "to": "Camp site",
+          "from": "cliff above the ship graveyard",
+          "to": "camp site",
           "name": "path",
           "description": "A southern beaten path leads to a small camp site.",
           "state": "ACTIVE"
         },
         {
           "direction": "east",
-          "from": "Cliff above the ship graveyard",
+          "from": "cliff above the ship graveyard",
           "to": "shore of the pond",
           "name": "stream path",
           "description": "East a path is running alongside a stream."
         }
+      ],
+      "roamingEnemies": [
+        {
+          "name": "Gregor",
+          "where": "charging at you",
+          "health": 10,
+          "strength": 7,
+          "startStatement": "You won't get my drink!",
+          "killStatement": "You beat me. Guess you get my drink after all.",
+          "killed": false,
+          "dropItems": {
+            "cloths": [],
+            "foods": [
+              {
+                "strength": 7,
+                "name": "grog",
+                "description": "a warm rum with sugar and water"
+              }
+            ],
+            "resources": [],
+            "tools": [],
+            "books": [],
+            "weapons": []
+          },
+          "autoAttack": true,
+          "path": [
+            "cliff above the ship graveyard",
+            "camp site",
+            "deck of an old stranded ship"
+          ]
+        }
       ]
     },
     {
-      "name": "Camp site",
+      "name": "camp site",
       "description": "There is a tent, a small fire place and some trunks. The tent looks like it has been standing there for quite some time but still seems to be in use.",
       "ways": [
         {
           "direction": "north",
-          "from": "Camp site",
-          "to": "Cliff above the ship graveyard",
+          "from": "camp site",
+          "to": "cliff above the ship graveyard",
           "name": "path",
           "description": "In the north a beaten path leads to a cliff.",
           "state": "ACTIVE"
@@ -786,7 +818,7 @@
       ]
     },
     {
-      "name": "Deck of an old stranded ship",
+      "name": "deck of an old stranded ship",
       "description": "You have boarded an old three mast sailing ship. Everything is creaking and roting. \nOne mast is completely gone, one is still standing with torn, flapping sails and one is broken lying on the deck.",
       "interactiveObjects": [
         {
@@ -816,18 +848,18 @@
       "ways": [
         {
           "direction": "east",
-          "from": "Deck of an old stranded ship",
-          "to": "Cliff above the ship graveyard",
+          "from": "deck of an old stranded ship",
+          "to": "cliff above the ship graveyard",
           "name": "plank",
           "description": "An old plank in the east is connecting the deck of the ship with the cliff.",
           "state": "ACTIVE"
         },
         {
           "direction": "down",
-          "from": "Deck of an old stranded ship",
+          "from": "deck of an old stranded ship",
           "to": "ship interior",
           "name": "trapdoor",
-          "description": "A trapdoor is blocked by a fallen mast.",
+          "description": "A trapdoor leading into the ship.",
           "state": "BLOCKED"
         }
       ],
@@ -868,15 +900,15 @@
         {
           "direction": "up",
           "from": "ship interior",
-          "to": "Deck of an old stranded ship",
+          "to": "deck of an old stranded ship",
           "name": "trapdoor",
           "description": "A trapdoor leading to the ship deck.",
-          "state": "ACTIVE"
+          "state": "BLOCKED"
         },
         {
           "direction": "south",
           "from": "ship interior",
-          "to": "Beach below the cliff",
+          "to": "beach below the cliff",
           "name": "hole",
           "description": "On the south side there's a hole in the the ship hull.",
           "state": "ACTIVE"
@@ -910,7 +942,7 @@
       }
     },
     {
-      "name": "Beach below the cliff",
+      "name": "beach below the cliff",
       "description": "You are at a small beach enclosed by boulders and the cliff. The sea is clear and you can see the sunken ships through the surface. \nThe waves are crashing against the boulders on either side. It seems that there must be a reef before the small beach, since the waves in this area are almost non existent.",
       "interactiveObjects": [
         {
@@ -939,7 +971,7 @@
       "ways": [
         {
           "direction": "north",
-          "from": "Beach below the cliff",
+          "from": "beach below the cliff",
           "to": "ship interior",
           "name": "hole",
           "description": "A short climb over the boulder leads to the hole in the ship hull in the north.",
@@ -947,15 +979,15 @@
         },
         {
           "direction": "west",
-          "from": "Beach below the cliff",
-          "to": "Sunken ships in the sea",
+          "from": "beach below the cliff",
+          "to": "sunken ships in the sea",
           "name": "sea",
           "description": "There's a short swim and dive to the sunk ship wreck in the west.",
-          "status": "BLOCKED"
+          "state": "BLOCKED"
         },
         {
           "direction": "east",
-          "from": "Beach below the cliff",
+          "from": "beach below the cliff",
           "to": "Cave with the mortal remains of the first men",
           "name": "cave",
           "description": "East there's a big cave in the cliff."
@@ -977,19 +1009,44 @@
       }
     },
     {
-      "name": "Sunken ships in the sea",
+      "name": "sunken ships in the sea",
       "description": "Close to the surface of the sea are many shipwrecks. There are many different sorts of fish swimming in the ships, which are overgrown with sea life. \nYou can see a drop where the sea goes from shallow plunging in the depths. The shipwrecks are within diving range. \nYou dive to the closest ship wreak.",
       "ways": [
         {
           "direction": "east",
-          "from": "Sunken ships in the sea",
-          "to": "Beach below the cliff",
+          "from": "sunken ships in the sea",
+          "to": "beach below the cliff",
           "name": "sea",
           "description": "In the east you can emerge from the depth and swim to shore.",
           "state": "ACTIVE"
         }
       ],
-      "characters": [],
+      "enemies": [
+        {
+          "name": "shark",
+          "where": "swimming through the water",
+          "health": 6,
+          "strength": 3,
+          "startStatement": "swoosh",
+          "killStatement": "blub .. blub ... blub",
+          "killed": false,
+          "dropItems": {
+            "cloths": [],
+            "foods": [
+              {
+                "strength": 5,
+                "name": "shark finn",
+                "description": "finn of a shark"
+              }
+            ],
+            "resources": [],
+            "tools": [],
+            "books": [],
+            "weapons": []
+          },
+          "autoAttack": true
+        }
+      ],
       "items": {
         "cloths": [],
         "foods": [],
@@ -1214,7 +1271,7 @@
         {
           "direction": "west",
           "from": "Cave with the mortal remains of the first men",
-          "to": "Beach below the cliff",
+          "to": "beach below the cliff",
           "name": "cave",
           "description": "In the west you can see a little cave."
         }
@@ -1622,7 +1679,7 @@
         {
           "direction": "north",
           "from": "magical cave",
-          "to": "Cliff above the ship graveyard",
+          "to": "cliff above the ship graveyard",
           "name": "Portal",
           "description": "There is a portal leading north",
           "state": "INVISIBLE"
@@ -3368,15 +3425,12 @@
             "description": "A small amount of rubies, amethysts and a colorful varity of diamonds",
             "place": "is lying on the floor"
           },
-          
-          
           {
             "strength": 0,
             "name": "amulet of cassborough",
             "description": "A precious amulet made of gold and valuable gemstones",
             "place": "is lying on a stone altar"
           }
-          
         ],
         "tools": [],
         "weapons": []
@@ -3618,7 +3672,7 @@
           "from": "low branches of maple tree",
           "to": "maple tree",
           "name": "jump",
-          "description": "With a skillfull jump you can reach the ground."
+          "description": "With a skillful jump you can reach the ground."
         },
         {
           "direction": "up",
@@ -3800,7 +3854,7 @@
         {
           "direction": "north",
           "from": "shore of the pond",
-          "to": "Cliff above the ship graveyard",
+          "to": "cliff above the ship graveyard",
           "name": "stream path",
           "description": "In the north a path runs alongside a stream."
         },
