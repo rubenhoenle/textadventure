@@ -333,13 +333,19 @@
             "description": "a red surfboard",
             "place": "is lying in the water",
             "state": "1"
+          },
+          {
+            "name": "pocket lamp",
+            "description": "its wet but seems to work",
+            "place": "is laying in the sand",
+            "itemstate": "0"
           }
         ],
         "weapons": [
           {
             "strength": 3,
-            "name": "wood rod",
-            "description": "a old wood rod",
+            "name": "wooden rod",
+            "description": "a old wooden rod",
             "place": "floating in the water",
             "equipment": "WEAPON"
           }
@@ -526,7 +532,7 @@
           "removeRequiredItem": true,
           "quest": {},
           "wayName": "hillside",
-          "hint": "Maybe this tree could be used as a bridge"
+          "hint": "Maybe you can find a key or something to unlock the lock at the door."
         }
       ],
       "ways": [
@@ -629,7 +635,7 @@
         {
           "name": "little goblin",
           "where": "jumping up and down the hut",
-          "health": 10,
+          "health": 5,
           "strength": 3,
           "startStatement": "What?! Who are you?! Get out of my hut!",
           "killStatement": "Okay now it's your hut!",

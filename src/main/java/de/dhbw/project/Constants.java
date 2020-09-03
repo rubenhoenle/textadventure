@@ -40,7 +40,7 @@ public class Constants {
     
     
     public static final List<String> LAMP_NAMES = new ArrayList<>(
-            Arrays.asList("freshly polished lamp", "oil lamp", "oil lamp"));
+            Arrays.asList("freshly polished lamp", "oil lamp", "oil lamp", "pocket lamp"));
 
     // Number of commands before enemies are rotated
     public static final int ROTATION_INTERVAL = 5;
