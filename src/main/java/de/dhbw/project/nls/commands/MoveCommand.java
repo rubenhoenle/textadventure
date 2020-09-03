@@ -80,7 +80,13 @@ public class MoveCommand extends AutoCommand {
                     if (resultWay.getHint() != null)
                         System.out.println(" Hint: " + resultWay.getHint());
                 }
-            } else {
+            }
+
+            else if (resultWay.getState() == WayState.INVISIBLE) {
+                System.out.println("You can't move in this direction.");
+            }
+
+            else {
                 System.out.println(
                         "The way is blocked!" + (resultWay.getHint() != null ? "Hint: " + resultWay.getHint() : ""));
             }
