@@ -3,6 +3,7 @@ package de.dhbw.project.item;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,8 +27,10 @@ public class Book extends Item {
     public int getPageAmmount() {
         return pages.size();
     }
+    
 
-    public void printPage(int page) {
+
+	public void printPage(int page, boolean translate) {
         if (page > 0 && page <= pages.size()) {
             if (pages.get(page - 1).length() == 0) {
                 System.out.println("This page is empty.");
@@ -39,10 +42,10 @@ public class Book extends Item {
                 }
                 // System.out.println("nach Rahmenberechnung");
                 System.out.println(decorationline);
-                if (this.getName().equals("bible")) {
+                if (this.getName().equals("bible") || this.getName().equals("staple of notes")) {
                     AlienFont.mixedDisplay(pages.get(page - 1), true);
                 } else {
-                    AlienFont.mixedDisplay(pages.get(page - 1));
+                    AlienFont.mixedDisplay(pages.get(page - 1),translate);
                 }
                 System.out.println(decorationline);
             }
@@ -50,6 +53,10 @@ public class Book extends Item {
             System.out.println("No page was found with this number.");
             System.out.println("Please enter a number between 1 and " + pages.size());
         }
+	}
+
+    public void printPage(int page) {
+    	this.printPage(page,false);
     }
 
     public void openBookReader() {
@@ -143,4 +150,14 @@ public class Book extends Item {
         }
         return null;
     }
+
+
+    public List<String> getPages() {
+        List<String> pages = new ArrayList<String>();
+        for (int i = 0; i < this.pages.size(); i++) {
+            pages.add(i, this.pages.get(i));
+        }
+        return pages;
+    }
+
 }

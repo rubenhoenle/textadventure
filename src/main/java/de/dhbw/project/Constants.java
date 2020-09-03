@@ -18,7 +18,7 @@ public class Constants {
             "take + <item name>", "drop + <item name>", "equip <item name>", "strip off <item name>", "inventory",
             "talk + <character name>", "attack + <character name>",
             "accept + <quest> + from + <character name /interactive object name>+", "quest inventory",
-            "craft <name of crafting object>", "investigate <interactive object name>", "quit or exit", "?",
+            "craft <name of crafting object>", "investigate <interactive object name>", "read/open + <readable item>","translate <stone tablet>","ruin(s) riddle","quit or exit", "?",
             "help or info"));
 
     // Location of the jsons for a new or a saved game
@@ -32,6 +32,11 @@ public class Constants {
     // Number of letters / white spaces before automatic line break
     public static final int ANCIENTFONT_AUTONL = 20;
 
+
+    // Number of needed letters to translate a stone tablet successfully
+    public static final int STONETABLET_REQ_CORRECT = 12;
+    
+    
     public static final List<String> LAMP_NAMES = new ArrayList<>(
             Arrays.asList("freshly polished lamp", "oil lamp", "oil lamp"));
 
