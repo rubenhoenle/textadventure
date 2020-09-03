@@ -45,19 +45,19 @@ public class SwitchCommandTest {
     }
 
     @Test
-    public void test1_InputNull() throws Exception {
+    public void test1_InputStateNull() throws Exception {
         //before not needed
         //when
         command.execute();
 
         //then
-        verify(out).println("You have to use the whole item name to switch it on or off.");
+        verify(out).println("Please tell if you want to switch the item on or off.");
     }
 
     @Test
-    public void test2_InputEmpty() throws Exception {
+    public void test2_InputItemEmpty() throws Exception {
         //before not needed
-        Whitebox.setInternalState(command, List.class, Arrays.asList());
+        Whitebox.setInternalState(command, String.class, "on");
         //when
         command.execute();
 
@@ -68,6 +68,7 @@ public class SwitchCommandTest {
     @Test
     public void test3_ItemNotFound() throws Exception {
         //before
+        Whitebox.setInternalState(command, String.class, "on");
         Whitebox.setInternalState(command, List.class, Arrays.asList("foo", "bar"));
         when(game.player.getItem("foo bar")).thenReturn(null);
 
@@ -81,6 +82,7 @@ public class SwitchCommandTest {
     @Test
     public void test4_ItemStateNotUsable() throws Exception {
         //before
+        Whitebox.setInternalState(command, String.class, "on");
         Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
         Item i = mock(Item.class);
 
@@ -97,6 +99,7 @@ public class SwitchCommandTest {
     @Test
     public void test5_ItemStateNull() throws Exception {
         //before
+        Whitebox.setInternalState(command, String.class, "on");
         Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
         Item i = mock(Item.class);
 
@@ -113,6 +116,7 @@ public class SwitchCommandTest {
     @Test
     public void test6_shouldSwitchToInactive() throws Exception {
         //before
+        Whitebox.setInternalState(command, String.class, "off");
         Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
         Item i = mock(Item.class);
 
@@ -124,7 +128,6 @@ public class SwitchCommandTest {
 
         //then
         verify(game).incTurn();
-        verify(i, times(3)).getItemstate();
         verify(i).setItemstate(ItemState.INACTIVE);
         verify(out).println("Item foo is now " + ItemState.INACTIVE + ".");
     }
@@ -132,6 +135,7 @@ public class SwitchCommandTest {
     @Test
     public void test7_shouldSwitchToActive() throws Exception {
         //before
+        Whitebox.setInternalState(command, String.class, "on");
         Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
         Item i = mock(Item.class);
 
@@ -143,7 +147,6 @@ public class SwitchCommandTest {
 
         //then
         verify(game).incTurn();
-        verify(i, times(3)).getItemstate();
         verify(i).setItemstate(ItemState.ACTIVE);
         verify(out).println("Item foo is now " + ItemState.ACTIVE + ".");
     }
