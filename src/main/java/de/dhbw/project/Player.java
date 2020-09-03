@@ -158,7 +158,7 @@ public class Player {
                 System.out.println("You win the fight against " + c.getName() + "!");
                 if (c instanceof Enemy) {
                     for (Item i : ((Enemy) c).getDropItemListElements()) {
-                        System.out.println(c.getName() + " drops " + i.getName());
+                        System.out.println(c.getName() + " drops '" + i.getName() + "'");
                         r.addItem(i);
                     }
                 }

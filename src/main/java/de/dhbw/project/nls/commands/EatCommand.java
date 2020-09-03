@@ -55,7 +55,7 @@ public class EatCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "eat <food>+", "eat" };
+        String[] patterns = { "eat <food>+", "eat", "drink <food>+", "drink" };
         return patterns;
     }
 

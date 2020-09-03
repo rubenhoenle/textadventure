@@ -80,7 +80,7 @@ public class Editor {
     }
 
     private void editItemList(ItemList liste) {
-        if (liste == null){
+        if (liste == null) {
             return;
         }
         boolean exit = false;
@@ -351,14 +351,14 @@ public class Editor {
             boolean exit = false;
             while (!exit) {
                 System.out.println(
-                    "Enter 'edit' to edit the room, 'way' to edit the ways outgoing from this room or 'item' to edit its items:");
+                        "Enter 'edit' to edit the room, 'way' to edit the ways outgoing from this room or 'item' to edit its items:");
                 input = SimpleUserInput.userInput.nextLine();
                 switch (input) {
                 case "edit":
                     editRoom(room);
                     break;
                 case "item":
-                    if(null != room.getRoomItemList()){
+                    if (null != room.getRoomItemList()) {
                         editItemList(room.getRoomsItemList());
                     }
                     break;

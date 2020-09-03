@@ -207,7 +207,7 @@ public class PlayerTest {
         verify(out).println(e.getName() + ": " + e.getKillStatement());
         verify(out).println("You win the fight against " + e.getName() + "!");
         verify(r).addItem(i);
-        verify(out).println("Yoda drops " + i.getName());
+        verify(out).println("Yoda drops '" + i.getName() +"'");
     }
     
     @Test
