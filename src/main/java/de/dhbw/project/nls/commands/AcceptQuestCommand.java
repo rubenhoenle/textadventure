@@ -50,7 +50,7 @@ public class AcceptQuestCommand extends AutoCommand {
                         game.getCurrentRoom().getRoomInteractiveObjectsList().remove(questInteractiveObject);
                     }
                 }
-            } else if (questCharacter.isKilled() && questCharacter != null) {
+            } else if (questCharacter != null && questCharacter.isKilled()) {
                 System.out.println("You cant talk to " + questCharacter.getName() + " because you killed him!!");
             } else {
                 System.out.println("You can not do this!");

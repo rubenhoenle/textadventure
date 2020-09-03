@@ -25,7 +25,6 @@ public class Game {
     @SerializedName("turn")
     private int turn;
     private boolean gameEnd = false;
-    private int counter = 0;
 
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
@@ -253,6 +252,7 @@ public class Game {
     }
 
     public int getMainQuestNumber() {
+        int counter = 0;
         if (getRooms() != null) {
             for (int i = 0; i < getRooms().size(); i++) {
                 if (getRooms().get(i).getRoomInteractiveObjectsList() != null) {
@@ -271,6 +271,41 @@ public class Game {
                                 if (getRooms().get(i).getFriendList().get(b).getQuests() != null) {
                                     if (getRooms().get(i).getFriendList().get(b).getQuests().get(c).isMainQuest()) {
                                         counter++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return counter;
+    }
+
+    public int getCompletedMainQuestNumber() {
+        int counter = 0;
+        if (getRooms() != null) {
+            for (int i = 0; i < getRooms().size(); i++) {
+                if (getRooms().get(i).getRoomInteractiveObjectsList() != null) {
+                    for (int a = 0; a < getRooms().get(i).getRoomInteractiveObjectsList().size(); a++) {
+                        if (getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest() != null) {
+                            if (getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest().isMainQuest()) {
+                                if (getRooms().get(i).getRoomInteractiveObjectsList().get(a).getQuest().isCompleted()) {
+                                    counter++;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (getRooms().get(i).getFriendList() != null) {
+                    for (int b = 0; b < getRooms().get(i).getFriendList().size(); b++) {
+                        if (getRooms().get(i).getFriendList().get(b).getQuests() != null) {
+                            for (int c = 0; c < getRooms().get(i).getFriendList().get(b).getQuests().size(); c++) {
+                                if (getRooms().get(i).getFriendList().get(b).getQuests() != null) {
+                                    if (getRooms().get(i).getFriendList().get(b).getQuests().get(c).isMainQuest()) {
+                                        if (getRooms().get(i).getFriendList().get(b).getQuests().get(c).isCompleted()) {
+                                            counter++;
+                                        }
                                     }
                                 }
                             }

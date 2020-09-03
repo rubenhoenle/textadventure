@@ -33,7 +33,6 @@ public class Quest {
     private boolean autoComplete = false;
     @SerializedName("mainQuest")
     private boolean mainQuest = false;
-    private int counter = 0;
 
     public Quest() {
 
@@ -216,14 +215,13 @@ public class Quest {
             }
             // Tabelle ausgeben
             tabelle.print();
+        }
 
-            // Checks if all main quests are completed -> game end
-            if (this.isCompleted() && this.isMainQuest()) {
-                counter++;
-                if (game.getMainQuestNumber() == counter) {
-                    game.setGameEnd(true);
-                    return;
-                }
+        // Checks if all main quests are completed -> game end
+        if (this.isCompleted() && this.isMainQuest()) {
+            if (game.getMainQuestNumber() == game.getCompletedMainQuestNumber()) {
+                game.setGameEnd(true);
+                return;
             }
         }
     }
