@@ -72,7 +72,7 @@ public class UseCommandTest {
         verify(game).incTurn();
         verify(w).setState(WayState.ACTIVE);
         verify(player).removeItem(i);
-        verify(out).println("The way " + w.getName() + " in the direction " + w.getDirection() + " is now walkable!");
+        verify(out).println("The way " + w.getName() + " in the direction \'" + w.getDirection() + "\' is now walkable!");
     }
 
     @Test
@@ -104,7 +104,7 @@ public class UseCommandTest {
         verify(game).incTurn();
         verify(w).setState(WayState.ACTIVE);
         verify(player,times(0)).removeItem(i);
-        verify(out).println("The way " + w.getName() + " in the direction " + w.getDirection() + " is now walkable!");
+        verify(out).println("The way " + w.getName() + " in the direction \'" + w.getDirection() + "\' is now walkable!");
     }
 
 }

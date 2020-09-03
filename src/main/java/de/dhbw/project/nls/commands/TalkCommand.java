@@ -32,7 +32,8 @@ public class TalkCommand extends AutoCommand {
         String characterName = String.join(" ", character);
 
         if (!(game.getCurrentRoom().getCharacterNameList().contains(characterName))) {
-            System.out.println("No character named " + characterName + " in area " + game.getCurrentRoom().getName());
+            System.out
+                    .println("No character named \'" + characterName + "\' in area " + game.getCurrentRoom().getName());
         } else {
             Character talkedTo = game.getCharacterFromCurrentRoom(characterName);
             if (!talkedTo.isKilled()) {
@@ -56,7 +57,7 @@ public class TalkCommand extends AutoCommand {
                                 System.out.println("I got tasks for you:");
                             }
                         }
-                        System.out.println("Questname: " + q.getName());
+                        System.out.println("Questname: \'" + q.getName() + "\'");
                         System.out.println(q.getTextStart());
                         System.out.println(
                                 "Type: \"accept " + q.getName() + " from " + characterName + "\" to accept the quest.");

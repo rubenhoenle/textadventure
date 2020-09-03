@@ -297,7 +297,7 @@
           "from": "beach",
           "to": "lagoon",
           "name": "small path",
-          "description": "In the west you can see a lagoon with some washed up boxes from your sunken ship."
+          "description": "In the 'west' you can see a lagoon with some washed up boxes from your sunken ship."
         },
         {
           "direction": "east",
@@ -305,7 +305,7 @@
           "to": "cave on the beach",
           "name": "sandy way",
           "state": "BLOCKED",
-          "description": "An entrance to a cave near the sea is on the east side of the beach.",
+          "description": "An entrance to a cave near the sea is on the 'east' side of the beach.",
           "hint": "Maybe you can use something to surf to get to the cave"
         },
         {
@@ -313,7 +313,7 @@
           "from": "beach",
           "to": "hill",
           "name": "steep track",
-          "description": "North of the beach a steep track is leading to a hill."
+          "description": "'North' of the beach a steep track is leading to a hill."
         }
       ],
       "items": {
@@ -362,7 +362,7 @@
           "from": "cave on the beach",
           "to": "beach",
           "name": "beach",
-          "description": "On the west side you can see the beach where this nightmare started.",
+          "description": "On the 'west' side you can see the beach where this nightmare started.",
           "state": "BLOCKED"
         },
         {
@@ -370,7 +370,7 @@
           "from": "cave on the beach",
           "to": "Cave with underground river",
           "name": "tunnel",
-          "description": "A winding tunnel leads deeper into the cave, but it's pretty dark in there."
+          "description": "A winding tunnel leads deeper 'down' into the cave, but it's pretty dark in there."
         }
       ],
       "enemies": [
@@ -429,7 +429,7 @@
           "from": "lagoon",
           "to": "beach",
           "name": "small path",
-          "description": "A small path leads east from the lagoon."
+          "description": "A small path leads 'east' from the lagoon."
         }
       ],
       "enemies": [
@@ -542,14 +542,14 @@
           "from": "hill",
           "to": "beach",
           "name": "steep track",
-          "description": "A steep track leads down in the south."
+          "description": "A steep track leads down in the 'south'."
         },
         {
           "direction": "up",
           "from": "hill",
           "to": "viewing platform",
           "name": "ladder",
-          "description": "You can climb up a ladder to the treetop. Maybe you can catch a glimpse of the island?"
+          "description": "You can climb 'up' a ladder to the treetop. Maybe you can catch a glimpse of the island?"
         },
         {
           "direction": "north",
@@ -557,14 +557,14 @@
           "to": "rundown hut on the hill",
           "name": "hillside",
           "state": "BLOCKED",
-          "description": "In the north a slope leads gently downwards to a rundown hut."
+          "description": "In the 'north' a slope leads gently downwards to a rundown hut."
         },
         {
           "direction": "west",
           "from": "hill",
           "to": "flower meadow",
           "name": "serpentines",
-          "description": "A rocky winding mountain path leads down west in serpentines."
+          "description": "A rocky winding mountain path leads down 'west' in serpentines."
         }
       ],
       "items": {
@@ -602,7 +602,7 @@
           "from": "viewing platform",
           "to": "hill",
           "name": "ladder",
-          "description": "A ladder leads down from the platform"
+          "description": "A ladder leads 'down' from the platform"
         }
       ],
       "items": {
@@ -629,7 +629,7 @@
           "to": "hill",
           "name": "hillside",
           "state": "BLOCKED",
-          "description": "To the east of the hut is a wide slope."
+          "description": "To the 'south' of the hut is a wide slope."
         }
       ],
       "enemies": [
@@ -696,7 +696,7 @@
           "from": "cliff above the ship graveyard",
           "to": "deck of an old stranded ship",
           "name": "plank",
-          "description": "An old plank in the west is connecting the deck of the ship with the cliff.",
+          "description": "An old plank in the 'west' is connecting the deck of the ship with the cliff.",
           "state": "ACTIVE"
         },
         {
@@ -704,7 +704,7 @@
           "from": "cliff above the ship graveyard",
           "to": "camp site",
           "name": "path",
-          "description": "A southern beaten path leads to a small camp site.",
+          "description": "A 'southern' beaten path leads to a small camp site.",
           "state": "ACTIVE"
         },
         {
@@ -712,7 +712,7 @@
           "from": "cliff above the ship graveyard",
           "to": "shore of the pond",
           "name": "stream path",
-          "description": "East a path is running alongside a stream."
+          "description": "'East' a path is running alongside a stream."
         }
       ],
       "roamingEnemies": [
@@ -756,7 +756,7 @@
           "from": "camp site",
           "to": "cliff above the ship graveyard",
           "name": "path",
-          "description": "In the north a beaten path leads to a cliff.",
+          "description": "In the 'north' a beaten path leads to a cliff.",
           "state": "ACTIVE"
         }
       ],
@@ -851,7 +851,7 @@
           "from": "deck of an old stranded ship",
           "to": "cliff above the ship graveyard",
           "name": "plank",
-          "description": "An old plank in the east is connecting the deck of the ship with the cliff.",
+          "description": "An old plank in the 'east' is connecting the deck of the ship with the cliff.",
           "state": "ACTIVE"
         },
         {
@@ -859,7 +859,7 @@
           "from": "deck of an old stranded ship",
           "to": "ship interior",
           "name": "trapdoor",
-          "description": "A trapdoor leading into the ship.",
+          "description": "A trapdoor 'down' is blocked by a fallen mast.",
           "state": "BLOCKED"
         }
       ],
@@ -902,7 +902,7 @@
           "from": "ship interior",
           "to": "deck of an old stranded ship",
           "name": "trapdoor",
-          "description": "A trapdoor leading to the ship deck.",
+          "description": "A trapdoor leading 'up' to the ship deck.",
           "state": "BLOCKED"
         },
         {
@@ -910,7 +910,7 @@
           "from": "ship interior",
           "to": "beach below the cliff",
           "name": "hole",
-          "description": "On the south side there's a hole in the the ship hull.",
+          "description": "On the 'south' side there's a hole in the the ship hull.",
           "state": "ACTIVE"
         }
       ],
@@ -974,7 +974,7 @@
           "from": "beach below the cliff",
           "to": "ship interior",
           "name": "hole",
-          "description": "A short climb over the boulder leads to the hole in the ship hull in the north.",
+          "description": "A short climb over the boulder leads to the hole in the ship hull in the 'north'.",
           "state": "ACTIVE"
         },
         {
@@ -982,7 +982,7 @@
           "from": "beach below the cliff",
           "to": "sunken ships in the sea",
           "name": "sea",
-          "description": "There's a short swim and dive to the sunk ship wreck in the west.",
+          "description": "There's a short swim and dive to the sunk ship wreck in the 'west'.",
           "state": "BLOCKED"
         },
         {
@@ -990,7 +990,7 @@
           "from": "beach below the cliff",
           "to": "Cave with the mortal remains of the first men",
           "name": "cave",
-          "description": "East there's a big cave in the cliff."
+          "description": "'East' there's a big cave in the cliff."
         }
       ],
       "items": {
@@ -1017,7 +1017,7 @@
           "from": "sunken ships in the sea",
           "to": "beach below the cliff",
           "name": "sea",
-          "description": "In the east you can emerge from the depth and swim to shore.",
+          "description": "In the 'east' you can emerge from the depth and swim to shore.",
           "state": "ACTIVE"
         }
       ],
@@ -1070,7 +1070,7 @@
           "from": "giant rabbit hole",
           "to": "Crossroads ape",
           "name": "magic path",
-          "description": "A magic path leads east.",
+          "description": "A magic path leads 'east'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1080,7 +1080,7 @@
           "from": "giant rabbit hole",
           "to": "Hidden cave",
           "name": "magic path",
-          "description": "A magic path leads south.",
+          "description": "A magic path leads 'south'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1090,14 +1090,14 @@
           "from": "giant rabbit hole",
           "to": "Earthworm tunnel",
           "name": "earthworm tunnel",
-          "description": "A little earthworm tunnel leads down."
+          "description": "A little earthworm tunnel leads 'down'."
         },
         {
           "direction": "up",
           "from": "giant rabbit hole",
           "to": "ruins outside",
           "name": "hole in the ceiling",
-          "description": "A hole in the ceiling is going up."
+          "description": "A hole in the ceiling is going 'up'."
         }
       ],
       "characters": [],
@@ -1112,7 +1112,7 @@
           "from": "Hidden cave",
           "to": "Secret Grotto",
           "name": "magic path",
-          "description": "A magic path leads south.",
+          "description": "A magic path leads 'south'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1122,7 +1122,7 @@
           "from": "Hidden cave",
           "to": "giant rabbit hole",
           "name": "magic path",
-          "description": "A magic path leads north.",
+          "description": "A magic path leads 'north'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1132,7 +1132,7 @@
           "from": "Hidden cave",
           "to": "Living room of a torturer",
           "name": "Trapdoor in the ceiling",
-          "description": "A trapdoor in the ceiling leads back to daylight."
+          "description": "A trapdoor in the ceiling 'up' leads back to daylight."
         }
       ],
       "characters": [],
@@ -1167,14 +1167,14 @@
           "from": "Living room of a torturer",
           "to": "Hidden cave",
           "name": "trapdoor under the carpet",
-          "description": "A trapdoor is hidden under the carpet."
+          "description": "A trapdoor 'down' is hidden under the carpet."
         },
         {
           "direction": "east",
           "from": "Living room of a torturer",
           "to": "cellar of the old house in the forest",
           "name": "hole in the wall",
-          "description": "On the east side of the room, there is a hole in the wall."
+          "description": "On the 'east' side of the room, there is a hole in the wall."
         }
       ],
       "characters": [],
@@ -1202,7 +1202,7 @@
           "from": "Secret Grotto",
           "to": "Hidden cave",
           "name": "magic path",
-          "description": "A magic path leads west.",
+          "description": "A magic path leads 'west'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1212,7 +1212,7 @@
           "from": "Secret Grotto",
           "to": "Crossroads bat",
           "name": "magic path",
-          "description": "A magic path leads east.",
+          "description": "A magic path leads 'east'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1222,21 +1222,21 @@
           "from": "Secret Grotto",
           "to": "Locker room",
           "name": "stairway",
-          "description": "A wide gleaming marble staircase leads down."
+          "description": "A wide gleaming marble staircase leads 'down'."
         },
         {
           "direction": "north",
           "from": "Secret Grotto",
           "to": "Killer Sauna",
           "name": "stone way",
-          "description": "A stone way leads north."
+          "description": "A stone way leads 'north'."
         },
         {
           "direction": "up",
           "from": "Secret Grotto",
           "to": "hidden cave",
           "name": "wooden staircase",
-          "description": "A wooden staircase is leading up."
+          "description": "A wooden staircase is leading 'up'."
         }
       ],
       "characters": [],
@@ -1266,14 +1266,14 @@
           "from": "Cave with the mortal remains of the first men",
           "to": "archaeological chamber",
           "name": "hole in the floor",
-          "description": "There is a hole in the floor.  Where will the dark tunnel end?."
+          "description": "There is a hole ('down') in the floor.  Where will the dark tunnel end?."
         },
         {
           "direction": "west",
           "from": "Cave with the mortal remains of the first men",
           "to": "beach below the cliff",
           "name": "cave",
-          "description": "In the west you can see a little cave."
+          "description": "In the 'west' you can see a little cave."
         }
       ],
       "characters": [],
@@ -1301,14 +1301,14 @@
           "from": "Crossroads bat",
           "to": "archaeological chamber",
           "name": "large brick passageway",
-          "description": "To the east is a large brick passageway."
+          "description": "To the 'east' is a large brick passageway."
         },
         {
           "direction": "south",
           "from": "Crossroads bat",
           "to": "Secret Grotto",
           "name": "magic path",
-          "description": "A magic path leads south.",
+          "description": "A magic path leads 'south'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1318,7 +1318,7 @@
           "from": "Crossroads bat",
           "to": "Crossroads ape",
           "name": "magic path",
-          "description": "A magic path leads west.",
+          "description": "A magic path leads 'west'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1328,7 +1328,7 @@
           "from": "Crossroads bat",
           "to": "Room under crossroads bat I",
           "name": "stone staircase",
-          "description": "A stone staircase leads down."
+          "description": "A stone staircase leads 'down'."
         }
       ],
       "characters": [],
@@ -1357,14 +1357,14 @@
           "from": "Room under crossroads bat I",
           "to": "Crossroads bat",
           "name": "stone staircase",
-          "description": "A stone staircase leads up."
+          "description": "A stone staircase leads 'up'."
         },
         {
           "direction": "west",
           "from": "Room under crossroads bat I",
           "to": "Room under crossroads bat II",
           "name": "ladder over lava stream",
-          "description": "a ladder leads over the the boiling lava stream",
+          "description": "a ladder 'west' leads over the the boiling lava stream",
           "state": "INVISIBLE"
         }
       ],
@@ -1403,14 +1403,14 @@
           "from": "Room under crossroads bat II",
           "to": "Butcher's Room II",
           "name": "heavy door",
-          "description": "A heavy door on the west side leads to another room."
+          "description": "A heavy door on the 'west' side leads to another room."
         },
         {
           "direction": "east",
           "from": "Room under crossroads bat II",
           "to": "Room under crossroads bat I",
           "name": "ladder over lava stream",
-          "description": "A ladder leads over the the boiling lava stream",
+          "description": "A ladder leads 'east' over the the boiling lava stream",
           "state": "INVISBILE"
         }
       ],
@@ -1449,21 +1449,21 @@
           "from": "Butcher's Room II",
           "to": "Room under crossroads bat II",
           "name": "heavy door",
-          "description": "On the east side is a heavy door. If the door is locked...?"
+          "description": "On the 'east' side is a heavy door. If the door is locked...?"
         },
         {
           "direction": "west",
           "from": "Butcher's Room II",
           "to": "Butcher's Room I",
           "name": "a big passage to the second half of the room",
-          "description": "On the west there is a big passage to the second half of the room."
+          "description": "On the 'west' there is a big passage to the second half of the room."
         },
         {
           "direction": "down",
           "from": "Butcher's Room II",
           "to": "cave with nothing but three ways",
           "name": "a big trapdoor",
-          "description": "A big trapdoor, too big to miss, leads down."
+          "description": "A big trapdoor, too big to miss, leads 'down'."
         }
       ],
       "enemies": [
@@ -1505,14 +1505,14 @@
           "from": "Butcher's Room I",
           "to": "Butcher's Room II",
           "name": "a big passage",
-          "description": "On the east there is a big passage to the second half of the room."
+          "description": "On the 'east' there is a big passage to the second half of the room."
         },
         {
           "direction": "down",
           "from": "Butcher's Room I",
           "to": "hidden dungeon",
           "name": "hole in the floor",
-          "description": "A discrete little hole in the floor leads down.",
+          "description": "A discrete little hole 'down' in the floor leads down.",
           "state": "BLOCKED",
           "hint": "Take care of the little hatch!"
         },
@@ -1521,14 +1521,14 @@
           "from": "Butcher's Room I",
           "to": "Earthworm tunnel",
           "name": "small door",
-          "description": "You see a small door on the north side of the room."
+          "description": "You see a small door on the 'north' side of the room."
         },
         {
           "direction": "south",
           "from": "Butcher's Room I",
           "to": "Killer Sauna",
           "name": "locked door",
-          "description": "A locked door is leading south."
+          "description": "A locked door is leading 'south'."
         }
       ],
       "characters": [],
@@ -1568,7 +1568,7 @@
           "from": "hidden dungeon",
           "to": "Butcher's Room I",
           "name": "discrete little hole",
-          "description": "To get to the top, you can take a discrete little hole in the ceiling.",
+          "description": "To get to the top, you can take a discrete little hole in the 'upper' ceiling.",
           "state": "BLOCKED"
         }
       ],
@@ -1598,28 +1598,28 @@
           "from": "cave with nothing but three ways",
           "to": "Butcher's Room II",
           "name": "a big trapdoor",
-          "description": "A big trapdoor, too big to miss, is in the ceiling."
+          "description": "A big trapdoor, too big to miss, is in the 'upper' ceiling."
         },
         {
           "direction": "north",
           "from": "cave with nothing but three ways",
           "to": "magical cave",
           "name": "way",
-          "description": "There is a way leading north."
+          "description": "There is a way leading 'north'."
         },
         {
           "direction": "east",
           "from": "cave with nothing but three ways",
           "to": "holy grotto",
           "name": "way",
-          "description": "There is a way leading east."
+          "description": "There is a way leading 'east'."
         },
         {
           "direction": "south",
           "from": "cave with nothing but three ways",
           "to": "mineral cave",
           "name": "way",
-          "description": "There is a narrow dirty corridor leading south"
+          "description": "There is a narrow dirty corridor leading 'south'"
         }
       ],
       "characters": [],
@@ -1634,14 +1634,14 @@
           "from": "magical cave",
           "to": "cave with nothing but three ways",
           "name": "way",
-          "description": "There is a way leading south"
+          "description": "There is a way leading 'south'"
         },
         {
           "direction": "north",
           "from": "magical cave",
           "to": "cave with nothing but three ways",
           "name": "Portal",
-          "description": "There is a portal leading north",
+          "description": "There is a portal leading 'north'",
           "state": "INVISIBLE"
         },
         {
@@ -1649,7 +1649,7 @@
           "from": "magical cave",
           "to": "beach",
           "name": "Portal",
-          "description": "There is a portal leading north",
+          "description": "There is a portal leading 'north'",
           "state": "INVISIBLE"
         },
         {
@@ -1657,7 +1657,7 @@
           "from": "magical cave",
           "to": "flower meadow",
           "name": "Portal",
-          "description": "There is a portal leading north",
+          "description": "There is a portal leading 'north'",
           "state": "INVISIBLE"
         },
         {
@@ -1665,7 +1665,7 @@
           "from": "magical cave",
           "to": "forest path with four directions",
           "name": "Portal",
-          "description": "There is a portal leading north",
+          "description": "There is a portal leading 'north'",
           "state": "INVISIBLE"
         },
         {
@@ -1673,7 +1673,7 @@
           "from": "magical cave",
           "to": "village square",
           "name": "Portal",
-          "description": "There is a portal leading north",
+          "description": "There is a portal leading 'north'",
           "state": "INVISIBLE"
         },
         {
@@ -1681,7 +1681,7 @@
           "from": "magical cave",
           "to": "cliff above the ship graveyard",
           "name": "Portal",
-          "description": "There is a portal leading north",
+          "description": "There is a portal leading 'north'",
           "state": "INVISIBLE"
         }
       ],
@@ -1729,7 +1729,7 @@
           "from": "holy grotto",
           "to": "cave with nothing but three ways",
           "name": "way",
-          "description": "There is a way leading west"
+          "description": "There is a way leading 'west'"
         }
       ],
       "friends": [
@@ -1783,7 +1783,7 @@
           "from": "mineral cave",
           "to": "cave with nothing but three ways",
           "name": "way",
-          "description": "There is a narrow dirty corridor leading north."
+          "description": "There is a narrow dirty corridor leading 'north'."
         }
       ],
       "characters": [],
@@ -1950,7 +1950,7 @@
           "from": "Crossroads ape",
           "to": "Crossroads bat",
           "name": "magic path",
-          "description": "A magic path leads east.",
+          "description": "A magic path leads 'east'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1960,14 +1960,14 @@
           "from": "Crossroads ape",
           "to": "Pillaged armory",
           "name": "stone staircase",
-          "description": "A stone staircase is going up."
+          "description": "A stone staircase is going 'up'."
         },
         {
           "direction": "west",
           "from": "Crossroads ape",
           "to": "giant rabbit hole",
           "name": "magic path",
-          "description": "A magic path leads west.",
+          "description": "A magic path leads 'west'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
           "conditionalItem": "magic necklace"
@@ -1985,14 +1985,14 @@
           "from": "archaeological chamber",
           "to": "Cave with the mortal remains of the first men",
           "name": "hole in the ceiling",
-          "description": "Through a hole in the ceiling you can go up."
+          "description": "Through a hole in the ceiling you can go 'up'."
         },
         {
           "direction": "west",
           "from": "archaeological chamber",
           "to": "Crossroads bat",
           "name": "large brick passageway",
-          "description": "A large brick passageway leads west."
+          "description": "A large brick passageway leads 'west'."
         }
       ],
       "characters": [],
@@ -2007,7 +2007,7 @@
           "from": "Pillaged armory",
           "to": "Crossroads ape",
           "name": "stone staircase",
-          "description": "A stone staircase is going down."
+          "description": "A stone staircase is going 'down'."
         },
         {
           "direction": "north",
@@ -2015,7 +2015,7 @@
           "to": "cellar of the smithy",
           "state": "BLOCKED",
           "name": "large hole in the wall",
-          "description": "On the north side there is a big hole in the wall."
+          "description": "On the 'north' side there is a big hole in the wall."
         }
       ],
       "characters": [],
@@ -2037,14 +2037,14 @@
           "from": "Earthworm tunnel",
           "to": "Butcher's Room I",
           "name": "small door",
-          "description": "Southern you can enter the room through a small door."
+          "description": "'Southern' you can enter the room through a small door."
         },
         {
           "direction": "up",
           "from": "Earthworm tunnel",
           "to": "giant rabbit hole",
           "name": "little earthworm tunnel",
-          "description": "A little earthworm tunnel leads back to daylight."
+          "description": "A little earthworm tunnel leads back 'up' to daylight."
         }
       ],
       "characters": [],
@@ -2059,14 +2059,14 @@
           "from": "Cave with underground river",
           "to": "cave on the beach",
           "name": "ladder",
-          "description": "A ladder leads to a cave on the beach."
+          "description": "A ladder leads 'up' to a cave on the beach."
         },
         {
           "direction": "north",
           "from": "Cave with underground river",
           "to": "Locker room",
           "name": "a dry way out of this cave",
-          "description": "In the north you see a dry way out of this cave."
+          "description": "In the 'north' you see a dry way out of this cave."
         }
       ],
       "characters": [],
@@ -2126,14 +2126,14 @@
           "from": "Locker room",
           "to": "Secret Grotto",
           "name": "stairway",
-          "description": "A wide gleaming marble staircase leads up."
+          "description": "A wide gleaming marble staircase leads 'up'."
         },
         {
           "direction": "south",
           "from": "Locker room",
           "to": "Cave with underground river",
           "name": "a dry way",
-          "description": "In the south a dry way leaves the locker room."
+          "description": "In the 'south' a dry way leaves the locker room."
         }
       ],
       "characters": [],
@@ -2162,14 +2162,14 @@
           "from": "Killer Sauna",
           "to": "Secret Grotto",
           "name": "stone way",
-          "description": "A stone way leads south."
+          "description": "A stone way leads 'south'."
         },
         {
           "direction": "north",
           "from": "Killer Sauna",
           "to": "Butcher's Room I",
           "name": "locked door",
-          "description": "In the north you see a locked door."
+          "description": "In the 'north' you see a locked door."
         }
       ],
       "characters": [],
@@ -2225,7 +2225,7 @@
           "from": "house in the village",
           "to": "village square",
           "name": "house door",
-          "description": "A wooden door east is going outside towards the village square."
+          "description": "A wooden door 'east' is going outside towards the village square."
         }
       ],
       "items": {
@@ -2255,28 +2255,28 @@
           "from": "village square",
           "to": "house in the village",
           "name": "door",
-          "description": "In the west is the wooden door of a house."
+          "description": "In the 'west' is the wooden door of a house."
         },
         {
           "direction": "east",
           "from": "village square",
           "to": "smithy",
           "name": "gate",
-          "description": "In the east is the gate of the smithy."
+          "description": "In the 'east' is the gate of the smithy."
         },
         {
           "direction": "north",
           "from": "village square",
           "to": "sacrificial altar",
           "name": "path",
-          "description": "A path leads up towards the vulcan in the north."
+          "description": "A path leads up towards the vulcan in the 'north'."
         },
         {
           "direction": "south",
           "from": "village square",
           "to": "forest path with four directions",
           "name": "long path",
-          "description": "A long path going south. On that path are many footsteps which tells you that this path is often used."
+          "description": "A long path going 'south'. On that path are many footsteps which tells you that this path is often used."
         }
       ],
       "items": {
@@ -2355,14 +2355,14 @@
           "from": "smithy",
           "to": "village square",
           "name": "gate",
-          "description": "In the west a gate is going outside towards the village square."
+          "description": "In the 'west' a gate is going outside towards the village square."
         },
         {
           "direction": "down",
           "from": "smithy",
           "to": "cellar of the smithy",
           "name": "ladder",
-          "description": "A ladder is going down to the cellar of the smithy."
+          "description": "A ladder is going 'down' to the cellar of the smithy."
         }
       ],
       "items": {
@@ -2491,7 +2491,7 @@
           "from": "cellar of the smithy",
           "to": "smithy",
           "name": "ladder",
-          "description": "A ladder going up to the ground floor of the smithy."
+          "description": "A ladder going 'up' to the ground floor of the smithy."
         },
         {
           "direction": "south",
@@ -2499,7 +2499,7 @@
           "to": "Pillaged armory",
           "state": "INVISIBLE",
           "name": "large hole in the wall",
-          "description": "There is a large hole in the wall going south. It's hidden inside the cupboard."
+          "description": "There is a large hole in the wall going 'south'. It's hidden inside the cupboard."
         }
       ],
       "items": {
@@ -2560,14 +2560,14 @@
           "from": "sacrificial altar",
           "to": "village square",
           "name": "path to the village",
-          "description": "A path is going downwards to the village in the south."
+          "description": "A path is going downwards to the village in the 'south'."
         },
         {
           "direction": "west",
           "from": "sacrificial altar",
           "to": "vulcan",
           "name": "path to the vulcan",
-          "description": "A narrow and very steep path going upwards to the vulcan in the west. If you go up here, it can get very hot."
+          "description": "A narrow and very steep path going upwards to the vulcan in the 'west'. If you go up here, it can get very hot."
         }
       ],
       "items": {
@@ -2623,7 +2623,7 @@
           "from": "vulcan",
           "to": "sacrificial altar",
           "name": "path",
-          "description": "In the east a narrow and very steep path going down to the sacrificial altar. If you go down this path, it will get cooler."
+          "description": "In the 'east' a narrow and very steep path going down to the sacrificial altar. If you go down this path, it will get cooler."
         }
       ],
       "defaultItemLocation": "is lying in the volcanic ash on the ground",
@@ -2651,14 +2651,14 @@
           "from": "beginning of the forest",
           "to": "forest path",
           "name": "path",
-          "description": "In the west a path is leading inside the forest. The noises are getting louder and louder!"
+          "description": "In the 'west' a path is leading inside the forest. The noises are getting louder and louder!"
         },
         {
           "direction": "east",
           "from": "beginning of the forest",
           "to": "maple tree",
           "name": "path outside the forest",
-          "description": "A path leading outside the forest in the east."
+          "description": "A path leading outside the forest in the 'east'."
         }
       ],
       "enemies": [
@@ -2786,14 +2786,14 @@
           "to": "tree house",
           "name": "ladder",
           "state": "BLOCKED",
-          "description": "A ladder to the tree house."
+          "description": "A ladder 'up' to the tree house."
         },
         {
           "direction": "east",
           "from": "forest path",
           "to": "beginning of the forest",
           "name": "path",
-          "description": "In the east a path leads back to the beginning of the forest. The noises are getting more and more quiet and you feel relieved."
+          "description": "In the 'east' a path leads back to the beginning of the forest. The noises are getting more and more quiet and you feel relieved."
         },
         {
           "direction": "north",
@@ -2801,7 +2801,7 @@
           "state": "BLOCKED",
           "to": "forest path with four directions",
           "name": "bridge made of a cut tree",
-          "description": "In the north you could try to balance above the tree which was cut to get over the powering river."
+          "description": "In the 'north' you could try to balance above the tree which was cut to get over the powering river."
         }
       ],
       "items": {
@@ -2842,14 +2842,14 @@
           "to": "forest path",
           "name": "ladder",
           "state": "BLOCKED",
-          "description": "You could take the ladder down the tree house. You should climb very slowly to make sure you don\u0027t fall down."
+          "description": "You could take the ladder 'down' the tree house. You should climb very slowly to make sure you don\u0027t fall down."
         },
         {
           "direction": "north",
           "from": "tree house",
           "to": "forest path with four directions",
           "name": "liana",
-          "description": "There is a liana northern. You should hold yourself very tight on the liana to swing above the powering river."
+          "description": "There is a liana 'northern'. You should hold yourself very tight on the liana to swing above the powering river."
         }
       ],
       "defaultItemLocation": "lying on a small table",
@@ -2943,21 +2943,21 @@
           "from": "forest path with four directions",
           "to": "in front of the old house",
           "name": "path",
-          "description": "In the west a way is leading to an old house in the forest."
+          "description": "In the 'west' a way is leading to an old house in the forest."
         },
         {
           "direction": "north",
           "from": "forest path with four directions",
           "to": "ruins entry",
           "name": "path",
-          "description": "On the north side there is a way to a ruin which you can see in the distance."
+          "description": "On the 'north' side there is a way to a ruin which you can see in the distance."
         },
         {
           "direction": "east",
           "from": "forest path with four directions",
           "to": "village square",
           "name": "a long path",
-          "description": "In the east appears a long path. On that path are many footsteps which tells you that this path is often used."
+          "description": "In the 'east' appears a long path. On that path are many footsteps which tells you that this path is often used."
         },
         {
           "direction": "south",
@@ -2965,7 +2965,7 @@
           "to": "forest path",
           "name": "bridge made of a cut tree",
           "state": "BLOCKED",
-          "description": "In the south you could try to balance above the tree which was cut to get over the powering river to get to the side with the tree house."
+          "description": "In the 'south' you could try to balance above the tree which was cut to get over the powering river to get to the side with the tree house."
         }
       ],
       "items": {
@@ -3048,14 +3048,14 @@
           "from": "in front of the old house",
           "to": "old house in the forest",
           "name": "door",
-          "description": "You could get inside the old house by using the leaning door on the west side of the house."
+          "description": "You could get inside the old house by using the leaning door on the 'west' side of the house."
         },
         {
           "direction": "east",
           "from": "in front of the old house",
           "to": "forest path with four directions",
           "name": "path",
-          "description": "In the east a path leads away from the house."
+          "description": "In the 'east' a path leads away from the house."
         }
       ],
       "items": {
@@ -3088,14 +3088,14 @@
           "from": "old house in the forest",
           "to": "cellar of the old house in the forest",
           "name": "ladder",
-          "description": "You can climb a ladder down into the cellar."
+          "description": "You can climb a ladder 'down' into the cellar."
         },
         {
           "direction": "east",
           "from": "old house in the forest",
           "to": "in front of the old house",
           "name": "door",
-          "description": "In the east you can leave the house through a wooden door."
+          "description": "In the 'east' you can leave the house through a wooden door."
         }
       ],
       "defaultItemLocation": "is lying on a old wooden table",
@@ -3160,14 +3160,14 @@
           "from": "cellar of the old house in the forest",
           "to": "old house in the forest",
           "name": "ladder",
-          "description": "You could take the ladder to get out of the cellar."
+          "description": "You could take the ladder 'up' to get out of the cellar."
         },
         {
           "direction": "west",
           "from": "cellar of the old house in the forest",
           "to": "Living room of a torturer",
           "name": "hole",
-          "description": "In the west a hole is leading to the living room of a torturer."
+          "description": "In the 'west' a hole is leading to the living room of a torturer."
         }
       ],
       "defaultItemLocation": "is lying on a table",
@@ -3211,21 +3211,21 @@
           "from": "ruins entry",
           "to": "ruins basement",
           "name": "archway",
-          "description": "An archway leading west into the building."
+          "description": "An archway leading 'west' into the building."
         },
         {
           "direction": "south",
           "from": "ruins entry",
           "to": "forest path with four directions",
           "name": "path",
-          "description": "A long path leading south to a forest."
+          "description": "A long path leading 'south' to a forest."
         },
         {
           "direction": "east",
           "from": "ruins entry",
           "to": "ruins riddle",
           "name": "path",
-          "description": "A path leading east to a court with scattered debris."
+          "description": "A path leading 'east' to a court with scattered debris."
         }
       ],
       "items": {
@@ -3252,7 +3252,7 @@
           "from": "ruins riddle",
           "to": "ruins entry",
           "name": "path",
-          "description": "A path leading back to the building in the west."
+          "description": "A path leading back to the building in the 'west'."
         }
       ],
       "items": {
@@ -3287,21 +3287,21 @@
           "from": "ruins basement",
           "to": "ruins outside",
           "name": "archway",
-          "description": "The northern archway is leading outside."
+          "description": "The 'northern' archway is leading outside."
         },
         {
           "direction": "east",
           "from": "ruins basement",
           "to": "ruins entry",
           "name": "archway",
-          "description": "An archway leading back in the east."
+          "description": "An archway leading back in the 'east'."
         },
         {
           "direction": "up",
           "from": "ruins basement",
           "to": "ruins top",
           "name": "bricks",
-          "description": "Multiple bricks protrude from the wall, enabling a bold climb to the top of the ruin."
+          "description": "Multiple bricks protrude from the wall, enabling a bold climb 'up' to the top of the ruin."
         },
         {
           "direction": "down",
@@ -3309,7 +3309,7 @@
           "to": "ruins cellar",
           "name": "hole",
           "state": "INVISIBLE",
-          "description": "A hole in the floor is leading into the cellar of the ruin."
+          "description": "A hole in the floor is leading 'down' into the cellar of the ruin."
         }
       ],
       "items": {
@@ -3365,7 +3365,7 @@
           "from": "ruins cellar",
           "to": "ruins basement",
           "name": "hole",
-          "description": "A hole in the ceiling is leading upwards."
+          "description": "A hole in the ceiling is leading 'upwards'."
         },
         {
           "direction": "north",
@@ -3374,7 +3374,7 @@
           "name": "passage",
           "state": "BLOCKED",
           "hint": "You must solve the riddle first with \"ruin riddle\"",
-          "description": "A passage in the north leads to the treasure chamber."
+          "description": "A passage in the 'north' leads to the treasure chamber."
         }
       ],
       "items": {
@@ -3406,7 +3406,7 @@
           "from": "ruins treasure",
           "to": "ruins cellar",
           "name": "passage",
-          "description": "A passage in the south is leading back."
+          "description": "A passage in the 'south' is leading back."
         }
       ],
       "items": {
@@ -3446,7 +3446,7 @@
           "from": "ruins top",
           "to": "ruins basement",
           "name": "descent",
-          "description": "A dangerous descent leads down to the basement."
+          "description": "A dangerous descent leads 'down' to the basement."
         }
       ]
     },
@@ -3459,14 +3459,14 @@
           "from": "ruins outside",
           "to": "ruins basement",
           "name": "archway",
-          "description": "In the south an archway is leading into the building."
+          "description": "In the 'south' an archway is leading into the building."
         },
         {
           "direction": "down",
           "from": "ruins outside",
           "to": "giant rabbit hole",
           "name": "hole in the middle of a meadow",
-          "description": "A hole in the middle of a meadow is leading down."
+          "description": "A hole in the middle of a meadow is leading 'down'."
         }
       ]
     },
@@ -3479,21 +3479,21 @@
           "from": "flower meadow",
           "to": "hill",
           "name": "serpentines",
-          "description": "A rocky winding mountain path leads east."
+          "description": "A rocky winding mountain path leads 'east'."
         },
         {
           "direction": "west",
           "from": "flower meadow",
           "to": "chapel",
           "name": "grass path",
-          "description": "You can see a chapel at the west edge of the meadow."
+          "description": "You can see a chapel at the 'west' edge of the meadow."
         },
         {
           "direction": "north",
           "from": "flower meadow",
           "to": "maple tree",
           "name": "narrow passage",
-          "description": "On the north side there seams to be a small gap between some bushes."
+          "description": "On the 'north' side there seams to be a small gap between some bushes."
         }
       ],
       "items": {
@@ -3567,7 +3567,7 @@
           "from": "chapel",
           "to": "flower meadow",
           "name": "grass path",
-          "description": "At the east side of the chapel, there is a beautiful meadow."
+          "description": "At the 'east' side of the chapel, there is a beautiful meadow."
         }
       ],
       "items": {
@@ -3638,28 +3638,28 @@
           "from": "maple tree",
           "to": "flower meadow",
           "name": "narrow passage",
-          "description": "On the south side there seams to be a small gap between some bushes."
+          "description": "On the 'south' side there seams to be a small gap between some bushes."
         },
         {
           "direction": "north",
           "from": "maple tree",
           "to": "front of the mill",
           "name": "paved way",
-          "description": "A wide street leads over cobblestones to the north."
+          "description": "A wide street leads over cobblestones to the 'north'."
         },
         {
           "direction": "west",
           "from": "maple tree",
           "to": "beginning of the forest",
           "name": "path towards the forest",
-          "description": "A path leads into the forest in the west."
+          "description": "A path leads into the forest in the 'west'."
         },
         {
           "direction": "up",
           "from": "maple tree",
           "to": "low branches of maple tree",
           "name": "climbing tree",
-          "description": "Maybe you can reach the low hanging branches of the maple tree..."
+          "description": "Maybe you can reach the 'upper' low hanging branches of the maple tree..."
         }
       ],
       "characters": []
@@ -3673,14 +3673,14 @@
           "from": "low branches of maple tree",
           "to": "maple tree",
           "name": "jump",
-          "description": "With a skillful jump you can reach the ground."
+          "description": "With a skillfull jump 'down' you can reach the ground."
         },
         {
           "direction": "up",
           "from": "low branches of maple tree",
           "to": "top of maple tree",
           "name": "climbing",
-          "description": "Above you there are lots of branches."
+          "description": "Above ('up') you there are lots of branches."
         }
       ],
       "items": {
@@ -3708,7 +3708,7 @@
           "from": "top of maple tree",
           "to": "low branches of maple tree",
           "name": "climbing",
-          "description": "You should be careful while climbing down."
+          "description": "You should be careful while climbing 'down'."
         }
       ],
       "items": {
@@ -3742,21 +3742,21 @@
           "from": "front of the mill",
           "to": "maple tree",
           "name": "paved way",
-          "description": "A wide street leads south over cobblestones."
+          "description": "A wide street leads 'south' over cobblestones."
         },
         {
           "direction": "east",
           "from": "front of the mill",
           "to": "shore of the pond",
           "name": "mud path",
-          "description": "The path leading east looks muddy and wet."
+          "description": "The path leading 'east' looks muddy and wet."
         },
         {
           "direction": "north",
           "from": "front of the mill",
           "to": "mill",
           "name": "wooden door",
-          "description": "On the north side you see a wooden door. Whether the door is open...?"
+          "description": "On the 'north' side you see a wooden door. Whether the door is open...?"
         }
       ],
       "characters": []
@@ -3770,7 +3770,7 @@
           "from": "mill",
           "to": "front of the mill",
           "name": "wooden door",
-          "description": "The wooden door on the south side looks rotten."
+          "description": "The wooden door on the 'south' side looks rotten."
         }
       ],
       "items": {
@@ -3850,21 +3850,21 @@
           "from": "shore of the pond",
           "to": "front of the mill",
           "name": "mud path",
-          "description": "The path leading west looks muddy and wet."
+          "description": "The path leading 'west' looks muddy and wet."
         },
         {
           "direction": "north",
           "from": "shore of the pond",
           "to": "cliff above the ship graveyard",
           "name": "stream path",
-          "description": "In the north a path runs alongside a stream."
+          "description": "In the 'north' a path runs alongside a stream."
         },
         {
           "direction": "south",
           "from": "shore of the pond",
           "to": "pond",
           "name": "into the pond",
-          "description": "The southern bank in front of you is very flat."
+          "description": "The 'southern' bank in front of you is very flat."
         }
       ]
     },
@@ -3877,7 +3877,7 @@
           "from": "pond",
           "to": "shore of the pond",
           "name": "swim towards shore",
-          "description": "The northern shore seams to be a lot saver."
+          "description": "The 'northern' shore seams to be a lot saver."
         },
         {
           "direction": "south",
@@ -3887,14 +3887,14 @@
           "condition": "life jacket",
           "hint": "You should wear something to save your life...",
           "name": "swim towards waterfall",
-          "description": "the waterfall in the south looks dangerous. Sure you want to risk your life?"
+          "description": "the waterfall in the 'south' looks dangerous. Sure you want to risk your life?"
         },
         {
           "direction": "down",
           "from": "pond",
           "to": "bottom of the pond",
           "name": "diving",
-          "description": "Maybe you can dive to the ground."
+          "description": "Maybe you can dive 'down' to the ground."
         }
       ],
       "characters": []
@@ -3909,7 +3909,7 @@
           "from": "bottom of the ground",
           "to": "pond",
           "name": "diving",
-          "description": "Above you the sun is shining."
+          "description": "Above ('up') you the sun is shining."
         }
       ],
       "items": {
@@ -3948,14 +3948,14 @@
           "from": "waterfall",
           "to": "pond",
           "name": "swim towards the pond",
-          "description": "The water over there in the north looks calmer."
+          "description": "The water over there in the 'north' looks calmer."
         },
         {
           "direction": "south",
           "from": "waterfall",
           "to": "hidden cave",
           "name": "through the waterfall",
-          "description": "Directly in front of you the southern waterfall is splashing into the pond."
+          "description": "Directly in front of you the 'southern' waterfall is splashing into the pond."
         }
       ],
       "characters": []
@@ -3972,14 +3972,14 @@
           "condition": "life jacket",
           "hint": "You should wear something to save your life...",
           "name": "through the waterfall",
-          "description": "Directly in front of you the waterfall is splashing into the pond. Maybe you should swim back north."
+          "description": "Directly in front of you the waterfall is splashing into the pond. Maybe you should swim back 'north'."
         },
         {
           "direction": "down",
           "from": "hidden cave",
           "to": "Secret Grotto",
           "name": "wooden staircase",
-          "description": "A wooden staircase is leading down."
+          "description": "A wooden staircase is leading 'down'."
         }
       ],
       "characters": []

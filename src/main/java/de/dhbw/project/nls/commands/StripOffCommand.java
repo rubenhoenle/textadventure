@@ -32,11 +32,11 @@ public class StripOffCommand extends AutoCommand {
             if (stripOffItem != null) {
                 game.player.removeEquipment(stripOffItem);
                 game.player.addItem(stripOffItem);
-                System.out.println("The item " + stripOffItem.getName() + " was shifted to inventory.");
+                System.out.println("The item \'" + stripOffItem.getName() + "\' was shifted to inventory.");
                 game.incTurn();
             } else {
                 System.out.println(
-                        "The item " + itemName.trim() + " was not found in equipment and cannot be stripped off.");
+                        "The item \'" + itemName.trim() + "\' was not found in equipment and cannot be stripped off.");
             }
         }
     }

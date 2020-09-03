@@ -85,7 +85,7 @@ public class InvestigateCommandTest {
         command.execute();
 
         //then
-        verify(out).println("There is no interactive object with the name " + "bar" + ".");
+        verify(out).println("There is no interactive object with the name \'" + "bar" + "\'.");
      }
 
     @Test

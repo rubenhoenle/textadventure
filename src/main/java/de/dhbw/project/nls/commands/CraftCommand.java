@@ -49,7 +49,7 @@ public class CraftCommand extends AutoCommand {
                         System.out.println(interactiveCraftingObject.createItem(game.player, createable));
                         game.incTurn();
                     } else {
-                        System.out.println("You can't create a " + createableName + " with this "
+                        System.out.println("You can't create a \'" + createableName + "\' with this "
                                 + interactiveCraftingObject.getName() + ".");
                     }
                 }

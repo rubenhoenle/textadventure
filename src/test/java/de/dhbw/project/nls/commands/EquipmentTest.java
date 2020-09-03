@@ -72,8 +72,8 @@ public class EquipmentTest {
         verify(player).addEquipment(item1);
         verify(game).incTurn();
         verify(currentRoom).removeItem(item1);
-        verify(out).println("You added " + item1.getName() + " to your equipment.");
-        verify(out).println("The section " + item1.getEquipmentType().getDescription() + " is already taken."); 
+        verify(out).println("You added \'" + item1.getName() + "\' to your equipment.");
+        verify(out).println("The section " + item1.getEquipmentType().getDescription() + " is already taken.");
     }
     
     @Test
@@ -102,7 +102,7 @@ public class EquipmentTest {
         verify(game).incTurn();
         verify(player).addEquipment(item);
         verify(player).removeItem(item);
-        verify(out).println("You added " + item.getName() + " to your equipment.");
+        verify(out).println("You added \'" + item.getName() + "\' to your equipment.");
     }
 
     @Test
@@ -130,8 +130,8 @@ public class EquipmentTest {
         verify(game).incTurn();
         verify(player).removeEquipment(item1);
         verify(player).addItem(item1);
-        verify(out).println("The item " + item1.getName() + " was shifted to inventory.");
-        verify(out).println("The item " + item2.getName() + " was not found in equipment and cannot be stripped off.");
+        verify(out).println("The item \'" + item1.getName() + "\' was shifted to inventory.");
+        verify(out).println("The item \'" + item2.getName() + "\' was not found in equipment and cannot be stripped off.");
     }
 
     //TODO: removed by Ruben... because: TableList is used for output now and cannot be tested such easily...

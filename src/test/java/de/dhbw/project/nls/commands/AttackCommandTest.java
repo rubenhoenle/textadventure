@@ -102,7 +102,7 @@ public class AttackCommandTest {
 
         //then
         verify(r).getName();
-        verify(out).println("No character named foo in area bar");
+        verify(out).println("No character named \'foo\' in area bar");
     }
 
     @Test

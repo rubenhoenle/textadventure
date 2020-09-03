@@ -85,7 +85,7 @@ public class TalkCommandTest {
         //then
         verify(game,never()).incTurn();
         verify(r).getName();
-        verify(out).println("No character named foo in area bar");
+        verify(out).println("No character named \'foo\' in area bar");
     }
 
     @Test

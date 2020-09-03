@@ -69,7 +69,7 @@ public class GameTest {
         //then
         verify(player).addItem(item);
         verify(currentRoom).removeItem(item);
-        verify(out).println("You took " + item.getName() + " and added it to the inventory.");
+        verify(out).println("You took \'" + item.getName() + "\' and added it to the inventory.");
     }
 
     @Test
@@ -90,7 +90,7 @@ public class GameTest {
         takeCommand.execute();
 
         //then
-        verify(out).println("No item found with name " + itemName + " in room " + currentRoom.getName());
+        verify(out).println("No item found with name \'" + itemName + "\' in room " + currentRoom.getName());
     }
 
     @Test
@@ -131,7 +131,7 @@ public class GameTest {
         verify(player).getItem(item.getName());
         verify(player).removeItem(item);
         verify(currentRoom).addItem(item);
-        verify(out).println("The item " + item.getName() + " was dropped in room '" + currentRoom.getName() + "'.");
+        verify(out).println("The item \'" + item.getName() + "\' was dropped in room \'" + currentRoom.getName() + "\'.");
     }
 
     @Test
@@ -152,7 +152,7 @@ public class GameTest {
 
         //then
         verify(player).getItem(item.getName());
-        verify(out).println("The item " + item.getName() + " was not found in inventory or equipment and cannot be dropped.");
+        verify(out).println("The item \'" + item.getName() + "\' was not found in inventory or equipment and cannot be dropped.");
     }
 
     @Test

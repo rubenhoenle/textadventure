@@ -76,7 +76,7 @@ public class SwitchCommandTest {
         command.execute();
 
         //then
-        verify(out).println ("Item foo bar not found in player inventory.");
+        verify(out).println ("Item \'foo bar\' not found in player inventory.");
     }
 
     @Test
@@ -93,7 +93,7 @@ public class SwitchCommandTest {
         command.execute();
 
         //then
-        verify(out).println("Item foo has no state.");
+        verify(out).println("Item \'foo\' has no state.");
     }
 
     @Test
@@ -110,7 +110,7 @@ public class SwitchCommandTest {
         command.execute();
 
         //then
-        verify(out).println("Item foo has no state.");
+        verify(out).println("Item \'foo\' has no state.");
     }
 
     @Test
@@ -129,7 +129,7 @@ public class SwitchCommandTest {
         //then
         verify(game).incTurn();
         verify(i).setItemstate(ItemState.INACTIVE);
-        verify(out).println("Item foo is now " + ItemState.INACTIVE + ".");
+        verify(out).println("Item \'foo\' is now " + ItemState.INACTIVE + ".");
     }
 
     @Test
@@ -148,6 +148,6 @@ public class SwitchCommandTest {
         //then
         verify(game).incTurn();
         verify(i).setItemstate(ItemState.ACTIVE);
-        verify(out).println("Item foo is now " + ItemState.ACTIVE + ".");
+        verify(out).println("Item \'foo\' is now " + ItemState.ACTIVE + ".");
     }
 }

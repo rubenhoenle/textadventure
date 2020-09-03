@@ -31,13 +31,13 @@ public class TakeCommand extends AutoCommand {
         for (String itemName : items) {
             itemName = itemName.trim();
             if (!(game.getCurrentRoom().getRoomItemNameList().contains(itemName)))
-                System.out
-                        .println("No item found with name " + itemName + " in room " + game.getCurrentRoom().getName());
+                System.out.println(
+                        "No item found with name \'" + itemName + "\' in room " + game.getCurrentRoom().getName());
             else {
                 Item takenItem = game.getItemFromCurrentRoom(itemName);
                 game.player.addItem(takenItem);
                 game.getCurrentRoom().removeItem(takenItem);
-                System.out.println("You took " + takenItem.getName() + " and added it to the inventory.");
+                System.out.println("You took \'" + takenItem.getName() + "\' and added it to the inventory.");
 
                 // quest handling
                 List<Quest> questInventory = new ArrayList<Quest>();

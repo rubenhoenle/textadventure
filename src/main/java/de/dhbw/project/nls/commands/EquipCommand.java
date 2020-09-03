@@ -39,7 +39,7 @@ public class EquipCommand extends AutoCommand {
                 boolean equip = game.player.addEquipment(takenItem);
                 if (equip) {
                     game.getCurrentRoom().removeItem(takenItem);
-                    System.out.println("You added " + takenItem.getName() + " to your equipment.");
+                    System.out.println("You added \'" + takenItem.getName() + "\' to your equipment.");
                     game.incTurn();
                 } else {
                     System.out.println(
@@ -57,14 +57,14 @@ public class EquipCommand extends AutoCommand {
                 boolean equip = game.player.addEquipment(takenItem);
                 if (equip) {
                     game.player.removeItem(takenItem);
-                    System.out.println("You added " + takenItem.getName() + " to your equipment.");
+                    System.out.println("You added \'" + takenItem.getName() + "\' to your equipment.");
                     game.incTurn();
                 } else {
                     System.out.println(
                             "The section " + takenItem.getEquipmentType().getDescription() + " is already taken.");
                 }
             } else
-                System.out.println("No item found with name " + itemName);
+                System.out.println("No item found with name \'" + itemName + "\'");
         }
     }
 

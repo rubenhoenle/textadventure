@@ -101,7 +101,7 @@ public class LookCommandTest {
         command.execute();
 
         //then
-        verify(out).println("A angry looking Pete is dancing on a corps.");
+        verify(out).println("A angry looking \'Pete\' is dancing on a corps.");
     }
 
     @Test
@@ -124,7 +124,7 @@ public class LookCommandTest {
         command.execute();
 
         //then
-        verify(out).println("A friendly looking Shia is surprised on a trampoline.");
+        verify(out).println("A friendly looking \'Shia\' is surprised on a trampoline.");
     }
 
     @Test

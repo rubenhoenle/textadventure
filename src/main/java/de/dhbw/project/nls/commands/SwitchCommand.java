@@ -36,16 +36,16 @@ public class SwitchCommand extends AutoCommand {
         String itemName = String.join(" ", item).trim();
         Item switchItem = game.player.getItem(itemName);
         if (switchItem == null) {
-            System.out.println("Item " + itemName + " not found in player inventory.");
+            System.out.println("Item \'" + itemName + "\' not found in player inventory.");
         } else if (switchItem.getItemstate() == ItemState.NOT_USABLE || switchItem.getItemstate() == null) {
-            System.out.println("Item " + itemName + " has no state.");
+            System.out.println("Item \'" + itemName + "\' has no state.");
         } else {
             if (state.equals("off")) {
                 switchItem.setItemstate(ItemState.INACTIVE);
-                System.out.println("Item " + itemName + " is now " + ItemState.INACTIVE + ".");
+                System.out.println("Item \'" + itemName + "\' is now " + ItemState.INACTIVE + ".");
             } else {
                 switchItem.setItemstate(ItemState.ACTIVE);
-                System.out.println("Item " + itemName + " is now " + ItemState.ACTIVE + ".");
+                System.out.println("Item \'" + itemName + "\' is now " + ItemState.ACTIVE + ".");
             }
             game.incTurn();
         }

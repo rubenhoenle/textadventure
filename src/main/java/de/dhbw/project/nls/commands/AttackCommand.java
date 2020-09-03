@@ -30,7 +30,8 @@ public class AttackCommand extends AutoCommand {
         String characterName = String.join(" ", character);
 
         if (!(game.getCurrentRoom().getCharacterNameList().contains(characterName))) {
-            System.out.println("No character named " + characterName + " in area " + game.getCurrentRoom().getName());
+            System.out
+                    .println("No character named \'" + characterName + "\' in area " + game.getCurrentRoom().getName());
         } else {
             Character c = game.getCharacterFromCurrentRoom(characterName);
             game.player.fight(c, game.getCurrentRoom());

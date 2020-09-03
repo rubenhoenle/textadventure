@@ -65,7 +65,7 @@ public class EatCommandTest {
 
         //then
         verify(game.player).addHealth(food.getStrength());
-        verify(out).println("The " + itemName + " tasted delicious!");
+        verify(out).println("The \'" + itemName + "\' tasted delicious!");
         verify(r).removeItem(food);
     }
 
@@ -86,6 +86,6 @@ public class EatCommandTest {
         command.execute();
 
         //then
-        verify(out).println("You really want to eat a " + itemName + "?!");
+        verify(out).println("You really want to eat a \'" + itemName + "\'?!");
     }
 }

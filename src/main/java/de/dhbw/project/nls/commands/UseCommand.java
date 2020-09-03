@@ -37,12 +37,12 @@ public class UseCommand extends AutoCommand {
         String interactiveObjectName = String.join(" ", interactiveObject);
 
         if (!game.getCurrentRoom().getRoomInteractiveObjectsNameList().contains(interactiveObjectName)) {
-            System.out.println("There is no interactive object with the name " + interactiveObjectName + ".");
+            System.out.println("There is no interactive object with the name \'" + interactiveObjectName + "\'.");
             return;
         }
 
         if (game.player.getItem(itemName) == null) {
-            System.out.println("There is no item with the name " + itemName + " in your inventory");
+            System.out.println("There is no item with the name \'" + itemName + "\' in your inventory");
             return;
         }
 
@@ -65,8 +65,8 @@ public class UseCommand extends AutoCommand {
                     if (io.isRemoveRequiredItem()) {
                         game.player.removeItem(i);
                     }
-                    System.out.println(
-                            "The way " + w.getName() + " in the direction " + w.getDirection() + " is now walkable!");
+                    System.out.println("The way " + w.getName() + " in the direction \'" + w.getDirection()
+                            + "\' is now walkable!");
                     game.getCurrentRoom().getRoomInteractiveObjectsList().remove(io);
                     game.incTurn();
                 }

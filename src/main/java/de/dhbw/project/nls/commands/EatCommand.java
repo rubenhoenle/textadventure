@@ -39,18 +39,18 @@ public class EatCommand extends AutoCommand {
                 eat(foodItem);
                 game.player.removeItem(foodItem);
             } else
-                System.out.println("No item found with name " + foodName);
+                System.out.println("No item found with name \'" + foodName + "\'");
         }
     }
 
     private void eat(Item foodItem) {
         if (!(foodItem instanceof Food)) {
-            System.out.println("You really want to eat a " + foodItem.getName() + "?!");
+            System.out.println("You really want to eat a \'" + foodItem.getName() + "\'?!");
             return;
         }
 
         game.player.addHealth(foodItem.getStrength());
-        System.out.println("The " + foodItem.getName() + " tasted delicious!");
+        System.out.println("The \'" + foodItem.getName() + "\' tasted delicious!");
     }
 
     @Override

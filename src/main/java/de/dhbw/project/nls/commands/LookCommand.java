@@ -72,14 +72,14 @@ public class LookCommand extends AutoCommand {
                         System.out.println(way.getDescription()
                                 + (way.getState() == WayState.BLOCKED ? " This way is blocked." : ""));
                     else
-                        System.out.println("There is a " + way.getName() + " going " + way.getDirection() + "."
+                        System.out.println("There is a " + way.getName() + " going \'" + way.getDirection() + "\'."
                                 + (way.getState() == WayState.BLOCKED ? " This way is blocked." : ""));
                 }
             }
             // Show available items in the current room
             if (game.getCurrentRoom().getRoomItemList() != null) {
                 for (Item item : game.getCurrentRoom().getRoomItemList()) {
-                    System.out.println("A " + item.getName() + " " + item.getWhere() + ".");
+                    System.out.println("A \'" + item.getName() + "\' " + item.getWhere() + ".");
                 }
             }
 
@@ -87,7 +87,7 @@ public class LookCommand extends AutoCommand {
             if (game.getCurrentRoom().getRoomInteractiveCraftingObjectsList() != null) {
                 for (InteractiveCraftingObject interactiveCraftingObject : game.getCurrentRoom()
                         .getRoomInteractiveCraftingObjectsList()) {
-                    System.out.println("A " + interactiveCraftingObject.getName() + " "
+                    System.out.println("A \'" + interactiveCraftingObject.getName() + "\' "
                             + interactiveCraftingObject.getWhere() + ". " + interactiveCraftingObject.getUsage());
                 }
             }
@@ -95,8 +95,8 @@ public class LookCommand extends AutoCommand {
             // Show available interactive objects in the current room
             if (game.getCurrentRoom().getRoomInteractiveObjectsList() != null) {
                 for (InteractiveObject interactiveObject : game.getCurrentRoom().getRoomInteractiveObjectsList()) {
-                    System.out.println("A " + interactiveObject.getName() + " " + interactiveObject.getPlace() + ". "
-                            + interactiveObject.getHint());
+                    System.out.println("A \'" + interactiveObject.getName() + "\' " + interactiveObject.getPlace()
+                            + ". " + interactiveObject.getHint());
                 }
             }
 
@@ -106,11 +106,11 @@ public class LookCommand extends AutoCommand {
                     if (!character.isKilled()) {
                         if (character instanceof Enemy) {
                             System.out.println(
-                                    "A angry looking " + character.getName() + " is " + character.getWhere() + ".");
+                                    "A angry looking \'" + character.getName() + "\' is " + character.getWhere() + ".");
                         }
                         if (character instanceof Friend) {
-                            System.out.println(
-                                    "A friendly looking " + character.getName() + " is " + character.getWhere() + ".");
+                            System.out.println("A friendly looking \'" + character.getName() + "\' is "
+                                    + character.getWhere() + ".");
                         }
                     }
                 }
