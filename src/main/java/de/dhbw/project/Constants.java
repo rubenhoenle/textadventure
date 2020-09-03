@@ -15,11 +15,13 @@ public class Constants {
     // Possible commands for the game - has to be extended if there are new commands added to the game
     public static final List<String> COMMAND_LIST = new ArrayList<>(Arrays.asList(
             "move + north / east / west / south / up / down", "look + around / north / east / west / south / up / down",
-            "take + <item name>", "drop + <item name>", "equip <item name>", "strip off <item name>", "inventory",
-            "talk + <character name>", "attack + <character name>",
+            "take + <item name>", "drop + <item name>", "equip <item name>", "strip off <item name>", "inventory", "equipment",
+            "talk to + <character name>", "attack + <character name>",
             "accept + <quest> + from + <character name /interactive object name>+", "quest inventory",
-            "craft <name of crafting object>", "investigate <interactive object name>", "read/open + <readable item>","translate <stone tablet>","ruin(s) riddle","quit or exit", "?",
-            "help or info"));
+            "switch on/off <item name>", "eat <food name>",
+            "craft <name of crafting object>", "investigate <interactive object name>",
+            "read/open + <readable item>","translate <stone tablet>","ruin(s) riddle",
+            "quit or exit", "?", "help or info"));
 
     // Location of the jsons for a new or a saved game
     public static final String DEFAULT_PATH = "src/main/resources";
