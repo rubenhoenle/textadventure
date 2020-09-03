@@ -101,14 +101,14 @@ public class Room extends Thing {
 
     public List<String> getRoomInteractiveObjectsNameList() {
         List<String> interactiveObjectNames = new ArrayList<String>();
-        for (InteractiveObject interactiveObject : interactiveObjects) {
+        for (InteractiveObject interactiveObject : getRoomInteractiveObjectsList()) {
             interactiveObjectNames.add(interactiveObject.getName());
         }
         return interactiveObjectNames;
     }
 
     public InteractiveObject getRoomInteractiveObjectByName(String name) {
-        for (InteractiveObject interactiveObject : interactiveObjects) {
+        for (InteractiveObject interactiveObject : getRoomInteractiveObjectsList()) {
             if (interactiveObject.getName().equalsIgnoreCase(name)) {
                 return interactiveObject;
             }

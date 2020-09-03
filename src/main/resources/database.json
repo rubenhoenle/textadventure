@@ -344,7 +344,7 @@
         ],
         "weapons": [
           {
-            "strength": 3,
+            "strength": 4,
             "name": "wooden rod",
             "description": "a old wooden rod",
             "place": "floating in the water",
@@ -2988,8 +2988,8 @@
         {
           "name": "Tiger",
           "where": "standing in the middle of the path",
-          "health":  30,
-          "strength":  3,
+          "health":  20,
+          "strength":  2,
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
