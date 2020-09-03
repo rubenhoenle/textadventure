@@ -2827,29 +2827,30 @@
     {
       "name": "forest path with four directions",
       "description": "You reached a forest fork which leads to four directions.",
-      "enemies": [
+      "roamingEnemies": [
         {
           "name": "Tiger",
           "where": "standing in the middle of the path",
-          "health": 30,
-          "strength": 3,
+          "health":  30,
+          "strength":  3,
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
-          "dropItems": {
+          "dropItems":  {
             "cloths": [],
             "foods": [],
+            "tools": [],
+            "weapons": [],
             "resources": [
               {
                 "strength": 0,
                 "name": "tiger skin",
                 "description": "a nice looking tiger skin"
               }
-            ],
-            "tools": [],
-            "weapons": []
+            ]
           },
-          "autoAttack": true
+          "autoAttack": true,
+          "path": ["forest path with four directions", "in front of the old house"]
         }
       ],
       "interactiveObjects": [
@@ -2941,6 +2942,7 @@
       "name": "in front of the old house",
       "description": "You are in front of the old house. You can see some footsteps leading inside.\nThere could be a person inside the house which you can\u0027t see because of the barricaded windows. You should better watch out.",
       "interactiveObjects": [],
+      "roamingEnemies": [],
       "friends": [
         {
           "name": "Old John",
