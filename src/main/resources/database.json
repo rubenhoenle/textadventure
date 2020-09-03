@@ -1080,7 +1080,7 @@
           "description": "A magic path leads 'east'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         },
         {
           "direction": "south",
@@ -1090,7 +1090,7 @@
           "description": "A magic path leads 'south'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         },
         {
           "direction": "down",
@@ -1108,41 +1108,7 @@
         }
       ],
       "characters": [],
-      "isDark": true
-    },
-    {
-      "name": "Hidden cave",
-      "description": "You ended up in some kind of lumber room. Apparently, people used to hide their \nsecrets here and store various things. Judging by the destroyed shelves \nand all the broken glass, these treasures have already been stolen.",
-      "ways": [
-        {
-          "direction": "south",
-          "from": "Hidden cave",
-          "to": "Secret Grotto",
-          "name": "magic path",
-          "description": "A magic path leads 'south'.",
-          "state": "NEED_EQUIPMENT",
-          "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
-        },
-        {
-          "direction": "north",
-          "from": "Hidden cave",
-          "to": "giant rabbit hole",
-          "name": "magic path",
-          "description": "A magic path leads 'north'.",
-          "state": "NEED_EQUIPMENT",
-          "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
-        },
-        {
-          "direction": "up",
-          "from": "Hidden cave",
-          "to": "Living room of a torturer",
-          "name": "Trapdoor in the ceiling",
-          "description": "A trapdoor in the ceiling 'up' leads back to daylight."
-        }
-      ],
-      "characters": [],
+      "isDark": true,
       "items": {
         "cloths": [],
         "foods": [
@@ -1165,6 +1131,47 @@
             "place": "stuck in the soil."
           }
         ],
+        "resources": [],
+        "tools": [],
+        "weapons": []
+      }
+    },
+    {
+      "name": "Hidden cave",
+      "description": "You ended up in some kind of lumber room. Apparently, people used to hide their \nsecrets here and store various things. Judging by the destroyed shelves \nand all the broken glass, these treasures have already been stolen.",
+      "ways": [
+        {
+          "direction": "south",
+          "from": "Hidden cave",
+          "to": "Secret Grotto",
+          "name": "magic path",
+          "description": "A magic path leads 'south'.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "condition": "magic necklace"
+        },
+        {
+          "direction": "north",
+          "from": "Hidden cave",
+          "to": "giant rabbit hole",
+          "name": "magic path",
+          "description": "A magic path leads 'north'.",
+          "state": "NEED_EQUIPMENT",
+          "hint": "To use a magic way you need a special magic artifact",
+          "condition": "magic necklace"
+        },
+        {
+          "direction": "up",
+          "from": "Hidden cave",
+          "to": "Living room of a torturer",
+          "name": "Trapdoor in the ceiling",
+          "description": "A trapdoor in the ceiling 'up' leads back to daylight."
+        }
+      ],
+      "characters": [],
+      "items": {
+        "cloths": [],
+        "foods": [],
         "resources": [
           {
             "strength": 3,
@@ -1231,7 +1238,7 @@
           "description": "A magic path leads 'west'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         },
         {
           "direction": "east",
@@ -1241,7 +1248,7 @@
           "description": "A magic path leads 'east'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         },
         {
           "direction": "down",
@@ -1337,7 +1344,7 @@
           "description": "A magic path leads 'south'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         },
         {
           "direction": "west",
@@ -1347,7 +1354,7 @@
           "description": "A magic path leads 'west'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         },
         {
           "direction": "down",
@@ -1492,13 +1499,13 @@
           "description": "A big trapdoor, too big to miss, leads 'down'."
         }
       ],
-      "enemies": [
+      "roamingEnemies": [
         {
           "name": "ugly big troll",
-          "health": "30",
-          "strength": "50",
+          "where": "standing in the middle of the path",
+          "health": 55,
+          "strength": 15,
           "situation": "A stinking big dangerous looking troll is walking through the room.",
-          "comment": "TODO attack + drop items",
           "autoAttack": "true",
           "startStatement": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
           "killStatement": "What a relief. Finally this miserable existence has come to an end!",
@@ -1506,18 +1513,22 @@
           "dropItems": {
             "cloths": [],
             "foods": [],
-            "resources": [],
             "tools": [
               {
                 "strength": 0,
                 "name": "magic necklace",
                 "description": "a small delicate silver magic necklace, very inconspicuous and fine, but it could open ways to different people and even ways",
-                "place": "is lying on the floor"
+                "place": "is lying on the floor",
+                "equipment": "HEAD"
               }
             ],
-            "books": [],
-            "weapons": []
-          }
+            "weapons": [],
+            "resources": []
+          },
+          "path": [
+            "Butcher's Room I",
+            "Butcher's Room II"
+          ]
         }
       ],
       "isDark": true
@@ -1530,7 +1541,7 @@
           "direction": "east",
           "from": "Butcher's Room I",
           "to": "Butcher's Room II",
-          "name": "a big passage",
+          "name": "a big passage to the second half of the room",
           "description": "On the 'east' there is a big passage to the second half of the room."
         },
         {
@@ -1731,7 +1742,7 @@
               {
                 "strength": 0,
                 "name": "grass",
-                "description": "The grass has grown very high so that you cannot see the ground.",
+                "description": "high grown green grass",
                 "place": "has grown very high so that you cannot see the ground"
               }
             ],
@@ -1979,7 +1990,7 @@
           "description": "A magic path leads 'east'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         },
         {
           "direction": "up",
@@ -1996,7 +2007,7 @@
           "description": "A magic path leads 'west'.",
           "state": "NEED_EQUIPMENT",
           "hint": "To use a magic way you need a special magic artifact",
-          "conditionalItem": "magic necklace"
+          "condition": "magic necklace"
         }
       ],
       "characters": [],
@@ -2169,8 +2180,8 @@
         "resources": [
           {
             "strength": 0,
-            "name": "big towel",
-            "description": "a big towel with a kind of flower pattern in blue and pink",
+            "name": "big towel with a kind of flower pattern in blue and pink",
+            "description": "big towel with a kind of flower pattern in blue and pink",
             "place": "is lying on the towel stand"
           }
         ],
@@ -2439,7 +2450,6 @@
                 }
               ]
             }
-
           ]
         }
       ]
@@ -2988,12 +2998,12 @@
         {
           "name": "Tiger",
           "where": "standing in the middle of the path",
-          "health":  20,
-          "strength":  2,
+          "health": 20,
+          "strength": 2,
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
-          "dropItems":  {
+          "dropItems": {
             "cloths": [],
             "foods": [],
             "tools": [],
@@ -3007,7 +3017,10 @@
             ]
           },
           "autoAttack": true,
-          "path": ["forest path with four directions", "in front of the old house"]
+          "path": [
+            "forest path with four directions",
+            "in front of the old house"
+          ]
         }
       ],
       "interactiveObjects": [
