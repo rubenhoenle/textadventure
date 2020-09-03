@@ -238,7 +238,7 @@
                 "name": "surfboard",
                 "description": "a red surfboard",
                 "place": "is lying in the water",
-                "state": "1"
+                "itemstate": "1"
               }
             ],
             "weapons": []
@@ -333,7 +333,7 @@
             "name": "surfboard",
             "description": "a red surfboard",
             "place": "is lying in the water",
-            "state": "1"
+            "itemstate": "1"
           },
           {
             "name": "pocket lamp",
@@ -386,7 +386,7 @@
             "cloths": [],
             "foods": [
               {
-                "strength": 1,
+                "strength": 3,
                 "name": "rum",
                 "description": "an old dusty bottle of rum",
                 "place": "lies next to the pirate skeleton"
@@ -445,7 +445,7 @@
             "cloths": [],
             "foods": [
               {
-                "strength": 0,
+                "strength": 9,
                 "name": "komodo dragon meat",
                 "description": "a bloody part of meat",
                 "place": "in the open body of the dragon"
@@ -468,7 +468,7 @@
             "cloths": [],
             "foods": [
               {
-                "strength": 0,
+                "strength": 9,
                 "name": "komodo dragon meat",
                 "description": "a bloody part of meat",
                 "place": "in the open body of the dragon"
@@ -492,13 +492,13 @@
         ],
         "foods": [
           {
-            "strength": 0,
+            "strength": 3,
             "name": "coconut",
             "description": "a fresh coconut",
             "place": "lies next to a palm tree"
           },
           {
-            "strength": 0,
+            "strength": 4,
             "name": "shell",
             "description": "a pretty nice shell",
             "place": "lies in the sand"
@@ -571,19 +571,19 @@
         "cloths": [],
         "foods": [
           {
-            "strength": 0,
+            "strength": 4,
             "name": "apple",
             "description": "some delicious apple",
             "place": "lies in the dirt next to a huge apple tree"
           },
           {
-            "strength": 0,
+            "strength": 4,
             "name": "apple",
             "description": "another delicious apple",
             "place": "lies in the dirt next to a huge apple tree"
           },
           {
-            "strength": 0,
+            "strength": 1,
             "name": "rotten apple",
             "description": "this apple doesn't look that delicious",
             "place": "lies in the dirt next to a huge apple tree"
@@ -764,9 +764,15 @@
         "cloths": [],
         "foods": [
           {
-            "strength": 0,
+            "strength": 5,
             "name": "lunch box",
             "description": "a small box that contains some food",
+            "place": "is standing by the tent"
+          },
+          {
+            "strength": 3,
+            "name": "packet of sugar",
+            "description": "a small packet of sugar",
             "place": "is standing by the tent"
           }
         ],
@@ -920,7 +926,8 @@
           {
             "name": "rum",
             "description": "a bottle of rum",
-            "place": "standing on the table"
+            "place": "standing on the table",
+            "strength": 3
           }
         ],
         "resources": [
@@ -953,7 +960,7 @@
             "cloths": [],
             "foods": [
               {
-                "strength": 0,
+                "strength": 7,
                 "name": "fish",
                 "description": "A caught fish",
                 "place": "is hanging on a fishing rod"
@@ -1138,7 +1145,26 @@
       "characters": [],
       "items": {
         "cloths": [],
-        "foods": [],
+        "foods": [
+          {
+            "strength": 4,
+            "name": "carrot",
+            "description": "A carrot",
+            "place": "stuck in the soil."
+          },
+          {
+            "strength": 4,
+            "name": "carrot",
+            "description": "A carrot",
+            "place": "stuck in the soil."
+          },
+          {
+            "strength": 4,
+            "name": "carrot",
+            "description": "A carrot",
+            "place": "stuck in the soil."
+          }
+        ],
         "resources": [
           {
             "strength": 3,
@@ -1334,15 +1360,15 @@
       "characters": [],
       "items": {
         "cloths": [],
-        "foods": [],
-        "resources": [
+        "foods": [
           {
-            "strength": 0,
-            "name": "dead bat, neither eaten, stinking or rotting",
-            "description": "don't even think of eating that uncooked you'll make the whole world stay at home",
+            "strength": -15,
+            "name": "dead bat",
+            "description": "don't even think of eating that uncooked 'dead bat', you'll make the whole world stay at home",
             "place": "is lying on the floor"
           }
         ],
+        "resources": [],
         "tools": [],
         "weapons": []
       },
@@ -1411,7 +1437,7 @@
           "to": "Room under crossroads bat I",
           "name": "ladder over lava stream",
           "description": "A ladder leads 'east' over the the boiling lava stream",
-          "state": "INVISBILE"
+          "state": "INVISIBLE"
         }
       ],
       "characters": [],
@@ -2083,7 +2109,7 @@
         ],
         "foods": [
           {
-            "strength": 1,
+            "strength": -2,
             "name": "old ampoule",
             "description": "full of fermented wine, mixed with brackish water,probably undrinkable",
             "place": "is lying on the ground of the river, partly covered with mud "
@@ -2188,7 +2214,7 @@
           "startStatement": "Hello Stranger!",
           "killStatement": "Why did you kill me!?",
           "killed": false,
-          "quest": [
+          "quests": [
             {
               "name": "The lost shoes",
               "textStart": "Hello Stranger! I have lost my shoes somewhere in the forest. I will reward you if you bring them back to me!",
@@ -2197,7 +2223,7 @@
               "textEnd": "Thanks for bringing me my shoes!",
               "reward": [
                 {
-                  "strength": 0,
+                  "strength": 4,
                   "name": "some pears",
                   "description": "Some delicious pears. They smell really good!",
                   "type": "food"
@@ -2230,7 +2256,20 @@
       ],
       "items": {
         "cloths": [],
-        "foods": [],
+        "foods": [
+          {
+            "strength": 4,
+            "name": "bottle of milk",
+            "description": "a bottle of milk",
+            "place": "is standing on a shelf."
+          },
+          {
+            "strength": 4,
+            "name": "packet of butter",
+            "description": "a packet of butter",
+            "place": "is standing on a shelf."
+          }
+        ],
         "resources": [],
         "tools": [],
         "weapons": [
@@ -2283,7 +2322,7 @@
         "cloths": [],
         "foods": [
           {
-            "strength": 0,
+            "strength": 13,
             "name": "grilled pork",
             "description": "A delicious smelling grilled pork.",
             "place": "hanging on a barbecue skewer over the fire"
@@ -2306,8 +2345,8 @@
               "name": "fried fish",
               "description": "A good looking and very good smelling fried fish.",
               "type": "food",
-              "state": "",
-              "strength": 0,
+              "itemstate": "",
+              "strength": 13,
               "neededMaterials": [
                 {
                   "name": "fish",
@@ -2319,8 +2358,8 @@
               "name": "baked apple",
               "description": "A delicious looking baked apple. Smells like these your mom made on christmas every year.",
               "type": "food",
-              "state": "",
-              "strength": 0,
+              "itemstate": "",
+              "strength": 7,
               "neededMaterials": [
                 {
                   "name": "apple",
@@ -2333,14 +2372,74 @@
               "description": "A fried egg, nothing special. But it looks very jummy.",
               "type": "food",
               "state": "",
-              "strength": 0,
+              "strength": 7,
               "neededMaterials": [
                 {
                   "name": "egg",
                   "number": 1
                 }
               ]
+            },
+            {
+              "name": "baked cake",
+              "description": "A delicious baked cake",
+              "type": "food",
+              "itemstate": "",
+              "strength": 20,
+              "neededMaterials": [
+                {
+                  "name": "packet of sugar",
+                  "number": 1
+                },
+                {
+                  "name": "honey",
+                  "number": 1
+                },
+                {
+                  "name": "little packet of flour",
+                  "number": 1
+                },
+                {
+                  "name": "Chicken egg",
+                  "number": 1
+                },
+                {
+                  "name": "bottle of milk",
+                  "number": 1
+                },
+                {
+                  "name": "packet of butter",
+                  "number": 1
+                }
+              ]
+            },
+            {
+              "name": "komodo dragon steak",
+              "description": "A very tasty and juicy 'komodo dragon steak'.",
+              "type": "food",
+              "state": "",
+              "strength": 15,
+              "neededMaterials": [
+                {
+                  "name": "komodo dragon meat",
+                  "number": 1
+                }
+              ]
+            },
+            {
+              "name": "grilled bat",
+              "description": "A 'grilled bat', not very tasty, but full of proteins and minerals.",
+              "type": "food",
+              "state": "",
+              "strength": 10,
+              "neededMaterials": [
+                {
+                  "name": "dead bat",
+                  "number": 1
+                }
+              ]
             }
+
           ]
         }
       ]
@@ -2753,7 +2852,7 @@
             "textEnd": "You successfully caught a fish!",
             "reward": [
               {
-                "strength": 0,
+                "strength": 7,
                 "name": "fish",
                 "description": "A caught fish",
                 "place": "is lying on the ground",
@@ -2871,7 +2970,7 @@
             "place": "is lying on a small table"
           },
           {
-            "strength": 0,
+            "strength": 1,
             "name": "rotten apple",
             "description": "A rotten apple with a worm looking out.",
             "place": "is lying in a corner"
@@ -2972,7 +3071,7 @@
         "cloths": [],
         "foods": [
           {
-            "strength": 0,
+            "strength": 7,
             "name": "fish",
             "description": "A caught fish",
             "place": "is lying on the ground"
@@ -3103,7 +3202,7 @@
         "cloths": [],
         "foods": [
           {
-            "strength": 0,
+            "strength": 10,
             "name": "bread",
             "description": "A deliciously smelling bread.",
             "place": "is lying on a old wooden table"
@@ -3662,6 +3761,26 @@
           "description": "Maybe you can reach the 'upper' low hanging branches of the maple tree..."
         }
       ],
+      "items": {
+        "cloths": [],
+        "foods": [
+          {
+            "strength": 3,
+            "name": "Chicken egg",
+            "description": "A 'Chicken egg' lies between the roots of the maple tree.",
+            "place": "lies between the roots of the maple tree."
+          },
+          {
+            "strength": 3,
+            "name": "Chicken egg",
+            "description": "A 'Chicken egg' lies between the roots of the maple tree.",
+            "place": "lies between the roots of the maple tree."
+          }
+        ],
+        "resources": [],
+        "tools": [],
+        "weapons": []
+      },
       "characters": []
     },
     {
@@ -3685,8 +3804,7 @@
       ],
       "items": {
         "cloths": [],
-        "foods": [],
-        "resources": [
+        "foods": [
           {
             "strength": 0,
             "name": "honey",
@@ -3694,6 +3812,7 @@
             "place": "inside a beehive"
           }
         ],
+        "resources": [],
         "tools": [],
         "weapons": []
       },
@@ -3781,6 +3900,11 @@
             "strength": 0,
             "name": "sacks of flour",
             "description": "Sacks of flour are leaning against the wall."
+          },
+          {
+            "strength": 0,
+            "name": "little packet of flour",
+            "description": "A 'little packet of flour' is standing on a shelf."
           }
         ],
         "tools": [
