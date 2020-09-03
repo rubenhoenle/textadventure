@@ -68,7 +68,7 @@ public class InvestigateCommandTest {
         verify(game).incTurn();
         verify(out).println("Questname: " + q.getName());
         verify(out).println(q.getTextStart());
-        verify(out).println("Type: \"accept <questname> from <interactive object>\" to accept the quest.");
+        verify(out).println("Type: \"accept "+ q.getName() +" from " + io.getName() + "\" to accept the quest.");
     }
 
     @Test

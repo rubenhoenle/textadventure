@@ -65,6 +65,10 @@ public class Zork {
             registerCommands();
             System.out.println("Game loaded.");
 
+            if (game.player.getHealth() < 0) {
+                game.player.setHealth(10);
+            }
+
             return game;
         }
     }
