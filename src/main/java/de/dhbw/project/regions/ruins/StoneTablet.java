@@ -39,7 +39,7 @@ public final class StoneTablet {
                 System.out.println("You are trying to translate the " + bookItem.getName() + ".");
                 System.out.println("Enter 'read' to read the tablet");
                 System.out.println("Enter 'translation <translation>' to translate the tablet");
-                System.out.println(" to translate the tablet successfully, the first"
+                System.out.println(" to translate the tablet successfully, the first "
                         + Constants.STONETABLET_REQ_CORRECT + " letters");
                 System.out.println(" must be correctly translated");
                 System.out.println(" use for example 'translation the quick brown fox jumps over the lazy dog'");

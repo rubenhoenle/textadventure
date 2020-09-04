@@ -36,7 +36,7 @@ public class RuinsRiddleCommand extends AutoCommand {
                 Book[] paragraphs = {
 
                         new Book("1", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]herbs and trees[ALFONT]")),
-                        new Book("2", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]division of water[ALFONT]")),
+                        new Book("2", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]division of waters[ALFONT]")),
                         new Book("3", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]land and sea[ALFONT]")),
                         new Book("4", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]day and night[ALFONT]")),
                         new Book("5", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]earth and heavens[ALFONT]")) };
@@ -44,7 +44,9 @@ public class RuinsRiddleCommand extends AutoCommand {
                  * korrekt: Earth and heavens day and night ground and sky land and sea herbs and trees
                  */
                 while (running) {
-                    if (currentcommand.equals("quit or leave")) {
+                    if (currentcommand.equals("quit") || currentcommand.equals("leave")
+                            || currentcommand.equals("close")) {
+                        System.out.println("You canceled the work on the riddle");
                         running = false;
                     } else if (currentcommand.equals("init") || currentcommand.equals("help")) {
                         System.out.println(
