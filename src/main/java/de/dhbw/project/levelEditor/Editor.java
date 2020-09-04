@@ -95,13 +95,13 @@ public class Editor {
                 listItems(liste);
                 break;
             case "add":
-                addItemToItemList(game.player.getItemlist());
+                addItemToItemList(liste);
                 break;
             case "edit":
-                editItem(game.player.getItemlist());
+                editItem(liste);
                 break;
             case "delete":
-                deleteItem(game.player.getItemlist());
+                deleteItem(liste);
                 break;
             case "quit":
                 exit = true;
