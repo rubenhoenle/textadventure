@@ -1,7 +1,10 @@
 package de.dhbw.project.interactive;
 
 import com.google.gson.annotations.SerializedName;
-import de.dhbw.project.*;
+import de.dhbw.project.Player;
+import de.dhbw.project.TableList;
+import de.dhbw.project.Thing;
+import de.dhbw.project.item.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +59,36 @@ public class InteractiveCraftingObject extends Thing {
             }
         }
 
-        player.addItem(new Item(createable.getName(), createable.getDescription(), "", 0));
+        switch (createable.getType()) {
+        case "cloth":
+            player.addItem(new Clothing(createable.getName(), createable.getDescription(), createable.getItemstate(),
+                    createable.getStrength(), createable.getEquipmentType()));
+            break;
+
+        case "food":
+            player.addItem(new Food(createable.getName(), createable.getDescription(), createable.getItemstate(),
+                    createable.getStrength()));
+            break;
+
+        case "resource":
+            player.addItem(new Resource(createable.getName(), createable.getDescription(), createable.getItemstate(),
+                    createable.getStrength()));
+            break;
+
+        case "tool":
+            player.addItem(new Tool(createable.getName(), createable.getDescription(), createable.getItemstate(),
+                    createable.getStrength(), createable.getEquipmentType()));
+            break;
+
+        case "weapon":
+            player.addItem(new Weapon(createable.getName(), createable.getDescription(), createable.getItemstate(),
+                    createable.getStrength(), createable.getEquipmentType()));
+            break;
+
+        default:
+            return "An error occured. Createable has unknown item type in JSON database.";
+        }
+
         return "Congratulations. You created a " + createable.getName() + ".";
     }
 
@@ -75,7 +107,7 @@ public class InteractiveCraftingObject extends Thing {
             }
             tl.print();
 
-            System.out.println("To create an item of this list type: craft " + this.getName() + " <name of item>");
+            System.out.println("To create an item of this list type: \"craft " + this.getName() + " <name of item>\"");
         }
     }
 

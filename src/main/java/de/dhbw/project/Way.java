@@ -2,6 +2,9 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 
+import de.dhbw.project.levelEditor.SimpleUserInput;
+import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+
 public class Way extends Thing {
     @SerializedName("direction")
     private String direction;
@@ -9,16 +12,33 @@ public class Way extends Thing {
     private String from;
     @SerializedName("to")
     private String to;
-    @SerializedName("enable")
-    private String enabled = "";
+    @SerializedName("state")
+    private WayState state;
+    @SerializedName("hint")
+    private String hint;
+    @SerializedName("condition")
+    private String conditionalItem;
 
     // Constructor for a way - calls the super constructor of the parent (thing) and adds the way-specific variables
-    public Way(String name, String description, String direction, String from, String to, String enabled) {
+    public Way(String name, String description, String direction, String from, String to, WayState state, String hint) {
         super(name, description);
         this.direction = direction;
         this.from = from;
         this.to = to;
-        this.enabled = enabled;
+        this.state = state;
+        this.hint = hint;
+    }
+
+    // Constructor for a way - calls the super constructor of the parent (thing) and adds the way-specific variables
+    public Way(String name, String description, String direction, String from, String to, WayState state, String hint,
+            String condition) {
+        super(name, description);
+        this.direction = direction;
+        this.from = from;
+        this.to = to;
+        this.state = state;
+        this.hint = hint;
+        this.conditionalItem = condition;
     }
 
     // Method simplifies the default output for a way object
@@ -53,11 +73,117 @@ public class Way extends Thing {
         this.to = to;
     }
 
-    public String getEnabled() {
-        return enabled;
+    public WayState getState() {
+        return (state == null ? WayState.ACTIVE : state);
     }
 
-    public void setEnabled(String enabled) {
-        this.enabled = enabled;
+    public void setState(WayState state) {
+        this.state = state;
     }
+
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+    public static Way createWay(Room from, Game game) {
+        boolean exit = false;
+        while (!exit) {
+            String name, description, direction, hint;
+            direction = "up";
+            Room toRoom;
+            WayState state;
+            name = SimpleUserInput.addMethod("Name");
+            description = SimpleUserInput.addMethod("Description");
+            toRoom = SimpleUserInput.addMethodRoom("Destination room", game);
+            if (null == toRoom) {
+                return null;
+            }
+            boolean exit2 = false;
+            while (!exit2) {
+                direction = SimpleUserInput.addMethod("Direction");
+                if (Constants.DIRECTIONS.contains(direction)) {
+                    exit2 = true;
+                } else {
+                    System.out.println("There is no direction '" + direction + "'.");
+                    System.out.println("The following directions are available:");
+                    Constants.DIRECTIONS.forEach(d -> System.out.println("  -" + d));
+                }
+            }
+            state = SimpleUserInput.addMethodWayState("Way State");
+            if (null == state) {
+                return null;
+            }
+            hint = SimpleUserInput.addMethod("Hint");
+            Decision d = SimpleUserInput.storeDialogue("Way");
+            switch (d) {
+            case SAVE:
+                return new Way(name, description, direction, from.getName(), toRoom.getName(), state, hint);
+            case AGAIN:
+                break;
+            case ABBORT:
+                return null;
+            }
+        }
+
+        return null;
+    }
+
+    public String getConditionalItem() {
+        return conditionalItem;
+    }
+
+    public void setConditionalItem(String condition) {
+        this.conditionalItem = condition;
+    }
+
+    public static Way editWay(Way way, Game game) {
+        boolean exit = false;
+        while (!exit) {
+            String name, description, direction, hint;
+            direction = "up";
+            Room toRoom;
+            WayState state;
+            name = SimpleUserInput.editMethod("Name", way.getName());
+            description = SimpleUserInput.editMethod("Description", way.getDescription());
+            System.out.println("Current destination room: " + way.getTo());
+            toRoom = SimpleUserInput.addMethodRoom("Destination room", game);
+            if (null == toRoom) {
+                return null;
+            }
+            boolean exit2 = false;
+            while (!exit2) {
+                System.out.println("Current Direction: " + way.getDirection());
+                direction = SimpleUserInput.addMethod("Direction");
+                if (Constants.DIRECTIONS.contains(direction)) {
+                    exit2 = true;
+                } else {
+                    System.out.println("There is no direction '" + direction + "'.");
+                    System.out.println("The following directions are available:");
+                    Constants.DIRECTIONS.forEach(d -> System.out.println("  -" + d));
+                }
+            }
+            System.out.println("Current WayState: " + way.getState());
+            state = SimpleUserInput.addMethodWayState("Way State");
+            if (null == state) {
+                return null;
+            }
+            hint = SimpleUserInput.editMethod("Hint", way.getHint());
+            Decision d = SimpleUserInput.storeDialogue("Way");
+            switch (d) {
+            case SAVE:
+                return new Way(name, description, direction, way.getFrom(), toRoom.getName(), state, hint);
+            case AGAIN:
+                break;
+            case ABBORT:
+                return null;
+            }
+        }
+
+        return null;
+    }
+
 }

@@ -1,9 +1,11 @@
 package de.dhbw.project.nls.commands;
 
-import java.util.List;
-
 import de.dhbw.project.Game;
-import de.dhbw.project.Item;
+import de.dhbw.project.Quest;
+import de.dhbw.project.item.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TakeCommand extends AutoCommand {
 
@@ -24,16 +26,30 @@ public class TakeCommand extends AutoCommand {
             return;
         }
 
-        String itemName = String.join(" ", item);
+        String[] items = String.join(" ", item).split(",");
 
-        if (!(game.getCurrentRoom().getRoomItemNameList().contains(itemName)))
-            System.out.println("No item found with name " + itemName + " in room " + game.getCurrentRoom().getName());
+        for (String itemName : items) {
+            itemName = itemName.trim();
+            if (!(game.getCurrentRoom().getRoomItemNameList().contains(itemName)))
+                System.out.println(
+                        "No item found with name \'" + itemName + "\' in room " + game.getCurrentRoom().getName());
+            else {
+                Item takenItem = game.getItemFromCurrentRoom(itemName);
+                game.player.addItem(takenItem);
+                game.getCurrentRoom().removeItem(takenItem);
+                System.out.println("You took \'" + takenItem.getName() + "\' and added it to the inventory.");
 
-        else {
-            Item takenItem = game.getItemFromCurrentRoom(itemName);
-            game.player.addItem(takenItem);
-            game.getCurrentRoom().removeItem(takenItem);
-            System.out.println("You took " + takenItem.getName() + " and added it to the inventory.");
+                // quest handling
+                List<Quest> questInventory = new ArrayList<Quest>();
+                questInventory.addAll(game.player.getQuestInventory());
+                for (Quest q : questInventory) {
+                    if (q.isAutoComplete() && q.getFulfillmentItems() != null && q.getFulfillmentItems().size() >= 1
+                            && q.checkCompleted(game)) {
+                        q.finishQuest(game, false);
+                    }
+                }
+                game.incTurn();
+            }
         }
     }
 

@@ -1,9 +1,9 @@
 package de.dhbw.project.nls.commands;
 
-import java.util.List;
-
 import de.dhbw.project.Game;
-import de.dhbw.project.Item;
+import de.dhbw.project.item.Item;
+
+import java.util.List;
 
 public class DropCommand extends AutoCommand {
 
@@ -24,24 +24,35 @@ public class DropCommand extends AutoCommand {
             return;
         }
 
-        String itemName = String.join(" ", item);
+        String[] items = String.join(" ", item).split(",");
 
-        Item dropItem = game.player.getItem(itemName);
-        if (null == dropItem) { // condition item name is valid and in inventory
-            System.out.println("The item " + itemName + " was not found in the inventory and cannot be dropped.");
-        } else {
-            game.player.removeItem(dropItem);
-            game.getCurrentRoom().addItem(dropItem);
-            dropItem.setWhere(game.getCurrentRoom().getDefaultItemLocation());
-            System.out.println("The item " + dropItem.getName() + " was dropped in room '"
-                    + game.getCurrentRoom().getName() + "'.");
+        for (String itemName : items) {
+            Item dropItemInventory = game.player.getItem(itemName.trim());
+            Item dropItemEquipment = game.player.getItemFromEquipment(itemName.trim());
+            if (null != dropItemInventory) { // condition item name is valid and in inventory
+                game.player.removeItem(dropItemInventory);
+                game.getCurrentRoom().addItem(dropItemInventory);
+                dropItemInventory.setWhere(game.getCurrentRoom().getDefaultItemLocation());
+                System.out.println("The item \'" + dropItemInventory.getName() + "\' was dropped in room \'"
+                        + game.getCurrentRoom().getName() + "\'.");
+                game.incTurn();
+            } else if (dropItemEquipment != null) {
+                game.player.removeEquipment(dropItemEquipment);
+                game.getCurrentRoom().addItem(dropItemEquipment);
+                dropItemEquipment.setWhere(game.getCurrentRoom().getDefaultItemLocation());
+                System.out.println("The item \'" + dropItemEquipment.getName() + "\' was dropped in room \'"
+                        + game.getCurrentRoom().getName() + "\'.");
+                game.incTurn();
+            } else {
+                System.out.println(
+                        "The item \'" + itemName + "\' was not found in inventory or equipment and cannot be dropped.");
+            }
         }
     }
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "drop <item>+", "drop" };
+        String[] patterns = { "(drop|remove) <item>+", "drop" };
         return patterns;
     }
-
 }

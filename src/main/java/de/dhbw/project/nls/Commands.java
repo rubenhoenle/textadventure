@@ -1,10 +1,10 @@
 package de.dhbw.project.nls;
 
+import de.dhbw.project.nls.commands.Command;
+
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Optional;
-
-import de.dhbw.project.nls.commands.Command;
 
 public class Commands {
     private LanguageProcessor processor = new LanguageProcessor();

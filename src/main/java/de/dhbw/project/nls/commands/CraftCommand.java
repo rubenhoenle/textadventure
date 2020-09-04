@@ -1,6 +1,6 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.*;
+import de.dhbw.project.Game;
 import de.dhbw.project.interactive.Createable;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 
@@ -47,8 +47,9 @@ public class CraftCommand extends AutoCommand {
 
                     if (createable != null) {
                         System.out.println(interactiveCraftingObject.createItem(game.player, createable));
+                        game.incTurn();
                     } else {
-                        System.out.println("You can't create a " + createableName + " with this "
+                        System.out.println("You can't create a \'" + createableName + "\' with this "
                                 + interactiveCraftingObject.getName() + ".");
                     }
                 }

@@ -112,6 +112,10 @@ public class TableList {
     }
 
     public void print() {
+        print(true);
+    }
+
+    public void print(boolean sorted) {
         StringBuilder line = null;
 
         if (ucode) {
@@ -200,7 +204,7 @@ public class TableList {
             }
         });
 
-        if (comparator != null) {
+        if (comparator != null && sorted) {
             localTable.sort(comparator);
         }
 

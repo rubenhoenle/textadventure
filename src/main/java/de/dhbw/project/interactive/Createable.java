@@ -1,17 +1,29 @@
 package de.dhbw.project.interactive;
 
 import com.google.gson.annotations.SerializedName;
+import de.dhbw.project.EquipmentType;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.Thing;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Createable extends Thing {
+    @SerializedName("type")
+    private String type;
+    @SerializedName("equipmentType")
+    private EquipmentType equipmentType;
+    @SerializedName("itemstate")
+    private ItemState itemstate;
+    @SerializedName("strength")
+    private int strength;
     @SerializedName("neededMaterials")
     private List<Material> createableNeededMaterialList = new ArrayList<>();
 
-    public Createable(String name, String description, List<Material> materials) {
+    public Createable(String name, String description, int strength, String type, List<Material> materials) {
         super(name, description);
+        this.strength = strength;
+        this.type = type;
         this.createableNeededMaterialList = materials;
     }
 
@@ -27,5 +39,21 @@ public class Createable extends Thing {
         }
         str.delete(str.length() - 2, str.length());
         return str.toString();
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public EquipmentType getEquipmentType() {
+        return equipmentType;
+    }
+
+    public ItemState getItemstate() {
+        return this.itemstate;
     }
 }
