@@ -244,7 +244,7 @@ public class Game {
 
         EndScreen.print();
         System.out.println("Congratulations!!! You successfully finished the game!");
-        System.out.println("You managed to repair your ship and find the treasure full of gold!");
+        System.out.println("You managed to repair your ship and find the amulet!");
         System.out.println(
                 "As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
 

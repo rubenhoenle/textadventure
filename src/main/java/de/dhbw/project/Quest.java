@@ -158,6 +158,7 @@ public class Quest {
             Item item = g.player.getItemFromEquipment(qi.getName());
             if (item != null) {
                 System.out.println("You need to strip the " + qi.getName() + " off to complete the quest!");
+                return false;
             }
         }
         for (QuestItem qi : fulfillmentItems) {
