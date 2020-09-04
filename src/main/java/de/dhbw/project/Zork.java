@@ -131,8 +131,7 @@ public class Zork {
 
         commands.register(new RuinsRiddleCommand(game));
 
-        commands.register(new ShowHealthCommand(game));
-        commands.register(new ShowStrengthCommand(game));
+        commands.register(new ShowStatsCommand(game));
 
         game.commands = commands;
     }

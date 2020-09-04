@@ -163,10 +163,30 @@ public class Player {
                     }
                 }
                 c.setKilled(true);
+                printStats();
             } else {
                 System.out.println("Your opponent is bruised, but you also got a few scratches.");
+                printStats();
             }
         }
+    }
+
+    public void printStats() {
+        int health = this.getHealth();
+
+        // Strength = player strength + weapon
+        Item w = this.getEquipment().stream().filter(item -> item.getEquipmentType() == EquipmentType.WEAPON)
+                .findFirst().orElse(null);
+        int strength = this.getStrength() + (w != null ? w.getStrength() : 0);
+
+        // Protection = all equiped expect weapon
+        int protection = 0;
+        for (Item i : this.getEquipment()) {
+            protection = protection + i.getStrength();
+        }
+        protection = protection - (w != null ? w.getStrength() : 0);
+
+        System.out.println("Health: " + health + " | Strength: " + strength + " | Protection: " + protection);
     }
 
     // calculates how many "health points" each opponent loses
