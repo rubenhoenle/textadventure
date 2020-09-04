@@ -135,7 +135,7 @@
                 {
                   "name": "ship cannon",
                   "description": "A little cannon to protect your ship and your treasures from bad people like pirates.",
-                  "type": "ressource",
+                  "type": "resource",
                   "equipmentType": "",
                   "itemstate": "",
                   "strength": 0
@@ -2507,7 +2507,7 @@
             {
               "name": "ship cannon",
               "description": "A little cannon to protect your ship and your treasures from bad people like pirates.",
-              "type": "ressource",
+              "type": "resource",
               "equipmentType": "",
               "itemstate": "",
               "strength": 0,

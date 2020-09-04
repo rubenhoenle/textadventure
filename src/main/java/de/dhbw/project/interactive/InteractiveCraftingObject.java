@@ -84,6 +84,9 @@ public class InteractiveCraftingObject extends Thing {
             player.addItem(new Weapon(createable.getName(), createable.getDescription(), createable.getItemstate(),
                     createable.getStrength(), createable.getEquipmentType()));
             break;
+
+        default:
+            return "An error occured. Createable has unknown item type in JSON database.";
         }
 
         return "Congratulations. You created a " + createable.getName() + ".";
