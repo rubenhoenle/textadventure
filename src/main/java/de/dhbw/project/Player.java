@@ -144,7 +144,9 @@ public class Player {
             }
 
             System.out.println("You fight with " + c.getName() + "!");
-            System.out.println(c.getName() + ": " + c.getStartStatement());
+            if (c.getStartStatement() != null && c.getStartStatement() != "") {
+            	System.out.println(c.getName() + ": " + c.getStartStatement());
+            }
 
             int enemyHealth = calculateFightAgainst(c);
 
@@ -154,7 +156,9 @@ public class Player {
                 System.out.println("Last save game will be loaded! \n");
                 Zork.loadGame(Constants.SAVED_GAME);
             } else if (enemyHealth <= 0) {
-                System.out.println(c.getName() + ": " + c.getKillStatement());
+                if (c.getKillStatement() != null && c.getKillStatement() != "") {
+                	System.out.println(c.getName() + ": " + c.getKillStatement());
+                }
                 System.out.println("You win the fight against " + c.getName() + "!");
                 if (c instanceof Enemy) {
                     for (Item i : ((Enemy) c).getDropItemListElements()) {
