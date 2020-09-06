@@ -1,6 +1,5 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.*;
 import de.dhbw.project.item.LampState;
 import java.util.List;
 import java.util.stream.Collectors;

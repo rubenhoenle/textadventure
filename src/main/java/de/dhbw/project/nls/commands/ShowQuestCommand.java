@@ -54,7 +54,7 @@ public class ShowQuestCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "[get|show|look|watch|see][ me| my]( quest inventory|quest inventory)", "qi" };
+        String[] patterns = { "[get|show|watch|see][ ][me|my][ ]quest inventory", "qi" };
         return patterns;
     }
 }

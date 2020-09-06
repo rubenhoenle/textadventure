@@ -23,14 +23,23 @@ public class SwitchCommand extends AutoCommand {
     @Override
     public void execute() {
 
-        if (state == null || !(state.equals("on") || state.equals("off"))) {
-            System.out.println("Please tell if you want to switch the item on or off.");
-            return;
-        }
+    	if(state == null) {
+    		System.out.println("Please tell if you want to switch the item on or off.");
+    	}
 
         if (item == null || item.size() == 0) {
             System.out.println("You have to use the whole item name to switch it on or off.");
             return;
+        }
+    	
+        if (!state.matches("on|off")) {
+        	if(item == null || !item.get(item.size()-1).matches("on|off")) {
+	            System.out.println("Please tell if you want to switch the item on or off.");
+	            return;
+        	} else {
+        		item.add(0, state);
+        		state = item.remove(item.size()-1);
+        	}
         }
 
         String itemName = String.join(" ", item).trim();

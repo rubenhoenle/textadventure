@@ -2,12 +2,8 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.Quest;
-import de.dhbw.project.QuestItem;
-import de.dhbw.project.TableList;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Friend;
-import de.dhbw.project.item.Item;
-
 import java.util.List;
 
 public class TalkCommand extends AutoCommand {
