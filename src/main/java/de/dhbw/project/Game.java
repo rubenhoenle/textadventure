@@ -66,7 +66,9 @@ public class Game {
     private boolean playerCanSeeSomething(String input) {
         boolean showInventory = (input.toLowerCase().contains("inventory") || input.trim().toLowerCase().equals("i"));
         boolean switchLamp = (input.toLowerCase().contains("switch"));
-        if ((getCurrentRoom().isDark()) && (player.getLampState() == LampState.OFF) && !switchLamp && !showInventory) {
+        boolean saveOrLoadGame = (input.toLowerCase().contains("save") || input.toLowerCase().contains("load"));
+        if ((getCurrentRoom().isDark()) && (player.getLampState() == LampState.OFF) && !switchLamp && !showInventory
+                && !saveOrLoadGame) {
             System.out.println(
                     "It's dark here. You must switch your lamp on again to see something before you can do any action.");
             return false;
