@@ -48,7 +48,7 @@ public class InventoryCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "[get|show|look|watch|see][ me| my]( inventory|inventory)", "i" };
+        String[] patterns = { "[get|show|watch|see][ ][me|my][ ]inventory", "i" };
         return patterns;
     }
 

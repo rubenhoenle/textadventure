@@ -71,7 +71,7 @@ public class TranslateStoneTabletsCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "(translate) <book>+", "(translate)" };
+        String[] patterns = { "translate <book>+", "translate" };
         return patterns;
     }
 

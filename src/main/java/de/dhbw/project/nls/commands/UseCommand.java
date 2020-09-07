@@ -76,8 +76,7 @@ public class UseCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "use", "use <item>", "use <item>( on| at)",
-                "use <item>( on| at)[ the] <interactiveObject>+" };
+        String[] patterns = { "use <item>+ (on|at)[ the] <interactiveObject>+", "use <item>+", "use" };
         return patterns;
     }
 }
