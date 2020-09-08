@@ -3638,8 +3638,6 @@
           "where": "sitting on the weadow crying",
           "health": 1,
           "strength": 0,
-          "startStatement": "",
-          "killStatement": "",
           "killed": false,
           "quests": [
             {
@@ -3937,8 +3935,6 @@
           "where": "sitting on a bench and enjoys the sun",
           "health": 1,
           "strength": 0,
-          "startStatement": "",
-          "killStatement": "",
           "killed": false,
           "quests": [
             {
