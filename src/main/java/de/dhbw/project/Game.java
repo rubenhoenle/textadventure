@@ -46,7 +46,7 @@ public class Game {
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(input), null);
 
             if (input.length() == 1) {
-                if (Constants.SHORT_DIRECTIONS.contains(input))
+                if (Constants.SHORT_DIRECTIONS.contains(input.toLowerCase()))
                     input = "move " + input;
                 else if (input.equalsIgnoreCase("l"))
                     input = "look around";
@@ -99,7 +99,7 @@ public class Game {
     public Way getWayForDirection(String direction) {
         List<Way> wayList = new ArrayList<>();
         for (Way way : getCurrentRoom().getRoomWayList()) {
-            if (way.getDirection().equals(direction)) {
+            if (way.getDirection().equalsIgnoreCase(direction)) {
                 wayList.add(way);
             }
         }
@@ -115,7 +115,7 @@ public class Game {
     // Helper method: Returns the item with the name if available (otherwise the item is null)
     public Item getItemFromCurrentRoom(String itemName) {
         for (Item item : getCurrentRoom().getRoomItemList()) {
-            if (item.getName().equals(itemName)) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
                 return item;
             }
         }
@@ -124,7 +124,7 @@ public class Game {
 
     public Character getCharacterFromCurrentRoom(String characterName) {
         for (Character c : getCurrentRoom().getCharacterList()) {
-            if (c.getName().equals(characterName)) {
+            if (c.getName().equalsIgnoreCase(characterName)) {
                 return c;
             }
         }
@@ -134,7 +134,7 @@ public class Game {
     public Character getCharacter(String characterName) {
         for (Room r : getRooms()) {
             for (Character c : r.getCharacterList()) {
-                if (c.getName().equals(characterName)) {
+                if (c.getName().equalsIgnoreCase(characterName)) {
                     return c;
                 }
             }
@@ -144,7 +144,7 @@ public class Game {
 
     public InteractiveObject getInteractiveObjectFromCurrentRoom(String interactiveObjectName) {
         for (InteractiveObject io : getCurrentRoom().getRoomInteractiveObjectsList()) {
-            if (io.getName().equals(interactiveObjectName)) {
+            if (io.getName().equalsIgnoreCase(interactiveObjectName)) {
                 return io;
             }
         }

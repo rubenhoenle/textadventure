@@ -34,9 +34,9 @@ public class UseCommand extends AutoCommand {
         }
 
         String itemName = String.join(" ", item);
-        String interactiveObjectName = String.join(" ", interactiveObject);
+        String interactiveObjectName = String.join(" ", interactiveObject).toLowerCase();
 
-        if (!game.getCurrentRoom().getRoomInteractiveObjectsNameList().contains(interactiveObjectName)) {
+        if (!game.getCurrentRoom().getRoomInteractiveObjectsLowerNameList().contains(interactiveObjectName)) {
             System.out.println("There is no interactive object with the name \'" + interactiveObjectName + "\'.");
             return;
         }
@@ -50,7 +50,7 @@ public class UseCommand extends AutoCommand {
         Item i = game.player.getItem(itemName);
 
         // enable blocked way
-        if (io.getRequiredItem().getName().equals(game.player.getItem(itemName).getName())) {
+        if (io.getRequiredItem().getName().equalsIgnoreCase(game.player.getItem(itemName).getName())) {
             if (io.getWayName() != null && io.getWayName().length() != 0) {
                 Way w = game.getCurrentRoom().getRoomWayByName(io.getWayName());
                 if (w != null) {

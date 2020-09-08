@@ -29,6 +29,7 @@ public class MoveCommand extends AutoCommand {
             return;
         }
 
+        direction = direction.toLowerCase();
         if (direction.length() == 1) {
             direction = game.getFullDirection(direction.charAt(0));
         }
@@ -71,7 +72,7 @@ public class MoveCommand extends AutoCommand {
 
             else if (resultWay.getState() == WayState.NEED_EQUIPMENT) {
                 List<Item> equipedItem = game.player.getEquipment().stream()
-                        .filter(i -> i.getName().equals(resultWay.getConditionalItem())).collect(Collectors.toList());
+                        .filter(i -> i.getName().equalsIgnoreCase(resultWay.getConditionalItem())).collect(Collectors.toList());
                 if (equipedItem.size() > 0) {
                     moveInRoom(resultWay);
                 } else {

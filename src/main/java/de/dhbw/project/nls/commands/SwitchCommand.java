@@ -33,7 +33,7 @@ public class SwitchCommand extends AutoCommand {
         }
 
         if (!state.matches("on|off")) {
-            if (item == null || !item.get(item.size() - 1).matches("on|off")) {
+            if (item == null || !item.get(item.size() - 1).toLowerCase().matches("on|off")) {
                 System.out.println("Please tell if you want to switch the item on or off.");
                 return;
             } else {

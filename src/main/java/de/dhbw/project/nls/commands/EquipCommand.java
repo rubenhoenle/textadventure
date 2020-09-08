@@ -27,8 +27,8 @@ public class EquipCommand extends AutoCommand {
         String[] items = String.join(" ", item).split(",");
 
         for (String entry : items) {
-            final String itemName = entry.trim();
-            if (game.getCurrentRoom().getRoomItemNameList().contains(itemName)) {
+            final String itemName = entry.trim().toLowerCase();
+            if (game.getCurrentRoom().getRoomItemLowerNameList().contains(itemName)) {
                 Item takenItem = game.getItemFromCurrentRoom(itemName);
 
                 if (takenItem.getEquipmentType() == null) {
@@ -45,7 +45,7 @@ public class EquipCommand extends AutoCommand {
                     System.out.println(
                             "The section " + takenItem.getEquipmentType().getDescription() + " is already taken.");
                 }
-            } else if (game.player.getInventory().stream().filter(i -> i.getName().equals(itemName))
+            } else if (game.player.getInventory().stream().filter(i -> i.getName().equalsIgnoreCase(itemName))
                     .collect(Collectors.toList()).size() > 0) {
                 Item takenItem = game.player.getItem(itemName);
 

@@ -72,11 +72,10 @@ public class TalkCommandTest {
     public void test3_shouldNotTalkCharacterNotFound() throws Exception {
         //before
         Whitebox.setInternalState(command, List.class, Arrays.asList("foo"));
-        Character c = mock(Character.class);
         Room r = mock(Room.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-        when(game.getCurrentRoom().getCharacterNameList()).thenReturn(Arrays.asList("bar"));
+        when(game.getCurrentRoom().getCharacterLowerNameList()).thenReturn(Arrays.asList("bar"));
         when(game.getCurrentRoom().getName()).thenReturn("bar");
 
         //when
@@ -96,7 +95,7 @@ public class TalkCommandTest {
         Room r = mock(Room.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-        when(game.getCurrentRoom().getCharacterNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCurrentRoom().getCharacterLowerNameList()).thenReturn(Arrays.asList("foo"));
         when(game.getCharacterFromCurrentRoom("foo")).thenReturn(c);
         when(c.getStartStatement()).thenReturn("baz");
 
@@ -118,7 +117,7 @@ public class TalkCommandTest {
         Quest q = mock(Quest.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-        when(game.getCurrentRoom().getCharacterNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCurrentRoom().getCharacterLowerNameList()).thenReturn(Arrays.asList("foo"));
         when(game.getCharacterFromCurrentRoom("foo")).thenReturn(c);
         when(c.getStartStatement()).thenReturn("baz");
         when(c.getQuests()).thenReturn(Arrays.asList(q));
@@ -148,7 +147,7 @@ public class TalkCommandTest {
         Quest q = mock(Quest.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-        when(game.getCurrentRoom().getCharacterNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCurrentRoom().getCharacterLowerNameList()).thenReturn(Arrays.asList("foo"));
         when(game.getCharacterFromCurrentRoom("foo")).thenReturn(c);
         when(c.getStartStatement()).thenReturn("baz");
         when(c.getQuests()).thenReturn(Arrays.asList(q));

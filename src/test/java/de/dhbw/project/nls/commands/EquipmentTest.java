@@ -48,7 +48,7 @@ public class EquipmentTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        doReturn(Arrays.asList(itemName1, itemName2)).when(currentRoom).getRoomItemNameList();
+        doReturn(Arrays.asList(itemName1.toLowerCase(), itemName2.toLowerCase())).when(currentRoom).getRoomItemLowerNameList();
 
         Item item1 = new Clothing(itemName1, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD);
         Item item2 = new Clothing(itemName2, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD);
@@ -56,8 +56,8 @@ public class EquipmentTest {
         PowerMockito.doReturn(true).when(player, "addEquipment", item1);
         PowerMockito.doReturn(false).when(player, "addEquipment", item2);
         
-        PowerMockito.doReturn(item1).when(game, "getItemFromCurrentRoom", itemName1);
-        PowerMockito.doReturn(item2).when(game, "getItemFromCurrentRoom", itemName2);
+        PowerMockito.doReturn(item1).when(game, "getItemFromCurrentRoom", itemName1.toLowerCase());
+        PowerMockito.doReturn(item2).when(game, "getItemFromCurrentRoom", itemName2.toLowerCase());
 
         EquipCommand equipCommand = new EquipCommand(game);
         DataStorage data = new DataStorage();

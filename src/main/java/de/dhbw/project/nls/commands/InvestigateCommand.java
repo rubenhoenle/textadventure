@@ -25,9 +25,9 @@ public class InvestigateCommand extends AutoCommand {
             return;
         }
 
-        String interactiveObjectName = String.join(" ", interactiveObject);
+        String interactiveObjectName = String.join(" ", interactiveObject).toLowerCase();
 
-        if (!game.getCurrentRoom().getRoomInteractiveObjectsNameList().contains(interactiveObjectName)) {
+        if (!game.getCurrentRoom().getRoomInteractiveObjectsLowerNameList().contains(interactiveObjectName)) {
             System.out.println("There is no interactive object with the name \'" + interactiveObjectName + "\'.");
             return;
         }

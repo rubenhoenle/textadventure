@@ -179,8 +179,7 @@ public class Zork {
         while (!Continue) {
             System.out.println("Please enter 'play' to start the game or enter 'edit' to start the level editor!");
             Scanner userInput = new Scanner(System.in);
-            String input = userInput.nextLine();
-            input.toLowerCase();
+            String input = userInput.nextLine().toLowerCase();
             if (input.equals("play")) {
                 Continue = true;
                 playNewGame();

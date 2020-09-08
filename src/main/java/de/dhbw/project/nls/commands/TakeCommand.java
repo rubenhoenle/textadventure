@@ -29,8 +29,8 @@ public class TakeCommand extends AutoCommand {
         String[] items = String.join(" ", item).split(",");
 
         for (String itemName : items) {
-            itemName = itemName.trim();
-            if (!(game.getCurrentRoom().getRoomItemNameList().contains(itemName)))
+            itemName = itemName.trim().toLowerCase();
+            if (!(game.getCurrentRoom().getRoomItemLowerNameList().contains(itemName)))
                 System.out.println(
                         "No item found with name \'" + itemName + "\' in room " + game.getCurrentRoom().getName());
             else {
