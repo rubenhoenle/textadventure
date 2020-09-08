@@ -50,7 +50,7 @@ public class InvestigateCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "investigate", "investigate <interactiveObject>+" };
+        String[] patterns = { "investigate <interactiveObject>+", "investigate" };
         return patterns;
     }
 }
