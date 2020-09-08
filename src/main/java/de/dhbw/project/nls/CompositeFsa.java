@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class CompositeFsa extends FSA {
-	
-	private static boolean addedPost = false;
+
+    private static boolean addedPost = false;
 
     private static List<String> PRE = new ArrayList<String>() {
         private static final long serialVersionUID = 1L;
@@ -41,15 +41,15 @@ public abstract class CompositeFsa extends FSA {
     }
 
     public static CompositeFsa buildCompositeFsaFrom(String pattern, CompositeFsa p) {
-    	CompositeFsa root = new AndCompositeFsa(p);
-    	
-    	addPreComposite(root);
-    	buildCompositeFsa(pattern, root);
-    	if (!addedPost) {
+        CompositeFsa root = new AndCompositeFsa(p);
+
+        addPreComposite(root);
+        buildCompositeFsa(pattern, root);
+        if (!addedPost) {
             addPostComposite(root);
         }
-    	
-    	return root;
+
+        return root;
     }
 
     public static CompositeFsa buildCompositeFsa(String pattern, CompositeFsa root) {
@@ -61,36 +61,36 @@ public abstract class CompositeFsa extends FSA {
             switch (c) {
             case '>':
                 new IdentifierFsa(word, root);
-                
+
                 if (pattern.length() > i + 1 && ((Character) pattern.charAt(i + 1)).equals('+')) {
                     i += 2;
                     final String attribute = word;
                     final boolean terminator;
                     final String newPattern;
-                    
+
                     if (pattern.length() == i) {
-                    	newPattern = "";
+                        newPattern = "";
                         terminator = true;
                         addedPost = true;
                     } else {
                         terminator = false;
-                        
+
                         String whitespeceString = "";
-                        while(pattern.substring(i).charAt(0) == ' ') {
-                        	whitespeceString += " ";
-                        	i++;
+                        while (pattern.substring(i).charAt(0) == ' ') {
+                            whitespeceString += " ";
+                            i++;
                         }
-                        
+
                         String subPattern;
-                        if(pattern.substring(i).charAt(0) == '(') {
-                        	subPattern = pattern.substring(i).split("\\)")[0] + ")";
+                        if (pattern.substring(i).charAt(0) == '(') {
+                            subPattern = pattern.substring(i).split("\\)")[0] + ")";
                         } else {
-                        	subPattern = pattern.substring(i).split(" ")[0];
+                            subPattern = pattern.substring(i).split(" ")[0];
                         }
                         newPattern = whitespeceString + subPattern;
-                    	i += subPattern.length() - 1;
+                        i += subPattern.length() - 1;
                     }
-                    
+
                     new NoneOrMoreFsa(root, par -> {
                         AndCompositeFsa and = new AndCompositeFsa(par);
                         new WhitespaceFsa(and);
@@ -106,17 +106,17 @@ public abstract class CompositeFsa extends FSA {
                 }
                 word = "";
                 break;
-                
+
             case '(':
-            	OrCompositeFsa orComposite = OrCompositeFsa.create(root);
-            	String subPattern = pattern.substring(i+1).split("\\)")[0];
-            	buildOrCompositeFsa(subPattern, orComposite);
-            	i += subPattern.length() + 1;
-            	break;
-            	
+                OrCompositeFsa orComposite = OrCompositeFsa.create(root);
+                String subPattern = pattern.substring(i + 1).split("\\)")[0];
+                buildOrCompositeFsa(subPattern, orComposite);
+                i += subPattern.length() + 1;
+                break;
+
             case '[':
                 OrCompositeFsa orNoneComposite = OrCompositeFsa.create(root);
-                String subPattern2 = pattern.substring(i+1).split("\\]")[0];
+                String subPattern2 = pattern.substring(i + 1).split("\\]")[0];
                 buildOrCompositeFsa(subPattern2, orNoneComposite);
                 new NoneFsa(orNoneComposite);
                 i += subPattern2.length() + 1;
@@ -132,23 +132,23 @@ public abstract class CompositeFsa extends FSA {
                     word = "";
                 }
                 new WhitespaceFsa(root);
-                
+
             }
         }
 
-        if (word.length() > 0) new WordFsa(word, root);
+        if (word.length() > 0)
+            new WordFsa(word, root);
 
         return root;
     }
-    
+
     private static void buildOrCompositeFsa(String pattern, CompositeFsa fsa) {
-    	String[] parts = pattern.split("\\|");
-    	for (String part : parts) {
-			AndCompositeFsa andFsa = new AndCompositeFsa(fsa);
-			buildCompositeFsa(part, andFsa);
-		}
+        String[] parts = pattern.split("\\|");
+        for (String part : parts) {
+            AndCompositeFsa andFsa = new AndCompositeFsa(fsa);
+            buildCompositeFsa(part, andFsa);
+        }
     }
-    
 
     private static void addPreComposite(CompositeFsa fsa) {
         OrCompositeFsa orComposite = OrCompositeFsa.create(fsa);
@@ -159,7 +159,7 @@ public abstract class CompositeFsa extends FSA {
         }
         new NoneFsa(orComposite);
     }
-    
+
     private static void addPostComposite(CompositeFsa fsa) {
         OrCompositeFsa orComposite = OrCompositeFsa.create(fsa);
         for (String s : POST) {
