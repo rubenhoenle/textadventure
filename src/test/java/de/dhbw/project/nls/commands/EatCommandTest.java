@@ -57,7 +57,7 @@ public class EatCommandTest {
     	Room r = mock(Room.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-    	when(game.getCurrentRoom().getRoomItemNameList()).thenReturn(Arrays.asList(itemName));
+    	when(game.getCurrentRoom().getRoomItemLowerNameList()).thenReturn(Arrays.asList(itemName));
     	when(game.getItemFromCurrentRoom(itemName)).thenReturn(food);
     	
     	//when
@@ -79,7 +79,7 @@ public class EatCommandTest {
     	Room r = mock(Room.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-    	when(game.getCurrentRoom().getRoomItemNameList()).thenReturn(Arrays.asList(itemName));
+    	when(game.getCurrentRoom().getRoomItemLowerNameList()).thenReturn(Arrays.asList(itemName));
     	when(game.getItemFromCurrentRoom(itemName)).thenReturn(tool);
     	
     	//when

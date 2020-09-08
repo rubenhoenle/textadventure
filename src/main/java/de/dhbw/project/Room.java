@@ -75,11 +75,11 @@ public class Room extends Thing {
         return roomItemList;
     }
 
-    public List<String> getRoomItemNameList() {
+    public List<String> getRoomItemLowerNameList() {
         if (null != roomItemList) {
             List<String> itemNames = new ArrayList<String>();
             for (Item i : roomItemList.getAllItemList()) {
-                itemNames.add(i.getName());
+                itemNames.add(i.getName().toLowerCase());
             }
             return itemNames;
         } else {
@@ -99,7 +99,7 @@ public class Room extends Thing {
         this.interactiveObjects = interactiveObjects;
     }
 
-    public List<String> getRoomInteractiveObjectsNameList() {
+    public List<String> getRoomInteractiveObjectsLowerNameList() {
         List<String> interactiveObjectNames = new ArrayList<String>();
         for (InteractiveObject interactiveObject : getRoomInteractiveObjectsList()) {
             interactiveObjectNames.add(interactiveObject.getName());
@@ -221,10 +221,10 @@ public class Room extends Thing {
         return characters;
     }
 
-    public List<String> getCharacterNameList() {
+    public List<String> getCharacterLowerNameList() {
         List<String> characterNames = new ArrayList<>();
         for (Character c : getCharacterList()) {
-            characterNames.add(c.getName());
+            characterNames.add(c.getName().toLowerCase());
         }
         return characterNames;
     }
@@ -235,7 +235,7 @@ public class Room extends Thing {
 
     public Way getWay(String direction) {
         for (Way way : roomWayList) {
-            if (way.getDirection().equals(direction)) {
+            if (way.getDirection().equalsIgnoreCase(direction)) {
                 return way;
             }
         }

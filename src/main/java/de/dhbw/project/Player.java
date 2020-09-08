@@ -219,7 +219,7 @@ public class Player {
     // getItem Method: returns an item, if an item with itemName was found, else returns null
     public Item getItemFromEquipment(String itemName) {
         for (Item i : equipment.getAllItemList()) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }

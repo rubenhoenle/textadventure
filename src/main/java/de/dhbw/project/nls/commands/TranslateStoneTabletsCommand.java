@@ -29,9 +29,9 @@ public class TranslateStoneTabletsCommand extends AutoCommand {
             return;
         }
 
-        String book = String.join(" ", this.book);
+        String book = String.join(" ", this.book).toLowerCase();
 
-        if (game.getCurrentRoom().getRoomItemNameList().contains(book)) {
+        if (game.getCurrentRoom().getRoomItemLowerNameList().contains(book)) {
             Item roomItem = game.getItemFromCurrentRoom(book);
             foundAnyItem = true;
             if (roomItem instanceof Book) {
@@ -47,7 +47,7 @@ public class TranslateStoneTabletsCommand extends AutoCommand {
             }
         } else {
             for (Item loopItem : game.player.getInventory()) {
-                if (loopItem.getName().equals(book)) {
+                if (loopItem.getName().equalsIgnoreCase(book)) {
                     foundAnyItem = true;
                     if (loopItem instanceof Book) {
                         if (loopItem.getName().contains("stone tablet") && !loopItem.getName().contains("translated")) {

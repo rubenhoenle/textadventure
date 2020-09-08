@@ -10,8 +10,6 @@ import de.dhbw.project.item.*;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-import org.powermock.api.mockito.PowerMockito;
-import org.powermock.reflect.Whitebox;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -102,15 +100,15 @@ public class RoomTest {
         room.addItem(w);
 
         //when
-        List<String> roomItems = room.getRoomItemNameList();
+        List<String> roomItems = room.getRoomItemLowerNameList();
 
         //then
         assertTrue(roomItems.size() == 5);
-        assertTrue(roomItems.contains(c.getName()));
-        assertTrue(roomItems.contains(f.getName()));
-        assertTrue(roomItems.contains(r.getName()));
-        assertTrue(roomItems.contains(t.getName()));
-        assertTrue(roomItems.contains(w.getName()));
+        assertTrue(roomItems.contains(c.getName().toLowerCase()));
+        assertTrue(roomItems.contains(f.getName().toLowerCase()));
+        assertTrue(roomItems.contains(r.getName().toLowerCase()));
+        assertTrue(roomItems.contains(t.getName().toLowerCase()));
+        assertTrue(roomItems.contains(w.getName().toLowerCase()));
     }
 
     @Test
@@ -177,7 +175,7 @@ public class RoomTest {
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
 
         //when
-        List<String> result = r.getCharacterNameList();
+        List<String> result = r.getCharacterLowerNameList();
 
         //then
         assertTrue(result.isEmpty());
@@ -192,7 +190,7 @@ public class RoomTest {
         r.setEnemyList(Arrays.asList(e));
 
         //when
-        List<String> result = r.getCharacterNameList();
+        List<String> result = r.getCharacterLowerNameList();
 
         //then
         assertTrue(result.size() == 1);
@@ -258,7 +256,7 @@ public class RoomTest {
         r.setRoomInteractiveObjectsList(Arrays.asList(io));
 
         //when
-        List<String> result = r.getRoomInteractiveObjectsNameList();
+        List<String> result = r.getRoomInteractiveObjectsLowerNameList();
 
         //then
         assertTrue(result.size() == 1);

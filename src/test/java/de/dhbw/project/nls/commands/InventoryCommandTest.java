@@ -2,7 +2,6 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.Player;
-import de.dhbw.project.item.Item;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,10 +13,7 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import java.io.PrintStream;
-import java.util.Arrays;
-
 import static org.junit.Assert.assertNull;
-import static org.mockito.Mockito.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)

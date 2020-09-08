@@ -25,9 +25,9 @@ public class TalkCommand extends AutoCommand {
             return;
         }
 
-        String characterName = String.join(" ", character);
+        String characterName = String.join(" ", character).toLowerCase();
 
-        if (!(game.getCurrentRoom().getCharacterNameList().contains(characterName))) {
+        if (!(game.getCurrentRoom().getCharacterLowerNameList().contains(characterName))) {
             System.out
                     .println("No character named \'" + characterName + "\' in area " + game.getCurrentRoom().getName());
         } else {

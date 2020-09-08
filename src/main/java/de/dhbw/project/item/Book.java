@@ -9,7 +9,6 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
-import de.dhbw.project.item.ItemState;
 import de.dhbw.project.regions.ruins.AlienFont;
 import de.dhbw.project.levelEditor.SimpleUserInput;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
@@ -101,7 +100,7 @@ public class Book extends Item {
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             String nextcommand;
             try {
-                nextcommand = reader.readLine();
+                nextcommand = reader.readLine().toLowerCase();
                 bookReader(nextcommand);
             } catch (IOException e) {
                 System.out.println("An error occured reading the book.");

@@ -26,9 +26,9 @@ public class AttackCommand extends AutoCommand {
             return;
         }
 
-        String characterName = String.join(" ", character);
+        String characterName = String.join(" ", character).toLowerCase();
 
-        if (!(game.getCurrentRoom().getCharacterNameList().contains(characterName))) {
+        if (!(game.getCurrentRoom().getCharacterLowerNameList().contains(characterName))) {
             System.out
                     .println("No character named \'" + characterName + "\' in area " + game.getCurrentRoom().getName());
         } else {
@@ -40,7 +40,7 @@ public class AttackCommand extends AutoCommand {
                 List<Quest> questInventory = new ArrayList<Quest>();
                 questInventory.addAll(game.player.getQuestInventory());
                 for (Quest q : questInventory) {
-                    if (q.isAutoComplete() && c.getName().equals(q.getFulfillmentKill())) {
+                    if (q.isAutoComplete() && c.getName().equalsIgnoreCase(q.getFulfillmentKill())) {
                         q.finishQuest(game, false);
                     }
                 }

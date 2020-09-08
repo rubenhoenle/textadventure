@@ -32,12 +32,13 @@ public class LookCommand extends AutoCommand {
             return;
         }
 
+        direction = direction.toLowerCase();
         if (direction.length() == 1) {
             direction = game.getFullDirection(direction.charAt(0));
         }
 
         // Boolean that indicates if the command "look around" has been written
-        boolean isEachDirection = direction.equals(Constants.EACH_DIRECTION);
+        boolean isEachDirection = direction.equalsIgnoreCase(Constants.EACH_DIRECTION);
 
         // Entered phrase is not "look around" and is not "look + valid direction"
         if (!(Constants.DIRECTIONS).contains(direction) && !isEachDirection) {
@@ -48,7 +49,7 @@ public class LookCommand extends AutoCommand {
         // Condition of room is not fulfilled -> nothing can be seen
         String condItem = game.getCurrentRoom().getConditionalItem();
         if (condItem != null && condItem != "") {
-            if (game.player.getEquipment().stream().filter(i -> i.getName().equals(condItem))
+            if (game.player.getEquipment().stream().filter(i -> i.getName().equalsIgnoreCase(condItem))
                     .collect(Collectors.toList()).size() == 0) {
                 System.out.println("You can\u0027t see anything.");
                 return;
