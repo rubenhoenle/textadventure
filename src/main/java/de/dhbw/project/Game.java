@@ -10,8 +10,6 @@ import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
 
 import java.util.ArrayList;
-import java.awt.datatransfer.Clipboard;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.awt.Toolkit;
@@ -42,6 +40,7 @@ public class Game {
         while (!gameEnd) {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
+            input = input.trim();
 
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(input), null);
 
