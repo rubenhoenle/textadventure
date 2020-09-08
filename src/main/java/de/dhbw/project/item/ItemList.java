@@ -63,32 +63,32 @@ public class ItemList {
 
     public Item getItem(String itemName) {
         for (Item i : clothsItemList) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
         for (Item i : foodsItemList) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
         for (Item i : resourcesItemList) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
         for (Item i : weaponsItemList) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
         for (Item i : toolsItemList) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
         for (Item i : booksItemList) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
@@ -125,7 +125,7 @@ public class ItemList {
         temp.addAll(booksItemList);
 
         for (Item i : temp) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 count++;
             }
         }

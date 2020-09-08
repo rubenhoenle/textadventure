@@ -49,11 +49,11 @@ public class GameTest {
     @Test
     public void test1_shouldAddItemToInventory() throws Exception {
         //before
-        String itemName = "TestItem";
+        String itemName = "testitem";
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        doReturn(Arrays.asList(itemName)).when(currentRoom).getRoomItemNameList();
+        doReturn(Arrays.asList(itemName)).when(currentRoom).getRoomItemLowerNameList();
 
         Item item = new Resource(itemName, "TestItem", ItemState.NOT_USABLE, 99);
         PowerMockito.doReturn(item).when(game, "getItemFromCurrentRoom", itemName);
@@ -90,7 +90,7 @@ public class GameTest {
         takeCommand.execute();
 
         //then
-        verify(out).println("No item found with name \'" + itemName + "\' in room " + currentRoom.getName());
+        verify(out).println("No item found with name \'" + itemName.toLowerCase() + "\' in room " + currentRoom.getName());
     }
 
     @Test

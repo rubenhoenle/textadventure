@@ -3,7 +3,6 @@ package de.dhbw.project.regions.ruins;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -161,7 +160,7 @@ public final class StoneTablet {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                 String nextcommand;
                 try {
-                    nextcommand = reader.readLine();
+                    nextcommand = reader.readLine().toLowerCase();
                     StoneTablet.bookReader(game, bookItem, nextcommand);
                 } catch (IOException e) {
                     System.out.println("An error occured reading the stone tablet.");

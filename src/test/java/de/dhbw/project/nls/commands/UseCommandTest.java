@@ -16,7 +16,6 @@ import org.powermock.reflect.Whitebox;
 
 import java.io.PrintStream;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.mockito.Mockito.*;
 
@@ -54,9 +53,9 @@ public class UseCommandTest {
         Way w = mock(Way.class);
         InteractiveObject io = mock(InteractiveObject.class);
         when(game.getCurrentRoom()).thenReturn(r);
-        when(r.getRoomInteractiveObjectsNameList()).thenReturn(Arrays.asList("interactiveObject"));
+        when(r.getRoomInteractiveObjectsLowerNameList()).thenReturn(Arrays.asList("interactiveobject"));
         when(player.getItem("item")).thenReturn(i);
-        when(r.getRoomInteractiveObjectByName("interactiveObject")).thenReturn(io);
+        when(r.getRoomInteractiveObjectByName("interactiveobject")).thenReturn(io);
         when(io.getRequiredItem()).thenReturn(i);
         when(io.getRequiredItem().getName()).thenReturn("item");
         when(io.isRemoveRequiredItem()).thenReturn(true);
@@ -86,9 +85,9 @@ public class UseCommandTest {
         Way w = mock(Way.class);
         InteractiveObject io = mock(InteractiveObject.class);
         when(game.getCurrentRoom()).thenReturn(r);
-        when(r.getRoomInteractiveObjectsNameList()).thenReturn(Arrays.asList("interactiveObject"));
+        when(r.getRoomInteractiveObjectsLowerNameList()).thenReturn(Arrays.asList("interactiveobject"));
         when(player.getItem("item")).thenReturn(i);
-        when(r.getRoomInteractiveObjectByName("interactiveObject")).thenReturn(io);
+        when(r.getRoomInteractiveObjectByName("interactiveobject")).thenReturn(io);
         when(io.getRequiredItem()).thenReturn(i);
         when(io.getRequiredItem().getName()).thenReturn("item");
         when(io.isRemoveRequiredItem()).thenReturn(false);

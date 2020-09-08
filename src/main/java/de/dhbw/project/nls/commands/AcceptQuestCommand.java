@@ -33,7 +33,7 @@ public class AcceptQuestCommand extends AutoCommand {
         if (questCharacter != null || questInteractiveObject != null) {
             if (questCharacter != null && questCharacter instanceof Friend && !questCharacter.isKilled()) {
                 for (int i = 0; i < ((Friend) questCharacter).getQuests().size(); i++) {
-                    if (((Friend) questCharacter).getQuests().get(i).getName().equals(questName)) {
+                    if (((Friend) questCharacter).getQuests().get(i).getName().equalsIgnoreCase(questName)) {
                         q = ((Friend) questCharacter).getQuests().get(i);
                     }
                 }
@@ -41,7 +41,7 @@ public class AcceptQuestCommand extends AutoCommand {
                 q = questInteractiveObject.getQuest();
             }
 
-            if (q != null && q.isTalkedOnce() && !q.isAccepted() && (questName.equals(q.getName()))) {
+            if (q != null && q.isTalkedOnce() && !q.isAccepted() && (questName.equalsIgnoreCase(q.getName()))) {
                 q.setAccepted(true);
                 game.player.getQuestInventory().add(q);
                 System.out.println("Quest \"" + q.getName() + "\" was added to quest inventory");
