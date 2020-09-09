@@ -26,7 +26,7 @@ public class RoomTest {
     public void test1_shouldAddItem() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource re = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
@@ -48,7 +48,7 @@ public class RoomTest {
     public void test2_shouldRemoveItem() {
         //before
         Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
@@ -88,7 +88,7 @@ public class RoomTest {
     public void test4_shouldListRoomItems() {
         //before
         Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);

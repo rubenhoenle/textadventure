@@ -4,6 +4,7 @@
     "points": 0,
     "strength": 5,
     "health": 20,
+    "inventorySpace": 10,
     "inventory": {
       "cloths": [],
       "foods": [],
@@ -35,6 +36,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me enough parts for the sail yet.",
               "textEnd": "Thanks for bringing me the parts.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 0,
@@ -91,6 +93,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me enough parts yet.",
               "textEnd": "Thanks for bringing me the materials.",
+              "removeFulfillmentItems": true,
               "reward": [],
               "completed": false,
               "talkedOnce": false,
@@ -155,6 +158,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me enough equipment yet.",
               "textEnd": "Thanks for bringing me all equipment needed.",
+              "removeFulfillmentItems": true,
               "reward": [],
               "completed": false,
               "talkedOnce": false,
@@ -206,6 +210,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me the amulet yet.",
               "textEnd": "Thanks for bringing me the amulet.",
+              "removeFulfillmentItems": true,
               "reward": [],
               "completed": false,
               "talkedOnce": false,
@@ -260,15 +265,17 @@
             "textAccept": "You accepted the quest!",
             "textMid": "",
             "textEnd": "Successful take the life jacket!",
+            "removeFulfillmentItems": false,
             "reward": [
               {
                 "strength": 0,
                 "name": "backpack",
                 "description": "a backpack where you can store some additional items",
                 "place": "is lying in the sand",
-                "equipmentType": "UPPER_BODY",
+                "equipment": "UPPER_BODY",
                 "type": "cloth",
-                "itemstate": "0"
+                "itemstate": "0",
+                "addInventorySpace": 25
               }
             ],
             "completed": false,
@@ -796,6 +803,7 @@
               "textAccept": "Good luck and look out for your self.",
               "textMid": "You did not bring me the treasure yet!",
               "textEnd": "Finally my search has an and thank you so much for help. I couldn't have done it without you.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 3,
@@ -1781,6 +1789,7 @@
               "textAccept": "You perform a service to the totality of all living beings.",
               "textMid": "The unicorn is still trapped. I can feel his condition getting worse.",
               "textEnd": "You have proven yourself worthy. I give you my enchanted book.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 0,
@@ -2231,6 +2240,7 @@
               "textAccept": "Thanks for helping me!",
               "textMid": "You did not bring me the shoes yet. Look at the forest!",
               "textEnd": "Thanks for bringing me my shoes!",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 4,
@@ -2859,6 +2869,7 @@
             "textAccept": "You accepted the quest!",
             "textMid": "",
             "textEnd": "You successfully caught a fish!",
+            "removeFulfillmentItems": false,
             "reward": [
               {
                 "strength": 7,
@@ -3128,6 +3139,7 @@
               "textAccept": "Thanks you for helping me out!",
               "textMid": "You did not bring me my walking cane yet. It is somewhere in the village.",
               "textEnd": "Thanks for bringing me my walking cane.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 0,
@@ -3647,6 +3659,7 @@
               "textMid": "Have you found any sign of my cat yet?",
               "textEnd": "Oooh Findus, I missed you so much! Thanks for your help.",
               "completed": false,
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 5,
@@ -3944,6 +3957,7 @@
               "textAccept": "What a nice gesture of you.",
               "textMid": "Take your time. I can wait for the flowers.",
               "textEnd": "Thank you so much. I got something usefull for your inventory.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 0,

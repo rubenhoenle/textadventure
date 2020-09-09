@@ -23,8 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -73,7 +72,7 @@ public class QuestTest {
         //when
         //Quest q = new Quest(questName,questTextStart,questCompleted,questReward);
         Quest q = new Quest(name, textStart, textAccept, textMid, textEnd,  completed,
-                questReward, requiredItems,  accepted,  talkedOnce, mainQuest, fulfillmentKill, autoComplete) ;
+                questReward, requiredItems,  accepted,  talkedOnce, mainQuest, fulfillmentKill, autoComplete,false) ;
 
         //then
         assertEquals(q.getName(),name);
@@ -135,22 +134,22 @@ public class QuestTest {
         Game game = PowerMockito.spy(new Game());
 
         ArrayList<QuestItem> rewards1 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> fulfillment1 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> rewards2 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> fulfillment2 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> rewards3 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> fulfillment3 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
 
         ArrayList<Quest> quests = new ArrayList<>();
-        quests.add(new Quest("name1","start","accept","mid","end",false,rewards1,fulfillment1,false,true,false,"ahhh",false));
-        quests.add(new Quest("name1","start","accept","mid","end",false,rewards2,fulfillment2,false,true,true,"ahh",false));
-        quests.add(new Quest("name1","start","accept","mid","end",false,rewards3,fulfillment3,false,true,true,"ahhh",false));
+        quests.add(new Quest("name1","start","accept","mid","end",false,rewards1,fulfillment1,false,true,false,"ahhh",false,true));
+        quests.add(new Quest("name1","start","accept","mid","end",false,rewards2,fulfillment2,false,true,true,"ahh",false,true));
+        quests.add(new Quest("name1","start","accept","mid","end",false,rewards3,fulfillment3,false,true,true,"ahhh",false,true));
         Friend friend = new Friend("friend_name","place",100,100,"start","kill",false,quests);
         ArrayList<Friend> friends = new ArrayList<>();
         friends.add(friend);
@@ -175,5 +174,4 @@ public class QuestTest {
         //then
         assertEquals(game.isGameEnd(),true);
     }
-
 }

@@ -30,6 +30,8 @@ public class Player {
     private String roomName;
     @SerializedName("equipment")
     private ItemList equipment = new ItemList();
+    @SerializedName("inventorySpace")
+    private int inventorySpace;
 
     public void enterPlayerName() {
         Scanner tastatureingabe = new Scanner(System.in);
@@ -226,6 +228,34 @@ public class Player {
         return null;
     }
 
+    public int getInventorySpace() {
+        return inventorySpace;
+    }
+
+    public void setInventorySpace(int inventorySpace) {
+        this.inventorySpace = inventorySpace;
+    }
+
+    public int getCurrentInventorySpace() {
+        if (getInventory() == null) {
+            return 10;
+        } else {
+            return (getInventorySpace() - getInventory().size());
+        }
+    }
+
+    public void addInventorySpace(Item item) {
+        if (item.getExpandInventorySpace() > 0) {
+            setInventorySpace(getInventorySpace() + item.getExpandInventorySpace());
+        }
+    }
+
+    public void removeInventorySpace(Item item) {
+        if (item.getExpandInventorySpace() > 0) {
+            setInventorySpace(getInventorySpace() - item.getExpandInventorySpace());
+        }
+    }
+
     public boolean addEquipment(Item newItem) {
         if (newItem.getEquipmentType() == null)
             return false;
@@ -233,11 +263,17 @@ public class Player {
             if (item.getEquipmentType() == newItem.getEquipmentType())
                 return false;
         }
+        // InventorySpace
+        addInventorySpace(newItem);
+        // InventorySpace end
         equipment.addItem(newItem);
         return true;
     }
 
     public List<Item> removeEquipment(Item item) {
+        // InventorySpace
+        removeInventorySpace(item);
+        // InventorySpace end
         equipment.removeItem(item);
         return equipment.getAllItemList();
     }

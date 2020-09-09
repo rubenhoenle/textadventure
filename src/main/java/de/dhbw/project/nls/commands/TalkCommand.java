@@ -62,7 +62,7 @@ public class TalkCommand extends AutoCommand {
 
                     } else {
                         if (q.checkCompleted(game)) {
-                            q.finishQuest(game, true);
+                            q.finishQuest(game, q.isRemoveFulfillmentItems());
                         } else if (q.isCompleted() && !game.isGameEnd()) {
                             System.out.println(q.getTextEnd());
                         } else {

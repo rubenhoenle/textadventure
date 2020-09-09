@@ -42,7 +42,9 @@ public class InventoryCommand extends AutoCommand {
             table.addRow(game.player.getInventory().get(i).getName(),
                     game.player.getInventory().get(i).getDescription(), strength, stateAsString);
         }
-
+        System.out.println("--- Used inventory space: "
+                + (game.player.getInventorySpace() - game.player.getCurrentInventorySpace()) + "/"
+                + game.player.getInventorySpace() + " ---");
         table.print();
     }
 

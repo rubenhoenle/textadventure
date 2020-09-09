@@ -35,9 +35,17 @@ public class TakeCommand extends AutoCommand {
                         "No item found with name \'" + itemName + "\' in room " + game.getCurrentRoom().getName());
             else {
                 Item takenItem = game.getItemFromCurrentRoom(itemName);
-                game.player.addItem(takenItem);
-                game.getCurrentRoom().removeItem(takenItem);
-                System.out.println("You took \'" + takenItem.getName() + "\' and added it to the inventory.");
+
+                // InventorySpace
+
+                if (game.player.getCurrentInventorySpace() >= 1) {
+                    game.player.addItem(takenItem);
+                    game.getCurrentRoom().removeItem(takenItem);
+                    System.out.println("You took \'" + takenItem.getName() + "\' and added it to the inventory.");
+                } else {
+                    System.out.println("You can not pick up the \'" + takenItem.getName()
+                            + "\' to your inventory because it is already full.");
+                }
 
                 // quest handling
                 List<Quest> questInventory = new ArrayList<Quest>();
@@ -45,7 +53,7 @@ public class TakeCommand extends AutoCommand {
                 for (Quest q : questInventory) {
                     if (q.isAutoComplete() && q.getFulfillmentItems() != null && q.getFulfillmentItems().size() >= 1
                             && q.checkCompleted(game)) {
-                        q.finishQuest(game, false);
+                        q.finishQuest(game, q.isRemoveFulfillmentItems());
                     }
                 }
                 game.incTurn();

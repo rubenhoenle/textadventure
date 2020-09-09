@@ -224,7 +224,7 @@ public class MoveCommandTest {
         Way w = new Way("way", "description", direction, "from", "to", WayState.NEED_EQUIPMENT, "hint", "condition");
         when(game.hasWays()).thenReturn(true);
         when(game.getWayForDirection(direction)).thenReturn(w);
-        when(game.player.getEquipment()).thenReturn(Arrays.asList(new Clothing("condition", "", ItemState.NOT_USABLE, 0, EquipmentType.HEAD)));
+        when(game.player.getEquipment()).thenReturn(Arrays.asList(new Clothing("condition", "", ItemState.NOT_USABLE, 0, EquipmentType.HEAD,0)));
         
         Room r = mock(Room.class);
         doReturn(r).when(game).getCurrentRoom();

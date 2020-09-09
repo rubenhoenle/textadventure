@@ -62,7 +62,9 @@ public class GameTest {
         DataStorage data = new DataStorage();
         data.add("item", itemName);
         takeCommand.setData(data);
-        
+
+        when(player.getCurrentInventorySpace()).thenReturn(10);
+
         //when
         takeCommand.execute();
 
@@ -266,5 +268,32 @@ public class GameTest {
         verify(e,never()).getNextRoom("foo");
         verify(r,never()).removeRoamingEnemy(e);
         verify(r2,never()).addRoamingEnemy(e);
+    }
+
+    @Test
+    public void test13_shouldNotAddItemToFullInventory() throws Exception {
+        //before
+        String itemName = "TestItem";
+        Room currentRoom = mock(Room.class);
+        PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
+
+        doReturn(Arrays.asList(itemName.toLowerCase())).when(currentRoom).getRoomItemLowerNameList();
+
+        Item item = new Resource(itemName, "TestItem", ItemState.NOT_USABLE, 99);
+        PowerMockito.doReturn(item).when(game, "getItemFromCurrentRoom", itemName.toLowerCase());
+
+        TakeCommand takeCommand = new TakeCommand(game);
+        DataStorage data = new DataStorage();
+        data.add("item", itemName);
+        takeCommand.setData(data);
+
+        when(player.getCurrentInventorySpace()).thenReturn(0);
+
+        //when
+        takeCommand.execute();
+
+        //then
+        verify(out).println("You can not pick up the \'" + item.getName()
+                + "\' to your inventory because it is already full.");
     }
 }

@@ -12,8 +12,8 @@ public class QuestItem extends Item {
     private String type;
 
     public QuestItem(String name, String description, ItemState itemstate, int strength, EquipmentType equipmentType,
-            String type) {
-        super(name, description, itemstate, strength, equipmentType);
+            String type, int addInventorySpace) {
+        super(name, description, itemstate, strength, equipmentType, addInventorySpace);
         this.type = type;
     }
 
@@ -29,7 +29,7 @@ public class QuestItem extends Item {
         switch (this.getType()) {
         case "cloth":
             return new Clothing(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(),
-                    this.getEquipmentType());
+                    this.getEquipmentType(), this.getExpandInventorySpace());
         case "food":
             return new Food(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength());
         case "book":

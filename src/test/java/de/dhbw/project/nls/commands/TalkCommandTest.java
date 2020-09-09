@@ -154,6 +154,7 @@ public class TalkCommandTest {
         when(q.isAccepted()).thenReturn(true);
         when(q.isCompleted()).thenReturn(true);
         when(q.checkCompleted(game)).thenReturn(true);
+        q.setRemoveFulfillmentItems(true);
 
         //when
         command.execute();
@@ -162,7 +163,7 @@ public class TalkCommandTest {
         verify(game).incTurn();
         verify(c).getStartStatement();
         verify(out).println("baz");
-        verify(q).finishQuest(game,true);
+        verify(q).finishQuest(game,false);
     }
 
 }

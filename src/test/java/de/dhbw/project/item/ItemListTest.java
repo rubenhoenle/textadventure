@@ -18,7 +18,7 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
@@ -44,7 +44,7 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
@@ -77,7 +77,7 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
@@ -113,7 +113,7 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);

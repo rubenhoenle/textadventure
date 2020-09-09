@@ -1,6 +1,7 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.*;
+import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Clothing;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;
@@ -18,6 +19,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import java.io.PrintStream;
 import java.util.Arrays;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -50,8 +52,8 @@ public class EquipmentTest {
 
         doReturn(Arrays.asList(itemName1.toLowerCase(), itemName2.toLowerCase())).when(currentRoom).getRoomItemLowerNameList();
 
-        Item item1 = new Clothing(itemName1, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD);
-        Item item2 = new Clothing(itemName2, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD);
+        Item item1 = new Clothing(itemName1, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD, 0);
+        Item item2 = new Clothing(itemName2, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD, 0);
 
         PowerMockito.doReturn(true).when(player, "addEquipment", item1);
         PowerMockito.doReturn(false).when(player, "addEquipment", item2);
@@ -83,7 +85,7 @@ public class EquipmentTest {
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        Item item = new Clothing(itemName, "TestItem", ItemState.ACTIVE, 0, EquipmentType.WEAPON);
+        Item item = new Clothing(itemName, "TestItem", ItemState.ACTIVE, 0, EquipmentType.WEAPON,0);
         player.addItem(item);
 
         PowerMockito.doReturn(Arrays.asList(item)).when(player, "getInventory");
@@ -111,8 +113,8 @@ public class EquipmentTest {
         String itemName1 = "TestItem1";
         String itemName2 = "TestItem2";
 
-        Item item1 = new Clothing(itemName1, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD);
-        Item item2 = new Clothing(itemName2, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD);
+        Item item1 = new Clothing(itemName1, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD,0);
+        Item item2 = new Clothing(itemName2, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD,0);
 
         PowerMockito.doReturn(item1).when(player, "getItemFromEquipment", item1.getName());
         PowerMockito.doReturn(null).when(player, "getItemFromEquipment", item2.getName());
@@ -122,7 +124,13 @@ public class EquipmentTest {
         data.add("item", itemName1+",");
         data.add("item", itemName2);
         stripOffCommand.setData(data);
-        
+        when(player.getInventorySpace()).thenReturn(10);
+        when(player.getCurrentInventorySpace()).thenReturn(3);
+        Player p = new Player();
+        int inventoryCount = 2;
+        p.setInventorySpace(3);
+        p.addItem(item1);
+
         //when
         stripOffCommand.execute();
 
@@ -130,7 +138,37 @@ public class EquipmentTest {
         verify(game).incTurn();
         verify(player).removeEquipment(item1);
         verify(player).addItem(item1);
+        assertEquals(p.getCurrentInventorySpace(),inventoryCount);
         verify(out).println("The item \'" + item1.getName() + "\' was shifted to inventory.");
+        verify(out).println("The item \'" + item2.getName() + "\' was not found in equipment and cannot be stripped off.");
+    }
+
+    @Test
+    public void test4_shouldNotStripOffItem() throws Exception {
+        //before
+        String itemName1 = "TestItem1";
+        String itemName2 = "TestItem2";
+
+        Item item1 = new Clothing(itemName1, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD,0);
+        Item item2 = new Clothing(itemName2, "TestItem", ItemState.ACTIVE, 0, EquipmentType.HEAD,0);
+
+        PowerMockito.doReturn(item1).when(player, "getItemFromEquipment", item1.getName());
+        PowerMockito.doReturn(null).when(player, "getItemFromEquipment", item2.getName());
+
+        StripOffCommand stripOffCommand = new StripOffCommand(game);
+        DataStorage data = new DataStorage();
+        data.add("item", itemName1+",");
+        data.add("item", itemName2);
+        stripOffCommand.setData(data);
+        when(player.getInventorySpace()).thenReturn(10);
+        when(player.getCurrentInventorySpace()).thenReturn(0);
+
+        //when
+        stripOffCommand.execute();
+
+        //then
+        verify(out).println("You can not strip off the \'" + item1.getName()
+                + "\' because you will not have enough inventory space afterwards.");
         verify(out).println("The item \'" + item2.getName() + "\' was not found in equipment and cannot be stripped off.");
     }
 
