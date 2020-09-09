@@ -72,7 +72,8 @@ public class MoveCommand extends AutoCommand {
 
             else if (resultWay.getState() == WayState.NEED_EQUIPMENT) {
                 List<Item> equipedItem = game.player.getEquipment().stream()
-                        .filter(i -> i.getName().equalsIgnoreCase(resultWay.getConditionalItem())).collect(Collectors.toList());
+                        .filter(i -> i.getName().equalsIgnoreCase(resultWay.getConditionalItem()))
+                        .collect(Collectors.toList());
                 if (equipedItem.size() > 0) {
                     moveInRoom(resultWay);
                 } else {
