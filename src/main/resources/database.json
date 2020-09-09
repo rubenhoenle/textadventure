@@ -1732,10 +1732,10 @@
       },
       "interactiveObjects": [
         {
-          "name": "statue of Buddha",
-          "description": "There is a giant statue of buddha standing on the floor",
+          "name": "buddhaStatue",
+          "description": "There is a giant 'buddhaStatue' standing on the floor",
           "place": "standing on the floor",
-          "hint": "Bring me some grass and we will see...",
+          "hint": "Bring him some grass and we will see...",
           "wayName": "Portal",
           "removeRequiredItem": true,
           "requiredItem": {

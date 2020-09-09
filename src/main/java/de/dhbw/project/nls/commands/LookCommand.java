@@ -1,5 +1,7 @@
 package de.dhbw.project.nls.commands;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import de.dhbw.project.Constants;
@@ -67,16 +69,25 @@ public class LookCommand extends AutoCommand {
         // Entered phrase is "look around": show everything in the current room (ways, items)
         else if (isEachDirection) {
             // Show available ways in the current room
-            for (Way way : game.getCurrentRoom().getRoomWayList()) {
-                if (way.getState() != WayState.INVISIBLE) {
-                    if (way.getDescription() != null)
-                        System.out.println(way.getDescription()
-                                + (way.getState() == WayState.BLOCKED ? " This way is blocked." : ""));
+            // If there are multiple ways with the same direction, only one is displayed to the user
+            for (String currentDirection : Constants.DIRECTIONS) {
+                List<Way> wayList = new ArrayList<>();
+                game.getCurrentRoom().getRoomWayList().forEach(element -> {
+                    if (element.getDirection().equals(currentDirection) && (element.getState() != WayState.INVISIBLE)) {
+                        wayList.add(element);
+                    }
+                });
+                if (wayList.size() > 0) {
+                    if (wayList.get(0).getDescription() != null)
+                        System.out.println(wayList.get(0).getDescription()
+                                + (wayList.get(0).getState() == WayState.BLOCKED ? " This way is blocked." : ""));
                     else
-                        System.out.println("There is a " + way.getName() + " going \'" + way.getDirection() + "\'."
-                                + (way.getState() == WayState.BLOCKED ? " This way is blocked." : ""));
+                        System.out.println("There is a " + wayList.get(0).getName() + " going \'"
+                                + wayList.get(0).getDirection() + "\'."
+                                + (wayList.get(0).getState() == WayState.BLOCKED ? " This way is blocked." : ""));
                 }
             }
+
             // Show available items in the current room
             if (game.getCurrentRoom().getRoomItemList() != null) {
                 for (Item item : game.getCurrentRoom().getRoomItemList()) {

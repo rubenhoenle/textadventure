@@ -15,6 +15,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.mockito.Mockito.*;
@@ -49,6 +50,7 @@ public class UseCommandTest {
         Whitebox.setInternalState(command, "interactiveObject", Arrays.asList("interactiveObject"));
 
         Room r = mock(Room.class);
+        Room roomBack = mock(Room.class);
         Item i = mock(Item.class);
         Way w = mock(Way.class);
         InteractiveObject io = mock(InteractiveObject.class);
@@ -61,8 +63,10 @@ public class UseCommandTest {
         when(io.isRemoveRequiredItem()).thenReturn(true);
         when(i.getName()).thenReturn("item");
         when(io.getWayName()).thenReturn("wayName");
-        when(r.getRoomWayByName("wayName")).thenReturn(w);
-        when(game.getRoom(any())).thenReturn(r);
+        when(r.getRoomWayList()).thenReturn(Arrays.asList(w));
+        when(w.getName()).thenReturn("wayName");
+        when(w.getTo()).thenReturn("roomBack");
+        when(game.getRoom("roomBack")).thenReturn(roomBack);
 
         //when
         command.execute();
@@ -93,8 +97,10 @@ public class UseCommandTest {
         when(io.isRemoveRequiredItem()).thenReturn(false);
         when(i.getName()).thenReturn("item");
         when(io.getWayName()).thenReturn("wayName");
-        when(r.getRoomWayByName("wayName")).thenReturn(w);
+        when(r.getRoomWayList()).thenReturn(Arrays.asList(w));
+        when(w.getName()).thenReturn("wayName");
         when(game.getRoom(any())).thenReturn(r);
+        when(w.getTo()).thenReturn("way1");
 
         //when
         command.execute();

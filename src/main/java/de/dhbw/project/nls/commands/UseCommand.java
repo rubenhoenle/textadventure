@@ -6,6 +6,7 @@ import de.dhbw.project.WayState;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UseCommand extends AutoCommand {
@@ -52,21 +53,27 @@ public class UseCommand extends AutoCommand {
         // enable blocked way
         if (io.getRequiredItem().getName().equalsIgnoreCase(game.player.getItem(itemName).getName())) {
             if (io.getWayName() != null && io.getWayName().length() != 0) {
-                Way w = game.getCurrentRoom().getRoomWayByName(io.getWayName());
-                if (w != null) {
-                    w.setState(WayState.ACTIVE);
-
-                    for (Way wb : game.getRoom(w.getTo()).getRoomWayList()) {
-                        if (w.getTo().equals(wb.getFrom()) && w.getFrom().equals(wb.getTo())) {
-                            wb.setState(WayState.ACTIVE);
-                        }
+                List<Way> wayList = new ArrayList<>();
+                game.getCurrentRoom().getRoomWayList().forEach(element -> {
+                    if (element.getName().equals(io.getWayName())) {
+                        wayList.add(element);
                     }
+                });
+                if (wayList.size() > 0) {
+                    wayList.forEach(element -> element.setState(WayState.ACTIVE));
+                    wayList.forEach(element -> {
+                        for (Way wb : game.getRoom(element.getTo()).getRoomWayList()) {
+                            if (element.getTo().equals(wb.getFrom()) && element.getFrom().equals(wb.getTo())) {
+                                wb.setState(WayState.ACTIVE);
+                            }
+                        }
+                    });
 
                     if (io.isRemoveRequiredItem()) {
                         game.player.removeItem(i);
                     }
-                    System.out.println("The way " + w.getName() + " in the direction \'" + w.getDirection()
-                            + "\' is now walkable!");
+                    System.out.println("The way " + wayList.get(0).getName() + " in the direction \'"
+                            + wayList.get(0).getDirection() + "\' is now walkable!");
                     game.getCurrentRoom().getRoomInteractiveObjectsList().remove(io);
                     game.incTurn();
                 }
