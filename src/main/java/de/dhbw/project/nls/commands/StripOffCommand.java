@@ -30,7 +30,7 @@ public class StripOffCommand extends AutoCommand {
         for (String itemName : items) {
             Item stripOffItem = game.player.getItemFromEquipment(itemName.trim());
             if (stripOffItem != null) {
-                // Inventory Space
+                // Inventory space
                 // test if current inventory space is enough without the "expand inventory space" from the item you want
                 // to strip off
                 if (game.player.getCurrentInventorySpace() > stripOffItem.getExpandInventorySpace()) {

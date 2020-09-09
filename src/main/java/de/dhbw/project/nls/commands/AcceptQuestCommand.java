@@ -30,6 +30,7 @@ public class AcceptQuestCommand extends AutoCommand {
         InteractiveObject questInteractiveObject = game.getInteractiveObjectFromCurrentRoom(characterOrObjectName);
         Quest q = null;
 
+        //this block gives the right quest into -> q
         if (questCharacter != null || questInteractiveObject != null) {
             if (questCharacter != null && questCharacter instanceof Friend && !questCharacter.isKilled()) {
                 for (int i = 0; i < ((Friend) questCharacter).getQuests().size(); i++) {
@@ -41,6 +42,7 @@ public class AcceptQuestCommand extends AutoCommand {
                 q = questInteractiveObject.getQuest();
             }
 
+            //checks if the if statement is true and accepts the quest
             if (q != null && q.isTalkedOnce() && !q.isAccepted() && (questName.equalsIgnoreCase(q.getName()))) {
                 q.setAccepted(true);
                 game.player.getQuestInventory().add(q);

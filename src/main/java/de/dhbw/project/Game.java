@@ -243,16 +243,19 @@ public class Game {
 
     public void setGameEnd(boolean gameEnd) {
 
+        //prints endscreen and text when the game ended
         EndScreen.print();
         System.out.println("Congratulations!!! You successfully finished the game!");
         System.out.println("You managed to repair your ship and find the amulet!");
         System.out.println(
                 "As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
 
+        //sets the local variable gameEnd=true -> game loop stops
         this.gameEnd = gameEnd;
     }
 
     public int getMainQuestNumber() {
+        //goes trough all interactive objects and all friends and checks every quest if it has the parameter "mainQuest"
         int counter = 0;
         if (getRooms() != null) {
             for (int i = 0; i < getRooms().size(); i++) {
@@ -284,6 +287,7 @@ public class Game {
     }
 
     public int getCompletedMainQuestNumber() {
+        //goes trough all interactive objects and all friends and checks every quest if it has the parameter "mainQuest" and "isCompleted"
         int counter = 0;
         if (getRooms() != null) {
             for (int i = 0; i < getRooms().size(); i++) {

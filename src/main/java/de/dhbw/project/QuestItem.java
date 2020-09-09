@@ -26,6 +26,7 @@ public class QuestItem extends Item {
     }
 
     public Item questItemToItem() {
+        //converts an rewards to the type he got in the json
         switch (this.getType()) {
         case "cloth":
             return new Clothing(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(),

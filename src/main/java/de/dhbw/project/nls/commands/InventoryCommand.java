@@ -15,6 +15,7 @@ public class InventoryCommand extends AutoCommand {
     @Override
     public void execute() {
         TableList table = new TableList(4, "Name", "Description", "Strength", "State").sortBy(0).withUnicode(true);
+        //goes trough the inventory
         for (int i = 0; i < game.player.getInventory().size(); i++) {
             ItemState state = null;
             String stateAsString = "";
@@ -38,13 +39,15 @@ public class InventoryCommand extends AutoCommand {
                     break;
                 }
             }
-
+            //writes the inventory in the table row
             table.addRow(game.player.getInventory().get(i).getName(),
                     game.player.getInventory().get(i).getDescription(), strength, stateAsString);
         }
+        //prints the space you have in your inventory
         System.out.println("--- Used inventory space: "
                 + (game.player.getInventorySpace() - game.player.getCurrentInventorySpace()) + "/"
                 + game.player.getInventorySpace() + " ---");
+        //prints the inventory
         table.print();
     }
 
