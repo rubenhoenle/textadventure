@@ -11,6 +11,7 @@ import de.dhbw.project.WayState;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
+import de.dhbw.project.chest.Chest;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
@@ -109,6 +110,13 @@ public class LookCommand extends AutoCommand {
                 for (InteractiveObject interactiveObject : game.getCurrentRoom().getRoomInteractiveObjectsList()) {
                     System.out.println("A \'" + interactiveObject.getName() + "\' " + interactiveObject.getPlace()
                             + ". " + interactiveObject.getHint());
+                }
+            }
+
+            // Show available chests in the current room
+            if (game.getCurrentRoom().getChests() != null) {
+                for (Chest chest : game.getCurrentRoom().getChests()) {
+                    System.out.println("A \'" + chest.getName() + "\' " + chest.getPlace() + ". ");
                 }
             }
 

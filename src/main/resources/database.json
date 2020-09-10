@@ -16,6 +16,14 @@
     "questInventory": [],
     "roomName": "beach"
   },
+  "mysteryChestItems": {
+    "cloths": [],
+    "foods": [],
+    "resources": [],
+    "tools": [],
+    "weapons": [],
+    "books": []
+  },
   "rooms": [
     {
       "name": "beach",

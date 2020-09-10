@@ -30,7 +30,7 @@ public class InvestigateCommandTest {
     @Mock
     Game game;
 
-    InvestigateCommand command = PowerMockito.spy(new InvestigateCommand(game));
+    InvestigateCommand command = new InvestigateCommand(game);
 
     @Mock
     Player player;
@@ -83,7 +83,7 @@ public class InvestigateCommandTest {
         command.execute();
 
         //then
-        verify(out).println("There is no interactive object with the name \'" + "bar" + "\'.");
+        verify(out).println("There is no interactive object or chest with the name \'" + "bar" + "\'.");
      }
 
     @Test
@@ -94,7 +94,7 @@ public class InvestigateCommandTest {
         command.execute();
 
         //then
-        verify(out).println("You have to say which interactive object you want to use.");
+        verify(out).println("You have to say which interactive object or chest you want to investigate.");
     }
 
 }

@@ -133,6 +133,8 @@ public class Zork {
 
         commands.register(new ShowStatsCommand(game));
 
+        commands.register(new PutCommand(game));
+
         game.commands = commands;
     }
 

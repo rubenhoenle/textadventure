@@ -5,6 +5,7 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.character.RoamingEnemy;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemList;
 import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
@@ -22,6 +23,9 @@ public class Game {
     public transient Commands commands;
     @SerializedName("turn")
     private int turn;
+    @SerializedName("mysteryChestItems")
+    private ItemList mysteryChestItems = new ItemList();
+
     private boolean gameEnd = false;
 
     // Main playing method with the possible commands and their method call
@@ -243,19 +247,20 @@ public class Game {
 
     public void setGameEnd(boolean gameEnd) {
 
-        //prints endscreen and text when the game ended
+        // prints endscreen and text when the game ended
         EndScreen.print();
         System.out.println("Congratulations!!! You successfully finished the game!");
         System.out.println("You managed to repair your ship and find the amulet!");
         System.out.println(
                 "As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
 
-        //sets the local variable gameEnd=true -> game loop stops
+        // sets the local variable gameEnd=true -> game loop stops
         this.gameEnd = gameEnd;
     }
 
     public int getMainQuestNumber() {
-        //goes trough all interactive objects and all friends and checks every quest if it has the parameter "mainQuest"
+        // goes trough all interactive objects and all friends and checks every quest if it has the parameter
+        // "mainQuest"
         int counter = 0;
         if (getRooms() != null) {
             for (int i = 0; i < getRooms().size(); i++) {
@@ -287,7 +292,8 @@ public class Game {
     }
 
     public int getCompletedMainQuestNumber() {
-        //goes trough all interactive objects and all friends and checks every quest if it has the parameter "mainQuest" and "isCompleted"
+        // goes trough all interactive objects and all friends and checks every quest if it has the parameter
+        // "mainQuest" and "isCompleted"
         int counter = 0;
         if (getRooms() != null) {
             for (int i = 0; i < getRooms().size(); i++) {
@@ -320,5 +326,17 @@ public class Game {
             }
         }
         return counter;
+    }
+
+    public void addMysteryChestItem(Item item) {
+        mysteryChestItems.addItem(item);
+    }
+
+    public List<Item> getMysteryChestItems() {
+        return mysteryChestItems.getAllItemList();
+    }
+
+    public void removeMysteryChestItem(Item item) {
+        mysteryChestItems.removeItem(item);
     }
 }

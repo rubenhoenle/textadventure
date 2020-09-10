@@ -196,7 +196,7 @@ public class NlsTest {
     @Test
     public void testMatchPut() {
     	String input = "i want to put xx y on old desk please\0";
-    	register(new PutCommand());
+    	register(new PutCommand(new Game()));
     	
 		for (Entry<FSA, Command> entry : commands.entrySet()) {
 			processor.setFsa(entry.getKey());

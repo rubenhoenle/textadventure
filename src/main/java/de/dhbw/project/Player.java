@@ -237,7 +237,7 @@ public class Player {
     }
 
     public int getCurrentInventorySpace() {
-        //gives the currently free space in the inventory
+        // gives the currently free space in the inventory
         if (getInventory() == null) {
             return 0;
         } else {
@@ -246,14 +246,14 @@ public class Player {
     }
 
     public void addInventorySpace(Item item) {
-        //adds space to the inventory (as much space as the item has)
+        // adds space to the inventory (as much space as the item has)
         if (item.getExpandInventorySpace() > 0) {
             setInventorySpace(getInventorySpace() + item.getExpandInventorySpace());
         }
     }
 
     public void removeInventorySpace(Item item) {
-        //removes space to the inventory (as much space as the item has)
+        // removes space to the inventory (as much space as the item has)
         if (item.getExpandInventorySpace() > 0) {
             setInventorySpace(getInventorySpace() - item.getExpandInventorySpace());
         }

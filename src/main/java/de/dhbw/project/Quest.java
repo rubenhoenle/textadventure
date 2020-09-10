@@ -166,14 +166,14 @@ public class Quest {
     public boolean checkCompleted(Game g) {
 
         for (QuestItem qi : fulfillmentItems) {
-            //check if fulfillmentItem is equipped
+            // check if fulfillmentItem is equipped
             Item item = g.player.getItemFromEquipment(qi.getName());
             if (item != null) {
                 System.out.println("You need to strip the " + qi.getName() + " off to complete the quest!");
                 return false;
             }
         }
-        //check if player has fulfillmentItems
+        // check if player has fulfillmentItems
         for (QuestItem qi : fulfillmentItems) {
             Item item = g.player.getItem(qi.getName());
             if (item == null) {
@@ -181,7 +181,7 @@ public class Quest {
             }
         }
 
-        //check if player has done the fulfillmentKill
+        // check if player has done the fulfillmentKill
         if (fulfillmentKill != null && fulfillmentKill.length() > 0) {
             Character c = g.getCharacter(fulfillmentKill);
             if (c != null && !c.isKilled()) {
@@ -189,7 +189,7 @@ public class Quest {
             }
         }
 
-        //player has everything to complete the quest
+        // player has everything to complete the quest
         return true;
 
         /*
@@ -209,23 +209,23 @@ public class Quest {
 
     public void finishQuest(Game game, boolean removeItems) {
         int inventorySizeAfterQuest = 0;
-        //checks if the quest removes the fulfillmentItems
+        // checks if the quest removes the fulfillmentItems
         if (removeItems) {
-            //if quest removes fulfillmentItems then "- this.getFulfillmentItems().size()"
+            // if quest removes fulfillmentItems then "- this.getFulfillmentItems().size()"
             inventorySizeAfterQuest = game.player.getInventorySpace() - game.player.getCurrentInventorySpace()
                     - this.getFulfillmentItems().size() + this.getReward().size();
         } else {
-            //if player keeps fulfillmentItems after kills
+            // if player keeps fulfillmentItems after kills
             inventorySizeAfterQuest = game.player.getInventorySpace() - game.player.getCurrentInventorySpace()
                     + this.getReward().size();
         }
-        //checks if inventory is big enough for the quest rewards
+        // checks if inventory is big enough for the quest rewards
         if (inventorySizeAfterQuest <= game.player.getInventorySpace()) {
-            //sets the quest to completed
+            // sets the quest to completed
             setCompleted(true);
-            //removes quest from quest inventory
+            // removes quest from quest inventory
             game.player.getQuestInventory().remove(this);
-            //removes fulfillmentItems
+            // removes fulfillmentItems
             if (removeItems) {
                 for (QuestItem qi : getFulfillmentItems()) {
                     game.player.removeItem(game.player.getItem(qi.getName()));
@@ -233,7 +233,7 @@ public class Quest {
             }
             System.out.println(getTextEnd());
 
-            //gives reward
+            // gives reward
             if (this.getReward() != null && this.getReward().size() >= 1) {
                 // Tabelle erstellen
                 TableList tabelle = new TableList(1, "Quest Rewards").sortBy(0).withUnicode(true);

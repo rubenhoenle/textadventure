@@ -5,6 +5,7 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.character.RoamingEnemy;
+import de.dhbw.project.chest.Chest;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
@@ -36,6 +37,8 @@ public class Room extends Thing {
     private List<RoamingEnemy> roamingEnemyList = new ArrayList<>();
     @SerializedName("interactiveObjects")
     private List<InteractiveObject> interactiveObjects = new ArrayList<>();
+    @SerializedName("chests")
+    private List<Chest> chests = new ArrayList<>();
 
     // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
     // variables
@@ -284,5 +287,19 @@ public class Room extends Thing {
             roamingEnemyList = new ArrayList<>();
         }
         roamingEnemyList.add(e);
+    }
+
+    public List<Chest> getChests() {
+        return chests;
+    }
+
+    public Chest getChest(String chestName) {
+        for (Chest chest : chests) {
+            if (chest.getName().trim().toLowerCase().equals(chestName.trim().toLowerCase())) {
+                return chest;
+            }
+        }
+
+        return null;
     }
 }
