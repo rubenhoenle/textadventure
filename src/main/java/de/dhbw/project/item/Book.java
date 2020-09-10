@@ -1,17 +1,16 @@
 package de.dhbw.project.item;
 
+import com.google.gson.annotations.SerializedName;
+import de.dhbw.project.levelEditor.SimpleUserInput;
+import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.regions.ruins.AlienFont;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.google.gson.annotations.SerializedName;
-
-import de.dhbw.project.regions.ruins.AlienFont;
-import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 public class Book extends Item {
 

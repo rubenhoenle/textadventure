@@ -26,6 +26,7 @@ public class EnemyTest {
         String characterWhere = "where";
         int characterHealth = 99;
         int characterStrength = 99;
+        int characterPoints = 99;
         String characterStartStatement = "startStatement";
         String characterKillStatement = "killStatement";
         boolean characterKilled = false;
@@ -35,7 +36,7 @@ public class EnemyTest {
         boolean characterAutoAttack = true;
 
         //when
-        Enemy e = new Enemy(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterDropItems, characterAutoAttack);
+        Enemy e = new Enemy(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterPoints, characterDropItems, characterAutoAttack);
 
         //then
         assertEquals(e.getName(),characterName);
@@ -45,6 +46,7 @@ public class EnemyTest {
         assertEquals(e.getStartStatement(), characterStartStatement);
         assertEquals(e.getKillStatement(), characterKillStatement);
         assertEquals(e.isKilled(),characterKilled);
+        assertEquals(e.getPoints(), characterPoints);
         assertEquals(e.getDropItemList(),characterDropItems);
         assertTrue(e.getDropItemListElements().size()==1);
         assertEquals(e.isAutoAttack(), characterAutoAttack);

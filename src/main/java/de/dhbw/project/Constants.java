@@ -26,6 +26,7 @@ public class Constants {
     public static final String DEFAULT_PATH = "src/main/resources";
     public static final String SAVED_GAME = "savedGame.json";
     public static final String NEW_GAME = "database.json";
+    public static final String SCOREBOARD = "scoreBoard.json";
 
     // Position of the items inside a room
     public static final String WHERE = "is lying on the floor";

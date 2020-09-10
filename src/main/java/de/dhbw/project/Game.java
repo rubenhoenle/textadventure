@@ -9,12 +9,13 @@ import de.dhbw.project.item.ItemList;
 import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
+import de.dhbw.project.score.Score;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
 
 public class Game {
     public Player player;
@@ -30,6 +31,7 @@ public class Game {
 
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
+        Zork.startTimer();
         this.player = player;
 
         if (player.getName() == null) {
@@ -254,6 +256,11 @@ public class Game {
         System.out.println(
                 "As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
 
+        // create scoreboard entry
+        Zork.stopTimer();
+        Score s = new Score(player.getName(), player.getPoints(), player.getTimePlayed());
+        Zork.addScoreToScoreBoard(s);
+        Zork.saveScoreBoard();
         // sets the local variable gameEnd=true -> game loop stops
         this.gameEnd = gameEnd;
     }

@@ -1,14 +1,14 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.item.LampState;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
 import de.dhbw.project.Way;
 import de.dhbw.project.WayState;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.LampState;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MoveCommand extends AutoCommand {
 

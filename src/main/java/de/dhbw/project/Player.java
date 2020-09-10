@@ -11,13 +11,18 @@ import de.dhbw.project.item.LampState;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class Player {
     @SerializedName("name")
     private String name = null;
+    @SerializedName("timePlayed")
+    private long timePlayed;
     @SerializedName("points")
     private int points = 0;
+    @SerializedName("deaths")
+    private int deaths = 0;
     @SerializedName("strength")
     private int strength = 5;
     @SerializedName("health")
@@ -57,12 +62,28 @@ public class Player {
         this.name = name;
     }
 
+    public long getTimePlayed() {
+        return timePlayed;
+    }
+
+    public void setTimePlayed(long timePlayed) {
+        this.timePlayed = timePlayed;
+    }
+
     public int getPoints() {
         return points;
     }
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public int getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(int deaths) {
+        this.deaths = deaths;
     }
 
     public int getStrength() {
@@ -156,7 +177,7 @@ public class Player {
                 System.out.println("You lose the fight against " + c.getName() + "! You faint!");
                 System.out.println("----------");
                 System.out.println("Last save game will be loaded! \n");
-                Zork.loadGame(Constants.SAVED_GAME);
+                Zork.reloadAfterPlayerDeath();
             } else if (enemyHealth <= 0) {
                 if (c.getKillStatement() != null && c.getKillStatement() != "") {
                     System.out.println(c.getName() + ": " + c.getKillStatement());
@@ -192,7 +213,17 @@ public class Player {
         }
         protection = protection - (w != null ? w.getStrength() : 0);
 
-        System.out.println("Health: " + health + " | Strength: " + strength + " | Protection: " + protection);
+        // Time played
+        Zork.stopTimer();
+        String timePlayed = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(getTimePlayed()),
+                TimeUnit.MILLISECONDS.toMinutes(getTimePlayed())
+                        - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(getTimePlayed())),
+                TimeUnit.MILLISECONDS.toSeconds(getTimePlayed())
+                        - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(getTimePlayed())));
+        Zork.startTimer();
+
+        System.out.println("Health: " + health + " | Strength: " + strength + " | Protection: " + protection
+                + " | Points: " + points + " | Deaths: " + deaths + "\nTime played: " + timePlayed);
     }
 
     // calculates how many "health points" each opponent loses

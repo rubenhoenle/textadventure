@@ -1,7 +1,7 @@
 package de.dhbw.project;
 
-import de.dhbw.project.character.*;
 import de.dhbw.project.character.Character;
+import de.dhbw.project.character.RoamingEnemy;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;

@@ -1,8 +1,8 @@
 package de.dhbw.project.interactive;
 
 import de.dhbw.project.Quest;
-import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.ItemList;
+import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.Weapon;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

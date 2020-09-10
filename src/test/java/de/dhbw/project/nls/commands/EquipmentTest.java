@@ -1,7 +1,9 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.*;
-import de.dhbw.project.interactive.InteractiveObject;
+import de.dhbw.project.EquipmentType;
+import de.dhbw.project.Game;
+import de.dhbw.project.Player;
+import de.dhbw.project.Room;
 import de.dhbw.project.item.Clothing;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;

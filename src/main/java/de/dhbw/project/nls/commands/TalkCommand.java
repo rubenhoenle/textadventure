@@ -4,6 +4,7 @@ import de.dhbw.project.Game;
 import de.dhbw.project.Quest;
 import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Friend;
+
 import java.util.List;
 
 public class TalkCommand extends AutoCommand {

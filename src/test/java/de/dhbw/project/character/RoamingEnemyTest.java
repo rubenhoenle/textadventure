@@ -28,6 +28,7 @@ public class RoamingEnemyTest {
         String characterWhere = "where";
         int characterHealth = 99;
         int characterStrength = 99;
+        int characterPoints = 99;
         String characterStartStatement = "startStatement";
         String characterKillStatement = "killStatement";
         boolean characterKilled = false;
@@ -38,7 +39,7 @@ public class RoamingEnemyTest {
         List<String> path = Arrays.asList("foo");
 
         //when
-        RoamingEnemy e = new RoamingEnemy(characterName, characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterDropItems, path);
+        RoamingEnemy e = new RoamingEnemy(characterName, characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterPoints, characterDropItems, path);
 
         //then
         assertEquals(e.getName(), characterName);
@@ -48,6 +49,7 @@ public class RoamingEnemyTest {
         assertEquals(e.getStartStatement(), characterStartStatement);
         assertEquals(e.getKillStatement(), characterKillStatement);
         assertFalse(e.isKilled());
+        assertEquals(e.getPoints(),characterPoints);
         assertEquals(e.getDropItemList(), characterDropItems);
         assertEquals(e.getTravelPath(), path);
         assertTrue(e.getDropItemListElements().size() == 1);
@@ -59,7 +61,7 @@ public class RoamingEnemyTest {
         //before
         RoamingEnemy e = new RoamingEnemy(
                 "name", "where", 10, 10, "start",
-                "kill", false, new ItemList(),null );
+                "kill", false, 10, new ItemList(),null );
         //when
         String res = e.getNextRoom("foo");
         //then
@@ -71,7 +73,7 @@ public class RoamingEnemyTest {
         //before
         RoamingEnemy e = new RoamingEnemy(
                 "name", "where", 10, 10, "start",
-                "kill", false, new ItemList(), Arrays.asList("foo", "bar") );
+                "kill", false, 10, new ItemList(), Arrays.asList("foo", "bar") );
         //when
         String res = e.getNextRoom("foo");
         //then
@@ -83,7 +85,7 @@ public class RoamingEnemyTest {
         //before
         RoamingEnemy e = new RoamingEnemy(
                 "name", "where", 10, 10, "start",
-                "kill", false, new ItemList(), Arrays.asList("foo", "bar") );
+                "kill", false, 10, new ItemList(), Arrays.asList("foo", "bar") );
         //when
         String res = e.getNextRoom("bar");
         //then
@@ -95,7 +97,7 @@ public class RoamingEnemyTest {
         //before
         RoamingEnemy e = new RoamingEnemy(
                 "name", "where", 10, 10, "start",
-                "kill", false, new ItemList(), Arrays.asList("foo") );
+                "kill", false, 10, new ItemList(), Arrays.asList("foo") );
         //when
         String res = e.getNextRoom("foo");
         //then
@@ -107,7 +109,7 @@ public class RoamingEnemyTest {
         //before
         RoamingEnemy e = new RoamingEnemy(
                 "name", "where", 10, 10, "start",
-                "kill", false, new ItemList(), Arrays.asList("foo", "bar") );
+                "kill", false, 10, new ItemList(), Arrays.asList("foo", "bar") );
         //when
         String res = e.getNextRoom("baz");
         //then

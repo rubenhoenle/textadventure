@@ -17,12 +17,14 @@ public class Character {
     private String killStatement;
     @SerializedName("killed")
     private boolean killed;
+    @SerializedName("points")
+    private int points;
 
     public Character() {
     }
 
     public Character(String name, String where, int health, int strength, String startStatement, String killStatement,
-            boolean killed) {
+            boolean killed, int points) {
         this.name = name;
         this.where = where;
         this.health = health;
@@ -30,6 +32,7 @@ public class Character {
         this.startStatement = startStatement;
         this.killStatement = killStatement;
         this.killed = killed;
+        this.points = points;
     }
 
     public String getName() {
@@ -86,5 +89,13 @@ public class Character {
 
     public void setKilled(boolean killed) {
         this.killed = killed;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 }

@@ -1,6 +1,7 @@
 package de.dhbw.project.item;
 
-import de.dhbw.project.*;
+import de.dhbw.project.Constants;
+import de.dhbw.project.Player;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;

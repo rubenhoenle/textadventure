@@ -2,8 +2,8 @@ package de.dhbw.project.interactive;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.EquipmentType;
-import de.dhbw.project.item.ItemState;
 import de.dhbw.project.Thing;
+import de.dhbw.project.item.ItemState;
 
 import java.util.ArrayList;
 import java.util.List;

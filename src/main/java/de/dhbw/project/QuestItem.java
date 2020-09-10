@@ -1,10 +1,10 @@
 package de.dhbw.project;
 
-import java.util.Arrays;
-import java.util.List;
-
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.item.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class QuestItem extends Item {
 

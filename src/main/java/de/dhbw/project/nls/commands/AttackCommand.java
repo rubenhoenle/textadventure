@@ -44,6 +44,7 @@ public class AttackCommand extends AutoCommand {
                         q.finishQuest(game, false);
                     }
                 }
+                game.player.setPoints(game.player.getPoints() + c.getPoints());
             }
             game.incTurn();
         }

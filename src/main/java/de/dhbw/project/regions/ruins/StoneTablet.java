@@ -1,20 +1,16 @@
 package de.dhbw.project.regions.ruins;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-
 import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
 import de.dhbw.project.Room;
 import de.dhbw.project.item.Book;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public final class StoneTablet {
 

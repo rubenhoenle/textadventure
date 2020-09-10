@@ -1,11 +1,13 @@
 package de.dhbw.project.levelEditor;
 
-import java.util.List;
-import java.util.Scanner;
-
+import de.dhbw.project.EquipmentType;
+import de.dhbw.project.Game;
+import de.dhbw.project.Room;
+import de.dhbw.project.WayState;
 import org.apache.commons.lang3.EnumUtils;
 
-import de.dhbw.project.*;
+import java.util.List;
+import java.util.Scanner;
 
 public class SimpleUserInput {
     public static Scanner userInput = new Scanner(System.in);

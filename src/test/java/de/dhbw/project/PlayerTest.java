@@ -16,7 +16,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -153,6 +154,7 @@ public class PlayerTest {
         when(e.isKilled()).thenReturn(false);
         when(e.isAutoAttack()).thenReturn(true);
         when(e.getName()).thenReturn("bar");
+        doNothing().when(p).printStats();
 
         //when
         p.isAttacked(g);
@@ -196,8 +198,9 @@ public class PlayerTest {
         Item i = new Tool("tool", "", ItemState.ACTIVE, 0);
         list.addItem(i);
         
-        Enemy e = new Enemy("Yoda", "", 12, 5, "start", "killed", false, list, false);
-        
+        Enemy e = new Enemy("Yoda", "", 12, 5, "start", "killed", false, 5,  list, false);
+        doNothing().when(p).printStats();
+
         //when
         p.fight(e, r);
 
@@ -219,7 +222,7 @@ public class PlayerTest {
         
         Room r = mock(Room.class);
         
-        Enemy e = new Enemy("Yoda", "", 20, 50, "start", "killed", false, null, false);
+        Enemy e = new Enemy("Yoda", "", 20, 50, "start", "killed",  false, 5, null, false);
         
         PowerMockito.mockStatic(Zork.class);
         
@@ -241,7 +244,7 @@ public class PlayerTest {
         
         Room r = mock(Room.class);
         
-        Enemy e = new Enemy("Yoda", "", 20, 5, "start", "killed", false, null, false);
+        Enemy e = new Enemy("Yoda", "", 20, 5, "start", "killed", false, 5, null, false);
         
         PowerMockito.mockStatic(Zork.class);
         

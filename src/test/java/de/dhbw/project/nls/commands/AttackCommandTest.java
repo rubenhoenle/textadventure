@@ -129,5 +129,6 @@ public class AttackCommandTest {
         verify(game.player).fight(c, r);
         verify(q).finishQuest(game,false);
         verify(game).incTurn();
+        verify(player).setPoints(player.getPoints() + c.getPoints());
     }
 }

@@ -1,7 +1,6 @@
 package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
-
 import de.dhbw.project.levelEditor.SimpleUserInput;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 

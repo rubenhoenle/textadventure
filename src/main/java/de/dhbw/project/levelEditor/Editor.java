@@ -1,19 +1,12 @@
 package de.dhbw.project.levelEditor;
 
-import static de.dhbw.project.levelEditor.SimpleUserInput.editMethod;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-import javax.management.Descriptor;
-import javax.swing.plaf.TextUI;
-
-import org.w3c.dom.UserDataHandler;
-
 import de.dhbw.project.*;
 import de.dhbw.project.item.*;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+
+import java.util.List;
+
+import static de.dhbw.project.levelEditor.SimpleUserInput.editMethod;
 
 public class Editor {
     private Game game;

@@ -33,6 +33,8 @@ public class Quest {
     private boolean autoComplete = false;
     @SerializedName("mainQuest")
     private boolean mainQuest = false;
+    @SerializedName("points")
+    private int points;
     @SerializedName("removeFulfillmentItems")
     private boolean removeFulfillmentItems = true;
 
@@ -42,7 +44,8 @@ public class Quest {
 
     public Quest(String name, String textStart, String textAccept, String textMid, String textEnd, boolean completed,
             List<QuestItem> reward, List<QuestItem> fulfillmentItems, boolean accepted, boolean talkedOnce,
-            boolean mainQuest, String fulfillmentKill, boolean autoComplete, boolean removeFulfillmentItems) {
+            boolean mainQuest, String fulfillmentKill, boolean autoComplete, boolean removeFulfillmentItems,
+            int points) {
         this.name = name;
         this.textStart = textStart;
         this.textAccept = textAccept;
@@ -57,6 +60,7 @@ public class Quest {
         this.fulfillmentKill = fulfillmentKill;
         this.autoComplete = autoComplete;
         this.removeFulfillmentItems = removeFulfillmentItems;
+        this.points = points;
     }
 
     public String getName() {
@@ -163,6 +167,14 @@ public class Quest {
         this.removeFulfillmentItems = removeFulfillmentItems;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     public boolean checkCompleted(Game g) {
 
         for (QuestItem qi : fulfillmentItems) {
@@ -263,6 +275,8 @@ public class Quest {
                             + (inventorySizeAfterQuest - game.player.getInventorySpace())
                             + " more items to finish the quest.");
         }
+
+        game.player.setPoints(game.player.getPoints() + this.getPoints());
     }
 
 }

@@ -21,12 +21,13 @@ public class CharacterTest {
         String characterWhere = "where";
         int characterHealth = 99;
         int characterStrength = 99;
+        int characterPoints = 99;
         String characterStartStatement = "startStatement";
         String characterKillStatement = "killStatement";
         boolean characterKilled = false;
 
         //when
-        Character c = new Character(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled);
+        Character c = new Character(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterPoints);
 
         //then
         assertEquals(c.getName(),characterName);
@@ -35,6 +36,7 @@ public class CharacterTest {
         assertEquals(c.getStrength(),characterStrength);
         assertEquals(c.getStartStatement(), characterStartStatement);
         assertEquals(c.getKillStatement(), characterKillStatement);
+        assertEquals(c.getPoints(), characterPoints);
         assertEquals(c.isKilled(),characterKilled);
     }
 

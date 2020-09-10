@@ -1,9 +1,5 @@
 package de.dhbw.project.nls.commands;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
 import de.dhbw.project.Way;
@@ -15,6 +11,10 @@ import de.dhbw.project.chest.Chest;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LookCommand extends AutoCommand {
 

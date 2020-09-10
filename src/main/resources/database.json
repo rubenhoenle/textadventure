@@ -2,6 +2,8 @@
   "turn": 1,
   "player": {
     "points": 0,
+    "timePlayed": 0,
+    "deaths": 0,
     "strength": 5,
     "health": 20,
     "inventorySpace": 10,
@@ -34,6 +36,7 @@
           "where": "standing next to the wreck",
           "health": 100000,
           "strength": 100000,
+          "points": -100000,
           "startStatement": "Hey! Looks like you are stranded like me. If you bring me the right items I can help you repair your boat!",
           "killStatement": "NOOOOO! THATS IMPOSSIBLE!!!",
           "killed": false,
@@ -93,7 +96,8 @@
                   "type": "resource"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             },
             {
               "name": "Repairing the ship",
@@ -158,7 +162,8 @@
                   "type": "resource"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             },
             {
               "name": "Bringing equipment",
@@ -210,7 +215,8 @@
                   "place": "is lying in the volcanic ash on the ground"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             },
             {
               "name": "The ancient amulet",
@@ -231,7 +237,8 @@
                   "place": "lying on a stone altar"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             }
           ]
         }
@@ -301,7 +308,8 @@
             ],
             "accepted": false,
             "autoComplete": true,
-            "fulfillmentKill": ""
+            "fulfillmentKill": "",
+            "points": 1
           },
           "hint": "In the bottle is a letter, maybe you should read the letter!"
         }
@@ -394,6 +402,7 @@
           "where": "moving up and down the cave",
           "health": 10,
           "strength": 3,
+          "points": 3,
           "startStatement": "I'll kill you and break finally the curse!",
           "killStatement": "Ugahhhhhh",
           "killed": false,
@@ -449,10 +458,11 @@
       ],
       "enemies": [
         {
-          "name": "komodo dragon",
+          "name": "little komodo dragon",
           "where": "laying in the sand",
           "health": 15,
           "strength": 2,
+          "points": 7,
           "startStatement": "The komodo dragon hisses you!",
           "killStatement": "The Komodo dragon lays dead in front of you!",
           "killed": false,
@@ -472,10 +482,11 @@
           "autoAttack": false
         },
         {
-          "name": "komodo dragon",
+          "name": "big komodo dragon",
           "where": "walking along the lagoon",
           "health": 15,
-          "strength": 3,
+          "strength": 4,
+          "points": 8,
           "startStatement": "The komodo dragon hisses you!",
           "killStatement": "The Komodo dragon lays dead in front of you!",
           "killed": false,
@@ -653,6 +664,7 @@
           "where": "jumping up and down the hut",
           "health": 5,
           "strength": 2,
+          "points": 3,
           "startStatement": "What?! Who are you?! Get out of my hut!",
           "killStatement": "Okay now it's your hut!",
           "killed": false,
@@ -736,6 +748,7 @@
           "where": "charging at you",
           "health": 10,
           "strength": 7,
+          "points": 5,
           "startStatement": "You won't get my drink!",
           "killStatement": "You beat me. Guess you get my drink after all.",
           "killed": false,
@@ -801,6 +814,7 @@
           "where": "sitting before the tent",
           "health": 16,
           "strength": 10,
+          "points": -7,
           "startStatement": "I'm Travis the treasure hunter",
           "killStatement": "Why me?",
           "killed": false,
@@ -833,7 +847,8 @@
                   "itemstate": "0"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }
@@ -1050,6 +1065,7 @@
           "where": "swimming through the water",
           "health": 6,
           "strength": 3,
+          "points": 4
           "startStatement": "swoosh",
           "killStatement": "blub .. blub ... blub",
           "killed": false,
@@ -1521,6 +1537,7 @@
           "where": "standing in the middle of the path",
           "health": 55,
           "strength": 15,
+          "points": 15,
           "situation": "A stinking big dangerous looking troll is walking through the room.",
           "autoAttack": "true",
           "startStatement": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
@@ -1787,6 +1804,9 @@
       "friends": [
         {
           "name": "wise hovering monk",
+          "health": 5,
+          "strength": 5,
+          "points": -15,
           "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
           "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
           "comment": "TODO interaction",
@@ -1819,7 +1839,8 @@
                   "type": "resource"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }
@@ -2238,6 +2259,7 @@
           "where": "sitting on a chair",
           "health": 200,
           "strength": 12,
+          "points": -8,
           "startStatement": "Hello Stranger!",
           "killStatement": "Why did you kill me!?",
           "killed": false,
@@ -2268,7 +2290,8 @@
                   "equipment": "SHOES"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }
@@ -2793,6 +2816,7 @@
           "where": "moving between leaves",
           "health": 20,
           "strength": 1,
+          "points": 3,
           "startStatement": "Hiss Hiss Hiss",
           "killStatement": "HISSSSS!",
           "killed": false,
@@ -2901,7 +2925,8 @@
             ],
             "accepted": false,
             "autoComplete": true,
-            "fulfillmentKill": ""
+            "fulfillmentKill": "",
+            "points": 1
           },
           "hint": "You should try to fish!"
         }
@@ -3018,6 +3043,7 @@
           "where": "standing in the middle of the path",
           "health": 20,
           "strength": 2,
+          "points": 5,
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
@@ -3137,6 +3163,7 @@
           "where": "sitting on a bank",
           "health": 70,
           "strength": 3,
+          "points": -7,
           "startStatement": "Hello my friend.",
           "killStatement": "Why did you kill an old guy like me!?",
           "killed": false,
@@ -3168,7 +3195,8 @@
                   "type": "weapon"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }
@@ -3658,6 +3686,7 @@
           "where": "sitting on the weadow crying",
           "health": 1,
           "strength": 0,
+          "points": -15,
           "killed": false,
           "quests": [
             {
@@ -3682,7 +3711,8 @@
                 }
               ],
               "accepted": false,
-              "talkedOnce": false
+              "talkedOnce": false,
+              "points": 1
             }
           ]
         }
@@ -3956,6 +3986,7 @@
           "where": "sitting on a bench and enjoys the sun",
           "health": 1,
           "strength": 0,
+          "points": -15,
           "killed": false,
           "quests": [
             {
@@ -3984,7 +4015,8 @@
                   "place": "- the weadow is full of beautiful flowers in all colors"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }

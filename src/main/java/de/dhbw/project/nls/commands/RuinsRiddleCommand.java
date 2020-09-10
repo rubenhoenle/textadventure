@@ -3,15 +3,12 @@ package de.dhbw.project.nls.commands;
 import de.dhbw.project.Game;
 import de.dhbw.project.WayState;
 import de.dhbw.project.item.Book;
-import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;
-import de.dhbw.project.regions.ruins.StoneTablet;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.List;
 
 public class RuinsRiddleCommand extends AutoCommand {
 

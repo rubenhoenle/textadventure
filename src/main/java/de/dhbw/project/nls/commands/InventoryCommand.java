@@ -1,8 +1,8 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
-import de.dhbw.project.item.ItemState;
 import de.dhbw.project.TableList;
+import de.dhbw.project.item.ItemState;
 
 public class InventoryCommand extends AutoCommand {
 

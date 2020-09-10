@@ -4,7 +4,6 @@ import de.dhbw.project.Game;
 import de.dhbw.project.Player;
 import de.dhbw.project.Quest;
 import de.dhbw.project.Room;
-import de.dhbw.project.character.Character;
 import de.dhbw.project.interactive.InteractiveObject;
 import org.junit.Before;
 import org.junit.FixMethodOrder;

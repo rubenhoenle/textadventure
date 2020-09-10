@@ -1,11 +1,11 @@
 package de.dhbw.project.nls.commands;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import de.dhbw.project.Game;
 import de.dhbw.project.item.Food;
 import de.dhbw.project.item.Item;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class EatCommand extends AutoCommand {
 

@@ -15,7 +15,6 @@ import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
 import java.io.PrintStream;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.mockito.Mockito.*;
