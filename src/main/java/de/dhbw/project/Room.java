@@ -12,6 +12,7 @@ import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Room extends Thing {
@@ -290,11 +291,15 @@ public class Room extends Thing {
     }
 
     public List<Chest> getChests() {
-        return chests;
+        if (chests != null) {
+            return chests;
+        } else {
+            return Arrays.asList();
+        }
     }
 
     public Chest getChest(String chestName) {
-        for (Chest chest : chests) {
+        for (Chest chest : getChests()) {
             if (chest.getName().trim().toLowerCase().equals(chestName.trim().toLowerCase())) {
                 return chest;
             }

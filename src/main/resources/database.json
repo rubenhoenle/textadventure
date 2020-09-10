@@ -1065,7 +1065,7 @@
           "where": "swimming through the water",
           "health": 6,
           "strength": 3,
-          "points": 4
+          "points": 4,
           "startStatement": "swoosh",
           "killStatement": "blub .. blub ... blub",
           "killed": false,
