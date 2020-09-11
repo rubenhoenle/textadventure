@@ -69,7 +69,7 @@ public class PlayerTest {
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false);
 
         p.addItem(c);
         p.addItem(f);
@@ -101,7 +101,7 @@ public class PlayerTest {
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false);
 
         p.addItem(c);
         p.addItem(f);

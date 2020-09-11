@@ -35,7 +35,8 @@ public class QuestItem extends Item {
             return new Food(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength());
         case "book":
             List<String> temparray = Arrays.asList("");
-            return new Book(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(), temparray);
+            return new Book(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(), temparray,
+                    false);
         case "resource":
             return new Resource(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength());
         case "weapon":

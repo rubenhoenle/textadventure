@@ -143,7 +143,7 @@ public class Zork {
         commands.register(new LoadCommand());
 
         commands.register(new ReadBookCommand(game));
-        commands.register(new TranslateStoneTabletsCommand(game));
+        commands.register(new TranslateBooksCommand(game));
 
         commands.register(new RuinsRiddleCommand(game));
 

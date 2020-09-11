@@ -32,11 +32,16 @@ public class RuinsRiddleCommand extends AutoCommand {
                 String passcode = "54231";
                 Book[] paragraphs = {
 
-                        new Book("1", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]herbs and trees[ALFONT]")),
-                        new Book("2", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]division of waters[ALFONT]")),
-                        new Book("3", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]land and sea[ALFONT]")),
-                        new Book("4", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]day and night[ALFONT]")),
-                        new Book("5", "", ItemState.INACTIVE, 0, Arrays.asList("[ALFONT]earth and heavens[ALFONT]")) };
+                        new Book("first paragraph", "", ItemState.INACTIVE, 0,
+                                Arrays.asList("[ALFONT]herbs and trees[ALFONT]"), true),
+                        new Book("second paragraph", "", ItemState.INACTIVE, 0,
+                                Arrays.asList("[ALFONT]division of waters[ALFONT]"), true),
+                        new Book("third paragraph", "", ItemState.INACTIVE, 0,
+                                Arrays.asList("[ALFONT]land and sea[ALFONT]"), true),
+                        new Book("fourth paragraph", "", ItemState.INACTIVE, 0,
+                                Arrays.asList("[ALFONT]day and night[ALFONT]"), true),
+                        new Book("fifth paragraph", "", ItemState.INACTIVE, 0,
+                                Arrays.asList("[ALFONT]earth and heavens[ALFONT]"), true) };
                 /*
                  * korrekt: Earth and heavens day and night ground and sky land and sea herbs and trees
                  */
@@ -53,6 +58,7 @@ public class RuinsRiddleCommand extends AutoCommand {
                         System.out.println("To read a sentence, use 'read <number>'");
                         System.out.println("If you want to translate a paragraph, use 'translate <number>'");
                         System.out.println("If you need a hint, use 'hint'");
+                        System.out.println("Enter 'quit' to stop working on the riddle");
                     } else if (currentcommand.startsWith("press ")) {
                         currentcommand = currentcommand.replace("press ", "");
                         int sentence = 0;
@@ -96,11 +102,7 @@ public class RuinsRiddleCommand extends AutoCommand {
                                         "There is no paragraph with this number. Please use a number between 1 and "
                                                 + paragraphs.length);
                             } else {
-                                if (paragraphs[sentence - 1].getItemstate() == ItemState.ACTIVE) {
-                                    paragraphs[sentence - 1].printPage(1, true);
-                                } else {
-                                    paragraphs[sentence - 1].printPage(1, false);
-                                }
+                                paragraphs[sentence - 1].openBookReader();
                             }
                         } catch (NumberFormatException e) {
                             System.out.println("Number was not recognized");
@@ -117,27 +119,10 @@ public class RuinsRiddleCommand extends AutoCommand {
                                         "There is no paragraph with this number. Please use a number between 1 and "
                                                 + paragraphs.length);
                             } else {
-                                if (paragraphs[sentence - 1].getItemstate() == ItemState.ACTIVE) {
-                                    System.out.println("This paragraph is already translated");
+                                if (paragraphs[sentence - 1].isTranslatable() == false) {
+                                    System.out.println("This paragraph is already translated.");
                                 } else {
-                                    paragraphs[sentence - 1].printPage(1, false);
-                                    System.out.println("Please enter the translation");
-                                    String correctstring = paragraphs[sentence - 1].getPages().get(0)
-                                            .replace("[ALFONT]", "");
-
-                                    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-                                    String answer;
-                                    try {
-                                        answer = reader.readLine();
-                                        if (correctstring.toLowerCase().equals(answer.toLowerCase())) {
-                                            paragraphs[sentence - 1].setItemstate(ItemState.ACTIVE);
-                                            System.out.println("Correct!");
-                                        } else {
-                                            System.out.println("This wasn't the correct translation.");
-                                        }
-                                    } catch (IOException e) {
-                                        System.out.println("An error occured reading the stone tablet.");
-                                    }
+                                    paragraphs[sentence - 1].openTranslator(game);
                                 }
                             }
                         } catch (NumberFormatException e) {
@@ -150,19 +135,20 @@ public class RuinsRiddleCommand extends AutoCommand {
                     } else {
                         System.out.println("Input not recognized.");
                         System.out.println(
-                                "There are " + paragraphs.length + "sentences and " + paragraphs.length + " buttons");
+                                "There are " + paragraphs.length + " sentences and " + paragraphs.length + " buttons");
                         System.out.println(
                                 "You should press the buttons in the correct order (with 'press 2', for example)");
                         System.out.println("To read a sentence, use 'read <number>'");
                         System.out.println("If you want to translate a paragraph, use 'translate'");
                         System.out.println("If you need a hint, use 'hint'");
+                        System.out.println("Enter 'quit' to stop working on the riddle");
                     }
 
                     if (running) {
                         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
                         String nextcommand;
                         try {
-                            nextcommand = reader.readLine();
+                            nextcommand = reader.readLine().toLowerCase();
                             currentcommand = nextcommand;
                         } catch (IOException e) {
                             System.out.println("An error occured reading the stone tablet.");

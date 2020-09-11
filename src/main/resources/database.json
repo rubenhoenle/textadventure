@@ -3416,6 +3416,7 @@
       ],
       "items": {
         "books": [
+        
           {
             "strength": 0,
             "name": "chiseled stone tablet",
@@ -3423,7 +3424,22 @@
             "location": "lies on the ground",
             "pages": [
               "[ALFONT]the treasure is concealed by stone[ALFONT]"
-            ]
+            ],
+            "translatable": true,
+            "translationRewards": {
+	            "books": [
+		            {
+		            "strength": 0,
+		            "name": "translation of chiseled stone tablet",
+		            "description": "the content of the translated tablet",
+		            "location": "lies on the ground",
+		            "pages": [
+		              "the treasure is concealed by stone"
+		            	]
+		           	}
+	            ]
+            },
+            "successfullTranslationMessage": "When you have translated both tablets, you may \n use their translations in the chapel to find the\n location of the treasure by \"crafting\" the translations together."
           },
           {
             "strength": 0,
@@ -3432,7 +3448,23 @@
             "location": "lies on the ground",
             "pages": [
               "[ALFONT]valuable items are hidden beneath the castle[ALFONT]"
-            ]
+            ],
+            "translatable": true,
+            "translationRewards": {
+	            "books": [
+		            {
+		            "strength": 0,
+		            "name": "translation of decorated stone tablet",
+		            "description": "the content of the translated tablet",
+		            "location": "lies on the ground",
+		            "pages": [
+		              "valuable items are hidden beneath the castle"
+		            	]
+		           	}
+	            ]
+            },
+            "successfullTranslationMessage": "When you have translated both tablets, you may \n use their translations in the chapel to find the\n location of the treasure by \"crafting\" the translations together."
+          
           }
         ]
       }
@@ -3760,7 +3792,8 @@
               "Day 9\nI found an old book written with the strange symbols. It is now safe \nto assume that these symbols contain valuable information. I only must \nlearn how to read all of them.\n\nDay 10\nI noticed now that some symbols are similar to others, one symbol is \neven a simple mirror of an other. Maybe the letters they stand for are \nalso similar. It will be still hard to decipher the messages, without \nknowing more about them.\n\nDay 14\nI started to assign randomly letters to the symbols, but found no useful \nassignment so far. There are over 100 possible assignments of five vowels \nto five symbols, and I don't know which of the possible vowel symbols \ncontain vowels, and which not. For the consonants, it is even worse. \nI must think of a way to narrow down the combinations...\n\nDay 16\nI started to group together similar sounding letters and similar looking \nsymbols. I also started to work on the shortest words. I won't discover \nmany correct mappings at once, but every symbol mapped to a letter makes \nit more easy to decipher the rest of the text.",
               "Day 18\nI think I found the first correct mappings and am able now to decipher \nmore words easier.\n\nDay 21\nI finished the mappings. I learnt that the language is very similar to \nEnglish but some words are written in a slightly, different way.[ALFONT]abcdefghijklmnopqrstuvwxyz 0123456789 .,[ALFONT]\n\nDay 22\nI transcribed multiple texts in the ruins, but found no interesting \ninformation. I will now translate the book and look if there is more \ninteresting information in it.",
               "Day 23\nI completed the work on the book. It contains the first verses of the Genesis, the description of the creation of the world."
-            ]
+            ],
+            "displayFontTranslated": true
           },
           {
             "name": "bible",
@@ -3774,11 +3807,41 @@
               "[ALFONT]11 God said, \"Let the earth put forth grass, herbs yielding seed, and fruit trees bearing fruit after their kind, with its seed in it, on the earth;\" and it was so. 12 The earth brought forth grass, herbs yielding seed after their kind, and trees bearing fruit, with its seed in it, after their kind; and God saw that it was good. 13 There was evening and there was morning, a third day.",
               "[ALFONT]14 God said, \"Let there be lights in the expanse of sky to divide the day from the night; and let them be for signs, and for seasons, and for days and years; 15 and let them be for lights in the expanse of sky to give light on the earth;\" and it was so.",
               "[ALFONT]16 God made the two great lights: the greater light to rule the day, and the lesser light to rule the night. He also made the stars. 17 God set them in the expanse of sky to give light to the earth, 18 and to rule over the day and over the night, and to divide the light from the darkness. God saw that it was good. 19 There was evening and there was morning, a fourth day."
-            ]
+            ],
+            "displayFontTranslated": true
           }
         ]
       },
-      "characters": []
+      "characters": [],
+      "interactiveCraftingObjects": [
+        {
+          "name": "altar",
+          "description": "An altar which can be used to combine knowledge.",
+          "state": "useable",
+          "place": "is standing in the chapel",
+          "usage": "It can be used to combine knowledge.",
+          "action": "combining",
+          "createables": [
+            {
+              "name": "treasureknowledge",
+              "description": "The treasure is hidden beneath the castle, covered by stone",
+              "type": "resource",
+              "itemstate": "",
+              "strength": 0,
+              "neededMaterials": [
+                {
+                  "name": "translation of decorated stone tablet",
+                  "number": 1
+                },
+                {
+                  "name": "translation of chiseled stone tablet",
+                  "number": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "maple tree",

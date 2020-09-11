@@ -3,18 +3,17 @@ package de.dhbw.project.nls.commands;
 import de.dhbw.project.Game;
 import de.dhbw.project.item.Book;
 import de.dhbw.project.item.Item;
-import de.dhbw.project.regions.ruins.StoneTablet;
 
 import java.util.List;
 
-public class TranslateStoneTabletsCommand extends AutoCommand {
+public class TranslateBooksCommand extends AutoCommand {
 
     private Game game;
 
     @PatternName(key = "book")
     private List<String> book;
 
-    public TranslateStoneTabletsCommand(Game game) {
+    public TranslateBooksCommand(Game game) {
         this.game = game;
     }
 
@@ -25,7 +24,7 @@ public class TranslateStoneTabletsCommand extends AutoCommand {
         boolean openedBook = false;
 
         if (book == null || book.size() == 0) {
-            System.out.println("Please state which stone tablet you want to translate.");
+            System.out.println("Please state which item you want to translate.");
             return;
         }
 
@@ -35,30 +34,22 @@ public class TranslateStoneTabletsCommand extends AutoCommand {
             Item roomItem = game.getItemFromCurrentRoom(book);
             foundAnyItem = true;
             if (roomItem instanceof Book) {
-                if (roomItem.getName().contains("stone tablet") && !roomItem.getName().contains("translated")) {
-                    openedBook = true;
-                    Book bookItem = (Book) roomItem;
-                    StoneTablet.openTranslator(game, bookItem);
-                } else {
-                    System.out.println("This item can't be translated");
-                }
+                openedBook = true;
+                Book bookItem = (Book) roomItem;
+                bookItem.openTranslator(game);
             } else {
-                System.out.println("This is not a translatable stone tablet");
+                System.out.println("This is not a translatable item");
             }
         } else {
             for (Item loopItem : game.player.getInventory()) {
                 if (loopItem.getName().equalsIgnoreCase(book)) {
                     foundAnyItem = true;
                     if (loopItem instanceof Book) {
-                        if (loopItem.getName().contains("stone tablet") && !loopItem.getName().contains("translated")) {
-                            openedBook = true;
-                            Book bookItem = (Book) loopItem;
-                            StoneTablet.openTranslator(game, bookItem);
-                        } else {
-                            System.out.println("This item can't be translated");
-                        }
+                        openedBook = true;
+                        Book bookItem = (Book) loopItem;
+                        bookItem.openTranslator(game);
                     } else {
-                        System.out.println("This is not a translatable stone tablet");
+                        System.out.println("This is not a translatable item");
                     }
                 }
             }
