@@ -231,7 +231,6 @@ public class PlayerTest {
 
         //then
         verify(out).println("You lose the fight against " + e.getName() + "! You faint!");
-        verify(out).println("----------");
         verify(out).println("Last save game will be loaded! \n");
     }
     

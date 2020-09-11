@@ -175,7 +175,7 @@ public class Player {
 
             if (health <= 0) {
                 System.out.println("You lose the fight against " + c.getName() + "! You faint!");
-                System.out.println("----------");
+                printGameOverScreen();
                 System.out.println("Last save game will be loaded! \n");
                 Zork.reloadAfterPlayerDeath();
             } else if (enemyHealth <= 0) {
@@ -345,5 +345,39 @@ public class Player {
         }
 
         return LampState.HAS_NO_LAMP;
+    }
+    
+    public void printGameOverScreen() {
+    	System.out.println("                     .ed\"\"\"\" \"\"\"$$$$be.");
+    	System.out.println("                   -\"           ^\"\"**$$$e.");
+    	System.out.println("                 .\"                   '$$$c");
+    	System.out.println("                /                      \"4$$b");
+    	System.out.println("               d  3                      $$$$");
+    	System.out.println("               $  *                   .$$$$$$");
+    	System.out.println("              .$  ^c           $$$$$e$$$$$$$$.");
+    	System.out.println("              d$L  4.         4$$$$$$$$$$$$$$b");
+    	System.out.println("              $$$$b ^ceeeee.  4$$ECL.F*$$$$$$$");
+    	System.out.println("  e$\"\"=.      $$$$P d$$$$F $ $$$$$$$$$- $$$$$$");
+    	System.out.println(" z$$b. ^c     3$$$F \"$$$$b   $\"$$$$$$$  $$$$*\"      .=\"\"$c");
+    	System.out.println("4$$$$L        $$P\"  \"$$b   .$ $$$$$...e$$        .=  e$$$.");
+    	System.out.println("^*$$$$$c  %..   *c    ..    $$ 3$$$$$$$$$$eF     zP  d$$$$$");
+    	System.out.println("  \"**$$$ec   \"   %ce\"\"    $$$  $$$$$$$$$$*    .r\" =$$$$P\"\"");
+    	System.out.println("        \"*$b.  \"c  *$e.    *** d$$$$$\"L$$    .d\"  e$$***\"");
+    	System.out.println("          ^*$$c ^$c $$$      4J$$$$$% $$$ .e*\".eeP\"");
+    	System.out.println("             \"$$$$$$\"'$=e....$*$$**$cz$$\" \"..d$*\"");
+    	System.out.println("               \"*$$$  *=%4.$ L L$ P3$$$F $$$P\"");
+    	System.out.println("                  \"$   \"%*ebJLzb$e$$$$$b $P\"");
+    	System.out.println("                    %..      4$$$$$$$$$$ \"");
+    	System.out.println("                     $$$e   z$$$$$$$$$$%");
+    	System.out.println("                      \"*$c  \"$$$$$$$P\"");
+    	System.out.println("                       .\"\"\"*$$$$$$$$bc");
+    	System.out.println("                    .-\"    .$***$$$\"\"\"*e.");
+    	System.out.println("                 .-\"    .e$\"     \"*$c  ^*b.");
+    	System.out.println("          .=*\"\"\"\"    .e$*\"          \"*bc  \"*$e..");
+    	System.out.println("        .$\"        .z*\"               ^*$e.   \"*****e.");
+    	System.out.println("        $$ee$c   .d\"                     \"*$.        3.");
+    	System.out.println("        ^*$E\")$..$\"                         *   .ee==d%");
+    	System.out.println("           $.d$$$*                           *  J$$$e*");
+    	System.out.println("            \"\"\"\"\"                              \"$$$\"");
     }
 }
