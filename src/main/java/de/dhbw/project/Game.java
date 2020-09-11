@@ -36,9 +36,11 @@ public class Game {
 
         if (player.getName() == null) {
             player.enterPlayerName();
+            printIntroStory();
+        } else {
+            System.out.println("Hello back " + player.getName() + "!");
         }
 
-        System.out.println("Hello " + player.getName() + "!");
         System.out.println(getCurrentRoom());
         System.out.println(getCurrentRoom().getDescription());
 
@@ -66,6 +68,14 @@ public class Game {
                 player.isAttacked(this);
             }
         }
+    }
+
+    private void printIntroStory() {
+        System.out.println("You, " + player.getName()
+                + ", are a known treasure hunter. You heard that the legendary amulet of cassborough, an ancient precious amulet made of gold and valuable gemstones,\n"
+                + "has been seen on an mysterious island in the pacific ocean. On your way to the island there was a horrible storm and your ship is totally damaged!\n"
+                + "To get home again you need to repair your ship, Carl your travel companion knows what to do, to get home save again. But as a known treasure hunter,\n"
+                + "you know you can not leave the island without the valuable booty. And this is where the story begins ...");
     }
 
     private boolean playerCanSeeSomething(String input) {
