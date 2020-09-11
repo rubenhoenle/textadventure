@@ -50,7 +50,7 @@ public class PutCommand extends AutoCommand {
             }
 
             else {
-                if ((chest.getChestSize() - chest.getNumberOfItemsInChest()) >= 1) {
+                if ((chest.getChestSize() - chest.getNumberOfItemsInChest(game)) >= 1) {
                     chest.addItem(game, putItem);
                     game.player.removeItem(putItem);
                     System.out.println("You took \'" + itemName.trim() + "\' out of your inventory and added it to \'"

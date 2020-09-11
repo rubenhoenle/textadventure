@@ -47,7 +47,11 @@ public class Chest extends Thing {
         return size;
     }
 
-    public int getNumberOfItemsInChest() {
+    public int getNumberOfItemsInChest(Game game) {
+        if (mysteryChest) {
+            return game.getMysteryChestItems().size();
+        }
+
         return items.getAllItemList().size();
     }
 
@@ -90,7 +94,7 @@ public class Chest extends Thing {
         }
 
         System.out.println(
-                "--- Used chest space: " + this.getNumberOfItemsInChest() + "/" + this.getChestSize() + " ---");
+                "--- Used chest space: " + this.getNumberOfItemsInChest(game) + "/" + this.getChestSize() + " ---");
         table.print();
     }
 
