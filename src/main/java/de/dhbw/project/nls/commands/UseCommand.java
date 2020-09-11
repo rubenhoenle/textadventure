@@ -75,9 +75,16 @@ public class UseCommand extends AutoCommand {
                     System.out.println("The way " + wayList.get(0).getName() + " in the direction \'"
                             + wayList.get(0).getDirection() + "\' is now walkable!");
                     game.getCurrentRoom().getRoomInteractiveObjectsList().remove(io);
-                    game.incTurn();
                 }
             }
+            // get reward
+            else if (io.getReward() != null && io.getReward().getAllItemList().size() > 0) {
+                for (Item rewardItem : io.getReward().getAllItemList()) {
+                    game.player.addItem(rewardItem);
+                    System.out.println("\'" + rewardItem.getName() + "\' was added to your inventory!");
+                }
+            }
+            game.incTurn();
         }
     }
 

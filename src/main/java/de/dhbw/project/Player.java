@@ -190,10 +190,8 @@ public class Player {
                     }
                 }
                 c.setKilled(true);
-                printStats();
             } else {
                 System.out.println("Your opponent is bruised, but you also got a few scratches.");
-                printStats();
             }
         }
     }

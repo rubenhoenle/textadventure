@@ -252,7 +252,7 @@ public class RoomTest {
     public void test14_shouldGetRoomInteractiveObjectsNameList() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        InteractiveObject io = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint");
+        InteractiveObject io = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint", null);
         r.setRoomInteractiveObjectsList(Arrays.asList(io));
 
         //when
@@ -267,8 +267,8 @@ public class RoomTest {
     public void test15_shouldgetRoomInteractiveObjectByName() {
         //before
         Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
-        InteractiveObject io1 = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint");
-        InteractiveObject io2 = new InteractiveObject("name2", "description2", "place2", null, null, true, "wayName2", "hint2");
+        InteractiveObject io1 = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint", null);
+        InteractiveObject io2 = new InteractiveObject("name2", "description2", "place2", null, null, true, "wayName2", "hint2",null);
         r.setRoomInteractiveObjectsList(Arrays.asList(io1, io2));
 
         //when

@@ -154,7 +154,6 @@ public class PlayerTest {
         when(e.isKilled()).thenReturn(false);
         when(e.isAutoAttack()).thenReturn(true);
         when(e.getName()).thenReturn("bar");
-        doNothing().when(p).printStats();
 
         //when
         p.isAttacked(g);
@@ -199,7 +198,6 @@ public class PlayerTest {
         list.addItem(i);
         
         Enemy e = new Enemy("Yoda", "", 12, 5, "start", "killed", false, 5,  list, false);
-        doNothing().when(p).printStats();
 
         //when
         p.fight(e, r);

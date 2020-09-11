@@ -45,6 +45,7 @@ public class AttackCommand extends AutoCommand {
                     }
                 }
                 game.player.setPoints(game.player.getPoints() + c.getPoints());
+                game.player.printStats();
             }
             game.incTurn();
         }

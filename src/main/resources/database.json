@@ -2892,28 +2892,11 @@
           "name": "fishing place",
           "description": "A nice looking place which is perfect for fishing.",
           "place": "next to the river",
-          "requiredItem": {},
-          "removeRequiredItem": false,
-          "wayName": "",
-          "quest": {
-            "name": "Fishing time",
-            "textStart": "You need to catch a fish!",
-            "textAccept": "You accepted the quest!",
-            "textMid": "",
-            "textEnd": "You successfully caught a fish!",
-            "removeFulfillmentItems": false,
-            "reward": [
-              {
-                "strength": 7,
-                "name": "fish",
-                "description": "A caught fish",
-                "place": "is lying on the ground",
-                "type": "food"
-              }
-            ],
-            "completed": false,
-            "talkedOnce": true,
-            "fulfillmentItems": [
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [
               {
                 "strength": 0,
                 "name": "fishing rod",
@@ -2923,12 +2906,29 @@
                 "type": "tool"
               }
             ],
-            "accepted": false,
-            "autoComplete": true,
-            "fulfillmentKill": "",
-            "points": 1
+            "books": [],
+            "weapons": []
           },
-          "hint": "You should try to fish!"
+          "removeRequiredItem": false,
+          "wayName": "",
+          "quest": {},
+          "hint": "You should try to fish!",
+          "reward": {
+            "cloths": [],
+            "foods": [
+              {
+                "strength": 7,
+                "name": "fish",
+                "description": "A caught fish",
+                "place": "is lying on the ground",
+                "type": "food"
+              }
+            ],
+            "resources": [],
+            "tools": [],
+            "books": [],
+            "weapons": []
+          }
         }
       ],
       "ways": [

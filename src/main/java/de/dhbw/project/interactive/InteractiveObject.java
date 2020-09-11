@@ -6,6 +6,8 @@ import de.dhbw.project.Thing;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
 
+import java.util.Arrays;
+
 public class InteractiveObject extends Thing {
 
     @SerializedName("place")
@@ -20,9 +22,11 @@ public class InteractiveObject extends Thing {
     private String wayName;
     @SerializedName("hint")
     private String hint;
+    @SerializedName("reward")
+    private ItemList reward;
 
     public InteractiveObject(String name, String description, String place, Quest quest, ItemList requiredItem,
-            boolean removeRequiredItem, String wayName, String hint) {
+            boolean removeRequiredItem, String wayName, String hint, ItemList reward) {
         super(name, description);
         this.place = place;
         this.quest = quest;
@@ -30,6 +34,7 @@ public class InteractiveObject extends Thing {
         this.removeRequiredItem = removeRequiredItem;
         this.wayName = wayName;
         this.hint = hint;
+        this.reward = reward;
     }
 
     public String getPlace() {
@@ -78,5 +83,21 @@ public class InteractiveObject extends Thing {
 
     public void setHint(String hint) {
         this.hint = hint;
+    }
+
+    public void setRequiredItem(ItemList requiredItem) {
+        this.requiredItem = requiredItem;
+    }
+
+    public ItemList getReward() {
+        if (reward == null) {
+            return new ItemList();
+        } else {
+            return reward;
+        }
+    }
+
+    public void setReward(ItemList reward) {
+        this.reward = reward;
     }
 }
