@@ -712,7 +712,24 @@
             "place": "stands on the table"
           }
         ]
-      }
+      },
+      "chests": [
+        {
+          "name": "chest",
+          "description": "A chest to store things in it.",
+          "place": "is standing in the corner of the hut",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "cliff above the ship graveyard",
