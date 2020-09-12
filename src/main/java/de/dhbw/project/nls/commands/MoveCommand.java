@@ -98,6 +98,7 @@ public class MoveCommand extends AutoCommand {
         game.incTurn();
         System.out.println("You're taking the \'" + resultWay.getName() + "\' " + direction + ". ");
         game.player.setRoomName(resultWay.getTo());
+        game.getCurrentRoom().setVisited(true);
         game.player.isAttacked(game);
         System.out.println(game.getCurrentRoom());
         System.out.println(game.getCurrentRoom().getDescription());

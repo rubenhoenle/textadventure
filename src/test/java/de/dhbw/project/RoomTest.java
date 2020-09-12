@@ -25,7 +25,7 @@ public class RoomTest {
     @Test
     public void test1_shouldAddItem() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource re = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
@@ -47,7 +47,7 @@ public class RoomTest {
     @Test
     public void test2_shouldRemoveItem() {
         //before
-        Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
@@ -74,7 +74,7 @@ public class RoomTest {
     @Test
     public void test3_shouldRemoveNonExistingItem() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Item i = new Resource("TestItem", "TestItem", ItemState.NOT_USABLE, 99);
 
         //when
@@ -87,7 +87,7 @@ public class RoomTest {
     @Test
     public void test4_shouldListRoomItems() {
         //before
-        Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room room = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
@@ -117,7 +117,7 @@ public class RoomTest {
         List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject2", "desc", "state", "place", "usage", "action"));
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", craftingObjects, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", craftingObjects, null, null,false, null, false);
 
         //when
         List<String> names = r.getRoomInteractiveCraftingObjectsNameList();
@@ -133,7 +133,7 @@ public class RoomTest {
         List<InteractiveCraftingObject> craftingObjects = new ArrayList<>();
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject1", "desc", "state", "place", "usage", "action"));
         craftingObjects.add(new InteractiveCraftingObject("interactiveCraftingObject2", "desc", "state", "place", "usage", "action"));
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", craftingObjects, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", craftingObjects, null, null,false, null, false);
 
         //when
         InteractiveCraftingObject interactiveCraftingObject = r.getRoomInteractiveCraftingObjectByName("interactiveCraftingObject1");
@@ -145,7 +145,7 @@ public class RoomTest {
     @Test
     public void test7_shouldListRoomCharacter() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Enemy e = new Enemy();
         r.setEnemyList(Arrays.asList(e));
 
@@ -160,7 +160,7 @@ public class RoomTest {
     @Test
     public void test8_shouldListRoomCharacter() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
 
         //when
         List<Character> result = r.getCharacterList();
@@ -172,7 +172,7 @@ public class RoomTest {
     @Test
     public void test9_shouldListRoomCharacter() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
 
         //when
         List<String> result = r.getCharacterLowerNameList();
@@ -184,7 +184,7 @@ public class RoomTest {
     @Test
     public void test10_shouldListRoomCharacter() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Enemy e = new Enemy();
         e.setName("foo");
         r.setEnemyList(Arrays.asList(e));
@@ -200,7 +200,7 @@ public class RoomTest {
     @Test
     public void test11_shouldListRoomCharacter() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Enemy e = new Enemy();
         RoamingEnemy re = new RoamingEnemy();
         Friend f = new Friend();
@@ -221,7 +221,7 @@ public class RoomTest {
     @Test
     public void test12_shouldListRoomCharacter() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Friend f = new Friend();
         r.setFriendList(Arrays.asList(f));
 
@@ -236,7 +236,7 @@ public class RoomTest {
     @Test
     public void test13_shouldGetRoomInteractiveObjectsList() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         InteractiveObject io = mock(InteractiveObject.class);
         r.setRoomInteractiveObjectsList(Arrays.asList(io));
 
@@ -251,7 +251,7 @@ public class RoomTest {
     @Test
     public void test14_shouldGetRoomInteractiveObjectsNameList() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         InteractiveObject io = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint", null);
         r.setRoomInteractiveObjectsList(Arrays.asList(io));
 
@@ -266,7 +266,7 @@ public class RoomTest {
     @Test
     public void test15_shouldgetRoomInteractiveObjectByName() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         InteractiveObject io1 = new InteractiveObject("name", "description", "place", null, null, true, "wayName", "hint", null);
         InteractiveObject io2 = new InteractiveObject("name2", "description2", "place2", null, null, true, "wayName2", "hint2",null);
         r.setRoomInteractiveObjectsList(Arrays.asList(io1, io2));
@@ -281,7 +281,7 @@ public class RoomTest {
     @Test
     public void test16_shouldAddWay() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Way w = new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
 
         //when
@@ -296,7 +296,7 @@ public class RoomTest {
     @Test
     public void test17_shouldDeleteWay() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Way w = new Way("TestWay", "TestWayDescription", "W", r.getName(), "AnotherRoom", WayState.ACTIVE, "TestHint");
 
         //when
@@ -310,7 +310,7 @@ public class RoomTest {
     @Test
     public void test18_addRoamingEnemy() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         RoamingEnemy re = new RoamingEnemy();
 
         //when
@@ -324,7 +324,7 @@ public class RoomTest {
     @Test
     public void test19_removeRoamingEnemy() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         RoamingEnemy re = new RoamingEnemy();
         r.addRoamingEnemy(re);
 
@@ -338,7 +338,7 @@ public class RoomTest {
     @Test
     public void test20_getRoamingEnemyList() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
 
         //when
         List<RoamingEnemy> res = r.getRoamingEnemyList();
@@ -350,7 +350,7 @@ public class RoomTest {
     @Test
     public void test21_getEnemyList() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
 
         //when
         List<Enemy> res = r.getEnemyList();
@@ -362,7 +362,7 @@ public class RoomTest {
     @Test
     public void test22_getEnemyList() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         Enemy e = new Enemy();
         r.setEnemyList(Arrays.asList(e));
 
@@ -377,7 +377,7 @@ public class RoomTest {
     @Test
     public void test23_getEnemyList() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         RoamingEnemy e = new RoamingEnemy();
         r.addRoamingEnemy(e);
 
@@ -392,7 +392,7 @@ public class RoomTest {
     @Test
     public void test24_getEnemyList() {
         //before
-        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false);
+        Room r = new Room("Test", "TestRoom", "true", "itemLocation", null, null, null,false, null, false);
         RoamingEnemy re = new RoamingEnemy();
         Enemy e = new Enemy();
         r.addRoamingEnemy(re);

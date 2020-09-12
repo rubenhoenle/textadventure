@@ -201,7 +201,7 @@ public class LookCommandTest {
         //before
         Whitebox.setInternalState(command, String.class, "around");
         
-        Room room = new Room("room", "desc", "", "", null, null, null,false);
+        Room room = new Room("room", "desc", "", "", null, null, null,false, null, false);
         room.setConditionalItem("condition");
         
         when(game.getCurrentRoom()).thenReturn(room);

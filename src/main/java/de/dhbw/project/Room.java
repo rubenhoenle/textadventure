@@ -40,18 +40,22 @@ public class Room extends Thing {
     private List<InteractiveObject> interactiveObjects = new ArrayList<>();
     @SerializedName("chests")
     private List<Chest> chests = new ArrayList<>();
+    @SerializedName("visited")
+    private boolean visited;
 
     // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
     // variables
     public Room(String name, String description, String enabled, String defaultItemLocation,
             List<InteractiveCraftingObject> craftingObjects, List<Friend> friendList, List<Enemy> enemyList,
-            boolean isDark) {
+            boolean isDark, List<RoamingEnemy> roamingEnemyList, boolean visited) {
         super(name, description);
         this.enabled = enabled;
         this.defaultItemLocation = defaultItemLocation;
         this.isDark = isDark;
+        this.visited = visited;
         this.friendList = friendList;
         this.enemyList = enemyList;
+        this.roamingEnemyList = roamingEnemyList;
         this.roomInteractiveCraftingObjectsList = craftingObjects;
     }
 
@@ -306,5 +310,13 @@ public class Room extends Thing {
         }
 
         return null;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
     }
 }

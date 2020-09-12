@@ -475,7 +475,8 @@ public class Editor {
             System.out.println("Default Item Location: " + defaultItemLocation);
             Decision decision = SimpleUserInput.storeDialogue("room");
             if (decision == Decision.SAVE) {
-                game.addRoom(new Room(name, description, "true", defaultItemLocation, null, null, null, false));
+                game.addRoom(
+                        new Room(name, description, "true", defaultItemLocation, null, null, null, false, null, false));
                 changed = true;
             }
             if (!(decision == Decision.AGAIN)) {

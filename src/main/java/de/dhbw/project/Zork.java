@@ -132,6 +132,7 @@ public class Zork {
         commands.register(new EatCommand(game));
         commands.register(new AcceptQuestCommand(game));
         commands.register(new ShowQuestCommand(game));
+        commands.register(new MapCommand(game));
 
         commands.register(new InventoryCommand(game));
         commands.register(new ShowEquipmentCommand(game));

@@ -24,11 +24,11 @@ public class AcceptQuestCommand extends AutoCommand {
     @Override
     public void execute() {
 
-    	if (quest == null || quest.size() == 0) {
+        if (quest == null || quest.size() == 0) {
             System.out.println("You have to tell which quest you want to accept.");
             return;
         }
-    	if (questGiver == null || questGiver.size() == 0) {
+        if (questGiver == null || questGiver.size() == 0) {
             System.out.println("You have to tell from whom you want to accept the quest.");
             return;
         }
@@ -41,33 +41,33 @@ public class AcceptQuestCommand extends AutoCommand {
 
         // this block gives the right quest into -> q
         if (questCharacter != null) {
-        	if(questCharacter instanceof Friend && !questCharacter.isKilled()) {
-	            for (int i = 0; i < ((Friend) questCharacter).getQuests().size(); i++) {
-	                if (((Friend) questCharacter).getQuests().get(i).getName().equalsIgnoreCase(questName)) {
-	                    q = ((Friend) questCharacter).getQuests().get(i);
-	                }
-	            }
-        	} else {
-        		if(questCharacter.isKilled()) {
-        			System.out.println("You cant talk to " + questCharacter.getName() + " because you killed him!!");
-            	} else {
-            		System.out.println("You can accept quests only from friends.");
-            	}
-        		return;
-        	}
+            if (questCharacter instanceof Friend && !questCharacter.isKilled()) {
+                for (int i = 0; i < ((Friend) questCharacter).getQuests().size(); i++) {
+                    if (((Friend) questCharacter).getQuests().get(i).getName().equalsIgnoreCase(questName)) {
+                        q = ((Friend) questCharacter).getQuests().get(i);
+                    }
+                }
+            } else {
+                if (questCharacter.isKilled()) {
+                    System.out.println("You cant talk to " + questCharacter.getName() + " because you killed him!!");
+                } else {
+                    System.out.println("You can accept quests only from friends.");
+                }
+                return;
+            }
         } else if (questInteractiveObject != null) {
             q = questInteractiveObject.getQuest();
         } else {
-        	System.out.println("There is no such character or object!");
-        	return;
+            System.out.println("There is no such character or object!");
+            return;
         }
 
         // checks if the if statement is true and accepts the quest
         if (q == null) {
-        	System.out.println("There is no such quest!");
-        	return;
+            System.out.println("There is no such quest!");
+            return;
         }
-        	
+
         if (q.isTalkedOnce() && !q.isAccepted() && questName.equalsIgnoreCase(q.getName())) {
             q.setAccepted(true);
             game.player.getQuestInventory().add(q);

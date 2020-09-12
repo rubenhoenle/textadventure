@@ -30,6 +30,7 @@
     {
       "name": "beach",
       "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your broken ship.\nMaybe you should talk to Carl he seems to wants to say something!",
+      "visited": true,
       "friends": [
         {
           "name": "Carl",
@@ -3433,7 +3434,7 @@
       ],
       "items": {
         "books": [
-        
+
           {
             "strength": 0,
             "name": "chiseled stone tablet",
@@ -3481,7 +3482,7 @@
 	            ]
             },
             "successfullTranslationMessage": "When you have translated both tablets, you may \n use their translations in the chapel to find the\n location of the treasure by \"crafting\" the translations together."
-          
+
           }
         ]
       }

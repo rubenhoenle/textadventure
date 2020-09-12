@@ -150,7 +150,7 @@ public class QuestTest {
         Friend friend = new Friend("friend_name","place",100,100,"start","kill",false, 100, quests);
         ArrayList<Friend> friends = new ArrayList<>();
         friends.add(friend);
-        Room room = new Room("room_name","room_desc","", "", null, friends, null, false);
+        Room room = new Room("room_name","room_desc","", "", null, friends, null, false, null, false);
         ArrayList<Room> rooms = new ArrayList<>();
         rooms.add(room);
         PowerMockito.mockStatic(Zork.class);
