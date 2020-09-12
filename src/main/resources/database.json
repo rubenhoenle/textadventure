@@ -2469,7 +2469,7 @@
                   "number": 1
                 },
                 {
-                  "name": "Chicken egg",
+                  "name": "chicken egg",
                   "number": 1
                 },
                 {
@@ -3896,20 +3896,7 @@
       ],
       "items": {
         "cloths": [],
-        "foods": [
-          {
-            "strength": 3,
-            "name": "Chicken egg",
-            "description": "A 'Chicken egg' lies between the roots of the maple tree.",
-            "place": "lies between the roots of the maple tree."
-          },
-          {
-            "strength": 3,
-            "name": "Chicken egg",
-            "description": "A 'Chicken egg' lies between the roots of the maple tree.",
-            "place": "lies between the roots of the maple tree."
-          }
-        ],
+        "foods": [],
         "resources": [],
         "tools": [],
         "weapons": []
@@ -3965,14 +3952,21 @@
       ],
       "items": {
         "cloths": [],
-        "foods": [],
-        "resources": [
+        "foods": [
           {
-            "strength": 0,
-            "name": "eggs",
-            "description": "eggs stolen from a birds nest",
-            "place": "are lying in a birds nest"
+            "strength": 3,
+            "name": "chicken egg",
+            "description": "egg stolen from a birds nest",
+            "place": "is lying in a birds nest"
           },
+          {
+            "strength": 3,
+            "name": "chicken egg",
+            "description": "egg stolen from a birds nest",
+            "place": "is lying in a birds nest"
+          }
+        ],
+        "resources": [
           {
             "strength": 0,
             "name": "cat",
