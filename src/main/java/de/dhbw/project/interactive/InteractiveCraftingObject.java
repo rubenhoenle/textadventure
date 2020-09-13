@@ -10,6 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InteractiveCraftingObject extends Thing {
+
+    // FYI: The interactive crafting objects were implemented before the interactive objects were implemented.
+    // They have nothing in common except of the name :)
+
+    // Note: with a interactive crafting object the player can craft different items. Every interactive crafting
+    // object has a list of 'Createables'. This are the items that can be crafted with this interactive crafting
+    // objects. Every Createable has a own list with the needed materials to craft it.
+
     @SerializedName("state")
     private String state;
     @SerializedName("place")
@@ -43,22 +51,26 @@ public class InteractiveCraftingObject extends Thing {
         return interactiveObjectCreateablesList;
     }
 
+    // Method to craft a item with the help of this interactive crafting object.
     public String createItem(Player player, Createable createable) {
         System.out.println("You want to create a " + createable.getName() + ". For this you gonna need "
                 + createable.getNeededMaterialAsString() + ".");
 
+        // check if player has all needed materials in his inventory
         for (Material material : createable.getCreateableNeededMaterialList()) {
             Item item = player.getItem(material.getName());
             int count = player.getNumberOfItem(material.getName());
             if ((item == null) || (count < 0) || ((count - material.getNumber()) < 0)) {
                 return "You don't have all needed materials for this in your inventory.";
             }
+            // when player has all needed materials in his inventory: remove the needed materials from inventory
             for (int i = 0; i < material.getNumber(); i++) {
                 player.removeItem(item);
                 item = player.getItem(material.getName());
             }
         }
 
+        // Create the item with the informations from Createable
         switch (createable.getType()) {
         case "cloth":
             player.addItem(new Clothing(createable.getName(), createable.getDescription(), createable.getItemstate(),
@@ -92,6 +104,7 @@ public class InteractiveCraftingObject extends Thing {
         return "Congratulations. You created a " + createable.getName() + ".";
     }
 
+    // Show a table with the Items the player can craft with this interactive crafting object.
     public void print() {
         if (interactiveObjectCreateablesList.isEmpty()) {
             System.out.print("This " + this.getName() + " can not be used.");

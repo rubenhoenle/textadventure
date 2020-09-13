@@ -78,10 +78,20 @@ public class Game {
                 + "you know you can not leave the island without the valuable booty. And this is where the story begins ...");
     }
 
+    // This method checks if player is in a dark room without a lamp.
+    // If this method returns true, no command is executed.
     private boolean playerCanSeeSomething(String input) {
+
+        // check for allowed actions in a dark room:
+
+        // check if player wants to show his inventory
         boolean showInventory = (input.toLowerCase().contains("inventory") || input.trim().toLowerCase().equals("i"));
+        // check if player wants to switch on his lamp
         boolean switchLamp = (input.toLowerCase().contains("switch"));
+        // check if player wants to load or save the games
         boolean saveOrLoadGame = (input.toLowerCase().contains("save") || input.toLowerCase().contains("load"));
+
+        // when lamp is off and the action is not allowed:
         if ((getCurrentRoom().isDark()) && (player.getLampState() == LampState.OFF) && !switchLamp && !showInventory
                 && !saveOrLoadGame) {
             System.out.println(
@@ -89,6 +99,7 @@ public class Game {
             return false;
         }
 
+        // make sure the player can't drop any lamp while he is in a dark room
         else if (getCurrentRoom().isDark() && input.toLowerCase().contains("drop")) {
             for (String lampname : Constants.LAMP_NAMES) {
                 Item lamp = player.getItem(lampname);

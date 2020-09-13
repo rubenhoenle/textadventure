@@ -19,6 +19,10 @@ public class Chest extends Thing {
     @SerializedName("mysteryChest")
     private boolean mysteryChest = false;
 
+    // Note: When the chest isn't a mystery chest, the items are stored in the 'items' List of this object.
+    // But if the chest is a mystery chest, then the contained items are stored in the 'mysteryChestItems' list of the
+    // game object insted of in 'items', because all mystery chests have to use the same list of items.
+
     public Chest(String name, String description, String place, ItemList items, int size, boolean mysteryChest) {
         super(name, description);
         this.place = place;
@@ -39,11 +43,15 @@ public class Chest extends Thing {
         return mysteryChest;
     }
 
+    // returns the number of items, which can fit in the chest
     public int getChestSize() {
+        // when chest is a mystery chest, the size of the constant has to be returned so all mystery chests
+        // in the whole game have the same size
         if (mysteryChest) {
             return Constants.MYSTERY_CHEST_SIZE;
         }
 
+        // when chest isn't a mystery chest, the size which was set in database.json is returned
         return size;
     }
 

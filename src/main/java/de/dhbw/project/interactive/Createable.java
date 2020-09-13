@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Createable extends Thing {
+
+    // Note: A Createable describes a Item, which the player can craft with the help of an interactive crafting
+    // object.
+
     @SerializedName("type")
     private String type;
     @SerializedName("equipmentType")
@@ -31,6 +35,8 @@ public class Createable extends Thing {
         return createableNeededMaterialList;
     }
 
+    // Returns a string which can be used for the output of the needed Items for a crafting proccess.
+    // for example: 2x iron ingot, 1x wood stick
     public String getNeededMaterialAsString() {
         StringBuilder str = new StringBuilder();
         for (Material material : createableNeededMaterialList) {
