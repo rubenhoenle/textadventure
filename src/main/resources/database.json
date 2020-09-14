@@ -995,7 +995,24 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "An old oak 'mystery chest' to store things in it.",
+          "place": "is standing by the hole in the hull",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "beach below the cliff",
@@ -1582,7 +1599,24 @@
           ]
         }
       ],
-      "isDark": true
+      "isDark": true,
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "An old oak 'mystery chest' to store things in it.",
+          "place": "is standing at the wall",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "Butcher's Room I",
@@ -2273,7 +2307,7 @@
       "defaultItemLocation": "is lying on the table",
       "friends": [
         {
-          "name": "Anuk",
+          "name": "Gomda Ehia",
           "where": "sitting on a chair",
           "health": 200,
           "strength": 12,
@@ -2351,7 +2385,24 @@
             "type": "weapon"
           }
         ]
-      }
+      },
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "A 'mystery chest' made out of wood.",
+          "place": "is standing in the corner",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "village square",
@@ -2533,15 +2584,7 @@
         }
       ],
       "items": {
-        "cloths": [
-          {
-            "name": "iron helmet",
-            "description": "A freshly forged, strong helmet made out of iron.",
-            "place": "is lying in the shelf",
-            "strength": 5,
-            "equipment": "HEAD"
-          }
-        ],
+        "cloths": [],
         "foods": [],
         "resources": [],
         "tools": [
@@ -2645,6 +2688,31 @@
               ]
             }
           ]
+        }
+      ],
+      "chests": [
+        {
+          "name": "chest",
+          "description": "Just a small and simple 'chest' made out of oak wood.",
+          "place": "is standing next to a chair",
+          "mysteryChest": false,
+          "size": 5,
+          "items": {
+            "cloths": [
+              {
+                "name": "iron helmet",
+                "description": "A freshly forged, strong helmet made out of iron.",
+                "place": "is lying on the floor",
+                "strength": 5,
+                "equipment": "HEAD"
+              }
+            ],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
         }
       ]
     },
@@ -3022,6 +3090,23 @@
           "description": "There is a liana 'northern'. You should hold yourself very tight on the liana to swing above the powering river."
         }
       ],
+      "chests": [
+        {
+          "name": "chest",
+          "description": "A 'chest' to store some things in it.",
+          "place": "is standing next to a chair",
+          "mysteryChest": false,
+          "size": 20,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ],
       "defaultItemLocation": "lying on a small table",
       "items": {
         "cloths": [
@@ -3175,50 +3260,6 @@
       "description": "You are in front of the old house. You can see some footsteps leading inside.\nThere could be a person inside the house which you can\u0027t see because of the barricaded windows. You should better watch out.",
       "interactiveObjects": [],
       "roamingEnemies": [],
-      "friends": [
-        {
-          "name": "Old John",
-          "where": "sitting on a bank",
-          "health": 70,
-          "strength": 3,
-          "points": -7,
-          "startStatement": "Hello my friend.",
-          "killStatement": "Why did you kill an old guy like me!?",
-          "killed": false,
-          "quests": [
-            {
-              "name": "Helping an old man",
-              "textStart": "Could you do me a favour and search my walking cane?",
-              "textAccept": "Thanks you for helping me out!",
-              "textMid": "You did not bring me my walking cane yet. It is somewhere in the village.",
-              "textEnd": "Thanks for bringing me my walking cane.",
-              "removeFulfillmentItems": true,
-              "reward": [
-                {
-                  "strength": 0,
-                  "name": "freshly polished lamp",
-                  "description": "a lamp that shines very bright",
-                  "type": "tool",
-                  "itemstate": "0"
-                }
-              ],
-              "completed": false,
-              "talkedOnce": false,
-              "fulfillmentItems": [
-                {
-                  "strength": 2,
-                  "name": "walking cane",
-                  "description": "a walking cane which was lost by a man",
-                  "place": "leaning to the wall",
-                  "type": "weapon"
-                }
-              ],
-              "accepted": false,
-              "points": 1
-            }
-          ]
-        }
-      ],
       "ways": [
         {
           "direction": "west",
@@ -3273,6 +3314,67 @@
           "to": "in front of the old house",
           "name": "door",
           "description": "In the 'east' you can leave the house through a wooden door."
+        }
+      ],
+      "friends": [
+        {
+          "name": "Old John",
+          "where": "sitting on a chair",
+          "health": 70,
+          "strength": 3,
+          "points": -7,
+          "startStatement": "Hello my friend.",
+          "killStatement": "Why did you kill an old guy like me!?",
+          "killed": false,
+          "quests": [
+            {
+              "name": "Helping an old man",
+              "textStart": "Could you do me a favour and search my walking cane? It is somewhere in the village.",
+              "textAccept": "Thanks you for helping me out!",
+              "textMid": "You did not bring me my walking cane yet. It is somewhere in the village.",
+              "textEnd": "Thanks for bringing me my walking cane.",
+              "removeFulfillmentItems": true,
+              "reward": [
+                {
+                  "strength": 0,
+                  "name": "freshly polished lamp",
+                  "description": "a lamp that shines very bright",
+                  "type": "tool",
+                  "itemstate": "0"
+                }
+              ],
+              "completed": false,
+              "talkedOnce": false,
+              "fulfillmentItems": [
+                {
+                  "strength": 2,
+                  "name": "walking cane",
+                  "description": "a walking cane which was lost by a man",
+                  "place": "leaning to the wall",
+                  "type": "weapon"
+                }
+              ],
+              "accepted": false,
+              "points": 1
+            }
+          ]
+        }
+      ],
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "A fairly new 'mystery chest' to store things in it.",
+          "place": "is standing next to the bed",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
         }
       ],
       "defaultItemLocation": "is lying on a old wooden table",
@@ -3656,6 +3758,23 @@
           "to": "ruins basement",
           "name": "descent",
           "description": "A dangerous descent leads 'down' to the basement."
+        }
+      ],
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "A mysterious chest made of stone.",
+          "place": "is standing on the ground",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
         }
       ]
     },
@@ -4049,7 +4168,23 @@
         ],
         "weapons": []
       },
-      "characters": []
+      "characters": [],
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "An antique 'mystery chest' with iron fittings.",
+          "place": "is standing in the middle of the room",
+          "mysteryChest": true,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+	  ]
     },
     {
       "name": "shore of the pond",

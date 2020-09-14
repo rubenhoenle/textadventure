@@ -104,6 +104,11 @@ public class Chest extends Thing {
         System.out.println(
                 "--- Used chest space: " + this.getNumberOfItemsInChest(game) + "/" + this.getChestSize() + " ---");
         table.print();
+
+        if (mysteryChest) {
+            System.out.println(
+                    "This is one of multiple mystery chests spread over the whole world. Items you put in here can also be accessed from every other mystery chest in this world.");
+        }
     }
 
     public String takeItemOutOfChest(Game game, String itemName) {
