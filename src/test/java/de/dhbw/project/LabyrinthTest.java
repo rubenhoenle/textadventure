@@ -29,7 +29,7 @@ public class LabyrinthTest {
 		setFinalStatic(Zork.class.getDeclaredField("game"), game);
     }
 	
-	@Test
+	//@Test
     public void test1_shouldGenerateLabyrinth() throws Exception {
 		//before
 		String entryString = "low branches of maple tree";
