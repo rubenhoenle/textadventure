@@ -31,6 +31,7 @@ public class InvestigateCommand extends AutoCommand {
         Chest chest = game.getCurrentRoom().getChest(interactiveObjectName);
         if (chest != null) {
             chest.showItems(game);
+            game.incTurn();
             return;
         }
 

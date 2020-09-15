@@ -54,14 +54,16 @@ public class UseCommand extends AutoCommand {
         if (io.getRequiredItem().getName().equalsIgnoreCase(game.player.getItem(itemName).getName())) {
             if (io.getWayName() != null && io.getWayName().length() != 0) {
                 List<Way> wayList = new ArrayList<>();
+                // collect all ways in current room
                 game.getCurrentRoom().getRoomWayList().forEach(element -> {
                     if (element.getName().equals(io.getWayName())) {
                         wayList.add(element);
                     }
                 });
                 if (wayList.size() > 0) {
-                    wayList.forEach(element -> element.setState(WayState.ACTIVE));
                     wayList.forEach(element -> {
+                        element.setState(WayState.ACTIVE);
+                        //set all ways back to active
                         for (Way wb : game.getRoom(element.getTo()).getRoomWayList()) {
                             if (element.getTo().equals(wb.getFrom()) && element.getFrom().equals(wb.getTo())) {
                                 wb.setState(WayState.ACTIVE);
@@ -75,6 +77,7 @@ public class UseCommand extends AutoCommand {
                     System.out.println("The way " + wayList.get(0).getName() + " in the direction \'"
                             + wayList.get(0).getDirection() + "\' is now walkable!");
                     game.getCurrentRoom().getRoomInteractiveObjectsList().remove(io);
+                    game.incTurn();
                 }
             }
             // get reward
@@ -83,8 +86,11 @@ public class UseCommand extends AutoCommand {
                     game.player.addItem(rewardItem);
                     System.out.println("\'" + rewardItem.getName() + "\' was added to your inventory!");
                 }
+                game.getCurrentRoom().getRoomInteractiveObjectsList().remove(io);
+                game.incTurn();
             }
-            game.incTurn();
+        } else {
+            System.out.println("You can not use \'" + i.getName() + "\' on \'" + io.getName() + "\'.");
         }
     }
 
