@@ -34,4 +34,5 @@ public class Friend extends Character {
         }
         this.quests = quest;
     }
+
 }

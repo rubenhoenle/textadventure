@@ -140,6 +140,14 @@ public class Player {
         return inventory.getAllItemList();
     }
 
+    public void setEquipment(ItemList liste) {
+        this.equipment = liste;
+    }
+
+    public void setInventory(ItemList liste) {
+        this.inventory = liste;
+    }
+
     // getItem Method: returns an item, if an item with itemName was found, else returns null
     public Item getItem(String itemName) {
         return inventory.getItem(itemName);
@@ -312,6 +320,10 @@ public class Player {
 
     public ItemList getItemlist() {
         return inventory;
+    }
+
+    public ItemList getEquipmentItemList() {
+        return equipment;
     }
 
     public LampState getLampState() {

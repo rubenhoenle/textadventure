@@ -165,8 +165,8 @@ public class Zork {
         game = loadGame(Constants.NEW_GAME);
         List<Room> labyrinth = generateGenericLabyrinth();
         for (Room room : labyrinth) {
-			game.addRoom(room);
-		}
+            game.addRoom(room);
+        }
         if (null != game) {
             registerCommands();
             game.play(game.player);
@@ -195,13 +195,13 @@ public class Zork {
         game = loadGame(Constants.NEW_GAME);
         if (null != game) {
             registerCommands();
-            editor = new Editor();
-            editor.edit(game);
+            editor = new Editor(game);
+            editor.edit();
         }
     }
 
     // Methode zum Speichern von Änderungen an der database.json
-    public static void saveModel(Game g) {
+    public static boolean saveModel(Game g) {
         // Serialization
         String savedGame = gson.toJson(g);
         try {
@@ -209,8 +209,10 @@ public class Zork {
             writer.write(savedGame);
             writer.close();
             System.out.println("Saved.");
+            return true;
         } catch (IOException e) {
             System.out.println("Fehler beim Speichern in Datei.");
+            return false;
         }
     }
 
@@ -238,6 +240,7 @@ public class Zork {
                 Continue = true;
                 edit();
             }
+            userInput.close();
         }
     }
 
@@ -286,47 +289,49 @@ public class Zork {
     }
 
     public static List<Room> generateGenericLabyrinth() {
-    	int amountRooms = 5;
-    	String entryString = "low branches of maple tree";
-    	
-    	List<Room> labyrinthRooms = new ArrayList<Room>();
-    	
-    	int[] roomNumbers = new int[amountRooms];
-    	for (int i = 0; i < amountRooms - 1; i++) {
-    		roomNumbers[i] = i;
-    	}
-    	roomNumbers[amountRooms-1] = 100;
+        int amountRooms = 5;
+        String entryString = "low branches of maple tree";
 
-    	Random random = new Random();
-    	for (int i = 0; i < amountRooms; i++) {
-    		int r = random.nextInt(roomNumbers.length);
-    		while (roomNumbers[r] == i) {
-    			r = random.nextInt(roomNumbers.length);
-    		}
-    		String to = "labyrinth" + roomNumbers[r];
-    		if (roomNumbers[r] == 100) {
-    			to = entryString;
-    		}
-    		roomNumbers = ArrayUtils.remove(roomNumbers, r);
-    		String dir1 = Constants.DIRECTIONS.get(random.nextInt(6));
-    		Way way = new Way("way", "Everywhere around you are branches and leafs!", dir1, "labyrinth" + i, to, null, "");
-    		Room labyrinthRoom = new Room("labyrinth" + i, "Everywhere around you are branches and leafs!", "", "", null, null, null, false, null, false);
-    		labyrinthRoom.addWay(way);
-    		if (i < 4) {
-    			String dir2 = Constants.DIRECTIONS.get(random.nextInt(6));
-    			while (dir2.equals(dir1)) {
-    				dir2 = Constants.DIRECTIONS.get(random.nextInt(6));
-    			}
-    			labyrinthRoom.addWay(new Way("way", "", dir2, "labyrinth" + i, "labyrinth" + (i + 1), null, ""));
-    		}
-    		labyrinthRooms.add(labyrinthRoom);
-    	}
-    	
-    	Way entryWay = new Way("tree way", "Maybe you can go 'west'.", "west", 
-    			entryString, "labyrinth" + (amountRooms-1), null, "");
-    	Room entry = game.getRooms().stream().filter(room -> room.getName().equals(entryString))
-    			.collect(Collectors.toList()).get(0);
-    	entry.addWay(entryWay);
-    	return labyrinthRooms;
+        List<Room> labyrinthRooms = new ArrayList<Room>();
+
+        int[] roomNumbers = new int[amountRooms];
+        for (int i = 0; i < amountRooms - 1; i++) {
+            roomNumbers[i] = i;
+        }
+        roomNumbers[amountRooms - 1] = 100;
+
+        Random random = new Random();
+        for (int i = 0; i < amountRooms; i++) {
+            int r = random.nextInt(roomNumbers.length);
+            while (roomNumbers[r] == i) {
+                r = random.nextInt(roomNumbers.length);
+            }
+            String to = "labyrinth" + roomNumbers[r];
+            if (roomNumbers[r] == 100) {
+                to = entryString;
+            }
+            roomNumbers = ArrayUtils.remove(roomNumbers, r);
+            String dir1 = Constants.DIRECTIONS.get(random.nextInt(6));
+            Way way = new Way("way", "Everywhere around you are branches and leafs!", dir1, "labyrinth" + i, to, null,
+                    "");
+            Room labyrinthRoom = new Room("labyrinth" + i, "Everywhere around you are branches and leafs!", "", "",
+                    null, null, null, false, null, false);
+            labyrinthRoom.addWay(way);
+            if (i < 4) {
+                String dir2 = Constants.DIRECTIONS.get(random.nextInt(6));
+                while (dir2.equals(dir1)) {
+                    dir2 = Constants.DIRECTIONS.get(random.nextInt(6));
+                }
+                labyrinthRoom.addWay(new Way("way", "", dir2, "labyrinth" + i, "labyrinth" + (i + 1), null, ""));
+            }
+            labyrinthRooms.add(labyrinthRoom);
+        }
+
+        Way entryWay = new Way("tree way", "Maybe you can go 'west'.", "west", entryString,
+                "labyrinth" + (amountRooms - 1), null, "");
+        Room entry = game.getRooms().stream().filter(room -> room.getName().equals(entryString))
+                .collect(Collectors.toList()).get(0);
+        entry.addWay(entryWay);
+        return labyrinthRooms;
     }
 }

@@ -2,6 +2,8 @@ package de.dhbw.project;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.item.*;
+import de.dhbw.project.levelEditor.SimpleUserInput;
+import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,9 +13,9 @@ public class QuestItem extends Item {
     @SerializedName("type")
     private String type;
 
-    public QuestItem(String name, String description, ItemState itemstate, int strength, EquipmentType equipmentType,
+    public QuestItem(String name, String description, ItemState addItemState, int strength, EquipmentType equipmentType,
             String type, int addInventorySpace) {
-        super(name, description, itemstate, strength, equipmentType, addInventorySpace);
+        super(name, description, addItemState, strength, equipmentType, addInventorySpace);
         this.type = type;
     }
 
@@ -27,7 +29,7 @@ public class QuestItem extends Item {
 
     public Item questItemToItem() {
         // converts an rewards to the type he got in the json
-        switch (this.getType()) {
+        switch (this.getType().toLowerCase()) {
         case "cloth":
             return new Clothing(this.getName(), this.getDescription(), this.getItemstate(), this.getStrength(),
                     this.getEquipmentType(), this.getExpandInventorySpace());

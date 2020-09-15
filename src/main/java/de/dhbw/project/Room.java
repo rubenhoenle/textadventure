@@ -59,6 +59,21 @@ public class Room extends Thing {
         this.roomInteractiveCraftingObjectsList = craftingObjects;
     }
 
+    // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
+    // variables
+    public Room(String name, String description, String enabled, String defaultItemLocation,
+            List<InteractiveCraftingObject> craftingObjects, List<Friend> friendList, List<Enemy> enemyList,
+            boolean isDark, String condition) {
+        super(name, description);
+        this.enabled = enabled;
+        this.defaultItemLocation = defaultItemLocation;
+        this.isDark = isDark;
+        this.friendList = friendList;
+        this.enemyList = enemyList;
+        this.roomInteractiveCraftingObjectsList = craftingObjects;
+        this.conditionalItem = condition;
+    }
+
     // Method simplifies the default output for a room object
     @Override
     public String toString() {
@@ -69,6 +84,10 @@ public class Room extends Thing {
 
     public List<Way> getRoomWayList() {
         return roomWayList;
+    }
+
+    public void setRoomItemList(ItemList liste) {
+        this.roomItemList = liste;
     }
 
     public List<Item> getRoomItemList() {
@@ -155,6 +174,10 @@ public class Room extends Thing {
 
     public boolean isDark() {
         return isDark;
+    }
+
+    public void setIsDark(boolean dark) {
+        isDark = dark;
     }
 
     public String getConditionalItem() {

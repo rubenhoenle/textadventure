@@ -1,5 +1,7 @@
 package de.dhbw.project;
 
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.levelEditor.SimpleUserInput;
 import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
@@ -88,7 +90,7 @@ public class Way extends Thing {
         this.hint = hint;
     }
 
-    public static Way createWay(Room from, Game game) {
+    public static Way createWay(Room from, List<Room> rooms) {
         boolean exit = false;
         while (!exit) {
             String name, description, direction, hint;
@@ -97,7 +99,7 @@ public class Way extends Thing {
             WayState state;
             name = SimpleUserInput.addMethod("Name");
             description = SimpleUserInput.addMethod("Description");
-            toRoom = SimpleUserInput.addMethodRoom("Destination room", game);
+            toRoom = SimpleUserInput.addMethodRoom("Destination room", rooms);
             if (null == toRoom) {
                 return null;
             }
@@ -139,7 +141,7 @@ public class Way extends Thing {
         this.conditionalItem = condition;
     }
 
-    public static Way editWay(Way way, Game game) {
+    public static Way editWay(Way way, List<Room> rooms) {
         boolean exit = false;
         while (!exit) {
             String name, description, direction, hint;
@@ -149,7 +151,7 @@ public class Way extends Thing {
             name = SimpleUserInput.editMethod("Name", way.getName());
             description = SimpleUserInput.editMethod("Description", way.getDescription());
             System.out.println("Current destination room: " + way.getTo());
-            toRoom = SimpleUserInput.addMethodRoom("Destination room", game);
+            toRoom = SimpleUserInput.addMethodRoom("Destination room", rooms);
             if (null == toRoom) {
                 return null;
             }

@@ -44,7 +44,7 @@ public class MoveCommand extends AutoCommand {
             Way resultWay = game.getWayForDirection(direction);
             if (resultWay.getState() == WayState.ACTIVE) {
                 if (!game.getRoom(resultWay.getTo()).isDark()) { // when room is not dark
-                    //check if player has a active lamp
+                    // check if player has a active lamp
                     boolean showMessage = (game.player.getLampState() == LampState.ON);
                     moveInRoom(resultWay);
                     if (showMessage) { // when player has a active lamp
