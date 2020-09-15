@@ -31,7 +31,7 @@ import de.dhbw.project.Game;
 import de.dhbw.project.Player;
 import de.dhbw.project.Quest;
 import de.dhbw.project.QuestItem;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)

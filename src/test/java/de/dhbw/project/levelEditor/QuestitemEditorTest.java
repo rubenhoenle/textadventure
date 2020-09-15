@@ -33,7 +33,7 @@ import de.dhbw.project.Game;
 import de.dhbw.project.Player;
 import de.dhbw.project.QuestItem;
 import de.dhbw.project.item.ItemState;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)
@@ -420,7 +420,7 @@ public class QuestitemEditorTest {
         when(SimpleUserInput.addMethodInt("Inventory Space")).thenReturn(addInventorySpace);
         when(SimpleUserInput.addMethodEquipmentType("Equipment-Typ")).thenReturn(eTyp);
         when(SimpleUserInput.addMethodItemState("Item State")).thenReturn(state);
-        when(SimpleUserInput.storeDialogue(anyString())).thenReturn(Decision.ABBORT);
+        when(SimpleUserInput.storeDialogue(anyString())).thenReturn(Decision.CANCEL);
         // when
         QuestItem feedback = spyQuestItemEditor.createQuestItem();
 
@@ -551,7 +551,7 @@ public class QuestitemEditorTest {
         when(SimpleUserInput.editMethod("Inventory Space",q1.getExpandInventorySpace())).thenReturn(addInventorySpace);
         when(SimpleUserInput.editMethod("Equipment-Typ",q1.getEquipmentType())).thenReturn(eTyp);
         when(SimpleUserInput.editMethod("Item State",q1.getItemstate())).thenReturn(state);
-        when(SimpleUserInput.storeDialogue(anyString())).thenReturn(Decision.ABBORT);
+        when(SimpleUserInput.storeDialogue(anyString())).thenReturn(Decision.CANCEL);
 
         // when
         QuestItem feedback = spyQuestItemEditor.editQuestItem(q1);

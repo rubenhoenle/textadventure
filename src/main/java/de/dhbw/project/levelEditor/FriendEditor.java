@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import de.dhbw.project.Quest;
 import de.dhbw.project.character.Friend;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 //TODO: create Tests and adapt Tests for RoomEditor
 public class FriendEditor {
@@ -110,7 +109,7 @@ public class FriendEditor {
         int health, strength, points;
         boolean killed;
         List<Quest> quests;
-        Decision d = Decision.ABBORT;
+        Decision d = Decision.CANCEL;
         do {
             name = SimpleUserInput.addMethod("Name");
             where = SimpleUserInput.addMethod("Where");
@@ -133,7 +132,6 @@ public class FriendEditor {
     // TODO: write Tests
     public List<Friend> editFriendMenu(List<Friend> friends) {
         if ((null != friends) && (friends.size() > 0)) {
-            boolean goOn = false;
             System.out.println("Please enter the name of the friend you want to edit: ");
             String input = SimpleUserInput.scan();
             List<Friend> resultList = friends.stream().filter(e -> e.getName().equals(input))
@@ -166,7 +164,7 @@ public class FriendEditor {
             int health, strength, points;
             boolean killed;
             List<Quest> quests;
-            Decision d = Decision.ABBORT;
+            Decision d = Decision.CANCEL;
             do {
                 name = SimpleUserInput.editMethod("Name", friend.getName());
                 where = SimpleUserInput.editMethod("Where", friend.getWhere());

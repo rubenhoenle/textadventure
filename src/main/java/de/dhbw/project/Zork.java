@@ -329,9 +329,12 @@ public class Zork {
 
         Way entryWay = new Way("tree way", "Maybe you can go 'west'.", "west", entryString,
                 "labyrinth" + (amountRooms - 1), null, "");
-        Room entry = game.getRooms().stream().filter(room -> room.getName().equals(entryString))
-                .collect(Collectors.toList()).get(0);
-        entry.addWay(entryWay);
+        List<Room> resultList = game.getRooms().stream().filter(room -> room.getName().equals(entryString))
+                .collect(Collectors.toList());
+        if (resultList.size() > 0) {
+            Room entry = resultList.get(0);
+            entry.addWay(entryWay);
+        }
         return labyrinthRooms;
     }
 }

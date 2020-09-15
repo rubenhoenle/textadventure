@@ -1,7 +1,7 @@
 package de.dhbw.project.item;
 
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 public class Food extends Item {
 
@@ -22,7 +22,7 @@ public class Food extends Item {
                 return new Food(name, description, ItemState.NOT_USABLE, 0);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }
@@ -42,7 +42,7 @@ public class Food extends Item {
                 return new Food(name, description, food.getItemstate(), food.getStrength());
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }

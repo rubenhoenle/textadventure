@@ -2,14 +2,11 @@ package de.dhbw.project.levelEditor;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import de.dhbw.project.EquipmentType;
-import de.dhbw.project.Quest;
 import de.dhbw.project.QuestItem;
 import de.dhbw.project.item.ItemState;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 public class QuestItemEditor {
 
@@ -25,7 +22,7 @@ public class QuestItemEditor {
 
     public List<QuestItem> startQuestItemEditor(List<QuestItem> questItemList) {
         List<QuestItem> returnList = questItemList;
-        Boolean goOn = false;
+        boolean goOn = false;
         if (null == returnList) {
             returnList = new ArrayList<>();
         }
@@ -150,7 +147,7 @@ public class QuestItemEditor {
             type = SimpleUserInput.addMethod("Item-Typ(book/cloth/food/resource/weapon/tool)"); // TODO: create
                                                                                                 // SimpleUserInput-Method
             addStrenght = SimpleUserInput.addMethodInt("Strength");
-            addInventorySpace = SimpleUserInput.addMethodInt("Inventory Space");
+            addInventorySpace = SimpleUserInput.addMethodInt("Add-Inventoryspace");
             addEquipmentType = SimpleUserInput.addMethodEquipmentType("Equipment-Typ");
             addItemState = SimpleUserInput.addMethodItemState("Item State");
             d = SimpleUserInput.storeDialogue("Quest Item");
@@ -199,7 +196,7 @@ public class QuestItemEditor {
             type = SimpleUserInput.editMethod("Item-Typ(book/cloth/food/resource/weapon/tool)",
                     questItem.getType().toString()); // TODO: create SimpleUserInput-Method
             addStrenght = SimpleUserInput.editMethod("Strength", questItem.getStrength());
-            addInventorySpace = SimpleUserInput.editMethod("Inventory Space", questItem.getExpandInventorySpace());
+            addInventorySpace = SimpleUserInput.editMethod("Add-Inventoryspace", questItem.getExpandInventorySpace());
             addEquipmentType = SimpleUserInput.editMethod("Equipment-Typ", questItem.getEquipmentType());
             addItemState = SimpleUserInput.editMethod("Item State", questItem.getItemstate());
             d = SimpleUserInput.storeDialogue("Quest Item");

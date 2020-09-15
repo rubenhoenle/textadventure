@@ -2,8 +2,6 @@ package de.dhbw.project.levelEditor;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 import java.io.PrintStream;
@@ -33,7 +31,7 @@ import de.dhbw.project.item.ItemList;
 import de.dhbw.project.item.Resource;
 import de.dhbw.project.item.Tool;
 import de.dhbw.project.item.Weapon;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)

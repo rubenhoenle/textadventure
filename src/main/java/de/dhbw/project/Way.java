@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 public class Way extends Thing {
     @SerializedName("direction")
@@ -125,7 +125,7 @@ public class Way extends Thing {
                 return new Way(name, description, direction, from.getName(), toRoom.getName(), state, hint);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 return null;
             }
         }
@@ -179,7 +179,7 @@ public class Way extends Thing {
                 return new Way(name, description, direction, way.getFrom(), toRoom.getName(), state, hint);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 return null;
             }
         }

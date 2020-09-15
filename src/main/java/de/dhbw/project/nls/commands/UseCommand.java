@@ -63,7 +63,7 @@ public class UseCommand extends AutoCommand {
                 if (wayList.size() > 0) {
                     wayList.forEach(element -> {
                         element.setState(WayState.ACTIVE);
-                        //set all ways back to active
+                        // set all ways back to active
                         for (Way wb : game.getRoom(element.getTo()).getRoomWayList()) {
                             if (element.getTo().equals(wb.getFrom()) && element.getFrom().equals(wb.getTo())) {
                                 wb.setState(WayState.ACTIVE);

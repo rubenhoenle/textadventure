@@ -30,7 +30,6 @@ import de.dhbw.project.Room;
 import de.dhbw.project.Way;
 import de.dhbw.project.Zork;
 import de.dhbw.project.item.ItemList;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)
@@ -184,7 +183,6 @@ public class PlayerEditorTest {
     public void test59EditPlayerAttributesSAVE(){
         //before
         List<Room> rooms = new ArrayList<>();
-        String newName = "newName";
         String oldName = "oldName";
         String newRoomName = "newRoomName";
         String oldRoomName = "oldRoomName";
@@ -202,7 +200,6 @@ public class PlayerEditorTest {
         when(player.getHealth()).thenReturn(oldHealth);
         when(SimpleUserInput.storeDialogue("Player")).thenReturn(Decision.SAVE);
         when(game.getPlayer()).thenReturn(player);
-        when(SimpleUserInput.editMethod("Name", player.getName())).thenReturn(newName);
         when(SimpleUserInput.editMethod("Points", player.getPoints())).thenReturn(newPoints);
         when(SimpleUserInput.editMethod("Strength", player.getStrength())).thenReturn(newStrength);
         when(SimpleUserInput.editMethod("Health", player.getHealth())).thenReturn(newHealth);
@@ -217,7 +214,6 @@ public class PlayerEditorTest {
         //then
         assertEquals(false, feedback);
         verify(editor).setChanged();
-        verify(player).setName(newName);
         verify(player).setPoints(newPoints);
         verify(player).setStrength(newStrength);
         verify(player).setRoomName(newRoomName);
@@ -283,7 +279,7 @@ public class PlayerEditorTest {
         when(player.getPoints()).thenReturn(oldPoints);
         when(player.getStrength()).thenReturn(oldStrength);
         when(player.getHealth()).thenReturn(oldHealth);
-        when(SimpleUserInput.storeDialogue("Player")).thenReturn(Decision.ABBORT);
+        when(SimpleUserInput.storeDialogue("Player")).thenReturn(Decision.CANCEL);
         when(game.getPlayer()).thenReturn(player);
         when(SimpleUserInput.editMethod("Name", player.getName())).thenReturn(newName);
         when(SimpleUserInput.editMethod("Points", player.getPoints())).thenReturn(newPoints);

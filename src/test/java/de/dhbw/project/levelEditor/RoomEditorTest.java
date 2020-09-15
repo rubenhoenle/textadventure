@@ -32,7 +32,7 @@ import de.dhbw.project.Room;
 import de.dhbw.project.Way;
 import de.dhbw.project.Zork;
 import de.dhbw.project.item.*;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;;
+import de.dhbw.project.levelEditor.Decision;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)
@@ -271,7 +271,7 @@ public class RoomEditorTest {
                 r.getConditionalItem())).thenReturn("newConditionalItem");
         when(SimpleUserInput.editMethod("DefaultItemLocation", r.getDefaultItemLocation()))
                 .thenReturn("newDefaultItemLocation");
-        when(SimpleUserInput.storeDialogue("Room")).thenReturn(Decision.ABBORT);
+        when(SimpleUserInput.storeDialogue("Room")).thenReturn(Decision.CANCEL);
         when(spyRoomEditor.getEditor()).thenReturn(editor);
         when(editor.getFriendEditor()).thenReturn(friendEditor);
         when(editor.getEnemyEditor()).thenReturn(enemyEditor);
@@ -348,7 +348,7 @@ public class RoomEditorTest {
         when(SimpleUserInput.addMethod("Name of a conditional item, leave it empty if there is no such one required"))
                 .thenReturn("newConditionalItem");
         when(SimpleUserInput.addMethod("DefaultItemLocation")).thenReturn("newDefaultItemLocation");
-        when(SimpleUserInput.storeDialogue("room")).thenReturn(Decision.ABBORT);
+        when(SimpleUserInput.storeDialogue("room")).thenReturn(Decision.CANCEL);
         when(spyRoomEditor.getEditor()).thenReturn(editor);
         when(editor.getFriendEditor()).thenReturn(friendEditor);
         when(editor.getEnemyEditor()).thenReturn(enemyEditor);

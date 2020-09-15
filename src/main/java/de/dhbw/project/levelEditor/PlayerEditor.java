@@ -1,7 +1,6 @@
 package de.dhbw.project.levelEditor;
 
 import de.dhbw.project.Player;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 public class PlayerEditor {
     private Editor editor;
@@ -26,7 +25,7 @@ public class PlayerEditor {
     }
 
     public boolean editPlayer(Player player) {
-        Boolean goOn = true;
+        boolean goOn = true;
         String input;
         System.out.println(
                 "Enter 'view' to view his attributes, 'edit' to edit them, 'item' to edit his items and 'equipment' to edit his equipment:");
@@ -65,31 +64,32 @@ public class PlayerEditor {
         System.out.println("Strength: " + player.getStrength());
         System.out.println("Health: " + player.getHealth());
         System.out.println("Current Room: " + player.getRoomName());
+        System.out.println("InventorySpace: " + player.getInventorySpace());
     }
 
     public boolean editPlayerAttributes(Player player) {
-        String newName, newRoomName;
-        int newPoints, newStrength, newHealth;
-        newName = SimpleUserInput.editMethod("Name", player.getName());
+        String newRoomName;
+        int newPoints, newStrength, newHealth, inventorySpace;
         newPoints = SimpleUserInput.editMethod("Points", player.getPoints());
         newStrength = SimpleUserInput.editMethod("Strength", player.getStrength());
         newHealth = SimpleUserInput.editMethod("Health", player.getHealth());
         newRoomName = SimpleUserInput.editMethodRoomName("Room", player.getRoomName(),
                 getEditor().getGame().getRooms());
+        inventorySpace = SimpleUserInput.editMethod("Inventory Space", player.getInventorySpace());
         Decision d;
         d = SimpleUserInput.storeDialogue("Player");
         switch (d) {
         case SAVE:
-            player.setName(newName);
             player.setPoints(newPoints);
             player.setStrength(newStrength);
             player.setRoomName(newRoomName);
             player.setHealth(newHealth);
+            player.setInventorySpace(inventorySpace);
             getEditor().setChanged();
             return false;
         case AGAIN:
             return true;
-        case ABBORT:
+        case CANCEL:
             return false;
         default:
             return false;

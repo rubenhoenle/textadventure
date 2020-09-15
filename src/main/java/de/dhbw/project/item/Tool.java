@@ -2,7 +2,7 @@ package de.dhbw.project.item;
 
 import de.dhbw.project.EquipmentType;
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 public class Tool extends Item {
 
@@ -31,7 +31,7 @@ public class Tool extends Item {
                 return new Tool(name, description, ItemState.NOT_USABLE, strength, typ);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }
@@ -55,7 +55,7 @@ public class Tool extends Item {
                 return new Tool(name, description, tool.getItemstate(), strength, typ);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }

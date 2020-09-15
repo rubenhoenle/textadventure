@@ -1,6 +1,5 @@
 package de.dhbw.project.levelEditor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.dhbw.project.item.*;

@@ -30,7 +30,7 @@ import de.dhbw.project.Game;
 import de.dhbw.project.Room;
 import de.dhbw.project.WayState;
 import de.dhbw.project.item.ItemState;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)
@@ -510,7 +510,7 @@ public class SimpleUserInputTest {
         Decision d = SimpleUserInput.storeDialogue(testName);
 
         //then
-        assertEquals("ABBORT", d.toString());
+        assertEquals("CANCEL", d.toString());
         verify(out).println("Enter 'store' to store the " + testName
         + ", 'edit' to enter the details again or 'q' to this operation");
     }
@@ -528,7 +528,7 @@ public class SimpleUserInputTest {
         Decision d = SimpleUserInput.storeDialogue(testName);
 
         //then
-        assertEquals("ABBORT", d.toString());
+        assertEquals("CANCEL", d.toString());
         verify(out,times(SimpleUserInput.maxAttempts)).println("Enter 'store' to store the " + testName
         + ", 'edit' to enter the details again or 'q' to this operation");
     }

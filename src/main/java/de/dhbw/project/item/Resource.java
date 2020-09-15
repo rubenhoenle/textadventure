@@ -1,7 +1,7 @@
 package de.dhbw.project.item;
 
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 public class Resource extends Item {
 
@@ -22,7 +22,7 @@ public class Resource extends Item {
                 return new Resource(name, description, ItemState.NOT_USABLE, 0);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }
@@ -42,7 +42,7 @@ public class Resource extends Item {
                 return new Resource(name, description, resource.getItemstate(), resource.getStrength());
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }

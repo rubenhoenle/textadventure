@@ -3,7 +3,7 @@ package de.dhbw.project;
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.item.*;
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 import java.util.Arrays;
 import java.util.List;

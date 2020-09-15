@@ -2,7 +2,7 @@ package de.dhbw.project.item;
 
 import com.google.gson.annotations.SerializedName;
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 import de.dhbw.project.regions.ruins.AlienFont;
 
 import java.io.BufferedReader;
@@ -159,7 +159,7 @@ public class Book extends Item {
                 return new Book(name, description, ItemState.NOT_USABLE, 0, Arrays.asList(""), false);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }
@@ -180,7 +180,7 @@ public class Book extends Item {
                         book.translatable, book.translationRewards);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }

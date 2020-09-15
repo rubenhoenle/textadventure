@@ -18,10 +18,6 @@ public class SimpleUserInput {
     final static int maxAttempts = 5;
     static Scanner userInput = new Scanner(System.in);
 
-    public enum Decision {
-        SAVE, AGAIN, ABBORT
-    }
-
     public static String scan() {
         // Scanner userInput = new Scanner(System.in);
         if (userInput.hasNextLine()) {
@@ -40,7 +36,7 @@ public class SimpleUserInput {
     }
 
     // Prompts the user to enter a boolean, after maxAttempts the currentValue will be returned
-    public static Boolean editMethod(String name, Boolean currentValue) {
+    public static boolean editMethod(String name, Boolean currentValue) {
         String input;
         if (null != currentValue) {
             System.out.println("Current " + name + ": " + currentValue.toString());
@@ -158,7 +154,7 @@ public class SimpleUserInput {
     }
 
     // Prompts the user to enter an Integer, after maxAttempts false will be returned
-    public static Boolean addMethodBoolean(String name) {
+    public static boolean addMethodBoolean(String name) {
         String input;
         for (int i = 0; i < maxAttempts; i++) {
             System.out.println("Please enter the new " + name + ":");
@@ -270,10 +266,10 @@ public class SimpleUserInput {
             case "edit":
                 return Decision.AGAIN;
             case "q":
-                return Decision.ABBORT;
+                return Decision.CANCEL;
             }
         }
-        return Decision.ABBORT;
+        return Decision.CANCEL;
     }
 
     // Prompts the user to enter 'yes' or 'no' and returns a boolean

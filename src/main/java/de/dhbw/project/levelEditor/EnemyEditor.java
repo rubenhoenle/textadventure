@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import de.dhbw.project.Quest;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.item.ItemList;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 //TODO: create Tests and adapt Tests for RoomEditor
 public class EnemyEditor {
@@ -114,7 +112,7 @@ public class EnemyEditor {
         int health, strength, points;
         boolean killed, autoAttack;
         ItemList dropItems;
-        Decision d = Decision.ABBORT;
+        Decision d = Decision.CANCEL;
         do {
             name = SimpleUserInput.addMethod("Name");
             where = SimpleUserInput.addMethod("Where");
@@ -172,7 +170,7 @@ public class EnemyEditor {
             int health, strength, points;
             boolean killed, autoAttack;
             ItemList dropItems;
-            Decision d = Decision.ABBORT;
+            Decision d = Decision.CANCEL;
             do {
                 name = SimpleUserInput.editMethod("Name", enemy.getName());
                 where = SimpleUserInput.editMethod("Where", enemy.getWhere());

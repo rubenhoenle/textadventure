@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import de.dhbw.project.Game;
 import de.dhbw.project.Room;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 public class RoomEditor {
 
@@ -75,7 +73,7 @@ public class RoomEditor {
 
     public boolean addRoom(List<Room> rooms) {
         String name, description, defaultItemLocation, conditionalItem;
-        Boolean dark;
+        boolean dark;
         name = SimpleUserInput.addMethod("Name");
         description = SimpleUserInput.addMethod("Description");
         dark = SimpleUserInput.addMethodBoolean("is dark");
@@ -94,7 +92,7 @@ public class RoomEditor {
             return false;
         case AGAIN:
             return true;
-        case ABBORT:
+        case CANCEL:
             return false;
         default:
             return false;
@@ -126,7 +124,7 @@ public class RoomEditor {
             return false;
         case AGAIN:
             return true;
-        case ABBORT:
+        case CANCEL:
             return false;
         default:
             return false;
@@ -144,7 +142,7 @@ public class RoomEditor {
             System.out.println("There is no room available  with the name '" + input + "'.");
         } else {
             System.out.println("Room name: " + room.getName() + "\nRoom description: " + room.getDescription());
-            Boolean delete = SimpleUserInput.deleteDialogue("Room", room.getName());
+            boolean delete = SimpleUserInput.deleteDialogue("Room", room.getName());
             if (delete) {
                 rooms.remove(room);
                 getEditor().setChanged();
@@ -175,7 +173,7 @@ public class RoomEditor {
     }
 
     public boolean inspect(List<Room> rooms, Room room) {
-        Boolean goOn = true;
+        boolean goOn = true;
         String input;
         System.out.println("name: " + room.getName());
         System.out.println("description: " + room.getDescription());

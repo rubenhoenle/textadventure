@@ -1,13 +1,11 @@
 package de.dhbw.project.levelEditor;
 
-import java.time.format.SignStyle;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import de.dhbw.project.Quest;
 import de.dhbw.project.QuestItem;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 public class QuestsEditor {
     // plan: gets a List of quests and provides the menu for view, delete, edit and
@@ -141,9 +139,9 @@ public class QuestsEditor {
 
     // TODO: add Tests
     public Quest createQuest() {
-        Decision d = Decision.ABBORT;
+        Decision d = Decision.CANCEL;
         String name, textStart, textAccept, textMid, textEnd, fulfillmentKill;
-        Boolean completed, accepted, talkedOnce, autoComplete, mainQuest, removeFulfillmentItems;
+        boolean completed, accepted, talkedOnce, autoComplete, mainQuest, removeFulfillmentItems;
         List<QuestItem> reward, fulfillmentItems;
         int points;
         do {
@@ -206,9 +204,9 @@ public class QuestsEditor {
     // TODO: add Tests
     public Quest editQuest(Quest quest) {
         if (null != quest) {
-            Decision d = Decision.ABBORT;
+            Decision d = Decision.CANCEL;
             String name, textStart, textAccept, textMid, textEnd, fulfillmentKill;
-            Boolean completed, accepted, talkedOnce, autoComplete, mainQuest, removeFulfillmentItems;
+            boolean completed, accepted, talkedOnce, autoComplete, mainQuest, removeFulfillmentItems;
             List<QuestItem> reward, fulfillmentItems;
             int points;
             do {

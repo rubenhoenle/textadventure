@@ -2,7 +2,7 @@ package de.dhbw.project.item;
 
 import de.dhbw.project.EquipmentType;
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 public class Clothing extends Item {
 
@@ -27,7 +27,7 @@ public class Clothing extends Item {
                 return new Clothing(name, description, ItemState.NOT_USABLE, strength, typ, 0);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }
@@ -51,7 +51,7 @@ public class Clothing extends Item {
                 return new Clothing(name, description, clothing.getItemstate(), strength, typ, 0);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }

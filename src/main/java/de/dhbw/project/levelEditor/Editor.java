@@ -6,7 +6,6 @@ import java.util.List;
 
 import de.dhbw.project.*;
 import de.dhbw.project.item.*;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
 
 import java.util.List;
 
@@ -77,7 +76,7 @@ public class Editor {
     }
 
     public void edit() {
-        Boolean goOn = false;
+        boolean goOn = false;
         System.out.println("Welcome to the level editor! :)");
         System.out.println("Disclaimer: You have to do the editing in the right order:");
         System.out.println(
@@ -108,8 +107,8 @@ public class Editor {
         System.out.println("The level editor says 'Goodbye'!");
     }
 
-    public Boolean menu(Game game) {
-        Boolean goOn = true;
+    public boolean menu(Game game) {
+        boolean goOn = true;
         System.out.println("Enter 'room' to edit rooms or 'player' to edit the player:");
         String input = SimpleUserInput.scan();
         input.toLowerCase();
