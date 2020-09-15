@@ -28,7 +28,7 @@ public class Tool extends Item {
             Decision d = SimpleUserInput.storeDialogue("Tool");
             switch (d) {
             case SAVE:
-                return new Tool(name, description, ItemState.NOT_USABLE, strength, typ);
+                return new Tool(name, description, ItemState.ACTIVE, strength, typ);
             case AGAIN:
                 break;
             case CANCEL:

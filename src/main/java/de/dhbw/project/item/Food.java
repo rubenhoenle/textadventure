@@ -19,7 +19,7 @@ public class Food extends Item {
             Decision d = SimpleUserInput.storeDialogue("Food");
             switch (d) {
             case SAVE:
-                return new Food(name, description, ItemState.NOT_USABLE, 0);
+                return new Food(name, description, ItemState.ACTIVE, 0);
             case AGAIN:
                 break;
             case CANCEL:

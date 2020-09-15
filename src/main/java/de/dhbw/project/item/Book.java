@@ -156,7 +156,7 @@ public class Book extends Item {
             Decision d = SimpleUserInput.storeDialogue("Book");
             switch (d) {
             case SAVE:
-                return new Book(name, description, ItemState.NOT_USABLE, 0, Arrays.asList(""), false);
+                return new Book(name, description, ItemState.ACTIVE, 0, Arrays.asList(""), false);
             case AGAIN:
                 break;
             case CANCEL:

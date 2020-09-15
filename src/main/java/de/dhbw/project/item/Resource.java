@@ -19,7 +19,7 @@ public class Resource extends Item {
             Decision d = SimpleUserInput.storeDialogue("Resource");
             switch (d) {
             case SAVE:
-                return new Resource(name, description, ItemState.NOT_USABLE, 0);
+                return new Resource(name, description, ItemState.ACTIVE, 0);
             case AGAIN:
                 break;
             case CANCEL:
