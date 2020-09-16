@@ -5,10 +5,10 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ItemListTest {
@@ -18,13 +18,13 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages) ;
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false) ;
 
         //when
         itemList.addItem(c);
@@ -44,13 +44,13 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false);
 
         itemList.addItem(c);
         itemList.addItem(f);
@@ -77,13 +77,13 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test"); 
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false);
 
         itemList.addItem(c);
         itemList.addItem(f);
@@ -113,13 +113,13 @@ public class ItemListTest {
         //before
         ItemList itemList = new ItemList();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false);
 
         for (int i=0; i<=10; i++){
             itemList.addItem(c);

@@ -1,7 +1,7 @@
 package de.dhbw.project;
 
-import de.dhbw.project.character.*;
 import de.dhbw.project.character.Character;
+import de.dhbw.project.character.RoamingEnemy;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;
@@ -49,11 +49,11 @@ public class GameTest {
     @Test
     public void test1_shouldAddItemToInventory() throws Exception {
         //before
-        String itemName = "TestItem";
+        String itemName = "testitem";
         Room currentRoom = mock(Room.class);
         PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
 
-        doReturn(Arrays.asList(itemName)).when(currentRoom).getRoomItemNameList();
+        doReturn(Arrays.asList(itemName)).when(currentRoom).getRoomItemLowerNameList();
 
         Item item = new Resource(itemName, "TestItem", ItemState.NOT_USABLE, 99);
         PowerMockito.doReturn(item).when(game, "getItemFromCurrentRoom", itemName);
@@ -62,7 +62,9 @@ public class GameTest {
         DataStorage data = new DataStorage();
         data.add("item", itemName);
         takeCommand.setData(data);
-        
+
+        when(player.getCurrentInventorySpace()).thenReturn(10);
+
         //when
         takeCommand.execute();
 
@@ -90,7 +92,7 @@ public class GameTest {
         takeCommand.execute();
 
         //then
-        verify(out).println("No item found with name \'" + itemName + "\' in room " + currentRoom.getName());
+        verify(out).println("No item found with name \'" + itemName.toLowerCase() + "\' in room " + currentRoom.getName());
     }
 
     @Test
@@ -266,5 +268,32 @@ public class GameTest {
         verify(e,never()).getNextRoom("foo");
         verify(r,never()).removeRoamingEnemy(e);
         verify(r2,never()).addRoamingEnemy(e);
+    }
+
+    @Test
+    public void test13_shouldNotAddItemToFullInventory() throws Exception {
+        //before
+        String itemName = "TestItem";
+        Room currentRoom = mock(Room.class);
+        PowerMockito.doReturn(currentRoom).when(game, "getCurrentRoom");
+
+        doReturn(Arrays.asList(itemName.toLowerCase())).when(currentRoom).getRoomItemLowerNameList();
+
+        Item item = new Resource(itemName, "TestItem", ItemState.NOT_USABLE, 99);
+        PowerMockito.doReturn(item).when(game, "getItemFromCurrentRoom", itemName.toLowerCase());
+
+        TakeCommand takeCommand = new TakeCommand(game);
+        DataStorage data = new DataStorage();
+        data.add("item", itemName);
+        takeCommand.setData(data);
+
+        when(player.getCurrentInventorySpace()).thenReturn(0);
+
+        //when
+        takeCommand.execute();
+
+        //then
+        verify(out).println("You can not pick up the \'" + item.getName()
+                + "\' to your inventory because it is already full.");
     }
 }

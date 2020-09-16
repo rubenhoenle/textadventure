@@ -4,7 +4,6 @@ import de.dhbw.project.Game;
 import de.dhbw.project.Player;
 import de.dhbw.project.Quest;
 import de.dhbw.project.Room;
-import de.dhbw.project.character.Character;
 import de.dhbw.project.interactive.InteractiveObject;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -31,7 +30,7 @@ public class InvestigateCommandTest {
     @Mock
     Game game;
 
-    InvestigateCommand command = PowerMockito.spy(new InvestigateCommand(game));
+    InvestigateCommand command = new InvestigateCommand(game);
 
     @Mock
     Player player;
@@ -56,7 +55,7 @@ public class InvestigateCommandTest {
         Quest q = mock(Quest.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-        when(game.getCurrentRoom().getRoomInteractiveObjectsNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCurrentRoom().getRoomInteractiveObjectsLowerNameList()).thenReturn(Arrays.asList("foo"));
         when(game.getCurrentRoom().getRoomInteractiveObjectByName("foo")).thenReturn(io);
         when(io.getQuest()).thenReturn(q);
         when(q.getTextStart()).thenReturn("QuestStartText");
@@ -75,17 +74,16 @@ public class InvestigateCommandTest {
     public void test2_shouldInvestigateWrongName() throws Exception {
         //before
         Whitebox.setInternalState(command, List.class, Arrays.asList("bar"));
-        InteractiveObject io = mock(InteractiveObject.class);
         Room r = mock(Room.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-        when(game.getCurrentRoom().getRoomInteractiveObjectsNameList()).thenReturn(Arrays.asList("foo"));
+        when(game.getCurrentRoom().getRoomInteractiveObjectsLowerNameList()).thenReturn(Arrays.asList("foo"));
 
         //when
         command.execute();
 
         //then
-        verify(out).println("There is no interactive object with the name \'" + "bar" + "\'.");
+        verify(out).println("There is no interactive object or chest with the name \'" + "bar" + "\'.");
      }
 
     @Test
@@ -96,7 +94,7 @@ public class InvestigateCommandTest {
         command.execute();
 
         //then
-        verify(out).println("You have to say which interactive object you want to use.");
+        verify(out).println("You have to say which interactive object or chest you want to investigate.");
     }
 
 }

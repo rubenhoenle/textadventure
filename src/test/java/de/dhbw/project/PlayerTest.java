@@ -16,7 +16,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.*;
 import static org.powermock.api.mockito.PowerMockito.when;
 
@@ -39,7 +40,7 @@ public class PlayerTest {
     public void test1_shouldAddItem(){
         //before
         Player p = new Player();
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
@@ -62,13 +63,13 @@ public class PlayerTest {
         //before
         Player p = new Player();
         
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false);
 
         p.addItem(c);
         p.addItem(f);
@@ -94,13 +95,13 @@ public class PlayerTest {
         //before
         Player p = new Player();
 
-        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY);
+        Clothing c = new Clothing("TestClothing", "TestClothing", ItemState.NOT_USABLE, 99, EquipmentType.LOWER_BODY,0);
         Food f = new Food("TestFood", "TestFood", ItemState.NOT_USABLE, 99);
         Resource r = new Resource("TestResource", "TestResource", ItemState.NOT_USABLE, 99);
         Tool t = new Tool("TestTool", "TestTool", ItemState.NOT_USABLE, 99);
         Weapon w = new Weapon("TestWeapon", "TestWeapon", ItemState.NOT_USABLE, 99);
         List<String> bookpages = Arrays.asList("Test\n\nTest Test","Test test test");
-        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages);
+        Book b = new Book("TestBook", "TestBook", ItemState.NOT_USABLE, 99, bookpages,false);
 
         p.addItem(c);
         p.addItem(f);
@@ -196,8 +197,8 @@ public class PlayerTest {
         Item i = new Tool("tool", "", ItemState.ACTIVE, 0);
         list.addItem(i);
         
-        Enemy e = new Enemy("Yoda", "", 12, 5, "start", "killed", false, list, false);
-        
+        Enemy e = new Enemy("Yoda", "", 12, 5, "start", "killed", false, 5,  list, false);
+
         //when
         p.fight(e, r);
 
@@ -219,7 +220,7 @@ public class PlayerTest {
         
         Room r = mock(Room.class);
         
-        Enemy e = new Enemy("Yoda", "", 20, 50, "start", "killed", false, null, false);
+        Enemy e = new Enemy("Yoda", "", 20, 50, "start", "killed",  false, 5, null, false);
         
         PowerMockito.mockStatic(Zork.class);
         
@@ -228,7 +229,6 @@ public class PlayerTest {
 
         //then
         verify(out).println("You lose the fight against " + e.getName() + "! You faint!");
-        verify(out).println("----------");
         verify(out).println("Last save game will be loaded! \n");
     }
     
@@ -241,7 +241,7 @@ public class PlayerTest {
         
         Room r = mock(Room.class);
         
-        Enemy e = new Enemy("Yoda", "", 20, 5, "start", "killed", false, null, false);
+        Enemy e = new Enemy("Yoda", "", 20, 5, "start", "killed", false, 5, null, false);
         
         PowerMockito.mockStatic(Zork.class);
         

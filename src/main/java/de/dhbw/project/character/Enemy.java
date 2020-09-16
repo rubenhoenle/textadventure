@@ -17,9 +17,9 @@ public class Enemy extends Character {
 
     }
 
-    public Enemy(String name, String where, int health, int strengh, String startStatement, String killStatement,
-            boolean killed, ItemList dropItemList, boolean autoAttack) {
-        super(name, where, health, strengh, startStatement, killStatement, killed);
+    public Enemy(String name, String where, int health, int strength, String startStatement, String killStatement,
+            boolean killed, int points, ItemList dropItemList, boolean autoAttack) {
+        super(name, where, health, strength, startStatement, killStatement, killed, points);
         this.dropItemList = dropItemList;
         this.autoAttack = autoAttack;
     }

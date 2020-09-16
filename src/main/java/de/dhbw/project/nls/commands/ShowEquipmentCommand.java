@@ -31,7 +31,7 @@ public class ShowEquipmentCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "[get|show|look|watch|see][ me| my] equipment", "equipment", "eq" };
+        String[] patterns = { "[get|show|watch|see][ ][me|my][ ]equipment", "eq" };
         return patterns;
     }
 

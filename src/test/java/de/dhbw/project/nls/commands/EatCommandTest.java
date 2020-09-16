@@ -1,9 +1,11 @@
 package de.dhbw.project.nls.commands;
 
-import java.io.PrintStream;
-import java.util.Arrays;
-import java.util.List;
-
+import de.dhbw.project.Game;
+import de.dhbw.project.Player;
+import de.dhbw.project.Room;
+import de.dhbw.project.item.Food;
+import de.dhbw.project.item.ItemState;
+import de.dhbw.project.item.Tool;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -15,12 +17,9 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
 
-import de.dhbw.project.Game;
-import de.dhbw.project.Player;
-import de.dhbw.project.Room;
-import de.dhbw.project.item.ItemState;
-import de.dhbw.project.item.Food;
-import de.dhbw.project.item.Tool;
+import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.mockito.Mockito.*;
 
@@ -57,7 +56,7 @@ public class EatCommandTest {
     	Room r = mock(Room.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-    	when(game.getCurrentRoom().getRoomItemNameList()).thenReturn(Arrays.asList(itemName));
+    	when(game.getCurrentRoom().getRoomItemLowerNameList()).thenReturn(Arrays.asList(itemName));
     	when(game.getItemFromCurrentRoom(itemName)).thenReturn(food);
     	
     	//when
@@ -79,7 +78,7 @@ public class EatCommandTest {
     	Room r = mock(Room.class);
 
         when(game.getCurrentRoom()).thenReturn(r);
-    	when(game.getCurrentRoom().getRoomItemNameList()).thenReturn(Arrays.asList(itemName));
+    	when(game.getCurrentRoom().getRoomItemLowerNameList()).thenReturn(Arrays.asList(itemName));
     	when(game.getItemFromCurrentRoom(itemName)).thenReturn(tool);
     	
     	//when

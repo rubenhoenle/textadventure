@@ -13,7 +13,7 @@ public class SaveCommand extends AutoCommand {
 
     @Override
     public void execute() {
-        Zork.saveGame(game);
+        Zork.saveGame(game, true);
     }
 
     @Override

@@ -15,9 +15,9 @@ public class Friend extends Character {
 
     }
 
-    public Friend(String name, String where, int health, int strengh, String startStatement, String killStatement,
-            boolean killed, List<Quest> quests) {
-        super(name, where, health, strengh, startStatement, killStatement, killed);
+    public Friend(String name, String where, int health, int strength, String startStatement, String killStatement,
+            boolean killed, int points, List<Quest> quests) {
+        super(name, where, health, strength, startStatement, killStatement, killed, points);
         this.quests = quests;
     }
 
@@ -34,4 +34,5 @@ public class Friend extends Character {
         }
         this.quests = quest;
     }
+
 }

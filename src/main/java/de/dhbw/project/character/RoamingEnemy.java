@@ -1,7 +1,6 @@
 package de.dhbw.project.character;
 
 import com.google.gson.annotations.SerializedName;
-import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
 
 import java.util.ArrayList;
@@ -16,8 +15,8 @@ public class RoamingEnemy extends Enemy {
     }
 
     public RoamingEnemy(String name, String where, int health, int strength, String startStatement,
-            String killStatement, boolean killed, ItemList dropItemList, List<String> travelPath) {
-        super(name, where, health, strength, startStatement, killStatement, killed, dropItemList, true);
+            String killStatement, boolean killed, int points, ItemList dropItemList, List<String> travelPath) {
+        super(name, where, health, strength, startStatement, killStatement, killed, points, dropItemList, true);
         this.travelPath = travelPath;
     }
 

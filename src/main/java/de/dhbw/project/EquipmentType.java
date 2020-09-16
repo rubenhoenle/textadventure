@@ -19,6 +19,6 @@ public enum EquipmentType {
     }
 
     public static List<String> getAllDescriptions() {
-        return Stream.of(EquipmentType.values()).map(EquipmentType::getDescription).collect(Collectors.toList());
+        return Stream.of(EquipmentType.values()).map(EquipmentType::name).collect(Collectors.toList());
     }
 }

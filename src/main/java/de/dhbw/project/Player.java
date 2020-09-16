@@ -11,13 +11,18 @@ import de.dhbw.project.item.LampState;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class Player {
     @SerializedName("name")
     private String name = null;
+    @SerializedName("timePlayed")
+    private long timePlayed;
     @SerializedName("points")
     private int points = 0;
+    @SerializedName("deaths")
+    private int deaths = 0;
     @SerializedName("strength")
     private int strength = 5;
     @SerializedName("health")
@@ -30,6 +35,8 @@ public class Player {
     private String roomName;
     @SerializedName("equipment")
     private ItemList equipment = new ItemList();
+    @SerializedName("inventorySpace")
+    private int inventorySpace;
 
     public void enterPlayerName() {
         Scanner tastatureingabe = new Scanner(System.in);
@@ -55,12 +62,28 @@ public class Player {
         this.name = name;
     }
 
+    public long getTimePlayed() {
+        return timePlayed;
+    }
+
+    public void setTimePlayed(long timePlayed) {
+        this.timePlayed = timePlayed;
+    }
+
     public int getPoints() {
         return points;
     }
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    public int getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(int deaths) {
+        this.deaths = deaths;
     }
 
     public int getStrength() {
@@ -117,6 +140,14 @@ public class Player {
         return inventory.getAllItemList();
     }
 
+    public void setEquipment(ItemList liste) {
+        this.equipment = liste;
+    }
+
+    public void setInventory(ItemList liste) {
+        this.inventory = liste;
+    }
+
     // getItem Method: returns an item, if an item with itemName was found, else returns null
     public Item getItem(String itemName) {
         return inventory.getItem(itemName);
@@ -144,17 +175,21 @@ public class Player {
             }
 
             System.out.println("You fight with " + c.getName() + "!");
-            System.out.println(c.getName() + ": " + c.getStartStatement());
+            if (c.getStartStatement() != null && c.getStartStatement() != "") {
+                System.out.println(c.getName() + ": " + c.getStartStatement());
+            }
 
             int enemyHealth = calculateFightAgainst(c);
 
             if (health <= 0) {
                 System.out.println("You lose the fight against " + c.getName() + "! You faint!");
-                System.out.println("----------");
+                printGameOverScreen();
                 System.out.println("Last save game will be loaded! \n");
-                Zork.loadGame(Constants.SAVED_GAME);
+                Zork.reloadAfterPlayerDeath();
             } else if (enemyHealth <= 0) {
-                System.out.println(c.getName() + ": " + c.getKillStatement());
+                if (c.getKillStatement() != null && c.getKillStatement() != "") {
+                    System.out.println(c.getName() + ": " + c.getKillStatement());
+                }
                 System.out.println("You win the fight against " + c.getName() + "!");
                 if (c instanceof Enemy) {
                     for (Item i : ((Enemy) c).getDropItemListElements()) {
@@ -163,10 +198,8 @@ public class Player {
                     }
                 }
                 c.setKilled(true);
-                printStats();
             } else {
                 System.out.println("Your opponent is bruised, but you also got a few scratches.");
-                printStats();
             }
         }
     }
@@ -186,7 +219,17 @@ public class Player {
         }
         protection = protection - (w != null ? w.getStrength() : 0);
 
-        System.out.println("Health: " + health + " | Strength: " + strength + " | Protection: " + protection);
+        // Time played
+        Zork.stopTimer();
+        String timePlayed = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(getTimePlayed()),
+                TimeUnit.MILLISECONDS.toMinutes(getTimePlayed())
+                        - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(getTimePlayed())),
+                TimeUnit.MILLISECONDS.toSeconds(getTimePlayed())
+                        - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(getTimePlayed())));
+        Zork.startTimer();
+
+        System.out.println("Health: " + health + " | Strength: " + strength + " | Protection: " + protection
+                + " | Points: " + points + " | Deaths: " + deaths + "\nTime played: " + timePlayed);
     }
 
     // calculates how many "health points" each opponent loses
@@ -215,11 +258,42 @@ public class Player {
     // getItem Method: returns an item, if an item with itemName was found, else returns null
     public Item getItemFromEquipment(String itemName) {
         for (Item i : equipment.getAllItemList()) {
-            if (i.getName().equals(itemName)) {
+            if (i.getName().equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
         return null;
+    }
+
+    public int getInventorySpace() {
+        return inventorySpace;
+    }
+
+    public void setInventorySpace(int inventorySpace) {
+        this.inventorySpace = inventorySpace;
+    }
+
+    public int getCurrentInventorySpace() {
+        // gives the currently free space in the inventory
+        if (getInventory() == null) {
+            return 0;
+        } else {
+            return (getInventorySpace() - getInventory().size());
+        }
+    }
+
+    public void addInventorySpace(Item item) {
+        // adds space to the inventory (as much space as the item has)
+        if (item.getExpandInventorySpace() > 0) {
+            setInventorySpace(getInventorySpace() + item.getExpandInventorySpace());
+        }
+    }
+
+    public void removeInventorySpace(Item item) {
+        // removes space to the inventory (as much space as the item has)
+        if (item.getExpandInventorySpace() > 0) {
+            setInventorySpace(getInventorySpace() - item.getExpandInventorySpace());
+        }
     }
 
     public boolean addEquipment(Item newItem) {
@@ -229,17 +303,27 @@ public class Player {
             if (item.getEquipmentType() == newItem.getEquipmentType())
                 return false;
         }
+        // InventorySpace
+        addInventorySpace(newItem);
+        // InventorySpace end
         equipment.addItem(newItem);
         return true;
     }
 
     public List<Item> removeEquipment(Item item) {
+        // InventorySpace
+        removeInventorySpace(item);
+        // InventorySpace end
         equipment.removeItem(item);
         return equipment.getAllItemList();
     }
 
     public ItemList getItemlist() {
         return inventory;
+    }
+
+    public ItemList getEquipmentItemList() {
+        return equipment;
     }
 
     public LampState getLampState() {
@@ -271,5 +355,39 @@ public class Player {
         }
 
         return LampState.HAS_NO_LAMP;
+    }
+
+    public void printGameOverScreen() {
+        System.out.println("                     .ed\"\"\"\" \"\"\"$$$$be.");
+        System.out.println("                   -\"           ^\"\"**$$$e.");
+        System.out.println("                 .\"                   '$$$c");
+        System.out.println("                /                      \"4$$b");
+        System.out.println("               d  3                      $$$$");
+        System.out.println("               $  *                   .$$$$$$");
+        System.out.println("              .$  ^c           $$$$$e$$$$$$$$.");
+        System.out.println("              d$L  4.         4$$$$$$$$$$$$$$b");
+        System.out.println("              $$$$b ^ceeeee.  4$$ECL.F*$$$$$$$");
+        System.out.println("  e$\"\"=.      $$$$P d$$$$F $ $$$$$$$$$- $$$$$$");
+        System.out.println(" z$$b. ^c     3$$$F \"$$$$b   $\"$$$$$$$  $$$$*\"      .=\"\"$c");
+        System.out.println("4$$$$L        $$P\"  \"$$b   .$ $$$$$...e$$        .=  e$$$.");
+        System.out.println("^*$$$$$c  %..   *c    ..    $$ 3$$$$$$$$$$eF     zP  d$$$$$");
+        System.out.println("  \"**$$$ec   \"   %ce\"\"    $$$  $$$$$$$$$$*    .r\" =$$$$P\"\"");
+        System.out.println("        \"*$b.  \"c  *$e.    *** d$$$$$\"L$$    .d\"  e$$***\"");
+        System.out.println("          ^*$$c ^$c $$$      4J$$$$$% $$$ .e*\".eeP\"");
+        System.out.println("             \"$$$$$$\"'$=e....$*$$**$cz$$\" \"..d$*\"");
+        System.out.println("               \"*$$$  *=%4.$ L L$ P3$$$F $$$P\"");
+        System.out.println("                  \"$   \"%*ebJLzb$e$$$$$b $P\"");
+        System.out.println("                    %..      4$$$$$$$$$$ \"");
+        System.out.println("                     $$$e   z$$$$$$$$$$%");
+        System.out.println("                      \"*$c  \"$$$$$$$P\"");
+        System.out.println("                       .\"\"\"*$$$$$$$$bc");
+        System.out.println("                    .-\"    .$***$$$\"\"\"*e.");
+        System.out.println("                 .-\"    .e$\"     \"*$c  ^*b.");
+        System.out.println("          .=*\"\"\"\"    .e$*\"          \"*bc  \"*$e..");
+        System.out.println("        .$\"        .z*\"               ^*$e.   \"*****e.");
+        System.out.println("        $$ee$c   .d\"                     \"*$.        3.");
+        System.out.println("        ^*$E\")$..$\"                         *   .ee==d%");
+        System.out.println("           $.d$$$*                           *  J$$$e*");
+        System.out.println("            \"\"\"\"\"                              \"$$$\"");
     }
 }

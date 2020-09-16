@@ -1,15 +1,14 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.*;
-import de.dhbw.project.item.LampState;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import de.dhbw.project.Constants;
 import de.dhbw.project.Game;
 import de.dhbw.project.Way;
 import de.dhbw.project.WayState;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.LampState;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MoveCommand extends AutoCommand {
 
@@ -30,6 +29,7 @@ public class MoveCommand extends AutoCommand {
             return;
         }
 
+        direction = direction.toLowerCase();
         if (direction.length() == 1) {
             direction = game.getFullDirection(direction.charAt(0));
         }
@@ -44,26 +44,27 @@ public class MoveCommand extends AutoCommand {
             Way resultWay = game.getWayForDirection(direction);
             if (resultWay.getState() == WayState.ACTIVE) {
                 if (!game.getRoom(resultWay.getTo()).isDark()) { // when room is not dark
+                    // check if player has a active lamp
                     boolean showMessage = (game.player.getLampState() == LampState.ON);
                     moveInRoom(resultWay);
-                    if (showMessage) {
+                    if (showMessage) { // when player has a active lamp
                         System.out.println(
                                 "It's bright enough here to see something without a lamp. Don't forget to turn it off!");
                     }
                 } else { // if Room is dark
                     switch (game.player.getLampState()) {
-                    case ON:
+                    case ON: // if player has a active lamp, he can move into the room
                         moveInRoom(resultWay);
                         System.out.println(
                                 "It's dark in there. But you have a lamp and it's switched on, so that's no problem for you.");
                         break;
 
-                    case OFF:
+                    case OFF: // if player has an inactive lamp, he has to switch it on to get into the room
                         System.out.println(
                                 "It's dark in there. You have to switch your lamp on first to move in this direction.");
                         break;
 
-                    case HAS_NO_LAMP:
+                    case HAS_NO_LAMP: // if player has no lamp, he has to get one first to move into the room
                         System.out.println("It's dark in there. You can't move in this direction without a lamp.");
                         break;
                     }
@@ -72,7 +73,8 @@ public class MoveCommand extends AutoCommand {
 
             else if (resultWay.getState() == WayState.NEED_EQUIPMENT) {
                 List<Item> equipedItem = game.player.getEquipment().stream()
-                        .filter(i -> i.getName().equals(resultWay.getConditionalItem())).collect(Collectors.toList());
+                        .filter(i -> i.getName().equalsIgnoreCase(resultWay.getConditionalItem()))
+                        .collect(Collectors.toList());
                 if (equipedItem.size() > 0) {
                     moveInRoom(resultWay);
                 } else {
@@ -97,6 +99,7 @@ public class MoveCommand extends AutoCommand {
         game.incTurn();
         System.out.println("You're taking the \'" + resultWay.getName() + "\' " + direction + ". ");
         game.player.setRoomName(resultWay.getTo());
+        game.getCurrentRoom().setVisited(true);
         game.player.isAttacked(game);
         System.out.println(game.getCurrentRoom());
         System.out.println(game.getCurrentRoom().getDescription());

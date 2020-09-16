@@ -33,6 +33,10 @@ public class Quest {
     private boolean autoComplete = false;
     @SerializedName("mainQuest")
     private boolean mainQuest = false;
+    @SerializedName("points")
+    private int points;
+    @SerializedName("removeFulfillmentItems")
+    private boolean removeFulfillmentItems = true;
 
     public Quest() {
 
@@ -40,7 +44,8 @@ public class Quest {
 
     public Quest(String name, String textStart, String textAccept, String textMid, String textEnd, boolean completed,
             List<QuestItem> reward, List<QuestItem> fulfillmentItems, boolean accepted, boolean talkedOnce,
-            boolean mainQuest, String fulfillmentKill, boolean autoComplete) {
+            boolean mainQuest, String fulfillmentKill, boolean autoComplete, boolean removeFulfillmentItems,
+            int points) {
         this.name = name;
         this.textStart = textStart;
         this.textAccept = textAccept;
@@ -54,6 +59,8 @@ public class Quest {
         this.mainQuest = mainQuest;
         this.fulfillmentKill = fulfillmentKill;
         this.autoComplete = autoComplete;
+        this.removeFulfillmentItems = removeFulfillmentItems;
+        this.points = points;
     }
 
     public String getName() {
@@ -152,15 +159,33 @@ public class Quest {
         this.talkedOnce = talkedOnce;
     }
 
+    public boolean isRemoveFulfillmentItems() {
+        return removeFulfillmentItems;
+    }
+
+    public void setRemoveFulfillmentItems(boolean removeFulfillmentItems) {
+        this.removeFulfillmentItems = removeFulfillmentItems;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     public boolean checkCompleted(Game g) {
 
         for (QuestItem qi : fulfillmentItems) {
+            // check if fulfillmentItem is equipped
             Item item = g.player.getItemFromEquipment(qi.getName());
             if (item != null) {
                 System.out.println("You need to strip the " + qi.getName() + " off to complete the quest!");
                 return false;
             }
         }
+        // check if player has fulfillmentItems
         for (QuestItem qi : fulfillmentItems) {
             Item item = g.player.getItem(qi.getName());
             if (item == null) {
@@ -168,6 +193,7 @@ public class Quest {
             }
         }
 
+        // check if player has done the fulfillmentKill
         if (fulfillmentKill != null && fulfillmentKill.length() > 0) {
             Character c = g.getCharacter(fulfillmentKill);
             if (c != null && !c.isKilled()) {
@@ -175,6 +201,7 @@ public class Quest {
             }
         }
 
+        // player has everything to complete the quest
         return true;
 
         /*
@@ -193,38 +220,63 @@ public class Quest {
     }
 
     public void finishQuest(Game game, boolean removeItems) {
-        setCompleted(true);
-        game.player.getQuestInventory().remove(this);
+        int inventorySizeAfterQuest = 0;
+        // checks if the quest removes the fulfillmentItems
         if (removeItems) {
-            for (QuestItem qi : getFulfillmentItems()) {
-                game.player.removeItem(game.player.getItem(qi.getName()));
-            }
+            // if quest removes fulfillmentItems then "- this.getFulfillmentItems().size()"
+            inventorySizeAfterQuest = game.player.getInventorySpace() - game.player.getCurrentInventorySpace()
+                    - this.getFulfillmentItems().size() + this.getReward().size();
+        } else {
+            // if player keeps fulfillmentItems after kills
+            inventorySizeAfterQuest = game.player.getInventorySpace() - game.player.getCurrentInventorySpace()
+                    + this.getReward().size();
         }
-        System.out.println(getTextEnd());
-
-        if (this.getReward() != null && this.getReward().size() >= 1) {
-            // Tabelle erstellen
-            TableList tabelle = new TableList(1, "Quest Rewards").sortBy(0).withUnicode(true);
-            // System.out.println("Quest Rewards: ");
-            for (int a = 0; a < getReward().size(); a++) {
-                // Zeile hinzufügen
-                tabelle.addRow(getReward().get(a).getName());
-                // System.out.println(" '-: " + q.getReward().get(i).getName());
-                if (getReward().get(a).questItemToItem() != null) {
-                    game.player.addItem(getReward().get(a).questItemToItem());
+        // checks if inventory is big enough for the quest rewards
+        if (inventorySizeAfterQuest <= game.player.getInventorySpace()) {
+            // sets the quest to completed
+            setCompleted(true);
+            // removes quest from quest inventory
+            game.player.getQuestInventory().remove(this);
+            // removes fulfillmentItems
+            if (removeItems) {
+                for (QuestItem qi : getFulfillmentItems()) {
+                    game.player.removeItem(game.player.getItem(qi.getName()));
                 }
             }
-            // Tabelle ausgeben
-            tabelle.print();
+            System.out.println(getTextEnd());
+
+            // gives reward
+            if (this.getReward() != null && this.getReward().size() >= 1) {
+                // Tabelle erstellen
+                TableList tabelle = new TableList(1, "Quest Rewards").sortBy(0).withUnicode(true);
+                // System.out.println("Quest Rewards: ");
+                for (int a = 0; a < getReward().size(); a++) {
+                    // Zeile hinzufügen
+                    tabelle.addRow(getReward().get(a).getName());
+                    // System.out.println(" '-: " + q.getReward().get(i).getName());
+                    if (getReward().get(a).questItemToItem() != null) {
+                        game.player.addItem(getReward().get(a).questItemToItem());
+                    }
+                }
+                // Tabelle ausgeben
+                tabelle.print();
+            }
+
+            // Checks if all main quests are completed -> game end
+            if (this.isCompleted() && this.isMainQuest()) {
+                if (game.getMainQuestNumber() == game.getCompletedMainQuestNumber()) {
+                    game.setGameEnd(true);
+                    return;
+                }
+            }
+        } else {
+            System.out.println(
+                    "You can not finish the quest because you do not have enough space in your inventory for the quest rewards. \nYou need to drop "
+                            + (inventorySizeAfterQuest - game.player.getInventorySpace())
+                            + " more items to finish the quest.");
         }
 
-        // Checks if all main quests are completed -> game end
-        if (this.isCompleted() && this.isMainQuest()) {
-            if (game.getMainQuestNumber() == game.getCompletedMainQuestNumber()) {
-                game.setGameEnd(true);
-                return;
-            }
-        }
+        game.player.setPoints(game.player.getPoints() + this.getPoints());
     }
 
 }

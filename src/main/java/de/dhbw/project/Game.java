@@ -5,17 +5,17 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.character.RoamingEnemy;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemList;
 import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.LampState;
 import de.dhbw.project.nls.Commands;
+import de.dhbw.project.score.Score;
 
-import java.util.ArrayList;
-import java.awt.datatransfer.Clipboard;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
 
 public class Game {
     public Player player;
@@ -24,17 +24,23 @@ public class Game {
     public transient Commands commands;
     @SerializedName("turn")
     private int turn;
+    @SerializedName("mysteryChestItems")
+    private ItemList mysteryChestItems = new ItemList();
+
     private boolean gameEnd = false;
 
     // Main playing method with the possible commands and their method call
     public void play(Player player) {
+        Zork.startTimer();
         this.player = player;
 
         if (player.getName() == null) {
             player.enterPlayerName();
+            printIntroStory();
+        } else {
+            System.out.println("Hello back " + player.getName() + "!");
         }
 
-        System.out.println("Hello " + player.getName() + "!");
         System.out.println(getCurrentRoom());
         System.out.println(getCurrentRoom().getDescription());
 
@@ -42,11 +48,12 @@ public class Game {
         while (!gameEnd) {
             Scanner userInput = new Scanner(System.in);
             String input = userInput.nextLine();
+            input = input.trim();
 
             Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(input), null);
 
             if (input.length() == 1) {
-                if (Constants.SHORT_DIRECTIONS.contains(input))
+                if (Constants.SHORT_DIRECTIONS.contains(input.toLowerCase()))
                     input = "move " + input;
                 else if (input.equalsIgnoreCase("l"))
                     input = "look around";
@@ -63,15 +70,36 @@ public class Game {
         }
     }
 
+    private void printIntroStory() {
+        System.out.println("You, " + player.getName()
+                + ", are a known treasure hunter. You heard that the legendary amulet of cassborough, an ancient precious amulet made of gold and valuable gemstones,\n"
+                + "has been seen on an mysterious island in the pacific ocean. On your way to the island there was a horrible storm and your ship is totally damaged!\n"
+                + "To get home again you need to repair your ship, Carl your travel companion knows what to do, to get home save again. But as a known treasure hunter,\n"
+                + "you know you can not leave the island without the valuable booty. And this is where the story begins ...");
+    }
+
+    // This method checks if player is in a dark room without a lamp.
+    // If this method returns true, no command is executed.
     private boolean playerCanSeeSomething(String input) {
+
+        // check for allowed actions in a dark room:
+
+        // check if player wants to show his inventory
         boolean showInventory = (input.toLowerCase().contains("inventory") || input.trim().toLowerCase().equals("i"));
+        // check if player wants to switch on his lamp
         boolean switchLamp = (input.toLowerCase().contains("switch"));
-        if ((getCurrentRoom().isDark()) && (player.getLampState() == LampState.OFF) && !switchLamp && !showInventory) {
+        // check if player wants to load or save the games
+        boolean saveOrLoadGame = (input.toLowerCase().contains("save") || input.toLowerCase().contains("load"));
+
+        // when lamp is off and the action is not allowed:
+        if ((getCurrentRoom().isDark()) && (player.getLampState() == LampState.OFF) && !switchLamp && !showInventory
+                && !saveOrLoadGame) {
             System.out.println(
                     "It's dark here. You must switch your lamp on again to see something before you can do any action.");
             return false;
         }
 
+        // make sure the player can't drop any lamp while he is in a dark room
         else if (getCurrentRoom().isDark() && input.toLowerCase().contains("drop")) {
             for (String lampname : Constants.LAMP_NAMES) {
                 Item lamp = player.getItem(lampname);
@@ -97,7 +125,7 @@ public class Game {
     public Way getWayForDirection(String direction) {
         List<Way> wayList = new ArrayList<>();
         for (Way way : getCurrentRoom().getRoomWayList()) {
-            if (way.getDirection().equals(direction)) {
+            if (way.getDirection().equalsIgnoreCase(direction)) {
                 wayList.add(way);
             }
         }
@@ -113,7 +141,7 @@ public class Game {
     // Helper method: Returns the item with the name if available (otherwise the item is null)
     public Item getItemFromCurrentRoom(String itemName) {
         for (Item item : getCurrentRoom().getRoomItemList()) {
-            if (item.getName().equals(itemName)) {
+            if (item.getName().equalsIgnoreCase(itemName)) {
                 return item;
             }
         }
@@ -122,7 +150,7 @@ public class Game {
 
     public Character getCharacterFromCurrentRoom(String characterName) {
         for (Character c : getCurrentRoom().getCharacterList()) {
-            if (c.getName().equals(characterName)) {
+            if (c.getName().equalsIgnoreCase(characterName)) {
                 return c;
             }
         }
@@ -132,7 +160,7 @@ public class Game {
     public Character getCharacter(String characterName) {
         for (Room r : getRooms()) {
             for (Character c : r.getCharacterList()) {
-                if (c.getName().equals(characterName)) {
+                if (c.getName().equalsIgnoreCase(characterName)) {
                     return c;
                 }
             }
@@ -142,7 +170,7 @@ public class Game {
 
     public InteractiveObject getInteractiveObjectFromCurrentRoom(String interactiveObjectName) {
         for (InteractiveObject io : getCurrentRoom().getRoomInteractiveObjectsList()) {
-            if (io.getName().equals(interactiveObjectName)) {
+            if (io.getName().equalsIgnoreCase(interactiveObjectName)) {
                 return io;
             }
         }
@@ -242,16 +270,25 @@ public class Game {
 
     public void setGameEnd(boolean gameEnd) {
 
+        // prints endscreen and text when the game ended
         EndScreen.print();
         System.out.println("Congratulations!!! You successfully finished the game!");
         System.out.println("You managed to repair your ship and find the amulet!");
         System.out.println(
                 "As soon as you enter the ship you wake up and find yourself lying next to a math book. THE TEST IS IN 1 HOUR!!");
 
+        // create scoreboard entry
+        Zork.stopTimer();
+        Score s = new Score(player.getName(), player.getPoints(), player.getTimePlayed());
+        Zork.addScoreToScoreBoard(s);
+        Zork.saveScoreBoard();
+        // sets the local variable gameEnd=true -> game loop stops
         this.gameEnd = gameEnd;
     }
 
     public int getMainQuestNumber() {
+        // goes trough all interactive objects and all friends and checks every quest if it has the parameter
+        // "mainQuest"
         int counter = 0;
         if (getRooms() != null) {
             for (int i = 0; i < getRooms().size(); i++) {
@@ -283,6 +320,8 @@ public class Game {
     }
 
     public int getCompletedMainQuestNumber() {
+        // goes trough all interactive objects and all friends and checks every quest if it has the parameter
+        // "mainQuest" and "isCompleted"
         int counter = 0;
         if (getRooms() != null) {
             for (int i = 0; i < getRooms().size(); i++) {
@@ -315,5 +354,25 @@ public class Game {
             }
         }
         return counter;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void addMysteryChestItem(Item item) {
+        mysteryChestItems.addItem(item);
+    }
+
+    public List<Item> getMysteryChestItems() {
+        return mysteryChestItems.getAllItemList();
+    }
+
+    public void removeMysteryChestItem(Item item) {
+        mysteryChestItems.removeItem(item);
     }
 }

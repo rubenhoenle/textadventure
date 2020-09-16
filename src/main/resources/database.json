@@ -2,8 +2,11 @@
   "turn": 1,
   "player": {
     "points": 0,
+    "timePlayed": 0,
+    "deaths": 0,
     "strength": 5,
     "health": 20,
+    "inventorySpace": 10,
     "inventory": {
       "cloths": [],
       "foods": [],
@@ -15,16 +18,26 @@
     "questInventory": [],
     "roomName": "beach"
   },
+  "mysteryChestItems": {
+    "cloths": [],
+    "foods": [],
+    "resources": [],
+    "tools": [],
+    "weapons": [],
+    "books": []
+  },
   "rooms": [
     {
       "name": "beach",
-      "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your sunken ship. You need to find a way to get home again!\nMaybe you should talk to Carl which seems to have survived too!",
+      "description": "You find yourself at an empty beach. If you would not be stranded, this would be a nice place for holiday. \nIn the sand is some debris of your broken ship.\nMaybe you should talk to Carl he seems to wants to say something!",
+      "visited": true,
       "friends": [
         {
           "name": "Carl",
           "where": "standing next to the wreck",
           "health": 100000,
           "strength": 100000,
+          "points": -100000,
           "startStatement": "Hey! Looks like you are stranded like me. If you bring me the right items I can help you repair your boat!",
           "killStatement": "NOOOOO! THATS IMPOSSIBLE!!!",
           "killed": false,
@@ -35,6 +48,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me enough parts for the sail yet.",
               "textEnd": "Thanks for bringing me the parts.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 0,
@@ -83,7 +97,8 @@
                   "type": "resource"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             },
             {
               "name": "Repairing the ship",
@@ -91,6 +106,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me enough parts yet.",
               "textEnd": "Thanks for bringing me the materials.",
+              "removeFulfillmentItems": true,
               "reward": [],
               "completed": false,
               "talkedOnce": false,
@@ -147,7 +163,8 @@
                   "type": "resource"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             },
             {
               "name": "Bringing equipment",
@@ -155,6 +172,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me enough equipment yet.",
               "textEnd": "Thanks for bringing me all equipment needed.",
+              "removeFulfillmentItems": true,
               "reward": [],
               "completed": false,
               "talkedOnce": false,
@@ -198,7 +216,8 @@
                   "place": "is lying in the volcanic ash on the ground"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             },
             {
               "name": "The ancient amulet",
@@ -206,6 +225,7 @@
               "textAccept": "Thanks for accepting my task!",
               "textMid": "You did not bring me the amulet yet.",
               "textEnd": "Thanks for bringing me the amulet.",
+              "removeFulfillmentItems": true,
               "reward": [],
               "completed": false,
               "talkedOnce": false,
@@ -218,7 +238,8 @@
                   "place": "lying on a stone altar"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 5
             }
           ]
         }
@@ -260,15 +281,17 @@
             "textAccept": "You accepted the quest!",
             "textMid": "",
             "textEnd": "Successful take the life jacket!",
+            "removeFulfillmentItems": false,
             "reward": [
               {
                 "strength": 0,
                 "name": "backpack",
                 "description": "a backpack where you can store some additional items",
                 "place": "is lying in the sand",
-                "equipmentType": "UPPER_BODY",
+                "equipment": "UPPER_BODY",
                 "type": "cloth",
-                "itemstate": "0"
+                "itemstate": "0",
+                "addInventorySpace": 25
               }
             ],
             "completed": false,
@@ -286,7 +309,8 @@
             ],
             "accepted": false,
             "autoComplete": true,
-            "fulfillmentKill": ""
+            "fulfillmentKill": "",
+            "points": 1
           },
           "hint": "In the bottle is a letter, maybe you should read the letter!"
         }
@@ -379,6 +403,7 @@
           "where": "moving up and down the cave",
           "health": 10,
           "strength": 3,
+          "points": 3,
           "startStatement": "I'll kill you and break finally the curse!",
           "killStatement": "Ugahhhhhh",
           "killed": false,
@@ -434,10 +459,11 @@
       ],
       "enemies": [
         {
-          "name": "komodo dragon",
+          "name": "little komodo dragon",
           "where": "laying in the sand",
           "health": 15,
           "strength": 2,
+          "points": 7,
           "startStatement": "The komodo dragon hisses you!",
           "killStatement": "The Komodo dragon lays dead in front of you!",
           "killed": false,
@@ -457,10 +483,11 @@
           "autoAttack": false
         },
         {
-          "name": "komodo dragon",
+          "name": "big komodo dragon",
           "where": "walking along the lagoon",
           "health": 15,
-          "strength": 3,
+          "strength": 4,
+          "points": 8,
           "startStatement": "The komodo dragon hisses you!",
           "killStatement": "The Komodo dragon lays dead in front of you!",
           "killed": false,
@@ -638,6 +665,7 @@
           "where": "jumping up and down the hut",
           "health": 5,
           "strength": 2,
+          "points": 3,
           "startStatement": "What?! Who are you?! Get out of my hut!",
           "killStatement": "Okay now it's your hut!",
           "killed": false,
@@ -685,7 +713,24 @@
             "place": "stands on the table"
           }
         ]
-      }
+      },
+      "chests": [
+        {
+          "name": "chest",
+          "description": "A chest to store things in it.",
+          "place": "is standing in the corner of the hut",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "cliff above the ship graveyard",
@@ -721,6 +766,7 @@
           "where": "charging at you",
           "health": 10,
           "strength": 7,
+          "points": 5,
           "startStatement": "You won't get my drink!",
           "killStatement": "You beat me. Guess you get my drink after all.",
           "killed": false,
@@ -786,6 +832,7 @@
           "where": "sitting before the tent",
           "health": 16,
           "strength": 10,
+          "points": -7,
           "startStatement": "I'm Travis the treasure hunter",
           "killStatement": "Why me?",
           "killed": false,
@@ -796,6 +843,7 @@
               "textAccept": "Good luck and look out for your self.",
               "textMid": "You did not bring me the treasure yet!",
               "textEnd": "Finally my search has an and thank you so much for help. I couldn't have done it without you.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 3,
@@ -817,7 +865,8 @@
                   "itemstate": "0"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }
@@ -946,7 +995,24 @@
         ],
         "tools": [],
         "weapons": []
-      }
+      },
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "An old oak 'mystery chest' to store things in it.",
+          "place": "is standing by the hole in the hull",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "beach below the cliff",
@@ -1034,6 +1100,7 @@
           "where": "swimming through the water",
           "health": 6,
           "strength": 3,
+          "points": 4,
           "startStatement": "swoosh",
           "killStatement": "blub .. blub ... blub",
           "killed": false,
@@ -1505,6 +1572,7 @@
           "where": "standing in the middle of the path",
           "health": 55,
           "strength": 15,
+          "points": 15,
           "situation": "A stinking big dangerous looking troll is walking through the room.",
           "autoAttack": "true",
           "startStatement": "Mmm, I was already hungry. Finally the food comes along, a little lean and bony, but better than nothing.",
@@ -1531,7 +1599,24 @@
           ]
         }
       ],
-      "isDark": true
+      "isDark": true,
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "An old oak 'mystery chest' to store things in it.",
+          "place": "is standing at the wall",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "Butcher's Room I",
@@ -1732,10 +1817,10 @@
       },
       "interactiveObjects": [
         {
-          "name": "statue of Buddha",
-          "description": "There is a giant statue of buddha standing on the floor",
+          "name": "buddhaStatue",
+          "description": "There is a giant 'buddhaStatue' standing on the floor",
           "place": "standing on the floor",
-          "hint": "Bring me some grass and we will see...",
+          "hint": "Bring him some grass and we will see...",
           "wayName": "Portal",
           "removeRequiredItem": true,
           "requiredItem": {
@@ -1771,6 +1856,9 @@
       "friends": [
         {
           "name": "wise hovering monk",
+          "health": 5,
+          "strength": 5,
+          "points": -15,
           "situation": "A wise monk with a bald head and a long beard hovers in meditation above the ground.",
           "intro": "Omm, omm. Take a seat stranger and learn from the silence.",
           "comment": "TODO interaction",
@@ -1781,6 +1869,7 @@
               "textAccept": "You perform a service to the totality of all living beings.",
               "textMid": "The unicorn is still trapped. I can feel his condition getting worse.",
               "textEnd": "You have proven yourself worthy. I give you my enchanted book.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 0,
@@ -1802,7 +1891,8 @@
                   "type": "resource"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }
@@ -2217,10 +2307,11 @@
       "defaultItemLocation": "is lying on the table",
       "friends": [
         {
-          "name": "Anuk",
+          "name": "Gomda Ehia",
           "where": "sitting on a chair",
           "health": 200,
           "strength": 12,
+          "points": -8,
           "startStatement": "Hello Stranger!",
           "killStatement": "Why did you kill me!?",
           "killed": false,
@@ -2231,6 +2322,7 @@
               "textAccept": "Thanks for helping me!",
               "textMid": "You did not bring me the shoes yet. Look at the forest!",
               "textEnd": "Thanks for bringing me my shoes!",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 4,
@@ -2250,7 +2342,8 @@
                   "equipment": "SHOES"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }
@@ -2292,7 +2385,24 @@
             "type": "weapon"
           }
         ]
-      }
+      },
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "A 'mystery chest' made out of wood.",
+          "place": "is standing in the corner",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ]
     },
     {
       "name": "village square",
@@ -2410,7 +2520,7 @@
                   "number": 1
                 },
                 {
-                  "name": "Chicken egg",
+                  "name": "chicken egg",
                   "number": 1
                 },
                 {
@@ -2474,15 +2584,7 @@
         }
       ],
       "items": {
-        "cloths": [
-          {
-            "name": "iron helmet",
-            "description": "A freshly forged, strong helmet made out of iron.",
-            "place": "is lying in the shelf",
-            "strength": 5,
-            "equipment": "HEAD"
-          }
-        ],
+        "cloths": [],
         "foods": [],
         "resources": [],
         "tools": [
@@ -2586,6 +2688,31 @@
               ]
             }
           ]
+        }
+      ],
+      "chests": [
+        {
+          "name": "chest",
+          "description": "Just a small and simple 'chest' made out of oak wood.",
+          "place": "is standing next to a chair",
+          "mysteryChest": false,
+          "size": 5,
+          "items": {
+            "cloths": [
+              {
+                "name": "iron helmet",
+                "description": "A freshly forged, strong helmet made out of iron.",
+                "place": "is lying on the floor",
+                "strength": 5,
+                "equipment": "HEAD"
+              }
+            ],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
         }
       ]
     },
@@ -2775,6 +2902,7 @@
           "where": "moving between leaves",
           "health": 20,
           "strength": 1,
+          "points": 3,
           "startStatement": "Hiss Hiss Hiss",
           "killStatement": "HISSSSS!",
           "killed": false,
@@ -2850,27 +2978,11 @@
           "name": "fishing place",
           "description": "A nice looking place which is perfect for fishing.",
           "place": "next to the river",
-          "requiredItem": {},
-          "removeRequiredItem": false,
-          "wayName": "",
-          "quest": {
-            "name": "Fishing time",
-            "textStart": "You need to catch a fish!",
-            "textAccept": "You accepted the quest!",
-            "textMid": "",
-            "textEnd": "You successfully caught a fish!",
-            "reward": [
-              {
-                "strength": 7,
-                "name": "fish",
-                "description": "A caught fish",
-                "place": "is lying on the ground",
-                "type": "food"
-              }
-            ],
-            "completed": false,
-            "talkedOnce": true,
-            "fulfillmentItems": [
+          "requiredItem": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [
               {
                 "strength": 0,
                 "name": "fishing rod",
@@ -2880,11 +2992,29 @@
                 "type": "tool"
               }
             ],
-            "accepted": false,
-            "autoComplete": true,
-            "fulfillmentKill": ""
+            "books": [],
+            "weapons": []
           },
-          "hint": "You should try to fish!"
+          "removeRequiredItem": false,
+          "wayName": "",
+          "quest": {},
+          "hint": "You should try to fish!",
+          "reward": {
+            "cloths": [],
+            "foods": [
+              {
+                "strength": 7,
+                "name": "fish",
+                "description": "A caught fish",
+                "place": "is lying on the ground",
+                "type": "food"
+              }
+            ],
+            "resources": [],
+            "tools": [],
+            "books": [],
+            "weapons": []
+          }
         }
       ],
       "ways": [
@@ -2960,6 +3090,23 @@
           "description": "There is a liana 'northern'. You should hold yourself very tight on the liana to swing above the powering river."
         }
       ],
+      "chests": [
+        {
+          "name": "chest",
+          "description": "A 'chest' to store some things in it.",
+          "place": "is standing next to a chair",
+          "mysteryChest": false,
+          "size": 20,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+      ],
       "defaultItemLocation": "lying on a small table",
       "items": {
         "cloths": [
@@ -2999,6 +3146,7 @@
           "where": "standing in the middle of the path",
           "health": 20,
           "strength": 2,
+          "points": 5,
           "startStatement": "Roar Roarrr!",
           "killStatement": "Roarrrrr",
           "killed": false,
@@ -3112,47 +3260,6 @@
       "description": "You are in front of the old house. You can see some footsteps leading inside.\nThere could be a person inside the house which you can\u0027t see because of the barricaded windows. You should better watch out.",
       "interactiveObjects": [],
       "roamingEnemies": [],
-      "friends": [
-        {
-          "name": "Old John",
-          "where": "sitting on a bank",
-          "health": 70,
-          "strength": 3,
-          "startStatement": "Hello my friend.",
-          "killStatement": "Why did you kill an old guy like me!?",
-          "killed": false,
-          "quests": [
-            {
-              "name": "Helping an old man",
-              "textStart": "Could you do me a favour and search my walking cane?",
-              "textAccept": "Thanks you for helping me out!",
-              "textMid": "You did not bring me my walking cane yet. It is somewhere in the village.",
-              "textEnd": "Thanks for bringing me my walking cane.",
-              "reward": [
-                {
-                  "strength": 0,
-                  "name": "freshly polished lamp",
-                  "description": "a lamp that shines very bright",
-                  "type": "tool",
-                  "itemstate": "0"
-                }
-              ],
-              "completed": false,
-              "talkedOnce": false,
-              "fulfillmentItems": [
-                {
-                  "strength": 2,
-                  "name": "walking cane",
-                  "description": "a walking cane which was lost by a man",
-                  "place": "leaning to the wall",
-                  "type": "weapon"
-                }
-              ],
-              "accepted": false
-            }
-          ]
-        }
-      ],
       "ways": [
         {
           "direction": "west",
@@ -3207,6 +3314,67 @@
           "to": "in front of the old house",
           "name": "door",
           "description": "In the 'east' you can leave the house through a wooden door."
+        }
+      ],
+      "friends": [
+        {
+          "name": "Old John",
+          "where": "sitting on a chair",
+          "health": 70,
+          "strength": 3,
+          "points": -7,
+          "startStatement": "Hello my friend.",
+          "killStatement": "Why did you kill an old guy like me!?",
+          "killed": false,
+          "quests": [
+            {
+              "name": "Helping an old man",
+              "textStart": "Could you do me a favour and search my walking cane? It is somewhere in the village.",
+              "textAccept": "Thanks you for helping me out!",
+              "textMid": "You did not bring me my walking cane yet. It is somewhere in the village.",
+              "textEnd": "Thanks for bringing me my walking cane.",
+              "removeFulfillmentItems": true,
+              "reward": [
+                {
+                  "strength": 0,
+                  "name": "freshly polished lamp",
+                  "description": "a lamp that shines very bright",
+                  "type": "tool",
+                  "itemstate": "0"
+                }
+              ],
+              "completed": false,
+              "talkedOnce": false,
+              "fulfillmentItems": [
+                {
+                  "strength": 2,
+                  "name": "walking cane",
+                  "description": "a walking cane which was lost by a man",
+                  "place": "leaning to the wall",
+                  "type": "weapon"
+                }
+              ],
+              "accepted": false,
+              "points": 1
+            }
+          ]
+        }
+      ],
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "A fairly new 'mystery chest' to store things in it.",
+          "place": "is standing next to the bed",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
         }
       ],
       "defaultItemLocation": "is lying on a old wooden table",
@@ -3368,6 +3536,7 @@
       ],
       "items": {
         "books": [
+
           {
             "strength": 0,
             "name": "chiseled stone tablet",
@@ -3375,7 +3544,22 @@
             "location": "lies on the ground",
             "pages": [
               "[ALFONT]the treasure is concealed by stone[ALFONT]"
-            ]
+            ],
+            "translatable": true,
+            "translationRewards": {
+	            "books": [
+		            {
+		            "strength": 0,
+		            "name": "translation of chiseled stone tablet",
+		            "description": "the content of the translated tablet",
+		            "location": "lies on the ground",
+		            "pages": [
+		              "the treasure is concealed by stone"
+		            	]
+		           	}
+	            ]
+            },
+            "successfullTranslationMessage": "When you have translated both tablets, you may \n use their translations in the chapel to find the\n location of the treasure by \"crafting\" the translations together."
           },
           {
             "strength": 0,
@@ -3384,7 +3568,23 @@
             "location": "lies on the ground",
             "pages": [
               "[ALFONT]valuable items are hidden beneath the castle[ALFONT]"
-            ]
+            ],
+            "translatable": true,
+            "translationRewards": {
+	            "books": [
+		            {
+		            "strength": 0,
+		            "name": "translation of decorated stone tablet",
+		            "description": "the content of the translated tablet",
+		            "location": "lies on the ground",
+		            "pages": [
+		              "valuable items are hidden beneath the castle"
+		            	]
+		           	}
+	            ]
+            },
+            "successfullTranslationMessage": "When you have translated both tablets, you may \n use their translations in the chapel to find the\n location of the treasure by \"crafting\" the translations together."
+
           }
         ]
       }
@@ -3559,6 +3759,23 @@
           "name": "descent",
           "description": "A dangerous descent leads 'down' to the basement."
         }
+      ],
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "A mysterious chest made of stone.",
+          "place": "is standing on the ground",
+          "mysteryChest": true,
+          "size": 30,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
       ]
     },
     {
@@ -3638,8 +3855,7 @@
           "where": "sitting on the weadow crying",
           "health": 1,
           "strength": 0,
-          "startStatement": "",
-          "killStatement": "",
+          "points": -15,
           "killed": false,
           "quests": [
             {
@@ -3649,6 +3865,7 @@
               "textMid": "Have you found any sign of my cat yet?",
               "textEnd": "Oooh Findus, I missed you so much! Thanks for your help.",
               "completed": false,
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 5,
@@ -3663,7 +3880,8 @@
                 }
               ],
               "accepted": false,
-              "talkedOnce": false
+              "talkedOnce": false,
+              "points": 1
             }
           ]
         }
@@ -3711,7 +3929,8 @@
               "Day 9\nI found an old book written with the strange symbols. It is now safe \nto assume that these symbols contain valuable information. I only must \nlearn how to read all of them.\n\nDay 10\nI noticed now that some symbols are similar to others, one symbol is \neven a simple mirror of an other. Maybe the letters they stand for are \nalso similar. It will be still hard to decipher the messages, without \nknowing more about them.\n\nDay 14\nI started to assign randomly letters to the symbols, but found no useful \nassignment so far. There are over 100 possible assignments of five vowels \nto five symbols, and I don't know which of the possible vowel symbols \ncontain vowels, and which not. For the consonants, it is even worse. \nI must think of a way to narrow down the combinations...\n\nDay 16\nI started to group together similar sounding letters and similar looking \nsymbols. I also started to work on the shortest words. I won't discover \nmany correct mappings at once, but every symbol mapped to a letter makes \nit more easy to decipher the rest of the text.",
               "Day 18\nI think I found the first correct mappings and am able now to decipher \nmore words easier.\n\nDay 21\nI finished the mappings. I learnt that the language is very similar to \nEnglish but some words are written in a slightly, different way.[ALFONT]abcdefghijklmnopqrstuvwxyz 0123456789 .,[ALFONT]\n\nDay 22\nI transcribed multiple texts in the ruins, but found no interesting \ninformation. I will now translate the book and look if there is more \ninteresting information in it.",
               "Day 23\nI completed the work on the book. It contains the first verses of the Genesis, the description of the creation of the world."
-            ]
+            ],
+            "displayFontTranslated": true
           },
           {
             "name": "bible",
@@ -3725,11 +3944,41 @@
               "[ALFONT]11 God said, \"Let the earth put forth grass, herbs yielding seed, and fruit trees bearing fruit after their kind, with its seed in it, on the earth;\" and it was so. 12 The earth brought forth grass, herbs yielding seed after their kind, and trees bearing fruit, with its seed in it, after their kind; and God saw that it was good. 13 There was evening and there was morning, a third day.",
               "[ALFONT]14 God said, \"Let there be lights in the expanse of sky to divide the day from the night; and let them be for signs, and for seasons, and for days and years; 15 and let them be for lights in the expanse of sky to give light on the earth;\" and it was so.",
               "[ALFONT]16 God made the two great lights: the greater light to rule the day, and the lesser light to rule the night. He also made the stars. 17 God set them in the expanse of sky to give light to the earth, 18 and to rule over the day and over the night, and to divide the light from the darkness. God saw that it was good. 19 There was evening and there was morning, a fourth day."
-            ]
+            ],
+            "displayFontTranslated": true
           }
         ]
       },
-      "characters": []
+      "characters": [],
+      "interactiveCraftingObjects": [
+        {
+          "name": "altar",
+          "description": "An altar which can be used to combine knowledge.",
+          "state": "useable",
+          "place": "is standing in the chapel",
+          "usage": "It can be used to combine knowledge.",
+          "action": "combining",
+          "createables": [
+            {
+              "name": "treasureknowledge",
+              "description": "The treasure is hidden beneath the castle, covered by stone",
+              "type": "resource",
+              "itemstate": "",
+              "strength": 0,
+              "neededMaterials": [
+                {
+                  "name": "translation of decorated stone tablet",
+                  "number": 1
+                },
+                {
+                  "name": "translation of chiseled stone tablet",
+                  "number": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "maple tree",
@@ -3766,20 +4015,7 @@
       ],
       "items": {
         "cloths": [],
-        "foods": [
-          {
-            "strength": 3,
-            "name": "Chicken egg",
-            "description": "A 'Chicken egg' lies between the roots of the maple tree.",
-            "place": "lies between the roots of the maple tree."
-          },
-          {
-            "strength": 3,
-            "name": "Chicken egg",
-            "description": "A 'Chicken egg' lies between the roots of the maple tree.",
-            "place": "lies between the roots of the maple tree."
-          }
-        ],
+        "foods": [],
         "resources": [],
         "tools": [],
         "weapons": []
@@ -3835,14 +4071,21 @@
       ],
       "items": {
         "cloths": [],
-        "foods": [],
-        "resources": [
+        "foods": [
           {
-            "strength": 0,
-            "name": "eggs",
-            "description": "eggs stolen from a birds nest",
-            "place": "are lying in a birds nest"
+            "strength": 3,
+            "name": "chicken egg",
+            "description": "egg stolen from a birds nest",
+            "place": "is lying in a birds nest"
           },
+          {
+            "strength": 3,
+            "name": "chicken egg",
+            "description": "egg stolen from a birds nest",
+            "place": "is lying in a birds nest"
+          }
+        ],
+        "resources": [
           {
             "strength": 0,
             "name": "cat",
@@ -3925,7 +4168,23 @@
         ],
         "weapons": []
       },
-      "characters": []
+      "characters": [],
+      "chests": [
+        {
+          "name": "mystery chest",
+          "description": "An antique 'mystery chest' with iron fittings.",
+          "place": "is standing in the middle of the room",
+          "mysteryChest": true,
+          "items": {
+            "cloths": [],
+            "foods": [],
+            "resources": [],
+            "tools": [],
+            "weapons": [],
+            "books": []
+          }
+        }
+	  ]
     },
     {
       "name": "shore of the pond",
@@ -3937,8 +4196,7 @@
           "where": "sitting on a bench and enjoys the sun",
           "health": 1,
           "strength": 0,
-          "startStatement": "",
-          "killStatement": "",
+          "points": -15,
           "killed": false,
           "quests": [
             {
@@ -3948,6 +4206,7 @@
               "textAccept": "What a nice gesture of you.",
               "textMid": "Take your time. I can wait for the flowers.",
               "textEnd": "Thank you so much. I got something usefull for your inventory.",
+              "removeFulfillmentItems": true,
               "reward": [
                 {
                   "strength": 0,
@@ -3966,7 +4225,8 @@
                   "place": "- the weadow is full of beautiful flowers in all colors"
                 }
               ],
-              "accepted": false
+              "accepted": false,
+              "points": 1
             }
           ]
         }

@@ -61,7 +61,7 @@ public class CraftCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "craft <object>", "craft", "craft <object> <createable>+" };
+        String[] patterns = { "craft <object> <createable>+", "craft <object>", "craft" };
         return patterns;
     }
 }

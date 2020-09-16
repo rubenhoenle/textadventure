@@ -4,9 +4,7 @@ import de.dhbw.project.Game;
 import de.dhbw.project.item.Book;
 import de.dhbw.project.item.Item;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ReadBookCommand extends AutoCommand {
 
@@ -30,9 +28,9 @@ public class ReadBookCommand extends AutoCommand {
             return;
         }
 
-        String book = String.join(" ", this.book);
+        String book = String.join(" ", this.book).toLowerCase();
 
-        if (game.getCurrentRoom().getRoomItemNameList().contains(book)) {
+        if (game.getCurrentRoom().getRoomItemLowerNameList().contains(book)) {
             Item roomItem = game.getItemFromCurrentRoom(book);
             foundAnyItem = true;
             if (roomItem instanceof Book) {
@@ -44,7 +42,7 @@ public class ReadBookCommand extends AutoCommand {
             }
         } else {
             for (Item loopItem : game.player.getInventory()) {
-                if (loopItem.getName().equals(book)) {
+                if (loopItem.getName().equalsIgnoreCase(book)) {
                     foundAnyItem = true;
                     if (loopItem instanceof Book) {
                         openedBook = true;

@@ -14,6 +14,9 @@ public abstract class Item extends Thing {
     private String place;
     @SerializedName("equipment")
     private EquipmentType equipment;
+    // InventorySpace
+    @SerializedName("addInventorySpace")
+    private int addInventorySpace;
 
     // Constructor for an item - calls the super constructor of the parent (thing) and adds the item-specific variables
     public Item(String name, String description, ItemState itemstate, int strength) {
@@ -27,6 +30,15 @@ public abstract class Item extends Thing {
         this.strength = strength;
         this.itemstate = itemstate;
         this.equipment = equipmentType;
+    }
+
+    public Item(String name, String description, ItemState itemstate, int strength, EquipmentType equipmentType,
+            int addInventorySpace) {
+        super(name, description);
+        this.strength = strength;
+        this.itemstate = itemstate;
+        this.equipment = equipmentType;
+        this.addInventorySpace = addInventorySpace;
     }
 
     // Getters and setters for an item
@@ -68,4 +80,13 @@ public abstract class Item extends Thing {
     public void setEquipmentType(EquipmentType equipment) {
         this.equipment = equipment;
     }
+
+    public int getExpandInventorySpace() {
+        return addInventorySpace;
+    }
+
+    public void setExpandInventorySpace(int addInventorySpace) {
+        this.addInventorySpace = addInventorySpace;
+    }
+
 }

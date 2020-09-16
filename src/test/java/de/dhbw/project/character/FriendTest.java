@@ -26,6 +26,7 @@ public class FriendTest {
         String characterWhere = "where";
         int characterHealth = 99;
         int characterStrength = 99;
+        int characterPoints = 99;
         String characterStartStatement = "startStatement";
         String characterKillStatement = "killStatement";
         boolean characterKilled = false;
@@ -33,7 +34,7 @@ public class FriendTest {
         List<Quest> characterQuests = Arrays.asList(characterQuest);
 
         //when
-        Friend f = new Friend(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterQuests);
+        Friend f = new Friend(characterName,characterWhere, characterHealth, characterStrength, characterStartStatement, characterKillStatement, characterKilled, characterPoints, characterQuests);
 
         //then
         assertEquals(f.getName(),characterName);
@@ -43,6 +44,7 @@ public class FriendTest {
         assertEquals(f.getStartStatement(), characterStartStatement);
         assertEquals(f.getKillStatement(), characterKillStatement);
         assertEquals(f.isKilled(),characterKilled);
+        assertEquals(f.getPoints(),characterPoints);
         assertEquals(f.getQuests(),characterQuests);
     }
 

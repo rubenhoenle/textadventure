@@ -2,7 +2,7 @@ package de.dhbw.project.item;
 
 import de.dhbw.project.EquipmentType;
 import de.dhbw.project.levelEditor.SimpleUserInput;
-import de.dhbw.project.levelEditor.SimpleUserInput.Decision;
+import de.dhbw.project.levelEditor.Decision;
 
 public class Weapon extends Tool {
 
@@ -28,10 +28,10 @@ public class Weapon extends Tool {
             Decision d = SimpleUserInput.storeDialogue("Tool");
             switch (d) {
             case SAVE:
-                return new Weapon(name, description, ItemState.NOT_USABLE, strength, typ);
+                return new Weapon(name, description, ItemState.ACTIVE, strength, typ);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }
@@ -55,7 +55,7 @@ public class Weapon extends Tool {
                 return new Weapon(name, description, weapon.getItemstate(), strength, typ);
             case AGAIN:
                 break;
-            case ABBORT:
+            case CANCEL:
                 exit = true;
                 break;
             }

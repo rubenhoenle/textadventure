@@ -1,9 +1,9 @@
 package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.*;
-import de.dhbw.project.item.*;
 import de.dhbw.project.item.Clothing;
-
+import de.dhbw.project.item.ItemState;
+import de.dhbw.project.item.LampState;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -14,6 +14,7 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.reflect.Whitebox;
+
 import java.io.PrintStream;
 import java.util.Arrays;
 
@@ -224,7 +225,7 @@ public class MoveCommandTest {
         Way w = new Way("way", "description", direction, "from", "to", WayState.NEED_EQUIPMENT, "hint", "condition");
         when(game.hasWays()).thenReturn(true);
         when(game.getWayForDirection(direction)).thenReturn(w);
-        when(game.player.getEquipment()).thenReturn(Arrays.asList(new Clothing("condition", "", ItemState.NOT_USABLE, 0, EquipmentType.HEAD)));
+        when(game.player.getEquipment()).thenReturn(Arrays.asList(new Clothing("condition", "", ItemState.NOT_USABLE, 0, EquipmentType.HEAD,0)));
         
         Room r = mock(Room.class);
         doReturn(r).when(game).getCurrentRoom();

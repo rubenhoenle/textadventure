@@ -1,16 +1,6 @@
 package de.dhbw.project.nls.commands;
 
-import de.dhbw.project.EquipmentType;
 import de.dhbw.project.Game;
-import de.dhbw.project.Player;
-import de.dhbw.project.TableList;
-import de.dhbw.project.interactive.Createable;
-import de.dhbw.project.interactive.InteractiveCraftingObject;
-import de.dhbw.project.item.Item;
-import de.dhbw.project.item.Weapon;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ShowStatsCommand extends AutoCommand {
 
@@ -27,9 +17,7 @@ public class ShowStatsCommand extends AutoCommand {
 
     @Override
     public String[] getPattern() {
-        String[] patterns = { "[get|show|look|watch|see][ me| my] health", "health",
-                "[get|show|look|watch|see][ me| my] strength", "strength", "[get|show|look|watch|see][ me| my] stats",
-                "stats" };
+        String[] patterns = { "[get|show|watch|see][ ][me|my][ ](health|strength|stats)" };
         return patterns;
     }
 }

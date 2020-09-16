@@ -5,12 +5,14 @@ import de.dhbw.project.character.Character;
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
 import de.dhbw.project.character.RoamingEnemy;
+import de.dhbw.project.chest.Chest;
 import de.dhbw.project.interactive.InteractiveCraftingObject;
 import de.dhbw.project.interactive.InteractiveObject;
 import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Room extends Thing {
@@ -36,12 +38,32 @@ public class Room extends Thing {
     private List<RoamingEnemy> roamingEnemyList = new ArrayList<>();
     @SerializedName("interactiveObjects")
     private List<InteractiveObject> interactiveObjects = new ArrayList<>();
+    @SerializedName("chests")
+    private List<Chest> chests = new ArrayList<>();
+    @SerializedName("visited")
+    private boolean visited;
 
     // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
     // variables
     public Room(String name, String description, String enabled, String defaultItemLocation,
             List<InteractiveCraftingObject> craftingObjects, List<Friend> friendList, List<Enemy> enemyList,
-            boolean isDark) {
+            boolean isDark, List<RoamingEnemy> roamingEnemyList, boolean visited) {
+        super(name, description);
+        this.enabled = enabled;
+        this.defaultItemLocation = defaultItemLocation;
+        this.isDark = isDark;
+        this.visited = visited;
+        this.friendList = friendList;
+        this.enemyList = enemyList;
+        this.roamingEnemyList = roamingEnemyList;
+        this.roomInteractiveCraftingObjectsList = craftingObjects;
+    }
+
+    // Constructor for a room object - calls the super constructor of the parent (thing) and adds the room-specific
+    // variables
+    public Room(String name, String description, String enabled, String defaultItemLocation,
+            List<InteractiveCraftingObject> craftingObjects, List<Friend> friendList, List<Enemy> enemyList,
+            boolean isDark, String condition) {
         super(name, description);
         this.enabled = enabled;
         this.defaultItemLocation = defaultItemLocation;
@@ -49,6 +71,7 @@ public class Room extends Thing {
         this.friendList = friendList;
         this.enemyList = enemyList;
         this.roomInteractiveCraftingObjectsList = craftingObjects;
+        this.conditionalItem = condition;
     }
 
     // Method simplifies the default output for a room object
@@ -63,6 +86,10 @@ public class Room extends Thing {
         return roomWayList;
     }
 
+    public void setRoomItemList(ItemList liste) {
+        this.roomItemList = liste;
+    }
+
     public List<Item> getRoomItemList() {
         if (null != roomItemList) {
             return roomItemList.getAllItemList();
@@ -75,11 +102,11 @@ public class Room extends Thing {
         return roomItemList;
     }
 
-    public List<String> getRoomItemNameList() {
+    public List<String> getRoomItemLowerNameList() {
         if (null != roomItemList) {
             List<String> itemNames = new ArrayList<String>();
             for (Item i : roomItemList.getAllItemList()) {
-                itemNames.add(i.getName());
+                itemNames.add(i.getName().toLowerCase());
             }
             return itemNames;
         } else {
@@ -99,7 +126,7 @@ public class Room extends Thing {
         this.interactiveObjects = interactiveObjects;
     }
 
-    public List<String> getRoomInteractiveObjectsNameList() {
+    public List<String> getRoomInteractiveObjectsLowerNameList() {
         List<String> interactiveObjectNames = new ArrayList<String>();
         for (InteractiveObject interactiveObject : getRoomInteractiveObjectsList()) {
             interactiveObjectNames.add(interactiveObject.getName());
@@ -147,6 +174,10 @@ public class Room extends Thing {
 
     public boolean isDark() {
         return isDark;
+    }
+
+    public void setIsDark(boolean dark) {
+        isDark = dark;
     }
 
     public String getConditionalItem() {
@@ -221,10 +252,10 @@ public class Room extends Thing {
         return characters;
     }
 
-    public List<String> getCharacterNameList() {
+    public List<String> getCharacterLowerNameList() {
         List<String> characterNames = new ArrayList<>();
         for (Character c : getCharacterList()) {
-            characterNames.add(c.getName());
+            characterNames.add(c.getName().toLowerCase());
         }
         return characterNames;
     }
@@ -235,7 +266,7 @@ public class Room extends Thing {
 
     public Way getWay(String direction) {
         for (Way way : roomWayList) {
-            if (way.getDirection().equals(direction)) {
+            if (way.getDirection().equalsIgnoreCase(direction)) {
                 return way;
             }
         }
@@ -284,5 +315,31 @@ public class Room extends Thing {
             roamingEnemyList = new ArrayList<>();
         }
         roamingEnemyList.add(e);
+    }
+
+    public List<Chest> getChests() {
+        if (chests != null) {
+            return chests;
+        } else {
+            return Arrays.asList();
+        }
+    }
+
+    public Chest getChest(String chestName) {
+        for (Chest chest : getChests()) {
+            if (chest.getName().trim().toLowerCase().equals(chestName.trim().toLowerCase())) {
+                return chest;
+            }
+        }
+
+        return null;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
     }
 }

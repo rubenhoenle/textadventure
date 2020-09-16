@@ -2,8 +2,8 @@ package de.dhbw.project.nls.commands;
 
 import de.dhbw.project.Game;
 import de.dhbw.project.Player;
-import de.dhbw.project.item.ItemState;
 import de.dhbw.project.item.Item;
+import de.dhbw.project.item.ItemState;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

@@ -1,11 +1,11 @@
 package de.dhbw.project.nls.commands;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import de.dhbw.project.Game;
 import de.dhbw.project.item.Food;
 import de.dhbw.project.item.Item;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class EatCommand extends AutoCommand {
 
@@ -28,12 +28,12 @@ public class EatCommand extends AutoCommand {
         String[] foodNames = String.join(" ", food).split(",");
 
         for (String entry : foodNames) {
-            final String foodName = entry.trim();
-            if (game.getCurrentRoom().getRoomItemNameList().contains(foodName)) {
+            final String foodName = entry.trim().toLowerCase();
+            if (game.getCurrentRoom().getRoomItemLowerNameList().contains(foodName)) {
                 Item foodItem = game.getItemFromCurrentRoom(foodName);
                 eat(foodItem);
                 game.getCurrentRoom().removeItem(foodItem);
-            } else if (game.player.getInventory().stream().filter(i -> i.getName().equals(foodName))
+            } else if (game.player.getInventory().stream().filter(i -> i.getName().equalsIgnoreCase(foodName))
                     .collect(Collectors.toList()).size() > 0) {
                 Item foodItem = game.player.getItem(foodName);
                 eat(foodItem);

@@ -2,12 +2,8 @@ package de.dhbw.project;
 
 import de.dhbw.project.character.Enemy;
 import de.dhbw.project.character.Friend;
-import de.dhbw.project.item.Item;
 import de.dhbw.project.item.ItemState;
-import de.dhbw.project.item.Tool;
-import de.dhbw.project.nls.commands.UseCommand;
 import org.junit.Before;
-
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,14 +19,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(Quest.class)
+@PrepareForTest(Zork.class)
 public class QuestTest {
 
     @Mock
@@ -73,7 +68,7 @@ public class QuestTest {
         //when
         //Quest q = new Quest(questName,questTextStart,questCompleted,questReward);
         Quest q = new Quest(name, textStart, textAccept, textMid, textEnd,  completed,
-                questReward, requiredItems,  accepted,  talkedOnce, mainQuest, fulfillmentKill, autoComplete) ;
+                questReward, requiredItems,  accepted,  talkedOnce, mainQuest, fulfillmentKill, autoComplete,false, 5) ;
 
         //then
         assertEquals(q.getName(),name);
@@ -90,6 +85,7 @@ public class QuestTest {
         assertEquals(q.getFulfillmentKill(),fulfillmentKill);
         assertTrue(q.getFulfillmentItems().size() == 1);
         assertEquals(q.isAutoComplete(),autoComplete);
+        assertEquals(q.getPoints(), 5);
     }
 
     @Test
@@ -135,28 +131,33 @@ public class QuestTest {
         Game game = PowerMockito.spy(new Game());
 
         ArrayList<QuestItem> rewards1 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> fulfillment1 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill1","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> rewards2 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> fulfillment2 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill2","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> rewards3 = new ArrayList<>();
-        rewards1.add(new QuestItem("reward3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("reward3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
         ArrayList<QuestItem> fulfillment3 = new ArrayList<>();
-        rewards1.add(new QuestItem("fulfill3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth"));
+        rewards1.add(new QuestItem("fulfill3","desc_item1", ItemState.INACTIVE, 1, EquipmentType.SHOES, "cloth",0));
 
         ArrayList<Quest> quests = new ArrayList<>();
-        quests.add(new Quest("name1","start","accept","mid","end",false,rewards1,fulfillment1,false,true,false,"ahhh",false));
-        quests.add(new Quest("name1","start","accept","mid","end",false,rewards2,fulfillment2,false,true,true,"ahh",false));
-        quests.add(new Quest("name1","start","accept","mid","end",false,rewards3,fulfillment3,false,true,true,"ahhh",false));
-        Friend friend = new Friend("friend_name","place",100,100,"start","kill",false,quests);
+        quests.add(new Quest("name1","start","accept","mid","end",false,rewards1,fulfillment1,false,true,false,"ahhh",false,true,5));
+        quests.add(new Quest("name1","start","accept","mid","end",false,rewards2,fulfillment2,false,true,true,"ahh",false,true,5));
+        quests.add(new Quest("name1","start","accept","mid","end",false,rewards3,fulfillment3,false,true,true,"ahhh",false,true,5));
+        Friend friend = new Friend("friend_name","place",100,100,"start","kill",false, 100, quests);
         ArrayList<Friend> friends = new ArrayList<>();
         friends.add(friend);
-        Room room = new Room("room_name","room_desc","", "", null, friends, null, false);
+        Room room = new Room("room_name","room_desc","", "", null, friends, null, false, null, false);
         ArrayList<Room> rooms = new ArrayList<>();
         rooms.add(room);
+        PowerMockito.mockStatic(Zork.class);
+        game.player = player;
+        when(player.getName()).thenReturn("pname");
+        when(player.getPoints()).thenReturn(10);
+        when(player.getTimePlayed()).thenReturn(500000l);
 
 
         //when
@@ -175,5 +176,4 @@ public class QuestTest {
         //then
         assertEquals(game.isGameEnd(),true);
     }
-
 }
