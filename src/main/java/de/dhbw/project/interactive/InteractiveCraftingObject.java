@@ -63,10 +63,16 @@ public class InteractiveCraftingObject extends Thing {
             if ((item == null) || (count < 0) || ((count - material.getNumber()) < 0)) {
                 return "You don't have all needed materials for this in your inventory.";
             }
-            // when player has all needed materials in his inventory: remove the needed materials from inventory
-            for (int i = 0; i < material.getNumber(); i++) {
-                player.removeItem(item);
-                item = player.getItem(material.getName());
+        }
+
+        // when player has all needed materials in his inventory: remove the needed materials from inventory
+        for (Material material : createable.getCreateableNeededMaterialList()) {
+            Item item = player.getItem(material.getName());
+            if (item != null) {
+                for (int i = 0; i < material.getNumber(); i++) {
+                    player.removeItem(item);
+                    item = player.getItem(material.getName());
+                }
             }
         }
 
